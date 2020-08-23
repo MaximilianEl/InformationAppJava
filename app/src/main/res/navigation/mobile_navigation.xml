@@ -3,23 +3,29 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/nav_home">
+            app:startDestination="@+id/nav_news">
 
     <fragment
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_news"
             android:name="com.example.informationappjava.ui.home.HomeFragment"
-            android:label="@string/menu_home"
+            android:label="@string/menu_news"
             tools:layout="@layout/fragment_home"/>
 
     <fragment
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_campus"
             android:name="com.example.informationappjava.ui.gallery.GalleryFragment"
-            android:label="@string/menu_gallery"
+            android:label="@string/menu_campus"
             tools:layout="@layout/fragment_gallery"/>
 
     <fragment
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_institute"
             android:name="com.example.informationappjava.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_slideshow"
+            android:label="@string/menu_institute"
             tools:layout="@layout/fragment_slideshow"/>
+
+    <fragment
+            android:id="@+id/nav_chat"
+            android:name="com.example.informationappjava.ui.ChatFragment"
+            android:label="@string/menu_chat"
+            tools:layout="@layout/fragment_chat"/>
 </navigation>
