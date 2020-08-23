@@ -30,16 +30,19 @@
             android:checkableBehavior="single">
 
         <item
+                android:id="@+id/nav_options"
                 android:icon="@drawable/ic_menu_camera"
-                android:title="@string/menu_news"/>
+                android:title="@string/menu_options"/>
 
         <item
+                android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_menu_gallery"
-                android:title="@string/menu_campus"/>
+                android:title="@string/menu_feedback"/>
 
         <item
+                android:id="@+id/nav_imprint"
                 android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_institute"/>
+                android:title="@string/menu_imprint"/>
 
     </group>
 </menu>

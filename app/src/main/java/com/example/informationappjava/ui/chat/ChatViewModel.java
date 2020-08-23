@@ -1,7 +1,7 @@
-package com.example.informationappjava.ui;
+package com.example.informationappjava.ui.chat;
 
 import androidx.lifecycle.ViewModel;
 
 public class ChatViewModel extends ViewModel {
-    // TODO: Implement the ViewModel
+  // TODO: Implement the ViewModel
 }

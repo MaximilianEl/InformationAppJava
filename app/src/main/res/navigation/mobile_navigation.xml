@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/nav_news">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/mobile_navigation"
+  app:startDestination="@+id/nav_news">
 
-    <fragment
-            android:id="@+id/nav_news"
-            android:name="com.example.informationappjava.ui.home.HomeFragment"
-            android:label="@string/menu_news"
-            tools:layout="@layout/fragment_home"/>
+  <fragment
+    android:id="@+id/nav_news"
+    android:name="com.example.informationappjava.ui.home.HomeFragment"
+    android:label="@string/menu_news"
+    tools:layout="@layout/fragment_home"/>
 
-    <fragment
-            android:id="@+id/nav_campus"
-            android:name="com.example.informationappjava.ui.gallery.GalleryFragment"
-            android:label="@string/menu_campus"
-            tools:layout="@layout/fragment_gallery"/>
+  <fragment
+    android:id="@+id/nav_campus"
+    android:name="com.example.informationappjava.ui.gallery.GalleryFragment"
+    android:label="@string/menu_campus"
+    tools:layout="@layout/fragment_gallery"/>
 
-    <fragment
-            android:id="@+id/nav_institute"
-            android:name="com.example.informationappjava.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_institute"
-            tools:layout="@layout/fragment_slideshow"/>
+  <fragment
+    android:id="@+id/nav_institute"
+    android:name="com.example.informationappjava.ui.slideshow.SlideshowFragment"
+    android:label="@string/menu_institute"
+    tools:layout="@layout/fragment_slideshow"/>
 
-    <fragment
-            android:id="@+id/nav_chat"
-            android:name="com.example.informationappjava.ui.ChatFragment"
-            android:label="@string/menu_chat"
-            tools:layout="@layout/fragment_chat"/>
+  <fragment
+    android:id="@+id/nav_chat"
+    android:name="com.example.informationappjava.ui.chat.ChatFragment"
+    android:label="@string/menu_chat"
+    tools:layout="@layout/fragment_chat"/>
+
+  <fragment
+    android:id="@+id/nav_options"
+    android:name="com.example.informationappjava.ui.options.OptionsFragment"
+    android:label="@string/menu_options"
+    tools:layout="@layout/fragment_options"/>
+
+  <fragment
+    android:id="@+id/nav_feedback"
+    android:name="com.example.informationappjava.ui.feedback.FeedbackFragment"
+    android:label="@string/menu_feedback"
+    tools:layout="@layout/fragment_feedback"/>
+
+  <fragment
+    android:id="@+id/nav_imprint"
+    android:name="com.example.informationappjava.ui.imprint.ImprintFragment"
+    android:label="@string/menu_imprint"
+    tools:layout="@layout/fragment_imprint"/>
 </navigation>

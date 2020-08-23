@@ -9,21 +9,21 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    Timer timer;
+  Timer timer;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, NavDrawer.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 3000);
-    }
+    timer = new Timer();
+    timer.schedule(new TimerTask() {
+      @Override
+      public void run() {
+        Intent intent = new Intent(MainActivity.this, NavDrawer.class);
+        startActivity(intent);
+        finish();
+      }
+    }, 3000);
+  }
 }
