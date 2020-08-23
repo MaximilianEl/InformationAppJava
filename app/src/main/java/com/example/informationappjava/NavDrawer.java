@@ -1,10 +1,11 @@
 package com.example.informationappjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,41 +17,83 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavDrawer extends AppCompatActivity {
 
+  private FloatingActionButton fabInsta;
+  private FloatingActionButton fabTwitter;
+  private FloatingActionButton fabFaceBook;
+  private FloatingActionButton fabYoutube;
+
   private AppBarConfiguration mAppBarConfiguration;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_nav_drawer);
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-    FloatingActionButton fab = findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
-      }
-    });
+
+
+
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
     NavigationView navigationView = findViewById(R.id.nav_view);
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
     mAppBarConfiguration = new AppBarConfiguration.Builder(
-        R.id.nav_news, R.id.nav_campus, R.id.nav_institute, R.id.nav_chat)
-        .setDrawerLayout(drawer)
-        .build();
+            R.id.nav_chat
+            ).setDrawerLayout(drawer)
+            .build();
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     NavigationUI.setupWithNavController(navigationView, navController);
+
+  /*
+    fabInsta = (FloatingActionButton) findViewById(R.id.instagram);
+    fabTwitter = (FloatingActionButton) findViewById(R.id.twitter);
+    fabFaceBook = (FloatingActionButton) findViewById(R.id.facebook);
+    fabYoutube = (FloatingActionButton) findViewById(R.id.youtube);
+
+
+    fabInsta.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String url = "https://www.instagram.com/hs_osnabrueck/?hl=de";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+      }
+    });
+
+    fabTwitter.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String url = "https://twitter.com/HS_Osnabrueck?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+      }
+    });
+
+    fabFaceBook.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String url = "https://www.facebook.com/hs.osnabrueck";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+      }
+    });
+
+    fabYoutube.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String url = "https://www.youtube.com/user/HochschuleOS";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+      }
+    });*/
   }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.nav_drawer, menu);
-    return true;
-  }
 
   @Override
   public boolean onSupportNavigateUp() {
