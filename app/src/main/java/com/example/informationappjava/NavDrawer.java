@@ -17,10 +17,10 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavDrawer extends AppCompatActivity {
 
-  private FloatingActionButton fabInsta;
-  private FloatingActionButton fabTwitter;
-  private FloatingActionButton fabFaceBook;
-  private FloatingActionButton fabYoutube;
+  private com.getbase.floatingactionbutton.FloatingActionButton fabInsta;
+  private com.getbase.floatingactionbutton.FloatingActionButton fabTwitter;
+  private com.getbase.floatingactionbutton.FloatingActionButton fabFaceBook;
+  private com.getbase.floatingactionbutton.FloatingActionButton fabYoutube;
 
   private AppBarConfiguration mAppBarConfiguration;
 
@@ -39,18 +39,17 @@ public class NavDrawer extends AppCompatActivity {
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
     mAppBarConfiguration = new AppBarConfiguration.Builder(
-            R.id.nav_chat
+            R.id.nav_chat, R.id.nav_news, R.id.nav_campus, R.id.nav_institute
             ).setDrawerLayout(drawer)
             .build();
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     NavigationUI.setupWithNavController(navigationView, navController);
 
-  /*
-    fabInsta = (FloatingActionButton) findViewById(R.id.instagram);
-    fabTwitter = (FloatingActionButton) findViewById(R.id.twitter);
-    fabFaceBook = (FloatingActionButton) findViewById(R.id.facebook);
-    fabYoutube = (FloatingActionButton) findViewById(R.id.youtube);
+    fabInsta = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.instagram);
+    fabTwitter = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.twitter);
+    fabFaceBook = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.facebook);
+    fabYoutube = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.youtube);
 
 
     fabInsta.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +90,7 @@ public class NavDrawer extends AppCompatActivity {
         i.setData(Uri.parse(url));
         startActivity(i);
       }
-    });*/
+    });
   }
 
 
