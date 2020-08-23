@@ -46,10 +46,10 @@ public class NavDrawer extends AppCompatActivity {
     NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     NavigationUI.setupWithNavController(navigationView, navController);
 
-    fabInsta = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.instagram);
-    fabTwitter = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.twitter);
-    fabFaceBook = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.facebook);
-    fabYoutube = (com.getbase.floatingactionbutton.FloatingActionButton ) findViewById(R.id.youtube);
+    fabInsta = findViewById(R.id.instagram);
+    fabTwitter = findViewById(R.id.twitter);
+    fabFaceBook = findViewById(R.id.facebook);
+    fabYoutube = findViewById(R.id.youtube);
 
 
     fabInsta.setOnClickListener(new View.OnClickListener() {
