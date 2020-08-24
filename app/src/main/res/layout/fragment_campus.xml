@@ -18,19 +18,55 @@
       android:layout_margin="10dp"
       android:textAlignment="center"/>
 
-    <androidx.viewpager.widget.ViewPager
-      android:id="@+id/camppager"
+    <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
-        
-        <com.google.android.material.tabs.TabLayout
+      android:layout_height="300dp"
+      android:background="@color/colorPrimaryDark">
+
+        <androidx.viewpager.widget.ViewPager
+          android:id="@+id/camppager"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_gravity="bottom"
-          app:tabBackground="@drawable/tab_selector"
-          app:tabGravity="center"
-          app:tabIndicatorHeight="0dp"/>
-        
-    </androidx.viewpager.widget.ViewPager>
+          android:layout_height="match_parent"
+          android:layout_marginTop="10dp">
+
+            <com.google.android.material.tabs.TabLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="bottom"
+              app:tabBackground="@drawable/tab_selector"
+              app:tabGravity="center"
+              app:tabIndicatorHeight="0dp"/>
+
+        </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
+
+    <TextView
+      android:layout_marginTop="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/camp_mhead"
+      android:textStyle="bold"
+      android:textColor="#000"
+      android:textAlignment="center"
+      android:textSize="18sp"/>
+
+    <Button
+      android:id="@+id/campus_map"
+      android:layout_width="220dp"
+      android:layout_height="wrap_content"
+      android:text="@string/camp_map"
+      android:background="#9A9EF3"
+      android:layout_marginTop="5dp"
+      android:layout_gravity="center"/>
+
+    <Button
+      android:id="@+id/campus_des"
+      android:layout_width="220dp"
+      android:layout_height="wrap_content"
+      android:text="@string/camp_des"
+      android:background="#9A9EF3"
+      android:layout_marginTop="5dp"
+      android:layout_gravity="center"/>
+
 
 </LinearLayout>

@@ -17,4 +17,7 @@
     <string name="menu_options">Einstellungen</string>
 
     <string name="camp_header">Willkommen am Campus Lingen!</string>
+    <string name="camp_mhead">Erkunde den Campus!</string>
+    <string name="camp_map">Campus Map</string>
+    <string name="camp_des">Standorte Campus Lingen</string>
 </resources>
