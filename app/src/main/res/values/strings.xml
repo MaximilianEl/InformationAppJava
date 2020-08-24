@@ -15,4 +15,6 @@
     <string name="menu_imprint">Impressum</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_options">Einstellungen</string>
+
+    <string name="camp_header">Willkommen am Campus Lingen!</string>
 </resources>
