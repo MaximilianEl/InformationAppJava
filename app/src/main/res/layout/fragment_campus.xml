@@ -51,7 +51,7 @@
       android:textSize="18sp"/>
 
     <Button
-      android:id="@+id/campus_map"
+      android:id="@+id/campus_map_button"
       android:layout_width="220dp"
       android:layout_height="wrap_content"
       android:text="@string/camp_map"
@@ -60,7 +60,7 @@
       android:layout_gravity="center"/>
 
     <Button
-      android:id="@+id/campus_des"
+      android:id="@+id/campus_des_button"
       android:layout_width="220dp"
       android:layout_height="wrap_content"
       android:text="@string/camp_des"
