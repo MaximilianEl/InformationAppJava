@@ -20,4 +20,7 @@
   <string name="camp_mhead">Erkunde den Campus!</string>
   <string name="camp_map">Campus Map</string>
   <string name="camp_des">Standorte Campus Lingen</string>
+
+  <string name="ins_header">Über das Institut</string>
+  <string name="ins_header2">Aktuelles</string>
 </resources>

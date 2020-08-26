@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.institute.InstituteFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".ui.institute.InstituteFragment"
+              android:orientation="vertical">
 
     <TextView
             android:id="@+id/text_slideshow"
@@ -20,4 +20,177 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/logohsspl"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ins_header"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/insText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Text"
+                    tools:ignore="HardcodedText"/>
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="@string/ins_header2"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#B6B5B5"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/ins_header1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                <TextView
+                        android:id="@+id/ins_firstext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#B6B5B5"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/ins_header2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                <TextView
+                        android:id="@+id/ins_secondtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#B6B5B5"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/ins_header3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                <TextView
+                        android:id="@+id/ins_thirdtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+            </LinearLayout>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Kurse"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ersti-Hilfe"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Personen"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Veranstaltungen"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
+
+
