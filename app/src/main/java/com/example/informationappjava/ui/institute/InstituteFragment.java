@@ -56,6 +56,25 @@ public class InstituteFragment extends Fragment {
     }
   };
 
+  private View.OnClickListener ins_thirdclick = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+
+      TextView ins_thirdtext = view.findViewById(R.id.ins_thirdtext);
+      TextView ins_header3 = view.findViewById(R.id.ins_header3);
+
+      if (ins_thirdtext.length() <= 0 ) {
+        ins_header3.setCompoundDrawablesWithIntrinsicBounds(0,0, R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+        ins_thirdtext.setVisibility(View.VISIBLE);
+        fillTextTwo(view);
+      } else {
+        ins_header3.setCompoundDrawablesWithIntrinsicBounds(0,0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        ins_thirdtext.setText("");
+        ins_thirdtext.setVisibility(View.GONE);
+      }
+    }
+  };
+
   static void getInsData(View view) {
     String url =
             "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/#c8477468";
