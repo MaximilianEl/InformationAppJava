@@ -34,13 +34,15 @@ public class InstituteFragment extends Fragment {
         textView.setText(s);
       }
     });
+    getInsData(root);
+    final TextView secondtext = root.findViewById(R.id.ins_secondtext);
+    secondtext.setOnClickListener(ins_secondclick);
     return root;
   }
 
   private View.OnClickListener ins_secondclick = new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-
       TextView ins_secondtext = view.findViewById(R.id.ins_secondtext);
       TextView ins_header2 = view.findViewById(R.id.ins_header2);
 
