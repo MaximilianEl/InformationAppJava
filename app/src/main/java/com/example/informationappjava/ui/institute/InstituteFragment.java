@@ -79,53 +79,61 @@ public class InstituteFragment extends Fragment {
     };
 
     static void getInsData(View view) {
-        String url =
-                "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/#c8477468";
-        Connection connect = Jsoup.connect(url);
+        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/#c8477468";
 
-        Document doc = (Document) connect;
-
-        Elements text = doc.getElementsByTag("p");
-
-        Elements header = doc.select("a[data-toggle]");
-
-        String firsttext = text.get(0).text();
-        String secondtext = text.get(1).text();
-        String thirdtext = text.get(2).text();
-        String fourthtext = text.get(3).text();
-        String fulltext = firsttext + secondtext + thirdtext + fourthtext;
-
-        TextView insText = view.findViewById(R.id.insText);
-        TextView ins_header1 = view.findViewById(R.id.ins_header1);
-        TextView ins_header2 = view.findViewById(R.id.ins_header2);
-        TextView ins_header3 = view.findViewById(R.id.ins_header3);
-
-        insText.setText(fulltext);
-        ins_header1.setText(header.get(0).text());
-        ins_header2.setText(header.get(1).text());
-        ins_header3.setText(header.get(2).text());
-    }
-
-    static void fillTextTwo(View view) {
-        String url =
-                "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/#c8477468";
-        Document doc = null;
         try {
-            doc = Jsoup.connect(url).get();
+            System.out.println("geht");
+            Document doc = Jsoup.connect(url).get();
+
+            Elements text = doc.getElementsByTag("p");
+            Elements header = doc.select("a[data-toggle]");
+
+            String firsttext = text.get(0).text();
+            String secondtext = text.get(1).text();
+            String thirdtext = text.get(2).text();
+            String fourthtext = text.get(3).text();
+            String fulltext = firsttext + secondtext + thirdtext + fourthtext;
+
+            TextView insText = view.findViewById(R.id.insText);
+            TextView ins_header1 = view.findViewById(R.id.ins_header1);
+            TextView ins_header2 = view.findViewById(R.id.ins_header2);
+            TextView ins_header3 = view.findViewById(R.id.ins_header3);
+
+            insText.setText(fulltext);
+            ins_header1.setText(header.get(0).text());
+            ins_header2.setText(header.get(1).text());
+            ins_header3.setText(header.get(2).text());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Elements p = doc.getElementsByTag("p");
+    }
 
-        String text1 = p.get(4).text();
-        String text2 = p.get(5).text();
-        String text3 = p.get(6).text();
-        String fulltext = text1 + text2 + text3;
+    static void fillTextTwo(View view) {
+        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/#c8477468";
+        Document doc = null;
+        try {
+            doc = Jsoup.connect(url).get();
 
-        TextView ins_secondtext = view.findViewById(R.id.ins_secondtext);
+            Elements p = doc.getElementsByTag("p");
 
-        ins_secondtext.setText(fulltext);
+            String text1 = p.get(4).text();
+            String text2 = p.get(5).text();
+            String text3 = p.get(6).text();
+            String fulltext = text1 + text2 + text3;
+
+            TextView ins_secondtext = view.findViewById(R.id.ins_secondtext);
+
+            ins_secondtext.setText(fulltext);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     static void fillTextThree(View view) {
@@ -137,7 +145,6 @@ public class InstituteFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         Elements p = doc.getElementsByTag("p");
 
