@@ -1,82 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".NavDrawer">
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     tools:context=".NavDrawer">
 
-<com.google.android.material.appbar.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/AppTheme.AppBarOverlay">
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimaryDark"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-</com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-<include layout="@layout/content_main" />
-
-
-
-<!--suppress AndroidUnresolvableTag -->
-<com.getbase.floatingactionbutton.FloatingActionsMenu
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/multiple_actions"
-    android:layout_margin="16dp"
-    android:layout_gravity="bottom|end"
-    app:fab_addButtonColorNormal="@color/colorPrimaryDark"
-    app:fab_addButtonColorPressed="@color/colorAccent"
-    tools:ignore="MissingClass">
-
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/instagram"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:fab_icon="@drawable/instagram"
-        app:fab_colorNormal="@color/colorPrimaryDark"
-        app:fab_colorPressed="@color/colorAccent"/>
-
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/twitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:fab_colorNormal="@color/colorPrimaryDark"
-        app:fab_colorPressed="@color/colorAccent"
-        app:fab_icon="@drawable/twitter" />
-
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:fab_colorNormal="@color/colorPrimaryDark"
-        app:fab_colorPressed="@color/colorAccent"
-        app:fab_icon="@drawable/facebook" />
-
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/youtube"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:fab_colorNormal="@color/colorPrimaryDark"
-        app:fab_colorPressed="@color/colorAccent"
-        app:fab_icon="@drawable/youtube" />
+    <include layout="@layout/content_main"/>
 
 
+    <!--suppress AndroidUnresolvableTag -->
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/multiple_actions"
+            android:layout_margin="16dp"
+            android:layout_gravity="bottom|end"
+            app:fab_addButtonColorNormal="@color/colorPrimaryDark"
+            app:fab_addButtonColorPressed="@color/colorAccent"
+            tools:ignore="MissingClass"
+            android:elevation="0dp">
 
-</com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/instagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:fab_icon="@drawable/instagram"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                app:fab_colorPressed="@color/colorAccent"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_icon="@drawable/twitter"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_icon="@drawable/facebook"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/youtube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_icon="@drawable/youtube"/>
 
 
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

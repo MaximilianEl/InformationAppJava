@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              tools:context=".ui.institute.InstituteFragment"
-              android:orientation="vertical">
+<LinearLayout
+        android:id="@+id/fragment_institute_id"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.institute.InstituteFragment"
+        android:orientation="vertical">
 
     <TextView
             android:id="@+id/text_slideshow"
@@ -26,7 +28,7 @@
             android:layout_height="120dp"
             android:src="@drawable/logohsspl"
             android:contentDescription="TODO"
-            tools:ignore="ContentDescription,HardcodedText" />
+            tools:ignore="ContentDescription,HardcodedText"/>
 
     <ScrollView
             android:layout_width="match_parent"
@@ -78,7 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
-                        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24"/>
 
                 <TextView
                         android:id="@+id/ins_firstext"
@@ -101,7 +103,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
-                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24"/>
 
                 <TextView
                         android:id="@+id/ins_secondtext"
@@ -123,7 +125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
-                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                        app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24"/>
 
                 <TextView
                         android:id="@+id/ins_thirdtext"
@@ -188,7 +190,6 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 
 </LinearLayout>

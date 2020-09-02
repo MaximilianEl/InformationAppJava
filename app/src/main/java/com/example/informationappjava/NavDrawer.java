@@ -17,87 +17,86 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavDrawer extends AppCompatActivity {
 
-  private com.getbase.floatingactionbutton.FloatingActionButton fabInsta;
-  private com.getbase.floatingactionbutton.FloatingActionButton fabTwitter;
-  private com.getbase.floatingactionbutton.FloatingActionButton fabFaceBook;
-  private com.getbase.floatingactionbutton.FloatingActionButton fabYoutube;
+    private com.getbase.floatingactionbutton.FloatingActionButton fabInsta;
+    private com.getbase.floatingactionbutton.FloatingActionButton fabTwitter;
+    private com.getbase.floatingactionbutton.FloatingActionButton fabFaceBook;
+    private com.getbase.floatingactionbutton.FloatingActionButton fabYoutube;
 
-  private AppBarConfiguration mAppBarConfiguration;
+    private AppBarConfiguration mAppBarConfiguration;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_nav_drawer);
-    Toolbar toolbar = findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
-
-
-
-    DrawerLayout drawer = findViewById(R.id.drawer_layout);
-    NavigationView navigationView = findViewById(R.id.nav_view);
-    // Passing each menu ID as a set of Ids because each
-    // menu should be considered as top level destinations.
-    mAppBarConfiguration = new AppBarConfiguration.Builder(
-            R.id.nav_chat, R.id.nav_news, R.id.nav_campus, R.id.nav_institute
-            ).setDrawerLayout(drawer)
-            .build();
-    NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-    NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-    NavigationUI.setupWithNavController(navigationView, navController);
-
-    fabInsta = findViewById(R.id.instagram);
-    fabTwitter = findViewById(R.id.twitter);
-    fabFaceBook = findViewById(R.id.facebook);
-    fabYoutube = findViewById(R.id.youtube);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nav_drawer);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
-    fabInsta.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        String url = "https://www.instagram.com/hs_osnabrueck/?hl=de";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-      }
-    });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_chat, R.id.nav_news, R.id.nav_campus, R.id.nav_institute
+        ).setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
-    fabTwitter.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        String url = "https://twitter.com/HS_Osnabrueck?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-      }
-    });
-
-    fabFaceBook.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        String url = "https://www.facebook.com/hs.osnabrueck";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-      }
-    });
-
-    fabYoutube.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        String url = "https://www.youtube.com/user/HochschuleOS";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-      }
-    });
-  }
+        fabInsta = findViewById(R.id.instagram);
+        fabTwitter = findViewById(R.id.twitter);
+        fabFaceBook = findViewById(R.id.facebook);
+        fabYoutube = findViewById(R.id.youtube);
 
 
-  @Override
-  public boolean onSupportNavigateUp() {
-    NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-    return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-        || super.onSupportNavigateUp();
-  }
+        fabInsta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.instagram.com/hs_osnabrueck/?hl=de";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        fabTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://twitter.com/HS_Osnabrueck?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        fabFaceBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.facebook.com/hs.osnabrueck";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        fabYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.youtube.com/user/HochschuleOS";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
 }

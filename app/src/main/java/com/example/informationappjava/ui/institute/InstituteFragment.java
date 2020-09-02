@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.informationappjava.R;
 
+import com.example.informationappjava.ui.chat.ChatViewModel;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,20 +26,21 @@ public class InstituteFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        instituteViewModel =
-                ViewModelProviders.of(this).get(InstituteViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_institute, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        instituteViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
+        return inflater.inflate(R.layout.fragment_institute, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
+
+        View root = getActivity().findViewById(R.id.fragment_institute_id);
+
         getInsData(root);
         final TextView secondtext = root.findViewById(R.id.ins_secondtext);
         secondtext.setOnClickListener(ins_secondclick);
-        return root;
+        // TODO: Use the ViewModel
     }
 
     private View.OnClickListener ins_secondclick = new View.OnClickListener() {
@@ -131,7 +133,6 @@ public class InstituteFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
     }
