@@ -11,4 +11,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
     }
+
+    //Um den Username aus dem vorherigen Ding zu bekommen
+    Bundle bundle = getIntent().getExtras();
 }

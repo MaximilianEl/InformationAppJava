@@ -1,11 +1,8 @@
 package com.example.informationappjava.ui.chat;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.view.SubMenu;
 import android.widget.Button;
 import android.widget.EditText;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -39,6 +36,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), ChatActivity.class);
+                in.putExtra("Username", "der ausgewählte nutzer");
                 startActivity(in);
             }
         });
