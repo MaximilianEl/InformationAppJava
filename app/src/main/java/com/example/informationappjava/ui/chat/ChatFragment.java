@@ -22,12 +22,14 @@ public class ChatFragment extends Fragment {
   }
 
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+  public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_campus, container, false);
-    EditText editText = view.findViewById(R.id.chat_enterName);
+    final EditText editText = view.findViewById(R.id.chat_enterName);
     view.findViewById(R.id.chat_enterButton).setOnClickListener(v -> {
-      Intent intent = new Intent();
+      Intent intent = new Intent(this, ChatActivity.class);
+      intent.putExtra("name", editText.getText().toString());
+      startActivity(intent);
     });
     return view;
   }
