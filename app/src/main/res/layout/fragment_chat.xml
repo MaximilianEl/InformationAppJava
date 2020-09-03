@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.chat.ChatFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello"/>
+    <EditText
+      android:id="@+id/chat_enterName"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:background="@drawable/edittext_design"
+      android:padding="10dp"
+      android:hint="Enter your Name.."
+      android:textSize="16sp"/>
 
-</FrameLayout>
+<!--    <EditText-->
+<!--      android:id="@+id/chat_enterNumber"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:layout_below="@id/chat_enterName"-->
+<!--      android:layout_marginStart="16dp"-->
+<!--      android:layout_marginEnd="16dp"-->
+<!--      android:hint="Enter your Number.."-->
+<!--      android:textSize="16sp"/>-->
+
+    <Button
+      android:id="@+id/chat_enterButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/chat_enterName"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
+      android:textColor="#ffffff"
+      android:background="@color/colorPrimaryDark"
+      android:text="Enter Chat"/>
+
+</RelativeLayout>

@@ -18,10 +18,12 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.imprint.ImprintViewModel;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class CampusFragment extends Fragment {
 
   private CampusViewModel mViewModel;
+  FloatingActionButton fButton;
   ViewPager viewPager;
   ImageAdapter imageAdapter;
   Button campMapButton;

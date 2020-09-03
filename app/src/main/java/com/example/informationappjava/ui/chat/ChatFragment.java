@@ -1,5 +1,7 @@
 package com.example.informationappjava.ui.chat;
 
+import android.content.Intent;
+import android.widget.EditText;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.informationappjava.R;
+import java.util.Objects;
 
 public class ChatFragment extends Fragment {
 
@@ -21,7 +24,12 @@ public class ChatFragment extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_chat, container, false);
+    View view = inflater.inflate(R.layout.fragment_campus, container, false);
+    EditText editText = view.findViewById(R.id.chat_enterName);
+    view.findViewById(R.id.chat_enterButton).setOnClickListener(v -> {
+      Intent intent = new Intent();
+    });
+    return view;
   }
 
   @Override
@@ -29,6 +37,7 @@ public class ChatFragment extends Fragment {
     super.onActivityCreated(savedInstanceState);
     mViewModel = ViewModelProviders.of(this).get(ChatViewModel.class);
     // TODO: Use the ViewModel
+
   }
 
 }
