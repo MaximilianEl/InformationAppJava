@@ -1,9 +1,11 @@
 package com.example.informationappjava.ui.institute;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.informationappjava.R;
 
+import com.example.informationappjava.ui.chat.ChatActivity;
 import com.example.informationappjava.ui.chat.ChatViewModel;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -27,21 +30,44 @@ public class InstituteFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
-        return inflater.inflate(R.layout.fragment_institute, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
-
-        View root = getActivity().findViewById(R.id.fragment_institute_id);
+        View root = inflater.inflate(R.layout.fragment_institute, container, false);
 
         getInsData(root);
+
         final TextView secondtext = root.findViewById(R.id.ins_secondtext);
-        secondtext.setOnClickListener(ins_secondclick);
-        // TODO: Use the ViewModel
+
+        secondtext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView ins_secondtext = v.findViewById(R.id.ins_secondtext);
+                TextView ins_header2 = v.findViewById(R.id.ins_header2);
+
+                if (ins_secondtext.length() <= 0) {
+                    ins_header2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    ins_secondtext.setVisibility(View.VISIBLE);
+                    fillTextTwo(v);
+                } else {
+                    ins_header2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    ins_secondtext.setText("");
+                    ins_secondtext.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        return root;
     }
+
+//    @Override
+//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+//        super.onActivityCreated(savedInstanceState);
+//        instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
+//
+//        View root = getActivity().findViewById(R.id.fragment_institute_id);
+//
+//        getInsData(root);
+//        final TextView secondtext = root.findViewById(R.id.ins_secondtext);
+//        secondtext.setOnClickListener(ins_secondclick);
+//    }
 
     private View.OnClickListener ins_secondclick = new View.OnClickListener() {
         @Override

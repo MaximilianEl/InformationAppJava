@@ -26,7 +26,6 @@ public class ChatFragment extends Fragment {
         return new ChatFragment();
     }
 
-
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -39,8 +38,8 @@ public class ChatFragment extends Fragment {
         enterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent in = new Intent(getActivity(), ChatActivity.class);
-              startActivity(in);
+                Intent in = new Intent(getActivity(), ChatActivity.class);
+                startActivity(in);
             }
         });
         return view;
