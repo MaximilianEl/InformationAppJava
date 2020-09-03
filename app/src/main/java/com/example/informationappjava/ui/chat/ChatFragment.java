@@ -36,7 +36,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), ChatActivity.class);
-                in.putExtra("Username", "der ausgewählte nutzer");
+                in.putExtra("name", editText.getText().toString());
                 startActivity(in);
             }
         });
