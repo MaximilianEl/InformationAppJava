@@ -1,9 +1,12 @@
 package com.example.informationappjava;
 
+import android.Manifest.permission;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
 import java.util.Timer;
 import java.util.TimerTask;
 

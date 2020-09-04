@@ -1,8 +1,12 @@
 package com.example.informationappjava.ui.chat;
 
+import android.Manifest;
+import android.Manifest.permission;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;

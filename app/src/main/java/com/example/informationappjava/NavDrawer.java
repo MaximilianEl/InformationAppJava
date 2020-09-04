@@ -1,10 +1,14 @@
 package com.example.informationappjava;
 
+import android.Manifest;
+import android.Manifest.permission;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import androidx.core.app.ActivityCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -32,6 +36,9 @@ public class NavDrawer extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if (ActivityCompat.checkSelfPermission(this, permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{permission.READ_EXTERNAL_STORAGE}, 10);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
