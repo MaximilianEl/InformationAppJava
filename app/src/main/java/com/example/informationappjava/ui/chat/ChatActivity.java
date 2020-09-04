@@ -30,7 +30,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
     private String name;
     private WebSocket webSocket;
-    private String SERVER_PATH = "ws://echo.websocket.org";
+    private String SERVER_PATH = "ws://192.168.0.25:3000";
     private EditText messageEdit;
     private View sendBtn;
     private View pickImageBtn;
@@ -203,6 +203,6 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
         }
     }
 
-    //Um den Username aus dem vorherigen Ding zu bekommen
-    Bundle bundle = getIntent().getExtras();
+//    //Um den Username aus dem vorherigen Ding zu bekommen
+//    Bundle bundle = getIntent().getExtras();
 }
