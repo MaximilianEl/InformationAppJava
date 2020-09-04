@@ -110,7 +110,10 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
                 try {
                     JSONObject jsonObject = new JSONObject(text);
                     jsonObject.put("isSent", false);
+
                     messageAdapter.addItem(jsonObject);
+
+                    recyclerView.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -141,6 +144,8 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
                 webSocket.send(jsonObject.toString());
                 jsonObject.put("isSent", true);
                 messageAdapter.addItem(jsonObject);
+
+                recyclerView.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
 
                 resetMessageEdit();
 
@@ -191,6 +196,8 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
             jsonObject.put("isSent", true);
             messageAdapter.addItem(jsonObject);
+
+            recyclerView.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
