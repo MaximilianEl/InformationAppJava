@@ -15,9 +15,12 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -26,17 +29,29 @@ import okhttp3.WebSocketListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
 public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
     private String name;
     private WebSocket webSocket;
-    private String SERVER_PATH = "ws://192.168.0.25:3000";
+    private String SERVER_PATH = "131.173.65.146:3000";
     private EditText messageEdit;
     private View sendBtn;
     private View pickImageBtn;
     private RecyclerView recyclerView;
     private int IMAGE_REQUEST_ID;
     private MessageAdapter messageAdapter;
+
+//    private Socket socket;
+//    {
+//        try{
+//            socket = IO.socket("131.183.65.146:3000");
+//        }catch(URISyntaxException e){
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +66,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(SERVER_PATH).build();
         webSocket = client.newWebSocket(request, new SocketListener());
+        //socket.connect();
     }
 
     @Override
@@ -74,7 +90,6 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
             sendBtn.setVisibility(View.VISIBLE);
             pickImageBtn.setVisibility(View.INVISIBLE);
         }
-
     }
 
     private void resetMessageEdit() {
@@ -95,7 +110,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
             runOnUiThread(() -> {
                 Toast.makeText(ChatActivity.this, "Socket Connection Successful",
-                    Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();
 
                 initializeView();
             });
@@ -121,7 +136,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
         }
     }
 
-    private void initializeView()  {
+    private void initializeView() {
 
         messageEdit = findViewById(R.id.chat_messageEdit);
         sendBtn = findViewById(R.id.chat_sendButton);
@@ -159,16 +174,16 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
             intent.setType("image/*");
 
             startActivityForResult(Intent.createChooser(intent, "Pick Image"),
-                IMAGE_REQUEST_ID);
+                    IMAGE_REQUEST_ID);
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
-        @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+                                    @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == IMAGE_REQUEST_ID && resultCode == RESULT_OK){
+        if (requestCode == IMAGE_REQUEST_ID && resultCode == RESULT_OK) {
             try {
                 InputStream inputStream = getContentResolver().openInputStream(data.getData());
                 Bitmap image = BitmapFactory.decodeStream(inputStream);
@@ -203,6 +218,6 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
         }
     }
 
-//    //Um den Username aus dem vorherigen Ding zu bekommen
-//    Bundle bundle = getIntent().getExtras();
+    //Um den Username aus dem vorherigen Ding zu bekommen
+    Bundle bundle = getIntent().getExtras();
 }

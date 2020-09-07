@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -18,6 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
@@ -37,7 +42,7 @@ public class NavDrawer extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if (ActivityCompat.checkSelfPermission(this, permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)
+                != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{permission.READ_EXTERNAL_STORAGE}, 10);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -56,7 +61,6 @@ public class NavDrawer extends AppCompatActivity {
         fabTwitter = findViewById(R.id.twitter);
         fabFaceBook = findViewById(R.id.facebook);
         fabYoutube = findViewById(R.id.youtube);
-
 
         fabInsta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,13 +101,41 @@ public class NavDrawer extends AppCompatActivity {
                 startActivity(i);
             }
         });
-    }
+
+        NavigationView navbar = findViewById(R.id.nav_view);
 
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+//        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+//                System.out.println("YES------------------------------------------------------------------------------NO");
+//
+//                FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
+//
+//                if (FAB.isExpanded()) {
+//                    FAB.collapse();
+//                }
+//
+//                System.out.println("NO________________________________________________________________________________YES");
+//
+//
+//                return true;
+//            }
+//        }) ;
+
     }
-}
+
+    private View.OnClickListener nav_click = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+
+        }};
+
+        @Override
+        public boolean onSupportNavigateUp() {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                    || super.onSupportNavigateUp();
+        }
+    }
