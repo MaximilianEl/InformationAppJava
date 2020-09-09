@@ -1,8 +1,9 @@
 package com.example.informationappjava.ui.chat;
 
-import android.content.Intent;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -12,8 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.registration.RegistrationActivity;
-import org.w3c.dom.Text;
+import com.example.informationappjava.ui.registration.RegistrationFragment;
 
 public class ChatFragment extends Fragment {
 
@@ -32,7 +32,12 @@ public class ChatFragment extends Fragment {
         registerText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                openRegister();
+                Fragment fragment = new RegistrationFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_registration ,fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
@@ -44,10 +49,5 @@ public class ChatFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(ChatViewModel.class);
 
-    }
-
-    public void openRegister() {
-        Intent intent = new Intent(getContext(), RegistrationActivity.class);
-        startActivity(intent);
     }
 }

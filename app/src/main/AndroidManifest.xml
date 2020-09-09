@@ -10,8 +10,6 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
-    <activity android:name=".ui.registration.RegistrationActivity">
-    </activity>
     <activity
       android:label="@string/title_activity_nav_drawer"
       android:name=".NavDrawer"
