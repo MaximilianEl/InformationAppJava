@@ -16,6 +16,21 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_options">Einstellungen</string>
 
+  <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
+  <string name="imprint_hs">Hochschule Osnabrück</string>
+  <string name="imprint_camp">Campus Lingen</string>
+  <string name="imprint_fak">Management, Kultur und Technik</string>
+  <string name="imprint_hs2">University of Applied Sciences</string>
+  <!--    <string name="imprint_docname">Prof. Dr. Michael Ryba</string>-->
+  <string name="imprint_street">Kaiserstraße 10C</string>
+  <string name="imprint_plz">49809 Lingen(Ems)</string>
+  <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
+  <string name="imprint_haft"><u>Haftungsausschluss</u></string>
+  <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
+  <string name="imprint_osource"><u>Open Source Libraries</u></string>
+
+  <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
+
   <string name="camp_header">Willkommen am Campus Lingen!</string>
   <string name="camp_mhead">Erkunde den Campus!</string>
   <string name="camp_map">Campus Map</string>

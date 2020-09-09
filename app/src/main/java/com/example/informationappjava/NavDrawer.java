@@ -62,6 +62,7 @@ public class NavDrawer extends AppCompatActivity {
         fabFaceBook = findViewById(R.id.facebook);
         fabYoutube = findViewById(R.id.youtube);
 
+        
         fabInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
