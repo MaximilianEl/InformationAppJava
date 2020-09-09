@@ -47,5 +47,4 @@ public class ChatFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(ChatViewModel.class);
         // TODO: Use the ViewModel
     }
-
 }
