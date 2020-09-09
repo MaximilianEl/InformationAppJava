@@ -1,19 +1,12 @@
 package com.example.informationappjava;
 
-import android.Manifest;
 import android.Manifest.permission;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import android.widget.Button;
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -22,7 +15,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
