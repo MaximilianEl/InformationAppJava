@@ -96,7 +96,6 @@ public class NavDrawer extends AppCompatActivity {
 
         NavigationView navbar = findViewById(R.id.nav_view);
 
-
 //        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 //            @Override
 //            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
@@ -110,7 +109,6 @@ public class NavDrawer extends AppCompatActivity {
 //
 //                System.out.println("NO________________________________________________________________________________YES");
 //
-//
 //                return true;
 //            }
 //        }) ;
@@ -122,12 +120,13 @@ public class NavDrawer extends AppCompatActivity {
         public void onClick(View view) {
 
 
-        }};
-
-        @Override
-        public boolean onSupportNavigateUp() {
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                    || super.onSupportNavigateUp();
         }
+    };
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
+}
