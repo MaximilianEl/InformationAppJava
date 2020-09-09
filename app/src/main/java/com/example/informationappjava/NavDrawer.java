@@ -1,19 +1,12 @@
 package com.example.informationappjava;
 
-import android.Manifest;
 import android.Manifest.permission;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import android.widget.Button;
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -22,7 +15,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
@@ -105,7 +97,6 @@ public class NavDrawer extends AppCompatActivity {
 
         NavigationView navbar = findViewById(R.id.nav_view);
 
-
 //        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 //            @Override
 //            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
@@ -119,7 +110,6 @@ public class NavDrawer extends AppCompatActivity {
 //
 //                System.out.println("NO________________________________________________________________________________YES");
 //
-//
 //                return true;
 //            }
 //        }) ;
@@ -131,12 +121,13 @@ public class NavDrawer extends AppCompatActivity {
         public void onClick(View view) {
 
 
-        }};
-
-        @Override
-        public boolean onSupportNavigateUp() {
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                    || super.onSupportNavigateUp();
         }
+    };
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
+}

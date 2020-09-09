@@ -32,10 +32,12 @@
     android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
   <TextView
-    android:background="#77000000"
+    android:id="@+id/chat_register"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#77000000"
+    android:clickable="true"
+    android:focusable="true"
     android:text="@string/nav_header_subtitle"
-    android:id="@+id/textView"
     app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24"/>
 </LinearLayout>
