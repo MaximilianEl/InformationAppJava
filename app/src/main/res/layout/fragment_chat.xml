@@ -6,7 +6,8 @@
         android:layout_height="match_parent"
         tools:context=".ui.chat.ChatFragment"
         android:orientation="horizontal"
-        android:background="@drawable/background">
+        android:background="@drawable/background"
+        android:id="@+id/Loginfrag">
 
     <LinearLayout
             android:layout_width="match_parent"
