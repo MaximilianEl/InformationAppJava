@@ -31,9 +31,7 @@ public class ChatFragment extends Fragment {
         registerText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://sep-01.lin.hs-osnabrueck.de:9090/plugins/registration/sign-up.jsp";
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
+                Intent intent = new Intent(getActivity(), RegistrationActivity.class);
                 startActivity(intent);
             }
         });
