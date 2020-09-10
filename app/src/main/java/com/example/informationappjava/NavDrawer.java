@@ -53,6 +53,7 @@ public class NavDrawer extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
         fabInsta = findViewById(R.id.instagram);
         fabTwitter = findViewById(R.id.twitter);
         fabFaceBook = findViewById(R.id.facebook);
@@ -99,29 +100,30 @@ public class NavDrawer extends AppCompatActivity {
             }
         });
 
-        NavigationView navbar = findViewById(R.id.nav_view);
+        FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
+        NavDrawer Inst = this;
 
-        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-                System.out.println("YES------------------------------------------------------------------------------NO");
-
-
-                FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
-
-                if (FAB.isExpanded()) {
-                    FAB.collapse();
-                }
-
-                NavigationUI.setupWithNavController(navigationView, navController);
-
-                System.out.println("NO________________________________________________________________________________YES");
-
-                return true;
-            }
-        }) ;
-
-    }
+        //ka warum aber wenn man den Code öffnet schließt er den FAB-Button wieder
+        //aber nur beim ersten Klick
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+//                System.out.println("YES------------------------------------------------------------------------------NO");
+//
+//                NavController navController = Navigation.findNavController(Inst, R.id.nav_host_fragment);
+//                NavigationUI.setupActionBarWithNavController(Inst, navController, mAppBarConfiguration);
+//                NavigationUI.setupWithNavController(navigationView, navController);
+//
+//                if (FAB.isExpanded()) {
+//                    FAB.collapse();
+//                }
+//
+//                System.out.println("NO________________________________________________________________________________YES");
+//                return true;
+//            }
+//        });
+//
+//    }
 
     private View.OnClickListener nav_click = new View.OnClickListener() {
         @Override
