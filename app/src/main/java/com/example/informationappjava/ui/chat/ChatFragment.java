@@ -1,9 +1,9 @@
 package com.example.informationappjava.ui.chat;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -13,11 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.registration.RegistrationFragment;
+import com.example.informationappjava.ui.registration.RegistrationActivity;
 
 public class ChatFragment extends Fragment {
 
     private ChatViewModel mViewModel;
+    private TextView registerText;
 
     public static ChatFragment newInstance() {
         return new ChatFragment();
@@ -28,16 +29,14 @@ public class ChatFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        TextView registerText = view.findViewById(R.id.chat_register);
+        registerText = view.findViewById(R.id.openRegister);
         registerText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new RegistrationFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_registration ,fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                String url = "http://sep-01.lin.hs-osnabrueck.de:9090/plugins/registration/sign-up.jsp";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
