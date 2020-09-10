@@ -123,7 +123,7 @@ public class NavDrawer extends AppCompatActivity {
 //            }
 //        });
 //
-//    }
+    }
 
     private View.OnClickListener nav_click = new View.OnClickListener() {
         @Override
