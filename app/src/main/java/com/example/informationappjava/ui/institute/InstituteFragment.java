@@ -25,7 +25,7 @@ public class InstituteFragment extends Fragment {
         instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
         View root = inflater.inflate(R.layout.fragment_institute, container, false);
 
-        getInsData(root);
+//        getInsData(root);
 
         final TextView secondtext = root.findViewById(R.id.ins_secondtext);
 

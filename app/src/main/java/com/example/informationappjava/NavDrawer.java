@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
@@ -54,7 +58,7 @@ public class NavDrawer extends AppCompatActivity {
         fabFaceBook = findViewById(R.id.facebook);
         fabYoutube = findViewById(R.id.youtube);
 
-        
+
         fabInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,22 +101,25 @@ public class NavDrawer extends AppCompatActivity {
 
         NavigationView navbar = findViewById(R.id.nav_view);
 
-//        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-//                System.out.println("YES------------------------------------------------------------------------------NO");
-//
-//                FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
-//
-//                if (FAB.isExpanded()) {
-//                    FAB.collapse();
-//                }
-//
-//                System.out.println("NO________________________________________________________________________________YES");
-//
-//                return true;
-//            }
-//        }) ;
+        navbar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                System.out.println("YES------------------------------------------------------------------------------NO");
+
+
+                FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
+
+                if (FAB.isExpanded()) {
+                    FAB.collapse();
+                }
+
+                NavigationUI.setupWithNavController(navigationView, navController);
+
+                System.out.println("NO________________________________________________________________________________YES");
+
+                return true;
+            }
+        }) ;
 
     }
 

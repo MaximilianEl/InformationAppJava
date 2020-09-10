@@ -13,12 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.registration.RegistrationActivity;
 
 public class ChatFragment extends Fragment {
 
     private ChatViewModel mViewModel;
-    private TextView registerText;
 
     public static ChatFragment newInstance() {
         return new ChatFragment();
@@ -29,7 +27,7 @@ public class ChatFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        registerText = view.findViewById(R.id.openRegister);
+        TextView registerText = view.findViewById(R.id.openRegister);
         registerText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +37,6 @@ public class ChatFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
     }
 
@@ -47,6 +44,5 @@ public class ChatFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(ChatViewModel.class);
-
     }
 }
