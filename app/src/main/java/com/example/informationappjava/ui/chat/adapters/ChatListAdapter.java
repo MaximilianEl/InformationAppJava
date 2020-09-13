@@ -19,6 +19,10 @@ import java.util.List;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
 
+    public interface OnItemClickListener {
+        public void onItemClick(String contactJid);
+    }
+
     List<Chat> chatList;
 
     public ChatListAdapter(Context context) {

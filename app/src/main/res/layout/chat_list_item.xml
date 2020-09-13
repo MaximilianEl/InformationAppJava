@@ -5,7 +5,7 @@
         android:background="#f0f0f0"
 
         android:layout_marginBottom="2dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="wrap_content">
 
     <ImageView
