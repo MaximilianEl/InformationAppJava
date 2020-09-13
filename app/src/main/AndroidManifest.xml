@@ -13,7 +13,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".ui.chat.ChatListActivity"
+        <activity android:name=".ui.chat.chatlist.ChatListActivity"
           android:label="@string/contacts">
             <meta-data
               android:name="android.support.PARENT_ACTIVITY"
@@ -24,10 +24,10 @@
         <activity android:name=".ui.chat.view.ChatViewActivity">
             <meta-data
               android:name="android.support.PARENT_ACTIVITY"
-              android:value=".ui.chat.ChatListActivity"/>
+              android:value=".ui.chat.chatlist.ChatListActivity"/>
         </activity>
         <activity
-                android:name=".ui.chat.login.ChatLoginActivity"
+                android:name=".ui.chat.chatactiv.login.ChatLoginActivity"
                 android:label="Chat">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"

@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.model;
+package com.example.informationappjava.ui.chat.chatactiv.login.model;
 
 import android.content.Context;
 

@@ -1,11 +1,11 @@
-package com.example.informationappjava.ui.chat.login;
+package com.example.informationappjava.ui.chat.chatactiv.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.informationappjava.ui.chat.data.LoginDataSource;
-import com.example.informationappjava.ui.chat.data.LoginRepository;
+import com.example.informationappjava.ui.chat.chatactiv.login.data.LoginDataSource;
+import com.example.informationappjava.ui.chat.chatactiv.login.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

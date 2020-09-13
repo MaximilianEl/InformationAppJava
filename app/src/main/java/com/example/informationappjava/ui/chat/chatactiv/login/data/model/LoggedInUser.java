@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.data.model;
+package com.example.informationappjava.ui.chat.chatactiv.login.data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

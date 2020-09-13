@@ -1,6 +1,6 @@
-package com.example.informationappjava.ui.chat.data;
+package com.example.informationappjava.ui.chat.chatactiv.login.data;
 
-import com.example.informationappjava.ui.chat.data.model.LoggedInUser;
+import com.example.informationappjava.ui.chat.chatactiv.login.data.model.LoggedInUser;
 
 import java.io.IOException;
 
