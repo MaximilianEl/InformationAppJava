@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".ui.registration.RegistrationActivity">
         </activity>
+        <activity android:name=".ui.chat.view.ChatViewActivity"/>
         <activity
                 android:name=".ui.chat.login.ChatLoginActivity"
                 android:label="Chat">

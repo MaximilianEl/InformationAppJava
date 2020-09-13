@@ -84,7 +84,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
   public ChatMessageViewHolder(View itemView) {
     super(itemView);
 
-    messageBody = itemView.findViewById(R.id.message_Body);
+    messageBody = itemView.findViewById(R.id.chat_textMessageBody);
     messageTimestamp = itemView.findViewById(R.id.chat_textMessageTimestamp);
     profileImage = itemView.findViewById(R.id.profile);
   }
