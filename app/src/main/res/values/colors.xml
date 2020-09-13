@@ -8,4 +8,10 @@
     <color name="chatSent">#0B754F</color>
     <color name="chatReceived">#474545</color>
     <color name="chatTimestamp">#DAD5D5</color>
+
+    <color name="default_tstamp_color_rcv">#f4f4f6</color>
+    <color name="default_tstamp_color_send">#0a0606</color>
+
+    <color name="default_message_color_rcv">#f6f4f4</color>
+    <color name="default_message_color_send">#131212</color>
 </resources>

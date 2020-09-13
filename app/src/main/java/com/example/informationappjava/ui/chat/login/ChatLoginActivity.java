@@ -114,7 +114,7 @@ public class ChatLoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(jidEditText.getText().toString(),
                         passwordEditText.getText().toString());
-                Intent i = new Intent(ChatLoginActivity.this, ChatViewActivity.class);
+                Intent i = new Intent(ChatLoginActivity.this, ChatlistActivity.class);
                 startActivity(i);
 //                finish();
             }
