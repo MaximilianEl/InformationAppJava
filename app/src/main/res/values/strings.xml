@@ -1,61 +1,53 @@
 <resources>
-    <string name="app_name">InformationAppJava</string>
-    <string name="title_activity_nav_drawer">NavDrawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Willkommen in der InfoApp</string>
-    <string name="nav_header_subtitle">Anmelden für Chatzugang</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+  <string name="app_name">InformationAppJava</string>
+  <string name="title_activity_nav_drawer">NavDrawer</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Willkommen in der InfoApp</string>
+  <string name="nav_header_subtitle">Anmelden für Chatzugang</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">Settings</string>
 
-    <string name="menu_news">News</string>
-    <string name="menu_campus">Campus</string>
-    <string name="menu_institute">Institute</string>
-    <string name="menu_chat">Chat</string>
-    <string name="menu_imprint">Impressum</string>
-    <string name="menu_feedback">Feedback</string>
-    <string name="menu_options">Einstellungen</string>
+  <string name="menu_news">News</string>
+  <string name="menu_campus">Campus</string>
+  <string name="menu_institute">Institute</string>
+  <string name="menu_chat">Chat</string>
+  <string name="menu_imprint">Impressum</string>
+  <string name="menu_feedback">Feedback</string>
+  <string name="menu_options">Einstellungen</string>
 
-    <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
-    <string name="imprint_hs">Hochschule Osnabrück</string>
-    <string name="imprint_camp">Campus Lingen</string>
-    <string name="imprint_fak">Management, Kultur und Technik</string>
-    <string name="imprint_hs2">University of Applied Sciences</string>
-    <!--    <string name="imprint_docname">Prof. Dr. Michael Ryba</string>-->
-    <string name="imprint_street">Kaiserstraße 10C</string>
-    <string name="imprint_plz">49809 Lingen(Ems)</string>
-    <string name="imprint_data">
-        <u>Hinweise zum Datenschutz</u>
-    </string>
-    <string name="imprint_haft">
-        <u>Haftungsausschluss</u>
-    </string>
-    <string name="imprint_uhr">
-        <u>Uhrheberrechtsinformationen</u>
-    </string>
-    <string name="imprint_osource">
-        <u>Open Source Libraries</u>
-    </string>
+  <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
+  <string name="imprint_hs">Hochschule Osnabrück</string>
+  <string name="imprint_camp">Campus Lingen</string>
+  <string name="imprint_fak">Management, Kultur und Technik</string>
+  <string name="imprint_hs2">University of Applied Sciences</string>
+  <string name="imprint_street">Kaiserstraße 10C</string>
+  <string name="imprint_plz">49809 Lingen(Ems)</string>
+  <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
+  <string name="imprint_haft"><u>Haftungsausschluss</u></string>
+  <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
+  <string name="imprint_osource"><u>Open Source Libraries</u></string>
 
-    <string name="imprint_website">
-        <u>www.hs-osnabrueck.de</u>
-    </string>
+  <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
 
-    <string name="camp_header">Willkommen am Campus Lingen!</string>
-    <string name="camp_mhead">Erkunde den Campus!</string>
-    <string name="camp_map">Campus Map</string>
-    <string name="camp_des">Standorte Campus Lingen</string>
+  <string name="camp_header">Willkommen am Campus Lingen!</string>
+  <string name="camp_mhead">Erkunde den Campus!</string>
+  <string name="camp_map">Campus Map</string>
+  <string name="camp_des">Standorte Campus Lingen</string>
 
-    <string name="ins_header">Über das Institut</string>
-    <string name="ins_header2">Aktuelles</string>
-    <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
-    <string name="title_activity_chat__login">Chat_LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+  <string name="ins_header">Über das Institut</string>
+  <string name="ins_header2">Aktuelles</string>
+
+  <string name="title_activity_chat__login">Chat_LoginActivity</string>
+  <string name="prompt_email">Email</string>
+  <string name="prompt_password">Password</string>
+  <string name="action_sign_in">Sign in or register</string>
+  <string name="action_sign_in_short">Sign in</string>
+  <string name="welcome">"Welcome !"</string>
+  <string name="invalid_username">Not a valid username</string>
+  <string name="invalid_password">Password must be >5 characters</string>
+  <string name="login_failed">"Login failed"</string>
+
+  <string name="chat_login">Login</string>
+  <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
 </resources>

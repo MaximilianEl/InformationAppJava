@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.ui.login;
+package com.example.informationappjava.ui.chat;
 
 import android.app.Activity;
 import androidx.lifecycle.Observer;
@@ -19,8 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.ui.login.LoginViewModel;
-import com.example.informationappjava.ui.chat.ui.login.LoginViewModelFactory;
 
 public class Chat_LoginActivity extends AppCompatActivity {
 
@@ -29,9 +27,11 @@ public class Chat_LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat__login);
+        setContentView(R.layout.activity_chat_login);
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);

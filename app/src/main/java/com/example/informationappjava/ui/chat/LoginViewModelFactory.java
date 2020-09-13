@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.ui.login;
+package com.example.informationappjava.ui.chat;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

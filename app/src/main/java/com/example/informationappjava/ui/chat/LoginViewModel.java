@@ -1,14 +1,14 @@
-package com.example.informationappjava.ui.chat.ui.login;
+package com.example.informationappjava.ui.chat;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
+import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.data.LoginRepository;
 import com.example.informationappjava.ui.chat.data.Result;
 import com.example.informationappjava.ui.chat.data.model.LoggedInUser;
-import com.example.informationappjava.ui.chat.R;
 
 public class LoginViewModel extends ViewModel {
 
