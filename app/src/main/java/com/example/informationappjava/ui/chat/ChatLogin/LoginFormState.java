@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat;
+package com.example.informationappjava.ui.chat.ChatLogin;
 
 import androidx.annotation.Nullable;
 

@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat;
+package com.example.informationappjava.ui.chat.ChatLogin;
 
 /**
  * Class exposing authenticated user details to the UI.

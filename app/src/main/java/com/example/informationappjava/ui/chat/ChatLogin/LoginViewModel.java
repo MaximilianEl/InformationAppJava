@@ -1,11 +1,13 @@
-package com.example.informationappjava.ui.chat;
+package com.example.informationappjava.ui.chat.ChatLogin;
 
+import android.content.Intent;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.ChatlistActivity;
 import com.example.informationappjava.ui.chat.data.LoginRepository;
 import com.example.informationappjava.ui.chat.data.Result;
 import com.example.informationappjava.ui.chat.data.model.LoggedInUser;
@@ -42,7 +44,7 @@ public class LoginViewModel extends ViewModel {
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+            loginFormState.setValue(new LoginFormState(R.string.invalid_jid, null));
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
         } else {

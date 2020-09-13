@@ -23,12 +23,22 @@
   <string name="imprint_hs2">University of Applied Sciences</string>
   <string name="imprint_street">Kaiserstraße 10C</string>
   <string name="imprint_plz">49809 Lingen(Ems)</string>
-  <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
-  <string name="imprint_haft"><u>Haftungsausschluss</u></string>
-  <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
-  <string name="imprint_osource"><u>Open Source Libraries</u></string>
+  <string name="imprint_data">
+    <u>Hinweise zum Datenschutz</u>
+  </string>
+  <string name="imprint_haft">
+    <u>Haftungsausschluss</u>
+  </string>
+  <string name="imprint_uhr">
+    <u>Uhrheberrechtsinformationen</u>
+  </string>
+  <string name="imprint_osource">
+    <u>Open Source Libraries</u>
+  </string>
 
-  <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
+  <string name="imprint_website">
+    <u>www.hs-osnabrueck.de</u>
+  </string>
 
   <string name="camp_header">Willkommen am Campus Lingen!</string>
   <string name="camp_mhead">Erkunde den Campus!</string>
@@ -39,12 +49,12 @@
   <string name="ins_header2">Aktuelles</string>
 
   <string name="title_activity_chat__login">Chat_LoginActivity</string>
-  <string name="prompt_email">Email</string>
+  <string name="prompt_jid">Jabber ID</string>
   <string name="prompt_password">Password</string>
-  <string name="action_sign_in">Sign in or register</string>
+  <string name="action_sign_in">Sign in</string>
   <string name="action_sign_in_short">Sign in</string>
-  <string name="welcome">"Welcome !"</string>
-  <string name="invalid_username">Not a valid username</string>
+  <string name="welcome">"Welcome "</string>
+  <string name="invalid_jid">Not a valid Jabber ID</string>
   <string name="invalid_password">Password must be >5 characters</string>
   <string name="login_failed">"Login failed"</string>
 

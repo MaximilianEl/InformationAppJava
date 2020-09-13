@@ -1,6 +1,7 @@
-package com.example.informationappjava.ui.chat;
+package com.example.informationappjava.ui.chat.ChatLogin;
 
 import android.app.Activity;
+import android.content.Intent;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.ChatlistActivity;
 
 public class ChatLoginActivity extends AppCompatActivity {
 
@@ -33,7 +35,7 @@ public class ChatLoginActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText jidEditText = findViewById(R.id.jid_login_form);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
@@ -46,7 +48,7 @@ public class ChatLoginActivity extends AppCompatActivity {
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
+                    jidEditText.setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
                     passwordEditText.setError(getString(loginFormState.getPasswordError()));
@@ -87,18 +89,18 @@ public class ChatLoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
+                loginViewModel.loginDataChanged(jidEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
+        jidEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
+                    loginViewModel.login(jidEditText.getText().toString(),
                             passwordEditText.getText().toString());
                 }
                 return false;
@@ -109,8 +111,11 @@ public class ChatLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
+                loginViewModel.login(jidEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                Intent i = new Intent(ChatLoginActivity.this, ChatlistActivity.class);
+                startActivity(i);
+                finish();
             }
         });
     }
