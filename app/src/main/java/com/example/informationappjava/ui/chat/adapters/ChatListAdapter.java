@@ -24,9 +24,19 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
     }
 
     List<Chat> chatList;
+    private OnItemClickListener onItemClickListener;
 
     public ChatListAdapter(Context context) {
         this.chatList = ChatModel.get(context).getChats();
+    }
+
+    public OnItemClickListener getOnItemClickListener() {
+        return onItemClickListener;
+    }
+
+    public void setOnItemClickListener(
+        OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -36,7 +46,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.chat_list_item, parent, false);
 
-        return new ChatHolder(view);
+        return new ChatHolder(view, this);
     }
 
     @Override
@@ -59,18 +69,27 @@ class ChatHolder extends RecyclerView.ViewHolder {
     private TextView timestampTextView;
     private ImageView profileImage;
     private Chat mChat;
+    private ChatListAdapter chatListAdapter;
 
-    public ChatHolder(@NonNull @NotNull View itemView) {
+    public ChatHolder(@NonNull @NotNull View itemView,
+        ChatListAdapter adapter) {
         super(itemView);
 
         contactTextView = itemView.findViewById(R.id.contact_jid);
         messageAbstractTextview = itemView.findViewById(R.id.message_abstract);
         timestampTextView = itemView.findViewById(R.id.text_message_timestamp);
         profileImage = itemView.findViewById(R.id.profile);
+        chatListAdapter = adapter;
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                ChatListAdapter.OnItemClickListener listener = chatListAdapter.getOnItemClickListener();
+                if (listener != null) {
+                    listener.onItemClick(contactTextView.getText().toString());
+
+                }
 
                 Log.d(LOGTAG, "Clicked on the item in the recyclerView");
 

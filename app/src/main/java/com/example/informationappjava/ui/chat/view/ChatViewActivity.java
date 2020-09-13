@@ -16,6 +16,8 @@ public class ChatViewActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chat_view);
 
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     chatMessageRecyclerView = findViewById(R.id.chatMessagesRecycler);
     chatMessageRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 

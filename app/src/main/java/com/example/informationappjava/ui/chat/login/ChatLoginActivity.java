@@ -20,8 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.ChatlistActivity;
-import com.example.informationappjava.ui.chat.view.ChatViewActivity;
+import com.example.informationappjava.ui.chat.ChatListActivity;
 
 public class ChatLoginActivity extends AppCompatActivity {
 
@@ -114,9 +113,9 @@ public class ChatLoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(jidEditText.getText().toString(),
                         passwordEditText.getText().toString());
-                Intent i = new Intent(ChatLoginActivity.this, ChatlistActivity.class);
+                Intent i = new Intent(ChatLoginActivity.this, ChatListActivity.class);
                 startActivity(i);
-//                finish();
+                finish();
             }
         });
     }
