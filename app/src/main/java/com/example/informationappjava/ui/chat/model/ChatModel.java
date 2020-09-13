@@ -49,7 +49,6 @@ public class ChatModel {
         chats.add(chat7);
         chats.add(chat7);
 
-
         return chats;
     }
 
