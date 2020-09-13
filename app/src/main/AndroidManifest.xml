@@ -13,21 +13,27 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".ui.chat.ChatListActivity"
-          android:label="@string/contacts">
+        <activity
+                android:name=".ui.chat.contactlist.ContactListActivity"
+                android:label="@string/title_activity_contact_list"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".ui.chat.chatlist.ChatListActivity"
+                android:label="@string/contacts">
             <meta-data
-              android:name="android.support.PARENT_ACTIVITY"
-              android:value=".NavDrawer"/>
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".NavDrawer"/>
         </activity>
         <activity android:name=".ui.registration.RegistrationActivity">
         </activity>
         <activity android:name=".ui.chat.view.ChatViewActivity">
             <meta-data
-              android:name="android.support.PARENT_ACTIVITY"
-              android:value=".ui.chat.ChatListActivity"/>
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ui.chat.chatlist.ChatListActivity"/>
         </activity>
         <activity
-                android:name=".ui.chat.login.ChatLoginActivity"
+                android:name=".ui.chat.chatactiv.login.ChatLoginActivity"
                 android:label="Chat">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"

@@ -1,7 +1,6 @@
-package com.example.informationappjava.ui.chat.adapters;
+package com.example.informationappjava.ui.chat.chatlist.adapters;
 
 import android.content.Context;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.model.Chat;
-import com.example.informationappjava.ui.chat.model.ChatModel;
+import com.example.informationappjava.ui.chat.chatactiv.login.model.Chat;
+import com.example.informationappjava.ui.chat.chatactiv.login.model.ChatModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.example.informationappjava.ui.chat.data;
+package com.example.informationappjava.ui.chat.chatactiv.login.data;
 
-import com.example.informationappjava.ui.chat.data.model.LoggedInUser;
+import com.example.informationappjava.ui.chat.chatactiv.login.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

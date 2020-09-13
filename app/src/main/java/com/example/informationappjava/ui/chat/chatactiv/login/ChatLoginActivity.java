@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.login;
+package com.example.informationappjava.ui.chat.chatactiv.login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.ChatListActivity;
+import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 
 public class ChatLoginActivity extends AppCompatActivity {
 
