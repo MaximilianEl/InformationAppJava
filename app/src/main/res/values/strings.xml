@@ -51,7 +51,7 @@
     <string name="title_activity_chat__login">Chat_LoginActivity</string>
     <string name="prompt_jid">Jabber ID</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in">Login</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome "</string>
     <string name="invalid_jid">Not a valid Jabber ID</string>
