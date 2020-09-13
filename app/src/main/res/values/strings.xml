@@ -61,4 +61,6 @@
   <string name="chat_login">Login</string>
   <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
   <string name="contacts">Kontakte</string>
+  <string name="send_message">Send Message</string>
+  <string name="received_message">Receive Message</string>
 </resources>

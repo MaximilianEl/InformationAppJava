@@ -9,13 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.model.ChatModel;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
-public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
+public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> implements
+    ChatMessagesModel.OnMessageAddListener {
+
+  public interface OnInformRecyclerViewToScrollDownListener {
+
+    public void onInformRecyclerViewToScrollDown(int size);
+  }
 
   private static final int SENT = 1;
   private static final int RECEIVED = 2;
@@ -25,13 +32,26 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
   private LayoutInflater layoutInflater;
   private Context context;
   private String contactJid;
+  private OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener;
 
-  public ChatMessageAdapter(Context context, String contactJid){
+  public void setOnInformRecyclerViewToScrollDownListener(
+      OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener) {
+    this.onInformRecyclerViewToScrollDownListener = onInformRecyclerViewToScrollDownListener;
+  }
+
+  public ChatMessageAdapter(Context context, String contactJid) {
     this.layoutInflater = LayoutInflater.from(context);
     this.context = context;
     this.contactJid = contactJid;
 
     chatMessageList = ChatMessagesModel.get(context).getMessages();
+
+    ChatMessagesModel.get(context).setMessageAddListener(this);
+  }
+
+  public void informRecyclerViewToScrollDown() {
+    onInformRecyclerViewToScrollDownListener
+        .onInformRecyclerViewToScrollDown(chatMessageList.size());
   }
 
   @Override
@@ -39,7 +59,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
       int viewType) {
     View itemView;
     switch (viewType) {
-      case SENT :
+      case SENT:
         itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
         return new ChatMessageViewHolder(itemView);
 
@@ -67,11 +87,18 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
   @Override
   public int getItemViewType(int position) {
     ChatMessage.Type messageType = chatMessageList.get(position).getType();
-    if (messageType == Type.SENT){
+    if (messageType == Type.SENT) {
       return SENT;
     } else {
       return RECEIVED;
     }
+  }
+
+  @Override
+  public void onMessageAdd() {
+    chatMessageList = ChatMessagesModel.get(context).getMessages();
+    notifyDataSetChanged();
+    informRecyclerViewToScrollDown();
   }
 }
 
@@ -89,7 +116,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     profileImage = itemView.findViewById(R.id.profile);
   }
 
-  public void bindChat(ChatMessage chatMessage){
+  public void bindChat(ChatMessage chatMessage) {
     messageBody.setText(chatMessage.getMessage());
     messageTimestamp.setText(chatMessage.getFormattedTime());
     profileImage.setImageResource(R.drawable.ic_baseline_person_24);

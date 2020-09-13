@@ -7,9 +7,19 @@ import java.util.List;
 
 public class ChatMessagesModel {
 
+  public interface OnMessageAddListener {
+    void onMessageAdd();
+  }
+
   private static ChatMessagesModel chatMessagesModel;
   private Context context;
   List<ChatMessage> messages;
+  OnMessageAddListener messageAddListener;
+
+  public void setMessageAddListener(
+      OnMessageAddListener messageAddListener) {
+    this.messageAddListener = messageAddListener;
+  }
 
   public static ChatMessagesModel get(Context context) {
     if (chatMessagesModel == null){
@@ -38,6 +48,11 @@ public class ChatMessagesModel {
 
   public List<ChatMessage> getMessages() {
     return messages;
+  }
+
+  public void addMessage(ChatMessage message) {
+    messages.add(message);
+    messageAddListener.onMessageAdd();
   }
 
 }
