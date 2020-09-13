@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.example.informationappjava.R;
 
-public class Chat_LoginActivity extends AppCompatActivity {
+public class ChatLoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 
