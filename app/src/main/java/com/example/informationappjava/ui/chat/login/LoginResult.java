@@ -1,8 +1,6 @@
-package com.example.informationappjava.ui.chat.ChatLogin;
+package com.example.informationappjava.ui.chat.login;
 
-import android.content.Intent;
 import androidx.annotation.Nullable;
-import com.example.informationappjava.ui.chat.ChatlistActivity;
 
 /**
  * Authentication result : success (user details) or error message.

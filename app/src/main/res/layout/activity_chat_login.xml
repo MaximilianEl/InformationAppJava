@@ -6,7 +6,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.chat.ChatLogin.ChatLoginActivity">
+        tools:context=".ui.chat.login.ChatLoginActivity">
 
     <EditText
             android:id="@+id/jid_login_form"

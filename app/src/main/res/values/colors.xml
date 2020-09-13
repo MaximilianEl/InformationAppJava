@@ -3,5 +3,9 @@
     <color name="colorPrimary">#3700B3</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="chatReceived">#0C6042</color>
+
+
+    <color name="chatSent">#0B754F</color>
+    <color name="chatReceived">#474545</color>
+    <color name="chatTimestamp">#DAD5D5</color>
 </resources>

@@ -1,13 +1,11 @@
-package com.example.informationappjava.ui.chat.ChatLogin;
+package com.example.informationappjava.ui.chat.login;
 
-import android.content.Intent;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.ChatlistActivity;
 import com.example.informationappjava.ui.chat.data.LoginRepository;
 import com.example.informationappjava.ui.chat.data.Result;
 import com.example.informationappjava.ui.chat.data.model.LoggedInUser;

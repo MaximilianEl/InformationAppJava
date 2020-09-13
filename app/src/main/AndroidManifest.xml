@@ -18,7 +18,7 @@
         <activity android:name=".ui.registration.RegistrationActivity">
         </activity>
         <activity
-                android:name=".ui.chat.ChatLogin.ChatLoginActivity"
+                android:name=".ui.chat.login.ChatLoginActivity"
                 android:label="Chat">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"

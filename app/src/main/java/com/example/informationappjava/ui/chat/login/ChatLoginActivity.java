@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.ChatLogin;
+package com.example.informationappjava.ui.chat.login;
 
 import android.app.Activity;
 import android.content.Intent;
