@@ -29,11 +29,11 @@
     android:label="@string/menu_chat"
     tools:layout="@layout/activity_chat_login"/>
 
-  <fragment
+  <activity
     android:id="@+id/nav_options"
-    android:name="com.example.informationappjava.ui.options.OptionsFragment"
+    android:name="com.example.informationappjava.ui.options.SettingsActivity"
     android:label="@string/menu_options"
-    tools:layout="@layout/fragment_options"/>
+    tools:layout="@layout/settings_activity"/>
 
   <fragment
     android:id="@+id/nav_feedback"

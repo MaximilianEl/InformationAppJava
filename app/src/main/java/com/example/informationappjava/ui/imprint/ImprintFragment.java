@@ -22,7 +22,7 @@ public class ImprintFragment extends Fragment {
     private ImageView facebook;
     private ImageView twitter;
     private ImageView youtube;
-    //SPast
+
 
     public static ImprintFragment newInstance() {
         return new ImprintFragment();
