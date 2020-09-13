@@ -10,6 +10,11 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
+    <activity android:name=".ui.chat.ChatLoginActivity">
+      <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".NavDrawer"/>
+    </activity>
     <activity android:name=".ui.registration.RegistrationActivity">
     </activity>
     <activity
@@ -27,8 +32,8 @@
       </intent-filter>
     </activity>
   </application>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
   <uses-permission android:name="android.permission.INTERNET"/>
+
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>
