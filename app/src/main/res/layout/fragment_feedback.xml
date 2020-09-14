@@ -5,4 +5,61 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:src="@drawable/logohsspl"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Enter email"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter subject"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="Write your Message"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_botton"
+        android:text="SEND FEEDBACK"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"/>
+
+
+
+
 </LinearLayout>
