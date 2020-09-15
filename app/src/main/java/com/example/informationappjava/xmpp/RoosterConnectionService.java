@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import java.io.IOException;
@@ -33,13 +34,14 @@ public class RoosterConnectionService extends Service {
     }
 
     try {
+
       connection.connect();
-    } catch (IOException e) {
+
+    } catch (IOException | XMPPException | SmackException e) {
+
+      Log.d(LOGTAG, "Something went wrong while connecting, make sure the credentials are right and try again");
       e.printStackTrace();
-    } catch (XMPPException e) {
-      e.printStackTrace();
-    } catch (SmackException e) {
-      e.printStackTrace();
+
     }
   }
 
@@ -56,13 +58,51 @@ public class RoosterConnectionService extends Service {
 
   @Override
   public int onStartCommand(Intent intent, int flags, int startId) {
-
     //Do your task here
+    start();
     return Service.START_STICKY;
   }
 
   @Override
   public void onDestroy() {
     super.onDestroy();
+    stop();
+  }
+
+  public void start() {
+    Log.d(LOGTAG, "Service Start() function calles. active: " + active);
+    if (!active) {
+
+      active = true;
+      if (thread == null || thread.isAlive()){
+        thread = new Thread(new Runnable() {
+          @Override
+          public void run() {
+
+            Looper.prepare();
+            handler = new Handler();
+            initConnection();
+
+            //The Code here runs in background thread
+            Looper.loop();
+          }
+        });
+        thread.start();
+      }
+    }
+  }
+
+  public void stop() {
+
+    Log.d(LOGTAG, "stop()");
+    active = false;
+    handler.post(new Runnable() {
+      @Override
+      public void run() {
+        if (connection != null){
+          connection.disconnect();
+        }
+      }
+    });
   }
 }

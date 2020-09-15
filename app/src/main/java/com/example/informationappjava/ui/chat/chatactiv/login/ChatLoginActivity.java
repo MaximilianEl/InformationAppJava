@@ -2,6 +2,8 @@ package com.example.informationappjava.ui.chat.chatactiv.login;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -19,12 +21,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.preference.PreferenceManager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
+import com.example.informationappjava.xmpp.RoosterConnection;
+import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ChatLoginActivity extends AppCompatActivity {
 
+    private static final String LOGTAG = "LoginActivity";
     private LoginViewModel loginViewModel;
+    private EditText jidEditText;
+    private EditText passwordEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +43,8 @@ public class ChatLoginActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final EditText jidEditText = findViewById(R.id.jid_login_form);
-        final EditText passwordEditText = findViewById(R.id.password);
+        jidEditText = findViewById(R.id.jid_login_form);
+        passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
@@ -128,5 +136,18 @@ public class ChatLoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveCredentialsAndLogin() {
+        Log.d(LOGTAG, "saveCredentialsAndLogin() called");
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences.edit()
+            .putString("xmpp_jid", jidEditText.getText().toString())
+            .putString("xmpp_password", passwordEditText.getText().toString())
+            .commit();
+
+        Intent intent = new Intent(this, RoosterConnectionService.class);
+        startService(intent);
+
     }
 }
