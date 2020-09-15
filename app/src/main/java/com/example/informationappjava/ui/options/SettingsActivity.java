@@ -3,15 +3,13 @@ package com.example.informationappjava.ui.options;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import com.example.informationappjava.R;
 
 public class SettingsActivity extends AppCompatActivity {
-
-    private static final String LOGTAG = "SWITCH";
-    private int soEineNummer;
 
     private SwitchCompat myswitch;
 
@@ -23,6 +21,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
+
+        myswitch = findViewById(R.id.myswitch);
 
         if (AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
             myswitch.setChecked(true);
