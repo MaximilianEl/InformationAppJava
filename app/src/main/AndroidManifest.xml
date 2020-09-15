@@ -34,7 +34,7 @@
                 android:value=".ui.chat.chatlist.ChatListActivity"/>
         </activity>
         <activity
-            android:name=".ui.chat.chatactiv.login.ChatLoginActivity"
+            android:name=".ui.chat.login.LoginActivity"
             android:label="Chat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
