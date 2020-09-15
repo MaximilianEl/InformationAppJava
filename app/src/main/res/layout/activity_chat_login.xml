@@ -8,6 +8,11 @@
         android:layout_height="match_parent"
         tools:context=".ui.chat.chatactiv.login.ChatLoginActivity">
 
+    <ScrollView
+      android:id="@+id/login_form"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
     <EditText
             android:id="@+id/jid_login_form"
             android:layout_width="0dp"
@@ -70,4 +75,7 @@
             app:layout_constraintStart_toStartOf="@+id/password"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3"/>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

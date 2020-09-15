@@ -66,4 +66,6 @@
     <string name="send_message">Send Message</string>
     <string name="received_message">Receive Message</string>
     <string name="dark_mode">Dark Mode</string>
+  <string name="permission_rationale">permission rationale</string>
+
 </resources>
