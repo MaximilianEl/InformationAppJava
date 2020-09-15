@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.chatactiv.login.model;
+package com.example.informationappjava.ui.chat.login.model;
 
 public class Chat {
     private String jid;

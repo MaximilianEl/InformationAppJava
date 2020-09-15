@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.chatactiv.login.model.Chat;
-import com.example.informationappjava.ui.chat.chatactiv.login.model.ChatModel;
+import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.login.model.ChatModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
