@@ -33,6 +33,8 @@ public class RoosterConnection implements ConnectionListener {
 
   public void connect() throws IOException, XMPPException, SmackException {
 
+    gatherCredentials();
+
     XMPPTCPConnectionConfiguration connectionConfiguration = XMPPTCPConnectionConfiguration
         .builder()
         .setXmppDomain(serviceName)
@@ -54,7 +56,16 @@ public class RoosterConnection implements ConnectionListener {
     connection.setUseStreamManagement(true);
     connection.setUseStreamManagementResumption(true);
     connection.setPreferredResumptionTime(5);
+    connection.addConnectionListener(this);
 
+    try {
+      Log.d(LOGTAG, "Calling connection()");
+      connection.connect();
+      connection.login(username, password);
+      Log.d(LOGTAG, "login() called");
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public void disconnect() {
