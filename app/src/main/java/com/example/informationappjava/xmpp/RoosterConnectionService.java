@@ -7,6 +7,8 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
+import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import java.io.IOException;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
@@ -38,8 +40,27 @@ public class RoosterConnectionService extends Service {
       connection.connect();
 
     } catch (IOException | XMPPException | SmackException e) {
-
       Log.d(LOGTAG, "Something went wrong while connecting, make sure the credentials are right and try again");
+
+      Intent intent = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
+      intent.setPackage(getApplicationContext().getPackageName());
+      getApplicationContext().sendBroadcast(intent);
+      Log.d(LOGTAG, "Sent the broadcast for connection Error from service");
+
+      //Stop the service all together if user is not logged in already.
+      boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+          .getBoolean("xmpp_logged_in", false);
+      if (!loggedInState) {
+
+        Log.d(LOGTAG, "Logged in state: " + loggedInState + " calling stopself()");
+        stopSelf();
+
+      } else {
+
+        Log.d(LOGTAG, "Logged in state: " + loggedInState);
+
+      }
+
       e.printStackTrace();
 
     }

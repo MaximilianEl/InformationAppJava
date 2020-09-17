@@ -1,9 +1,12 @@
 package com.example.informationappjava.xmpp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import com.example.informationappjava.ui.chat.login.Constants;
+import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import java.io.IOException;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
@@ -106,6 +109,11 @@ public class RoosterConnection implements ConnectionListener {
     Log.d(LOGTAG, " - authenticated");
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
     preferences.edit().putBoolean("xmpp_logged_in", false).commit();
+
+    Intent intent = new Intent(BroadCastMessages.UI_AUTHENTICATED);
+    intent.setPackage(context.getPackageName());
+    context.sendBroadcast(intent);
+    Log.d(LOGTAG, "Sent the broadcast that were authenticated");
 
   }
 

@@ -3,7 +3,10 @@ package com.example.informationappjava.ui.chat.login;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -31,6 +34,7 @@ import android.widget.TextView;
 import androidx.preference.PreferenceManager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
+import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -55,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +90,44 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.loading);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.unregisterReceiver(broadcastReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+              String action = intent.getAction();
+              switch (action) {
+                  case BroadCastMessages.UI_AUTHENTICATED:
+                      Log.d(LOGTAG, "Got a broadcast to show the main app window");
+                      showProgress(false);
+                      Intent intent1 = new Intent(getApplicationContext(), ChatListActivity.class);
+                      startActivity(intent1);
+                      finish();
+                      break;
+
+                  case BroadCastMessages.UI_CONNECTION_ERROR:
+                      Log.d(LOGTAG, "Got Connection Error in login activity");
+                      showProgress(false);
+                      mjidView.setError("Something went wrong while connection. Make sure the credentials are valid and try again.");
+
+                      break;
+              }
+            }
+        };
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(BroadCastMessages.UI_AUTHENTICATED);
+        filter.addAction(BroadCastMessages.UI_CONNECTION_ERROR);
+        this.registerReceiver(broadcastReceiver, filter);
     }
 
     /**
