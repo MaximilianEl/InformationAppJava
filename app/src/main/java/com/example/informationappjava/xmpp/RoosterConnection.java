@@ -73,7 +73,7 @@ public class RoosterConnection implements ConnectionListener {
     Log.d(LOGTAG, "Disconnecting from server " + serviceName);
 
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    preferences.edit().putBoolean("xmpp_logged_in", false).apply();
+    preferences.edit().putBoolean("xmpp_logged_in", false).commit();
 
     if (connection != null) {
       connection.disconnect();
@@ -105,7 +105,7 @@ public class RoosterConnection implements ConnectionListener {
   public void authenticated(XMPPConnection connection, boolean resumed) {
     Log.d(LOGTAG, " - authenticated");
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    preferences.edit().putBoolean("xmpp_logged_in", false).apply();
+    preferences.edit().putBoolean("xmpp_logged_in", false).commit();
 
   }
 
