@@ -23,11 +23,21 @@
     <string name="imprint_hs2">University of Applied Sciences</string>
     <string name="imprint_street">Kaiserstraße 10C</string>
     <string name="imprint_plz">49809 Lingen(Ems)</string>
-    <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
-    <string name="imprint_haft"><u>Haftungsausschluss</u></string>
-    <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
-    <string name="imprint_osource"><u>Open Source Libraries</u></string>
-    <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
+    <string name="imprint_data">
+        <u>Hinweise zum Datenschutz</u>
+    </string>
+    <string name="imprint_haft">
+        <u>Haftungsausschluss</u>
+    </string>
+    <string name="imprint_uhr">
+        <u>Uhrheberrechtsinformationen</u>
+    </string>
+    <string name="imprint_osource">
+        <u>Open Source Libraries</u>
+    </string>
+    <string name="imprint_website">
+        <u>www.hs-osnabrueck.de</u>
+    </string>
 
     <string name="camp_header">Willkommen am Campus Lingen!</string>
     <string name="camp_mhead">Erkunde den Campus!</string>
@@ -66,6 +76,8 @@
     <string name="send_message">Send Message</string>
     <string name="received_message">Receive Message</string>
     <string name="dark_mode">Dark Mode</string>
-  <string name="permission_rationale">permission rationale</string>
+    <string name="permission_rationale">permission rationale</string>
+    <string name="me">Me</string>
+    <string name="title_me_activity">Me</string>
 
 </resources>

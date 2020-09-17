@@ -2,24 +2,28 @@ package com.example.informationappjava.ui.chat.chatlist;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.MeActivity;
 import com.example.informationappjava.ui.chat.chatlist.adapters.ChatListAdapter;
 import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
 import com.example.informationappjava.ui.chat.login.LoginActivity;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class ChatListActivity extends AppCompatActivity implements ChatListAdapter.OnItemClickListener{
+public class ChatListActivity extends AppCompatActivity implements ChatListAdapter.OnItemClickListener {
 
     private static final String LOGTAG = "ChatListActivity";
     private RecyclerView chatRecycler;
-    private FloatingActionButton  newConversationButton;
+    private FloatingActionButton newConversationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,7 @@ public class ChatListActivity extends AppCompatActivity implements ChatListAdapt
         setContentView(R.layout.activity_chatlist);
 
         boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-            .getBoolean("xmpp_logged_in", false);
+                .getBoolean("xmpp_logged_in", false);
         if (!loggedInState) {
             Log.d(LOGTAG, "Logged in state: " + loggedInState);
             Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
@@ -51,6 +55,20 @@ public class ChatListActivity extends AppCompatActivity implements ChatListAdapt
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.me) {
+            Intent i = new Intent(ChatListActivity.this, MeActivity.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

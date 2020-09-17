@@ -12,8 +12,6 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.net.Uri;
 import android.os.AsyncTask;
 

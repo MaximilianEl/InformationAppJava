@@ -12,6 +12,7 @@ import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import java.io.IOException;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
 
 public class RoosterConnectionService extends Service {
 
@@ -22,6 +23,11 @@ public class RoosterConnectionService extends Service {
   private Thread thread;
   //We use this handler to post messages to the background thread.
   private Handler handler;
+
+  public static RoosterConnection getConnection() {
+    return connection;
+  }
+
   private static RoosterConnection connection;
 
   public RoosterConnectionService() {
@@ -75,6 +81,7 @@ public class RoosterConnectionService extends Service {
   @Override
   public void onCreate() {
     super.onCreate();
+    ServerPingWithAlarmManager.onCreate(this);
   }
 
   @Override
@@ -87,6 +94,7 @@ public class RoosterConnectionService extends Service {
   @Override
   public void onDestroy() {
     super.onDestroy();
+    ServerPingWithAlarmManager.onDestroy();
     stop();
   }
 
