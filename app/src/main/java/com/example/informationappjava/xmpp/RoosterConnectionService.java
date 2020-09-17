@@ -13,7 +13,7 @@ import org.jivesoftware.smack.XMPPException;
 
 public class RoosterConnectionService extends Service {
 
-  private static final String LOGTAG = "RoosterConnectionService";
+  private static final String LOGTAG = "RoosterConService";
 
   //Stores whether or not the thread is active
   private boolean active;
@@ -74,7 +74,7 @@ public class RoosterConnectionService extends Service {
     if (!active) {
 
       active = true;
-      if (thread == null || thread.isAlive()){
+      if (thread == null || !thread.isAlive()){
         thread = new Thread(new Runnable() {
           @Override
           public void run() {
