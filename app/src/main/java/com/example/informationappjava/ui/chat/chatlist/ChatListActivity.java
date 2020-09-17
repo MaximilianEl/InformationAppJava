@@ -1,19 +1,23 @@
 package com.example.informationappjava.ui.chat.chatlist;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.adapters.ChatListAdapter;
 import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
+import com.example.informationappjava.ui.chat.login.LoginActivity;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ChatListActivity extends AppCompatActivity implements ChatListAdapter.OnItemClickListener{
 
+    private static final String LOGTAG = "ChatListActivity";
     private RecyclerView chatRecycler;
     private FloatingActionButton  newConversationButton;
 
@@ -21,6 +25,15 @@ public class ChatListActivity extends AppCompatActivity implements ChatListAdapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatlist);
+
+        boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+            .getBoolean("xmpp_logged_in", false);
+        if (!loggedInState) {
+            Log.d(LOGTAG, "Logged in state: " + loggedInState);
+            Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         chatRecycler = findViewById(R.id.chatsRecyclerView);
         chatRecycler.setLayoutManager(new LinearLayoutManager(getBaseContext()));
