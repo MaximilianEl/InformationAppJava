@@ -41,7 +41,7 @@ public class DatabaseBackend extends SQLiteOpenHelper {
             + ChatMessage.Cols.MESSAGE + " TEXT, "
             + ChatMessage.Cols.MESSAGE_TYPE + " TEXT,"
             + ChatMessage.Cols.TIMESTAMP + " NUMBER, "
-            + ChatMessage.Cols.CONTACT_JID + " TEXT,"
+            + ChatMessage.Cols.CONTACT_JID + " TEXT"
             + ");";
 
 

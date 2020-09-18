@@ -5,28 +5,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.*;
 import android.widget.EditText;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.ui.chat.MeActivity;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
+import com.example.informationappjava.ui.chat.chatlist.model.Contact;
+import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
 import com.example.informationappjava.ui.chat.contactlist.adapter.ContactListAdapter;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 
 import com.example.informationappjava.R;
 
-public class ContactListActivity extends AppCompatActivity implements ContactListAdapter.OnItemClickListener {
+public class ContactListActivity extends AppCompatActivity implements ContactListAdapter.OnItemClickListener, ContactListAdapter.OnItemLongClickListener {
 
     private RecyclerView contactListRecyclerView;
+    ContactListAdapter mAdapter;
     private static final String LOGTAG = "ContactListActivity";
 
     @Override
@@ -49,8 +51,9 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
         contactListRecyclerView = findViewById(R.id.contact_list_recycler_view);
         contactListRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
-        ContactListAdapter mAdapter = new ContactListAdapter(getApplicationContext());
+        mAdapter = new ContactListAdapter(getApplicationContext());
         mAdapter.setmOnItemClickListener(this);
+        mAdapter.setmOnItemLongClickListener(this);
         contactListRecyclerView.setAdapter(mAdapter);
     }
 
@@ -65,6 +68,12 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d(LOGTAG, "User clicked on OK");
+                if (ContactModel.get(getApplicationContext()).addContact(new Contact(input.getText().toString(), Contact.SubscriptionType.NONE_NONE))) {
+                    mAdapter.onContactCountChange();
+                    Log.d(LOGTAG, "Contact added successfully");
+                } else {
+                    Log.d(LOGTAG, "Could not add contact");
+                }
             }
         });
         builder.setNegativeButton(R.string.add_contact_cancel_text, new DialogInterface.OnClickListener() {
@@ -96,6 +105,39 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
     @Override
     public void onItemClick(String contactJid) {
         Intent intent = new Intent(ContactListActivity.this, ChatViewActivity.class);
+        intent.putExtra("contact_jid", contactJid);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemLongClick(final int uniqueId,final String contactJid, View anchor) {
+
+        PopupMenu popup = new PopupMenu(ContactListActivity.this, anchor, Gravity.CENTER);
+
+        popup.getMenuInflater().inflate(R.menu.contact_list_popup_menu, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.delete_contact:
+                        if (ContactModel.get(getApplicationContext()).deleteContact(uniqueId)) {
+                            mAdapter.onContactCountChange();
+                            Toast.makeText(ContactListActivity.this,
+                                    "Contact deleted successfully ",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case R.id.contact_details:
+                        Toast.makeText(ContactListActivity.this,
+                                "You Long Clicked to see : " + contactJid + " 's contact details",
+                                Toast.LENGTH_SHORT).show();
+                        return true;
+                }
+                return true;
+            }
+        });
+
     }
 }
