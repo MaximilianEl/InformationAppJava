@@ -55,7 +55,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         this.mOnItemLongClickListener = mOnItemLongClickListener;
     }
 
-
     @NonNull
     @NotNull
     @Override
