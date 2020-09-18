@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.ui.chat.MeActivity;
 import com.example.informationappjava.ui.chat.Utilities;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
+import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
 import com.example.informationappjava.ui.chat.contactdetails.ContactDetailsActivity;
 import com.example.informationappjava.ui.chat.contactlist.adapter.ContactListAdapter;
@@ -77,7 +78,7 @@ public class ContactListActivity extends AppCompatActivity implements
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Log.d(LOGTAG, "User clicked on OK");
                         if (ContactModel.get(getApplicationContext()).addContact(
-                                new Contact(input.getText().toString(), Contact.SubscriptionType.NONE_NONE))) {
+                                new Contact(input.getText().toString(), SubscriptionType.NONE))) {
                             mAdapter.onContactCountChange();
                             Log.d(LOGTAG, "Contact added successfully");
                         } else {
