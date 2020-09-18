@@ -22,8 +22,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
   private static final String LOGTAG = "ChatListAdapter";
 
   public interface OnItemClickListener {
-
-    public void onItemClick(String contactJid);
+    public void onItemClick(String contactJid, Chat.ContactType chatType);
   }
 
   public interface OnItemLongClickListener {
@@ -113,7 +112,7 @@ class ChatHolder extends RecyclerView.ViewHolder {
 
         ChatListAdapter.OnItemClickListener listener = chatListAdapter.getOnItemClickListener();
         if (listener != null) {
-          listener.onItemClick(contactTextView.getText().toString());
+          listener.onItemClick(contactTextView.getText().toString(), mChat.getContactType());
 
         }
 

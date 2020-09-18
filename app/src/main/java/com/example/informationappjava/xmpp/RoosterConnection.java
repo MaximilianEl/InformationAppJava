@@ -38,315 +38,333 @@ import org.jxmpp.stringprep.XmppStringprepException;
 
 public class RoosterConnection implements ConnectionListener {
 
-  private static final String LOGTAG = "RoosterConnection";
+    private static final String LOGTAG = "RoosterConnection";
 
-  private final Context context;
-  private String username;
-  private String password;
-  private String serviceName;
-  private XMPPTCPConnection connection;
-  private ConnectionState mConnectionState;
-  private PingManager pingManager;
-  private ChatManager chatManager;
+    private final Context context;
+    private String username;
+    private String password;
+    private String serviceName;
+    private XMPPTCPConnection connection;
+    private ConnectionState mConnectionState;
+    private PingManager pingManager;
+    private ChatManager chatManager;
 
-  public enum ConnectionState {
-    OFFLINE, CONNECTING, ONLINE
-  }
-
-  private void updateActivitiesOfConnectionStateChange(ConnectionState mConnectionState) {
-    ConnectionState connectionState = mConnectionState;
-    String status;
-    switch (mConnectionState) {
-      case OFFLINE:
-        status = "Offline";
-        break;
-      case ONLINE:
-        status = "Online";
-        break;
-      case CONNECTING:
-        status = "Connecting...";
-        break;
-      default:
-        status = "Offline";
-        break;
+    public enum ConnectionState {
+        OFFLINE, CONNECTING, ONLINE
     }
-    Intent i = new Intent(BroadCastMessages.UI_CONNECTION_STATUS_CHANGE_FLAG);
-    i.putExtra(Constants.UI_CONNECTION_STATUS_CHANGE, status);
-    i.setPackage(context.getPackageName());
-    context.sendBroadcast(i);
-  }
 
-  public RoosterConnection(Context context) {
-    Log.d(LOGTAG, "RoosterConnection Constructor called");
-    this.context = context;
-  }
-
-  public ConnectionState getmConnectionState() {
-    return mConnectionState;
-  }
-
-  public void setmConnectionState(ConnectionState mConnectionState) {
-    this.mConnectionState = mConnectionState;
-  }
-
-  public String getConnectionstateString() {
-    switch (mConnectionState) {
-      case OFFLINE:
-        return "Offline";
-      case ONLINE:
-        return "Online";
-      case CONNECTING:
-        return "Connecting...";
-      default:
-        return "Offline";
+    private void updateActivitiesOfConnectionStateChange(ConnectionState mConnectionState) {
+        ConnectionState connectionState = mConnectionState;
+        String status;
+        switch (mConnectionState) {
+            case OFFLINE:
+                status = "Offline";
+                break;
+            case ONLINE:
+                status = "Online";
+                break;
+            case CONNECTING:
+                status = "Connecting...";
+                break;
+            default:
+                status = "Offline";
+                break;
+        }
+        Intent i = new Intent(BroadCastMessages.UI_CONNECTION_STATUS_CHANGE_FLAG);
+        i.putExtra(Constants.UI_CONNECTION_STATUS_CHANGE, status);
+        i.setPackage(context.getPackageName());
+        context.sendBroadcast(i);
     }
-  }
 
-  private void notifyUiForConnectionError() {
-    Intent i = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
-    i.setPackage(context.getPackageName());
-    context.sendBroadcast(i);
-    Log.d(LOGTAG, "Sent the broadcast for connection Error");
-  }
+    public RoosterConnection(Context context) {
+        Log.d(LOGTAG, "RoosterConnection Constructor called");
+        this.context = context;
+    }
 
-  public void connect() throws IOException, XMPPException, SmackException {
+    public ConnectionState getmConnectionState() {
+        return mConnectionState;
+    }
 
-    mConnectionState = ConnectionState.CONNECTING;
-    updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
-    gatherCredentials();
+    public void setmConnectionState(ConnectionState mConnectionState) {
+        this.mConnectionState = mConnectionState;
+    }
 
-    XMPPTCPConnectionConfiguration connectionConfiguration = XMPPTCPConnectionConfiguration
-        .builder()
-        .setXmppDomain(serviceName)
-        .setHost(serviceName)
-        .setResource("Rooster+")
+    public String getConnectionstateString() {
+        switch (mConnectionState) {
+            case OFFLINE:
+                return "Offline";
+            case ONLINE:
+                return "Online";
+            case CONNECTING:
+                return "Connecting...";
+            default:
+                return "Offline";
+        }
+    }
 
-        .setKeystoreType(null)
+    private void notifyUiForConnectionError() {
+        Intent i = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
+        i.setPackage(context.getPackageName());
+        context.sendBroadcast(i);
+        Log.d(LOGTAG, "Sent the broadcast for connection Error");
+    }
 
-        .setSendPresence(true)
-        .setDebuggerEnabled(true)
-        .setSecurityMode(SecurityMode.required)
-        .setCompressionEnabled(true)
-        .build();
+    public void connect() throws IOException, XMPPException, SmackException {
 
-    SmackConfiguration.DEBUG = true;
-    XMPPTCPConnection.setUseStreamManagementDefault(true);
+        mConnectionState = ConnectionState.CONNECTING;
+        updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
+        gatherCredentials();
 
-    connection = new XMPPTCPConnection(connectionConfiguration);
-    connection.setUseStreamManagement(true);
-    connection.setUseStreamManagementResumption(true);
-    connection.setPreferredResumptionTime(5);
-    connection.addConnectionListener(this);
+        XMPPTCPConnectionConfiguration connectionConfiguration = XMPPTCPConnectionConfiguration
+                .builder()
+                .setXmppDomain(serviceName)
+                .setHost(serviceName)
+                .setResource("Rooster+")
 
-    chatManager = ChatManager.getInstanceFor(connection);
-    chatManager.addIncomingListener(new IncomingChatMessageListener() {
-      @Override
-      public void newIncomingMessage(EntityBareJid from, Message message, Chat chat) {
+                .setKeystoreType(null)
 
-        Log.d(LOGTAG, "message.getBody(): " + message.getBody());
-        Log.d(LOGTAG, "message.getFrom(): " + message.getFrom());
+                .setSendPresence(true)
+                .setDebuggerEnabled(true)
+                .setSecurityMode(SecurityMode.required)
+                .setCompressionEnabled(true)
+                .build();
 
-        String messageSource = message.getFrom().toString();
+        SmackConfiguration.DEBUG = true;
+        XMPPTCPConnection.setUseStreamManagementDefault(true);
 
-        String contactJid = "";
-        if (messageSource.contains("/")) {
+        connection = new XMPPTCPConnection(connectionConfiguration);
+        connection.setUseStreamManagement(true);
+        connection.setUseStreamManagementResumption(true);
+        connection.setPreferredResumptionTime(5);
+        connection.addConnectionListener(this);
 
-          contactJid = messageSource.split("/")[0];
-          Log.d(LOGTAG, "The real jid is: " + contactJid);
-          Log.d(LOGTAG, "The message is from: " + from);
-        } else {
-          contactJid = messageSource;
+        chatManager = ChatManager.getInstanceFor(connection);
+        chatManager.addIncomingListener(new IncomingChatMessageListener() {
+            @Override
+            public void newIncomingMessage(EntityBareJid from, Message message, Chat chat) {
+
+                Log.d(LOGTAG, "message.getBody(): " + message.getBody());
+                Log.d(LOGTAG, "message.getFrom(): " + message.getFrom());
+
+                String messageSource = message.getFrom().toString();
+
+                String contactJid = "";
+                if (messageSource.contains("/")) {
+
+                    contactJid = messageSource.split("/")[0];
+                    Log.d(LOGTAG, "The real jid is: " + contactJid);
+                    Log.d(LOGTAG, "The message is from: " + from);
+                } else {
+                    contactJid = messageSource;
+                }
+
+                //Add message to the model
+                ChatMessagesModel.get(context).addMessage(
+                        new ChatMessage(message.getBody(), System.currentTimeMillis(), Type.RECEIVED,
+                                contactJid));
+
+                //If the view (ChatViewActivity) is visible, inform it so it can do necessary adjustments
+                Intent intent = new Intent(BroadCastMessages.UI_NEW_MESSAGE_FLAG);
+                intent.setPackage(context.getPackageName());
+                context.sendBroadcast(intent);
+            }
+        });
+
+        ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
+        pingManager = PingManager.getInstanceFor(connection);
+        pingManager.setPingInterval(30);
+
+        try {
+            Log.d(LOGTAG, "Calling connection()");
+            connection.connect();
+            connection.login(username, password);
+            Log.d(LOGTAG, "login() called");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void disconnect() {
+
+        Log.d(LOGTAG, "Disconnecting from server " + serviceName);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putBoolean("xmpp_logged_in", false).commit();
+
+        if (connection != null) {
+            connection.disconnect();
         }
 
-        //Add message to the model
-        ChatMessagesModel.get(context).addMessage(
-            new ChatMessage(message.getBody(), System.currentTimeMillis(), Type.RECEIVED,
-                contactJid));
+    }
 
-        //If the view (ChatViewActivity) is visible, inform it so it can do necessary adjustments
-        Intent intent = new Intent(BroadCastMessages.UI_NEW_MESSAGE_FLAG);
+    public void sendMessage(String body, String toJid) {
+        Log.d(LOGTAG, "Sending message to: " + toJid);
+
+        EntityBareJid jid = null;
+
+        try {
+            jid = JidCreate.entityBareFrom(toJid);
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+        }
+
+        Chat chat = chatManager.chatWith(jid);
+        try {
+
+            Message message = new Message(jid, Message.Type.chat);
+            message.setBody(body);
+            chat.send(message);
+            ChatMessagesModel.get(context)
+                    .addMessage(new ChatMessage(body, System.currentTimeMillis(), Type.SENT, toJid));
+
+        } catch (NotConnectedException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean subscribe(String contact) {
+
+        Jid jidTo = null;
+
+        try {
+            jidTo = JidCreate.from(contact);
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        Presence subscribe = new Presence(jidTo, Presence.Type.subscribe);
+        if (sendPresence(subscribe)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public boolean sendPresence(Presence presence) {
+
+        if (connection != null) {
+
+            try {
+                connection.sendStanza(presence);
+            } catch (NotConnectedException | InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unsubsribe(String contact) {
+
+        Jid jidTo = null;
+
+        try {
+            jidTo = JidCreate.from(contact);
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        Presence unsubscribe = new Presence(jidTo, Presence.Type.unsubscribe);
+        if (sendPresence(unsubscribe)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean subscribed(String contact) {
+
+        Jid jidTo = null;
+
+        try {
+            jidTo = JidCreate.from(contact);
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        Presence subscribe = new Presence(jidTo, Presence.Type.subscribe);
+        sendPresence(subscribe);
+        return true;
+    }
+
+
+    private void gatherCredentials() {
+        String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
+
+        password = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString("xmpp_password", null);
+
+        if (jid != null) {
+            username = jid.split("@")[0];
+            serviceName = jid.split("@")[1];
+        } else {
+            username = "";
+            serviceName = "";
+        }
+    }
+
+
+    @Override
+    public void connected(XMPPConnection connection) {
+        Log.d(LOGTAG, " - Connected");
+        mConnectionState = ConnectionState.CONNECTING;
+        updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
+    }
+
+    @Override
+    public void authenticated(XMPPConnection connection, boolean resumed) {
+        mConnectionState = ConnectionState.ONLINE;
+        updateActivitiesOfConnectionStateChange(ConnectionState.ONLINE);
+
+        Log.d(LOGTAG, " - authenticated");
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putBoolean("xmpp_logged_in", true).commit();
+
+        Intent intent = new Intent(Constants.BroadCastMessages.UI_AUTHENTICATED);
         intent.setPackage(context.getPackageName());
         context.sendBroadcast(intent);
-      }
-    });
+        Log.d(LOGTAG, "Sent the broadcast that were authenticated");
 
-    ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
-    pingManager = PingManager.getInstanceFor(connection);
-    pingManager.setPingInterval(30);
-
-    try {
-      Log.d(LOGTAG, "Calling connection()");
-      connection.connect();
-      connection.login(username, password);
-      Log.d(LOGTAG, "login() called");
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void disconnect() {
-
-    Log.d(LOGTAG, "Disconnecting from server " + serviceName);
-
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    preferences.edit().putBoolean("xmpp_logged_in", false).commit();
-
-    if (connection != null) {
-      connection.disconnect();
     }
 
-  }
-
-  public void sendMessage(String body, String toJid) {
-    Log.d(LOGTAG, "Sending message to: " + toJid);
-
-    EntityBareJid jid = null;
-
-    try {
-      jid = JidCreate.entityBareFrom(toJid);
-    } catch (XmppStringprepException e) {
-      e.printStackTrace();
-    }
-
-    Chat chat = chatManager.chatWith(jid);
-    try {
-
-      Message message = new Message(jid, Message.Type.chat);
-      message.setBody(body);
-      chat.send(message);
-      ChatMessagesModel.get(context)
-          .addMessage(new ChatMessage(body, System.currentTimeMillis(), Type.SENT, toJid));
-
-    } catch (NotConnectedException | InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public boolean subscribe(String contact) {
-
-    Jid jidTo = null;
-
-    try {
-      jidTo = JidCreate.from(contact);
-    } catch (XmppStringprepException e) {
-      e.printStackTrace();
-      return false;
-    }
-
-    Presence subscribe = new Presence(jidTo, Presence.Type.subscribe);
-    if (sendPresence(subscribe)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public boolean sendPresence(Presence presence) {
-
-    if (connection != null) {
-
-      try {
-        connection.sendStanza(presence);
-      } catch (NotConnectedException | InterruptedException e) {
-        e.printStackTrace();
-        return false;
-      }
-      return true;
-    }
-    return false;
-  }
-
-  public boolean unsubsribe(String contact) {
-
-    Jid jidTo = null;
-
-    try {
-      jidTo = JidCreate.from(contact);
-    } catch (XmppStringprepException e) {
-      e.printStackTrace();
-      return false;
-    }
-
-    Presence unsubscribe = new Presence(jidTo, Presence.Type.unsubscribe);
-    if (sendPresence(unsubscribe)){
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  private void gatherCredentials() {
-    String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
-
-    password = PreferenceManager.getDefaultSharedPreferences(context)
-        .getString("xmpp_password", null);
-
-    if (jid != null) {
-      username = jid.split("@")[0];
-      serviceName = jid.split("@")[1];
-    } else {
-      username = "";
-      serviceName = "";
-    }
-  }
-
-
-  @Override
-  public void connected(XMPPConnection connection) {
-    Log.d(LOGTAG, " - Connected");
-    mConnectionState = ConnectionState.CONNECTING;
-    updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
-  }
-
-  @Override
-  public void authenticated(XMPPConnection connection, boolean resumed) {
-    mConnectionState = ConnectionState.ONLINE;
-    updateActivitiesOfConnectionStateChange(ConnectionState.ONLINE);
-
-    Log.d(LOGTAG, " - authenticated");
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    preferences.edit().putBoolean("xmpp_logged_in", true).commit();
-
-    Intent intent = new Intent(Constants.BroadCastMessages.UI_AUTHENTICATED);
-    intent.setPackage(context.getPackageName());
-    context.sendBroadcast(intent);
-    Log.d(LOGTAG, "Sent the broadcast that were authenticated");
-
-  }
-
-  @Override
-  public void connectionClosed() {
-    Log.d(LOGTAG, " - connectionClosed");
+    @Override
+    public void connectionClosed() {
+        Log.d(LOGTAG, " - connectionClosed");
 //        notifyUiForConnectionError();
-    mConnectionState = ConnectionState.OFFLINE;
-    updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
-  }
+        mConnectionState = ConnectionState.OFFLINE;
+        updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
+    }
 
-  @Override
-  public void connectionClosedOnError(Exception e) {
-    Log.d(LOGTAG, " - connectionClosedOnError");
-    mConnectionState = ConnectionState.OFFLINE;
-    updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
-  }
+    @Override
+    public void connectionClosedOnError(Exception e) {
+        Log.d(LOGTAG, " - connectionClosedOnError");
+        mConnectionState = ConnectionState.OFFLINE;
+        updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
+    }
 
-  @Override
-  public void reconnectionSuccessful() {
-    Log.d(LOGTAG, " - reconnectionSuccessful");
-    mConnectionState = ConnectionState.ONLINE;
-    updateActivitiesOfConnectionStateChange(ConnectionState.ONLINE);
-  }
+    @Override
+    public void reconnectionSuccessful() {
+        Log.d(LOGTAG, " - reconnectionSuccessful");
+        mConnectionState = ConnectionState.ONLINE;
+        updateActivitiesOfConnectionStateChange(ConnectionState.ONLINE);
+    }
 
-  @Override
-  public void reconnectingIn(int seconds) {
-    Log.d(LOGTAG, " - Reconnecting in " + seconds + " seconds");
-    mConnectionState = ConnectionState.CONNECTING;
-    updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
-  }
+    @Override
+    public void reconnectingIn(int seconds) {
+        Log.d(LOGTAG, " - Reconnecting in " + seconds + " seconds");
+        mConnectionState = ConnectionState.CONNECTING;
+        updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
+    }
 
-  @Override
-  public void reconnectionFailed(Exception e) {
-    Log.d(LOGTAG, " - reconnectionFailed");
-    mConnectionState = ConnectionState.OFFLINE;
-    updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
-  }
+    @Override
+    public void reconnectionFailed(Exception e) {
+        Log.d(LOGTAG, " - reconnectionFailed");
+        mConnectionState = ConnectionState.OFFLINE;
+        updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
+    }
 }

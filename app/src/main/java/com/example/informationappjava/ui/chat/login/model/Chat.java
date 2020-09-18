@@ -96,6 +96,6 @@ public class Chat {
     }
 
     public enum ContactType {
-        ONE_ON_ONE, GROUP
+        ONE_ON_ONE, GROUP, STRANGER
     }
 }

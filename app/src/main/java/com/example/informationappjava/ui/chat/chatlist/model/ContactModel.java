@@ -69,7 +69,7 @@ public class ContactModel {
         }
     }
 
-    public boolean deleteContact(Contact c){
+    public boolean deleteContact(Contact c) {
         int uniqueId = c.getPersistID();
         return deleteContact(uniqueId);
     }
