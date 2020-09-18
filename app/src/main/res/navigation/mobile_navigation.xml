@@ -25,9 +25,9 @@
 
   <activity
     android:id="@+id/nav_chat"
-    android:name="com.example.informationappjava.ui.chat.login.LoginActivity"
+    android:name="com.example.informationappjava.ui.chat.chatlist.ChatListActivity"
     android:label="@string/menu_chat"
-    tools:layout="@layout/activity_chat_login"/>
+    tools:layout="@layout/activity_chatlist"/>
 
   <activity
     android:id="@+id/nav_options"

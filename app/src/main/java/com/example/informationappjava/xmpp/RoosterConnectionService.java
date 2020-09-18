@@ -54,16 +54,16 @@ public class RoosterConnectionService extends Service {
       Log.d(LOGTAG, "Sent the broadcast for connection Error from service");
 
       //Stop the service all together if user is not logged in already.
-      boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+      boolean logged_in_state = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
           .getBoolean("xmpp_logged_in", false);
-      if (!loggedInState) {
+      if (!logged_in_state) {
 
-        Log.d(LOGTAG, "Logged in state: " + loggedInState + " calling stopself()");
+        Log.d(LOGTAG, "Logged in state: " + logged_in_state + " calling stopself()");
         stopSelf();
 
       } else {
 
-        Log.d(LOGTAG, "Logged in state: " + loggedInState);
+        Log.d(LOGTAG, "Logged in state: " + logged_in_state);
 
       }
 
