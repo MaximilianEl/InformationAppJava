@@ -38,10 +38,12 @@ public class ChatListActivity extends AppCompatActivity implements
     boolean logged_in_state = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
         .getBoolean("xmpp_logged_in", false);
     if (!logged_in_state) {
+
       Log.d(LOGTAG, "Logged in state: " + logged_in_state);
       Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
       startActivity(intent);
       finish();
+
     } else {
 
       if (!Utilities.isServiceRunning(RoosterConnection.class, getApplicationContext())) {

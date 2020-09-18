@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button mjidSignInButton = (Button) findViewById(R.id.jid_sign_in);
+        Button mjidSignInButton = findViewById(R.id.jid_sign_in);
         mjidSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
