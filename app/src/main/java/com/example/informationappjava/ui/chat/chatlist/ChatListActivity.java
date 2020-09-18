@@ -35,10 +35,10 @@ public class ChatListActivity extends AppCompatActivity implements
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chatlist);
 
-    boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+    boolean logged_in_state = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
         .getBoolean("xmpp_logged_in", false);
-    if (!loggedInState) {
-      Log.d(LOGTAG, "Logged in state: " + loggedInState);
+    if (!logged_in_state) {
+      Log.d(LOGTAG, "Logged in state: " + logged_in_state);
       Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
       startActivity(intent);
       finish();
