@@ -5,10 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.informationappjava.ui.chat.MeActivity;
+import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 import com.example.informationappjava.ui.chat.contactlist.adapter.ContactListAdapter;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,6 +75,23 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_me_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.me) {
+            Intent i = new Intent(ContactListActivity.this, MeActivity.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public void onItemClick(String contactJid) {

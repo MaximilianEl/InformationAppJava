@@ -3,6 +3,7 @@ package com.example.informationappjava.ui.chat.chatlist;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -30,14 +31,14 @@ public class ChatListActivity extends AppCompatActivity implements ChatListAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatlist);
 
-        boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                .getBoolean("xmpp_logged_in", false);
-        if (!loggedInState) {
-            Log.d(LOGTAG, "Logged in state: " + loggedInState);
-            Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        boolean loggedInState = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+//                .getBoolean("xmpp_logged_in", false);
+//        if (!loggedInState) {
+//            Log.d(LOGTAG, "Logged in state: " + loggedInState);
+//            Intent intent = new Intent(ChatListActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
         chatRecycler = findViewById(R.id.chatsRecyclerView);
         chatRecycler.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -59,7 +60,9 @@ public class ChatListActivity extends AppCompatActivity implements ChatListAdapt
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_me_menu, menu);
+        return true;
     }
 
     @Override
