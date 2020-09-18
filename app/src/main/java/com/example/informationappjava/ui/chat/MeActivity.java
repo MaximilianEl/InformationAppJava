@@ -26,11 +26,10 @@ public class MeActivity extends AppCompatActivity {
         RoosterConnection connection = RoosterConnectionService.getConnection();
         connectionStatusTextView = findViewById(R.id.connection_status);
 
-        if(connection != null){
+        if (connection != null) {
             status = connection.getConnectionstateString();
             connectionStatusTextView.setText(status);
         }
-
     }
 
     @Override
