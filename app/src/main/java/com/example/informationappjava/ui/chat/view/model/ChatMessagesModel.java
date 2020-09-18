@@ -70,7 +70,7 @@ public class ChatMessagesModel {
     }
 
     public boolean deleteMessage(int uniqueId) {
-        int value = mDatabase.delete(ChatMessage.TABLE_NAME, ChatMessage.Cols.CHAT_MESSAGE_UNIQUE_ID + )
+        int value = mDatabase.delete(ChatMessage.TABLE_NAME, ChatMessage.Cols.CHAT_MESSAGE_UNIQUE_ID + "=?", new String[]{});
 
         if (value == 1) {
             Log.d(LOGTAG, "Successfully deleted a record");
