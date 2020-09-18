@@ -1,5 +1,9 @@
 package com.example.informationappjava.ui.chat.view;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,12 +16,15 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.login.Constants;
+import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import com.example.informationappjava.ui.chat.view.adapter.ChatMessageAdapter;
 import com.example.informationappjava.ui.chat.view.keyboard.KeyboardUtil;
 import com.example.informationappjava.ui.chat.view.keyboard.KeyboardUtil.KeyboardVisibilityListener;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
+import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ChatViewActivity extends AppCompatActivity implements
     ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener {
@@ -26,13 +33,19 @@ public class ChatViewActivity extends AppCompatActivity implements
   private EditText textSendEditText;
   private ImageButton sendMessageButton;
   ChatMessageAdapter adapter;
+  private String counterpartJid;
+  private BroadcastReceiver receiver;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chat_view);
-
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    //Get the counterpart Jid
+    Intent intent = getIntent();
+    counterpartJid = intent.getStringExtra("contact_jid");
+    setTitle(counterpartJid);
 
     chatMessageRecyclerView = findViewById(R.id.chatMessagesRecycler);
     chatMessageRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -48,12 +61,11 @@ public class ChatViewActivity extends AppCompatActivity implements
       @Override
       public void onClick(View view) {
 
-        ChatMessagesModel.get(getApplicationContext()).addMessage(
-            new ChatMessage(textSendEditText.getText().toString(), System.currentTimeMillis(),
-                Type.SENT,
-                "user@server.com"));
-
+        RoosterConnectionService.getConnection()
+            .sendMessage(textSendEditText.getText().toString(), counterpartJid);
+        adapter.onMessageAdd();
         textSendEditText.getText().clear();
+
       }
     });
 
@@ -78,6 +90,34 @@ public class ChatViewActivity extends AppCompatActivity implements
     }
 
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    unregisterReceiver(receiver);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+
+    adapter.informRecyclerViewToScrollDown();
+
+    receiver = new BroadcastReceiver() {
+      @Override
+      public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        switch (action) {
+          case BroadCastMessages.UI_NEW_MESSAGE_FLAG:
+            adapter.onMessageAdd();
+            return;
+        }
+      }
+    };
+
+    IntentFilter filter = new IntentFilter(Constants.BroadCastMessages.UI_NEW_MESSAGE_FLAG);
+    registerReceiver(receiver, filter);
   }
 
   @Override

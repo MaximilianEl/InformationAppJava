@@ -97,6 +97,7 @@ public class ChatListActivity extends AppCompatActivity implements
   @Override
   public void onItemClick(String contactJid) {
     Intent intent = new Intent(ChatListActivity.this, ChatViewActivity.class);
+    intent.putExtra("contact_jid", contactJid);
     startActivity(intent);
   }
 }

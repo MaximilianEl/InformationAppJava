@@ -27,7 +27,7 @@ public class ChatModel {
     public List<Chat> getChats()
     {
         List<Chat> chats = new ArrayList<>();
-        Chat chat1 = new Chat("user1@server1.com", "Hey there");
+        Chat chat1 = new Chat("septest2@chinwag.im", "Hey there");
         chats.add(chat1);
         Chat chat2 = new Chat("user2@server2.com", "Hey there");
         chats.add(chat2);

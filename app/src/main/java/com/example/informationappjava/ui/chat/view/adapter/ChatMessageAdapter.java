@@ -15,8 +15,7 @@ import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
-public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> implements
-    ChatMessagesModel.OnMessageAddListener {
+public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
   public interface OnInformRecyclerViewToScrollDownListener {
 
@@ -45,7 +44,6 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
 
     chatMessageList = ChatMessagesModel.get(context).getMessages();
 
-    ChatMessagesModel.get(context).setMessageAddListener(this);
   }
 
   public void informRecyclerViewToScrollDown() {
@@ -93,7 +91,6 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     }
   }
 
-  @Override
   public void onMessageAdd() {
     chatMessageList = ChatMessagesModel.get(context).getMessages();
     notifyDataSetChanged();
