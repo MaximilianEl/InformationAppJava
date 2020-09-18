@@ -100,6 +100,13 @@ public class RoosterConnection implements ConnectionListener {
         }
     }
 
+    private void notifyUiForConnectionError(){
+        Intent i = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
+        i.setPackage(context.getPackageName());
+        context.sendBroadcast(i);
+        Log.d(LOGTAG,"Sent the broadcast for connection Error");
+    }
+
     public void connect() throws IOException, XMPPException, SmackException {
 
         mConnectionState = ConnectionState.CONNECTING;
@@ -156,8 +163,6 @@ public class RoosterConnection implements ConnectionListener {
                 Intent intent = new Intent(BroadCastMessages.UI_NEW_MESSAGE_FLAG);
                 intent.setPackage(context.getPackageName());
                 context.sendBroadcast(intent);
-
-
             }
         });
 
@@ -227,6 +232,7 @@ public class RoosterConnection implements ConnectionListener {
             serviceName = "";
         }
     }
+
 
     @Override
     public void connected(XMPPConnection connection) {

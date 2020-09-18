@@ -4,18 +4,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import com.example.informationappjava.ui.chat.view.adapter.ChatMessageAdapter;
@@ -27,7 +28,7 @@ import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ChatViewActivity extends AppCompatActivity implements
-    ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener {
+    ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener, ChatMessageAdapter.OnItemLongClickListener {
 
   private RecyclerView chatMessageRecyclerView;
   private EditText textSendEditText;
@@ -50,9 +51,9 @@ public class ChatViewActivity extends AppCompatActivity implements
     chatMessageRecyclerView = findViewById(R.id.chatMessagesRecycler);
     chatMessageRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
-    adapter = new ChatMessageAdapter(getApplicationContext(),
-        "user@example.com");
+    adapter = new ChatMessageAdapter(getApplicationContext(), counterpartJid);
     adapter.setOnInformRecyclerViewToScrollDownListener(this);
+    adapter.setOnItemLongClickListener(this);
     chatMessageRecyclerView.setAdapter(adapter);
 
     textSendEditText = findViewById(R.id.textInput);
@@ -128,5 +129,31 @@ public class ChatViewActivity extends AppCompatActivity implements
   @Override
   public void onKeyboardVisibilityChanged(boolean keyboardVisible) {
     adapter.informRecyclerViewToScrollDown();
+  }
+
+  @Override
+  public void onItemLongClick(int uniqueId, View anchor) {
+
+    PopupMenu popup = new PopupMenu(ChatViewActivity.this, anchor, Gravity.CENTER);
+
+    popup.getMenuInflater().inflate(R.menu.chat_view_popup_menu, popup.getMenu());
+
+    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+      @Override
+      public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+          case R.id.delete_message:
+            if (ContactModel.get(getApplicationContext()).deleteContact(uniqueId)) {
+              adapter.onMessageAdd();
+              Toast.makeText(ChatViewActivity.this,
+                      "Message deleted successfully ",
+                      Toast.LENGTH_SHORT).show();
+            }
+            break;
+        }
+        return true;
+      }
+    });
+    popup.show();
   }
 }
