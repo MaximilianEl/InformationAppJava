@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
+import com.example.informationappjava.ui.chat.chatlist.model.Contact.Cols;
 import com.example.informationappjava.ui.chat.login.model.Chat;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 
@@ -14,7 +15,7 @@ public class DatabaseBackend extends SQLiteOpenHelper {
   private static final String LOGTAG = "DatabaseBackend";
   private static DatabaseBackend instance = null;
   private static final String DATABASE_NAME = "roosterPlus";
-  private static final int DATABASE_VERSION = 1;
+  private static final int DATABASE_VERSION = 2;
 
   //Create Chat List Table
   private static String CREATE_CHAT_LIST_STATEMENT = "create table "
@@ -33,7 +34,10 @@ public class DatabaseBackend extends SQLiteOpenHelper {
       + Contact.Cols.CONTACT_UNIQUE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
       + Contact.Cols.SUBSCRIPTION_TYPE + " TEXT, "
       + Contact.Cols.CONTACT_JID + " TEXT,"
-      + Contact.Cols.PROFILE_IMAGE_PATH + " TEXT"
+      + Contact.Cols.PROFILE_IMAGE_PATH + " TEXT,"
+      + Cols.PENDING_STATUS_FROM + " NUMBER DEFAULT 0,"
+      + Cols.PENDING_STATUS_TO + " NUMBER DEFAULT 0,"
+      + Cols.ONLINE_STATUS + " NUMBER DEFAULT 0"
       + ");";
 
   //Create Message List Table
@@ -68,7 +72,17 @@ public class DatabaseBackend extends SQLiteOpenHelper {
   }
 
   @Override
-  public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+  public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+
+    if (oldVersion < 2 && newVersion >= 2) {
+      Log.d(LOGTAG, "Upgrading db to version 2...");
+      sqLiteDatabase.execSQL("ALTER TABLE " + Contact.TABLE_NAME + " ADD COLUMN "
+          + Cols.PENDING_STATUS_TO + " NUMBER DEFAULT 0");
+      sqLiteDatabase.execSQL("ALTER TABLE " + Contact.TABLE_NAME + " ADD COLUMN "
+          + Cols.PENDING_STATUS_FROM + " NUMBER DEFAULT 0");
+      sqLiteDatabase.execSQL("ALTER TABLE " + Contact.TABLE_NAME + " ADD COLUMN "
+          + Cols.ONLINE_STATUS + " NUMBER DEFAULT 0");
+    }
 
   }
 }

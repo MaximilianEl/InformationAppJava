@@ -74,7 +74,6 @@
     <string name="add_contact_cancel_text">Cancel</string>
 
     <string name="send_message">Send Message</string>
-    <string name="received_message">Receive Message</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="permission_rationale">permission rationale</string>
     <string name="me">Me</string>
@@ -83,5 +82,9 @@
     <string name="contact_details">Contact Details</string>
     <string name="delete_chat">Delete Chat</string>
     <string name="delete_message">Delete Message</string>
+  <string name="onstatthem">They can see my online status.</string>
+    <string name="pending">Pending...</string>
+    <string name="onstattheir">I can see their online status.</string>
+    <string name="contact_details_chat_view">Contact Details</string>
 
 </resources>

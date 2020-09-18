@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contactdetails.ContactDetailsActivity;
 import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
@@ -28,7 +29,8 @@ import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ChatViewActivity extends AppCompatActivity implements
-    ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener, ChatMessageAdapter.OnItemLongClickListener {
+    ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener,
+    ChatMessageAdapter.OnItemLongClickListener {
 
   private RecyclerView chatMessageRecyclerView;
   private EditText textSendEditText;
@@ -83,11 +85,11 @@ public class ChatViewActivity extends AppCompatActivity implements
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
 
-    if (item.getItemId() == R.id.received_message) {
-      ChatMessagesModel.get(getApplicationContext()).addMessage(
-          new ChatMessage("This is a message you received!", System.currentTimeMillis(),
-              Type.RECEIVED,
-              "user@server.com"));
+    if (item.getItemId() == R.id.contact_details_chat_view) {
+
+      Intent intent = new Intent(ChatViewActivity.this, ContactDetailsActivity.class);
+      intent.putExtra("contact_jid", counterpartJid);
+      startActivity(intent);
     }
 
     return super.onOptionsItemSelected(item);
@@ -146,8 +148,8 @@ public class ChatViewActivity extends AppCompatActivity implements
             if (ContactModel.get(getApplicationContext()).deleteContact(uniqueId)) {
               adapter.onMessageAdd();
               Toast.makeText(ChatViewActivity.this,
-                      "Message deleted successfully ",
-                      Toast.LENGTH_SHORT).show();
+                  "Message deleted successfully ",
+                  Toast.LENGTH_SHORT).show();
             }
             break;
         }

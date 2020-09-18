@@ -4,4 +4,7 @@
   <item android:id="@+id/received_message"
     android:title="@string/received_message"/>
 
+  <item android:id="@+id/contact_details_chat_view"
+    android:title="@string/contact_details_chat_view"/>
+
 </menu>

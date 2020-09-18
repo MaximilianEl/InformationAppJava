@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.ui.chat.MeActivity;
 import com.example.informationappjava.ui.chat.Utilities;
-import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contactdetails.ContactDetailsActivity;
 import com.example.informationappjava.ui.chat.contactlist.adapter.ContactListAdapter;
 import com.example.informationappjava.ui.chat.login.model.Chat;
 import com.example.informationappjava.ui.chat.login.model.Chat.ContactType;
@@ -161,9 +161,9 @@ public class ContactListActivity extends AppCompatActivity implements
                         break;
 
                     case R.id.contact_details:
-                        Toast.makeText(ContactListActivity.this,
-                                "You Long Clicked to see : " + contactJid + " 's contact details",
-                                Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ContactListActivity.this, ContactDetailsActivity.class);
+                        intent.putExtra("contact_jid", contactJid);
+                        startActivity(intent);
                         return true;
                 }
                 return true;
