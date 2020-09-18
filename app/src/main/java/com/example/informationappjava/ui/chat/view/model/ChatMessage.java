@@ -1,5 +1,6 @@
 package com.example.informationappjava.ui.chat.view.model;
 
+import android.content.ContentValues;
 import android.text.format.DateFormat;
 import java.util.concurrent.TimeUnit;
 
@@ -8,6 +9,7 @@ public class ChatMessage {
   private long timestamp;
   private Type type;
   private String contactJid;
+  private int persistID;
 
   public static final String TABLE_NAME = "chatMessages";
 
@@ -58,7 +60,32 @@ public class ChatMessage {
     this.contactJid = contactJid;
   }
 
+  public int getPersistID() {
+    return persistID;
+  }
 
+  public void setPersistID(int persistID) {
+    this.persistID = persistID;
+  }
+
+  public String getTypeStringValue(Type type) {
+    if (type == Type.SENT){
+      return "SENT";
+    } else {
+      return "RECEIVED";
+    }
+  }
+
+  public ContentValues getContentValues() {
+
+    ContentValues values = new ContentValues();
+    values.put(Cols.MESSAGE, message);
+    values.put(Cols.TIMESTAMP, timestamp);
+    values.put(Cols.MESSAGE_TYPE, getTypeStringValue(type));
+    values.put(Cols.CONTACT_JID, contactJid);
+
+    return values;
+  }
 
   public enum Type {
     SENT, RECEIVED
