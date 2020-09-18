@@ -9,6 +9,16 @@ public class ChatMessage {
   private Type type;
   private String contactJid;
 
+  public static final String TABLE_NAME = "chatMessages";
+
+  public static final class Cols {
+    public static final String CHAT_MESSAGE_UNIQUE_ID = "chatMessageUniqueId";
+    public static final String MESSAGE = "message";
+    public static final String TIMESTAMP = "timestamp";
+    public static final String MESSAGE_TYPE = "messageType";
+    public static final String CONTACT_JID = "contactjid";
+  }
+
   public ChatMessage(String message, long timestamp, Type type, String contactJid) {
     this.message = message;
     timestamp = timestamp;

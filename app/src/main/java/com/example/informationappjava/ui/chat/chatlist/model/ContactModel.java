@@ -1,6 +1,10 @@
 package com.example.informationappjava.ui.chat.chatlist.model;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.example.informationappjava.persistence.ContactCursorWrapper;
+import com.example.informationappjava.persistence.DatabaseBackend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +14,7 @@ public class ContactModel {
     private static final String LOGTAG = "ContactModel";
     private static ContactModel sContactModel;
     private Context mContext;
-    private List<Contact> mContactList;
+    private SQLiteDatabase mDatabase;
 
     public static ContactModel get(Context context) {
         if (sContactModel == null) {
@@ -21,30 +25,27 @@ public class ContactModel {
 
     private ContactModel(Context context) {
         mContext = context;
-        mContactList = new ArrayList<>();
+        mDatabase = DatabaseBackend.getInstance(mContext).getWritableDatabase();
 
-        Contact contact1 = new Contact("Max", Contact.SubscriptionType.NONE_NONE);
-        mContactList.add(contact1);
-        Contact contact2 = new Contact("Sebastian", Contact.SubscriptionType.NONE_NONE);
-        mContactList.add(contact2);
-        Contact contact3 = new Contact("nochmalSebastian?", Contact.SubscriptionType.NONE_NONE);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
-        mContactList.add(contact3);
+
 
     }
 
     public List<Contact> getContacts() {
         return mContactList;
+    }
+
+    private ContactCursorWrapper queryContacts(String whereClause, String [] whereArgs){
+        Cursor cursor = mDatabase.query(
+                Contact.TABLE_NAME,
+                null, //Colums - null selects all Columns
+                whereClause,
+                whereArgs,
+                null, //groupBy
+                null, //having
+                null //orderby
+        );
+        return new ContactCursorWrapper(cursor);
     }
 
     public void addContact(Contact c) {
