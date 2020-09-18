@@ -65,7 +65,19 @@ public class Chat {
         this.unreadCount = unreadCount;
     }
 
-    public ContentValues getContentValues(){
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
+    }
+
+    public long getLastMessageTimeStamp() {
+        return lastMessageTimeStamp;
+    }
+
+    public void setLastMessageTimeStamp(long lastMessageTimeStamp) {
+        this.lastMessageTimeStamp = lastMessageTimeStamp;
+    }
+
+    public ContentValues getContentValues() {
         ContentValues values = new ContentValues();
         values.put(Cols.CONTACT_JID, jid);
         values.put(Cols.CONTACT_TYPE, getTypeStringValue(contactType));
