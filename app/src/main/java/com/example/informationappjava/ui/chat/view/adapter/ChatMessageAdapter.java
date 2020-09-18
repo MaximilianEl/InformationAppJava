@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.Utilities;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
@@ -114,7 +115,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
   public void bindChat(ChatMessage chatMessage) {
     messageBody.setText(chatMessage.getMessage());
-    messageTimestamp.setText(chatMessage.getFormattedTime());
+    messageTimestamp.setText(Utilities.getFormattedTime(chatMessage.getTimestamp()));
     profileImage.setImageResource(R.drawable.ic_baseline_person_24);
   }
 }

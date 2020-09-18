@@ -14,16 +14,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.ui.chat.MeActivity;
+import com.example.informationappjava.ui.chat.Utilities;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
 import com.example.informationappjava.ui.chat.contactlist.adapter.ContactListAdapter;
+import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.login.model.Chat.ContactType;
+import com.example.informationappjava.ui.chat.login.model.ChatModel;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.informationappjava.R;
+import java.util.List;
 
 public class ContactListActivity extends AppCompatActivity implements
         ContactListAdapter.OnItemClickListener, ContactListAdapter.OnItemLongClickListener {
@@ -112,9 +117,27 @@ public class ContactListActivity extends AppCompatActivity implements
 
     @Override
     public void onItemClick(String contactJid) {
-        Intent intent = new Intent(ContactListActivity.this, ChatViewActivity.class);
-        intent.putExtra("contact_jid", contactJid);
-        startActivity(intent);
+
+        Log.d(LOGTAG, "Inside contactListActivity the clicked contact is: " + contactJid);
+        List<Chat> chats = ChatModel.get(getApplicationContext()).getChatsByJid(contactJid);
+        if (chats.size() == 0) {
+            Log.d(LOGTAG, contactJid + " is a new chat, adding them. With timestamp: " + Utilities.getFormattedTime(System.currentTimeMillis()));
+
+            Chat chat = new Chat(contactJid, "", ContactType.ONE_ON_ONE, System.currentTimeMillis(), 0);
+            ChatModel.get(getApplicationContext()).addChat(chat);
+
+            //Inside here we start the chat activity
+            Intent intent = new Intent(ContactListActivity.this, ChatViewActivity.class);
+            intent.putExtra("contact_jid", contactJid);
+            startActivity(intent);
+            finish();
+        } else {
+            Log.d(LOGTAG, contactJid + "is ALREADY in chat db. Just opening conversation");
+            Intent intent = new Intent(ContactListActivity.this, ChatViewActivity.class);
+            intent.putExtra("contact_jid", contactJid);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override

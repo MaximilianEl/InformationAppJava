@@ -4,6 +4,8 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.text.format.DateFormat;
+import java.util.concurrent.TimeUnit;
 
 public class Utilities {
 
@@ -23,6 +25,16 @@ public class Utilities {
         .getSystemService(Context.CONNECTIVITY_SERVICE);
     NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
     return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+  }
+
+  public static String getFormattedTime(long timestamp) {
+
+    long oneDayInMillis = TimeUnit.DAYS.toMillis(1); //24 * 60 * 60 * 1000
+    long timeDifference = System.currentTimeMillis() - timestamp;
+
+    return timeDifference < oneDayInMillis
+        ? DateFormat.format("hh:mm a", timestamp).toString()
+        : DateFormat.format("dd MMM - hh:mm a", timestamp).toString();
   }
 
 
