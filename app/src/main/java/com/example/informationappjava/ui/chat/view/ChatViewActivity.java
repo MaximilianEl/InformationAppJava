@@ -85,54 +85,54 @@ public class ChatViewActivity extends AppCompatActivity implements
         snackBar = findViewById(R.id.snackbar);
         snackBarStranger = findViewById(R.id.snackbar_stranger);
 
-        if (!ContactModel.get(context).isContactStranger(counterpartJid)) {
-            snackBarStranger.setVisibility(View.GONE);
-            Log.d(LOGTAG, counterpartJid + " is not a stranger");
-            Contact contact = ContactModel.get(this).getContactByJidString(counterpartJid);
-            Log.d(LOGTAG, "We got a contact with JID : " + contact.getJid());
+//        if (!ContactModel.get(context).isContactStranger(counterpartJid)) {
+//            snackBarStranger.setVisibility(View.GONE);
+//            Log.d(LOGTAG, counterpartJid + " is not a stranger");
+//            Contact contact = ContactModel.get(this).getContactByJidString(counterpartJid);
+//            Log.d(LOGTAG, "We got a contact with JID : " + contact.getJid());
+//
+//            if (contact.isPendingFrom()) {
+//                Log.d(LOGTAG, " Your subscription to " + contact.getJid() + " is in the FROM direction is");
+//                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_huge);
+//                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
+//                snackBar.setVisibility(View.VISIBLE);
+//            } else {
+//                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_normal);
+//                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
+//                snackBar.setVisibility(View.GONE);
+//            }
+//        } else {
+//            if (chatType == Chat.ContactType.STRANGER) {
+//                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_huge);
+//                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
+//                snackBar.setVisibility(View.VISIBLE);
+//                snackBarStranger.setVisibility(View.GONE);
+//            } else {
+//                Log.d(LOGTAG, counterpartJid + " is a stranger. Hiding snackbar");
+//                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_normal);
+//                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
+//                snackBarStranger.setVisibility(View.VISIBLE);
+//                snackBar.setVisibility(View.GONE);
+//            }
+//        }
 
-            if (contact.isPendingFrom()) {
-                Log.d(LOGTAG, " Your subscription to " + contact.getJid() + " is in the FROM direction is");
-                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_huge);
-                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
-                snackBar.setVisibility(View.VISIBLE);
-            } else {
-                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_normal);
-                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
-                snackBar.setVisibility(View.GONE);
-            }
-        } else {
-            if (chatType == Chat.ContactType.STRANGER) {
-                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_huge);
-                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
-                snackBar.setVisibility(View.VISIBLE);
-                snackBarStranger.setVisibility(View.GONE);
-            } else {
-                Log.d(LOGTAG, counterpartJid + " is a stranger. Hiding snackbar");
-                int paddingBottom = getResources().getDimensionPixelOffset(R.dimen.chatview_recycler_view_padding_normal);
-                chatMessageRecyclerView.setPadding(0, 0, 0, paddingBottom);
-                snackBarStranger.setVisibility(View.VISIBLE);
-                snackBar.setVisibility(View.GONE);
-            }
-        }
-
-        snackBarActionAccept = findViewById(R.id.snackbar_action_accept);
-        snackBarActionAccept.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ContactModel.get(context).isContactStranger(counterpartJid)) {
-                    if (ContactModel.get(context).addContact(new Contact(counterpartJid, ))) {
-                        Log.d(LOGTAG, "Previously stranger contact " + counterpartJid + " now successfully added to");
-                    }
-                }
-                Log.d(LOGTAG, " Accept presence subscription from :" + counterpartJid);
-                if (RoosterConnectionService.getConnection().subscribed(counterpartJid)) {
-                    ContactModel.get(getApplicationContext()).updateContactSubscriptionOnSendSubscription(counterpartJid);
-                    Toast.makeText(ChatViewActivity.this, "Subscription from " + counterpartJid + "accepted", Toast.LENGTH_LONG).show();
-                }
-                snackBar.setVisibility(View.GONE);
-            }
-        });
+//        snackBarActionAccept = findViewById(R.id.snackbar_action_accept);
+//        snackBarActionAccept.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (ContactModel.get(context).isContactStranger(counterpartJid)) {
+//                    if (ContactModel.get(context).addContact(new Contact(counterpartJid, ))) {
+//                        Log.d(LOGTAG, "Previously stranger contact " + counterpartJid + " now successfully added to");
+//                    }
+//                }
+//                Log.d(LOGTAG, " Accept presence subscription from :" + counterpartJid);
+//                if (RoosterConnectionService.getConnection().subscribed(counterpartJid)) {
+//                    //ContactModel.get(getApplicationContext()).updateContactSubscriptionOnSendSubscription(counterpartJid);
+//                    Toast.makeText(ChatViewActivity.this, "Subscription from " + counterpartJid + "accepted", Toast.LENGTH_LONG).show();
+//                }
+//                snackBar.setVisibility(View.GONE);
+//            }
+//        });
 
         snackBarActionDeny = findViewById(R.id.snackbar_action_accept);
         snackBarActionDeny.setOnClickListener(new OnClickListener() {
