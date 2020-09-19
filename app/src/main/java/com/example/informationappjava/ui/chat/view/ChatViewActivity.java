@@ -88,7 +88,7 @@ public class ChatViewActivity extends AppCompatActivity implements
         if (!ContactModel.get(context).isContactStranger(counterpartJid)) {
             snackBarStranger.setVisibility(View.GONE);
             Log.d(LOGTAG, counterpartJid + " is not a stranger");
-            Contact contact = ContactModel.get(this).getContactByJidString(counterpartJid);
+            Contact contact = ContactModel.get(this).getContactsByJidString(counterpartJid);
             Log.d(LOGTAG, "We got a contact with JID : " + contact.getJid());
 
             if (contact.isPendingFrom()) {
@@ -171,13 +171,6 @@ public class ChatViewActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item.getItemId() == R.id.received_message) {
-            ChatMessagesModel.get(getApplicationContext()).addMessage(
-                    new ChatMessage("This is a message you received!", System.currentTimeMillis(),
-                            Type.RECEIVED,
-                            "user@server.com"));
-        }
 
         return super.onOptionsItemSelected(item);
     }

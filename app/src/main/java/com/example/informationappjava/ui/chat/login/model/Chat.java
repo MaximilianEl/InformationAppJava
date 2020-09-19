@@ -91,8 +91,12 @@ public class Chat {
     public String getTypeStringValue(ContactType type) {
         if (type == ContactType.ONE_ON_ONE)
             return "ONE_ON_ONE";
-        else
+        else if (type == ContactType.GROUP)
             return "GROUP";
+        else if (type == ContactType.STRANGER)
+            return "STRANGER";
+        else
+            return null;
     }
 
     public enum ContactType {

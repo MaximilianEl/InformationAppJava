@@ -43,7 +43,7 @@ public class Contact {
         return values;
     }
 
-    private String getTypeStringValule(SubscriptionType type) {
+    public String getTypeStringValule(SubscriptionType type) {
 
         if (type == SubscriptionType.FROM)
             return "FROM";
