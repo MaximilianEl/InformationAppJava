@@ -9,79 +9,77 @@
         android:orientation="vertical">
 
     <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/camp_header"
-      android:textSize="20sp"
-
-      android:textColor="@color/colorPrimaryDark"
-        android:layout_margin="10dp"
-      android:textAlignment="center"/>
-
-    <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="300dp"
-        android:layout_margin="10dp"
-      android:background="@color/colorPrimaryDark"
-        android:orientation="vertical">
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Der Campus"
+            android:text="@string/camp_header"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#fff"
-            android:paddingTop="15dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="10dp"
             android:textAlignment="center"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Der Campus"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:paddingTop="15dp"
+                android:textAlignment="center"/>
 
 
         <androidx.viewpager.widget.ViewPager
-          android:id="@+id/camppager"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-
-            android:paddingEnd="40dp"
-          android:layout_marginTop="10dp">
+                android:id="@+id/camppager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:paddingEnd="40dp"
+                android:layout_marginTop="10dp">
 
             <com.google.android.material.tabs.TabLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_gravity="bottom"
-              app:tabBackground="@drawable/tab_selector"
-              app:tabGravity="center"
-              app:tabIndicatorHeight="0dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"/>
 
         </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
 
     <TextView
-      android:layout_marginTop="10dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/camp_mhead"
-      android:textStyle="bold"
-      android:textColor="#000"
-      android:textAlignment="center"
-      android:textSize="18sp"/>
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/camp_mhead"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
 
     <Button
-      android:id="@+id/campus_map_button"
-      android:layout_width="220dp"
-      android:layout_height="50dp"
-      android:text="@string/camp_map"
-      android:background="@drawable/custom_botton"
-      android:layout_marginTop="5dp"
-      android:layout_gravity="center"/>
+            android:id="@+id/campus_map_button"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:text="@string/camp_map"
+            android:background="@drawable/custom_botton"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/campus_des_button"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/custom_botton"
-        android:layout_marginTop="5dp"
-        android:text="@string/camp_des" />
+            android:id="@+id/campus_des_button"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_botton"
+            android:layout_marginTop="5dp"
+            android:text="@string/camp_des"/>
 
 </LinearLayout>

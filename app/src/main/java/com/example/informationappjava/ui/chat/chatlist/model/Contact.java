@@ -28,9 +28,9 @@ public class Contact {
         ContentValues values = new ContentValues();
         //CONTACT_UNIQUE_ID is autofilled
         //SQLite doesn't have a boolean data type. We turn boolean into integers before db write
-        int pendingFromInt = (pendingFrom)? 1 : 0;
-        int pendingToInt = (pendingTo)? 1 : 0;
-        int onlineStatusInt = (onlineStatus)? 1 : 0;
+        int pendingFromInt = (pendingFrom) ? 1 : 0;
+        int pendingToInt = (pendingTo) ? 1 : 0;
+        int onlineStatusInt = (onlineStatus) ? 1 : 0;
 
         values.put(Cols.CONTACT_JID, jid);
         values.put(Cols.SUBSCRIPTION_TYPE, getTypeStringValule(subscriptionType));

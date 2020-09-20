@@ -102,23 +102,23 @@ public class LoginActivity extends AppCompatActivity {
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-              String action = intent.getAction();
-              switch (action) {
-                  case BroadCastMessages.UI_AUTHENTICATED:
-                      Log.d(LOGTAG, "Got a broadcast to show the main app window");
-                      showProgress(false);
-                      Intent intent1 = new Intent(getApplicationContext(), ChatListActivity.class);
-                      startActivity(intent1);
-                      finish();
-                      break;
+                String action = intent.getAction();
+                switch (action) {
+                    case BroadCastMessages.UI_AUTHENTICATED:
+                        Log.d(LOGTAG, "Got a broadcast to show the main app window");
+                        showProgress(false);
+                        Intent intent1 = new Intent(getApplicationContext(), ChatListActivity.class);
+                        startActivity(intent1);
+                        finish();
+                        break;
 
-                  case BroadCastMessages.UI_CONNECTION_ERROR:
-                      Log.d(LOGTAG, "Got Connection Error in login activity");
-                      showProgress(false);
-                      mjidView.setError("Something went wrong while connection. Make sure the credentials are valid and try again.");
+                    case BroadCastMessages.UI_CONNECTION_ERROR:
+                        Log.d(LOGTAG, "Got Connection Error in login activity");
+                        showProgress(false);
+                        mjidView.setError("Something went wrong while connection. Make sure the credentials are valid and try again.");
 
-                      break;
-              }
+                        break;
+                }
             }
         };
 
@@ -226,9 +226,9 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(LOGTAG, "saveCredentialsAndLogin() called.");
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         preferences.edit()
-            .putString("xmpp_jid", mjidView.getText().toString())
-            .putString("xmpp_password", mPasswordView.getText().toString())
-            .commit();
+                .putString("xmpp_jid", mjidView.getText().toString())
+                .putString("xmpp_password", mPasswordView.getText().toString())
+                .commit();
 
         Intent intent = new Intent(this, RoosterConnectionService.class);
         startService(intent);

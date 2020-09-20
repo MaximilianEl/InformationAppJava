@@ -52,20 +52,20 @@ public class ContactModel {
     List<Contact> contacts = getContacts();
     List<String> stringJid = new ArrayList<>();
 
-    Contact contact = null;
+    Contact mContact = null;
 
     Log.d(LOGTAG, "Looping around contacts==========");
 
-    for (Contact mContact : contacts) {
+    for (Contact contact : contacts) {
 
       Log.d(LOGTAG, "Contact Jid: " + contact.getJid());
       Log.d(LOGTAG, "Subscription type: " + contact.getTypeStringValule(contact.getSubscriptionType()));
       if (contact.getJid().equals(jidString)) {
 
-        contact = mContact;
+        mContact = contact;
       }
     }
-    return contact;
+    return mContact;
   }
 
   public List<String> getContactJidStrings() {
