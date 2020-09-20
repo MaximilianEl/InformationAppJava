@@ -17,7 +17,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Name"
+        android:hint="@string/feedback_name"
         android:inputType="textPersonName"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="Enter email"
+        android:hint="@string/feedback_email"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
     <EditText
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Enter subject"
+        android:hint="@string/feedback_subject"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
     <EditText
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:hint="Write your Message"
+        android:hint="@string/feedback_message"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"/>
 
@@ -55,7 +55,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_botton"
-        android:text="SEND FEEDBACK"
+        android:text="@string/institute_feedback"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"/>
 

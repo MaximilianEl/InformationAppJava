@@ -10,7 +10,6 @@ public class NewsViewModel extends ViewModel {
 
   public NewsViewModel() {
     mText = new MutableLiveData<>();
-    mText.setValue("Willkommen am Institut für Management und Technik am Campus Lingen");
   }
 
   public LiveData<String> getText() {

@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import androidx.annotation.NonNull;
+
 import androidx.core.app.ActivityCompat;
+
+import com.example.informationappjava.ui.options.SharedPref;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -18,7 +19,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
@@ -27,10 +27,18 @@ public class NavDrawer extends AppCompatActivity {
     private com.getbase.floatingactionbutton.FloatingActionButton fabFaceBook;
     private com.getbase.floatingactionbutton.FloatingActionButton fabYoutube;
 
+
+
+
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);

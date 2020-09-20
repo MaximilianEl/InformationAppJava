@@ -22,6 +22,8 @@ public class InstituteFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
         View root = inflater.inflate(R.layout.fragment_institute, container, false);
 

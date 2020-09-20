@@ -34,6 +34,15 @@
 
     </style>
 
+    <style name="SettingsLight" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/windowAnimationTransition</item>
+    </style>
+
+    <style name="SettingsDark" parent="darktheme">
+        <item name="android:windowAnimationStyle">@style/windowAnimationTransition</item>
+    </style>
+
+
 
 
     <style name="AppTheme.NoActionBar">
