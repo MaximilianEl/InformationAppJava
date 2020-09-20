@@ -350,6 +350,27 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener 
     return true;
   }
 
+  public boolean unsubscribed(String contact) {
+
+    Jid jidTo = null;
+
+    try {
+      jidTo = JidCreate.from(contact);
+    } catch (XmppStringprepException e) {
+      e.printStackTrace();
+      return false;
+    }
+
+    Presence unsubscribed = new Presence(jidTo, Presence.Type.unsubscribed);
+    if (sendPresence(unsubscribed)) {
+
+      return true;
+    } else {
+
+      return false;
+    }
+  }
+
 
   private void gatherCredentials() {
     String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);

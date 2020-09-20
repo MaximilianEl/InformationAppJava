@@ -46,6 +46,17 @@ public class ContactDetailsActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
 
+        if (fromCheckBox.isChecked()) {
+          //There is nothing to do here
+          Log.d(LOGTAG, "The FROM checkbox is checked");
+        } else {
+
+          //Send unsubscribe to cancel subscription
+          Log.d(LOGTAG, "The FROM checkbox is UNchecked");
+          if (RoosterConnectionService.getConnection().unsubscribed(contactJid)) {
+            Toast.makeText(context, "Successfully stopped sending presence updates to " + contactJid, Toast.LENGTH_SHORT);
+          }
+        }
       }
     });
 
@@ -66,7 +77,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
             //Send them an unsubscribe
             Log.d(LOGTAG, "The TO checkbox is UNchecked");
             if (RoosterConnectionService.getConnection().unsubsribe(contactJid)) {
-              Toast.makeText(context, "You successfully stopped getting precense updates from " + contactJid, Toast.LENGTH_SHORT);
+              Toast.makeText(context, "You successfully stopped getting precense updates from " + contactJid, Toast.LENGTH_LONG);
             }
           }
         }

@@ -16,6 +16,7 @@ import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contactdetails.ContactDetailsActivity;
 import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
@@ -200,6 +201,13 @@ public class ChatViewActivity extends AppCompatActivity implements
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
 
+
+    if (item.getItemId() == R.id.contact_details_chat_view) {
+
+      Intent intent = new Intent(ChatViewActivity.this, ContactDetailsActivity.class);
+      intent.putExtra("contact_jid", counterpartJid);
+      startActivity(intent);
+    }
     return super.onOptionsItemSelected(item);
   }
 
