@@ -12,6 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.informationappjava.R;
+import com.example.informationappjava.ui.chat.chatlist.model.Contact;
+import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
+import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ContactDetailsActivity extends AppCompatActivity {
@@ -54,7 +57,9 @@ public class ContactDetailsActivity extends AppCompatActivity {
           //Send unsubscribe to cancel subscription
           Log.d(LOGTAG, "The FROM checkbox is UNchecked");
           if (RoosterConnectionService.getConnection().unsubscribed(contactJid)) {
-            Toast.makeText(context, "Successfully stopped sending presence updates to " + contactJid, Toast.LENGTH_SHORT);
+            Toast
+                .makeText(context, "Successfully stopped sending presence updates to " + contactJid,
+                    Toast.LENGTH_SHORT);
           }
         }
       }
@@ -77,11 +82,65 @@ public class ContactDetailsActivity extends AppCompatActivity {
             //Send them an unsubscribe
             Log.d(LOGTAG, "The TO checkbox is UNchecked");
             if (RoosterConnectionService.getConnection().unsubsribe(contactJid)) {
-              Toast.makeText(context, "You successfully stopped getting precense updates from " + contactJid, Toast.LENGTH_LONG);
+              Toast.makeText(context,
+                  "You successfully stopped getting precense updates from " + contactJid,
+                  Toast.LENGTH_LONG);
             }
           }
         }
       }
     });
+
+    if (!ContactModel.get(getApplication()).isContactStranger(contactJid)) {
+
+      Contact contact = ContactModel.get(getApplicationContext()).getContactsByJidString(contactJid);
+      Contact.SubscriptionType subscriptionType = contact.getSubscriptionType();
+
+      if (subscriptionType == SubscriptionType.NONE) {
+
+        fromCheckBox.setEnabled(false);
+        fromCheckBox.setChecked(false);
+        toCheckBox.setChecked(false);
+      } else if (subscriptionType == SubscriptionType.FROM) {
+
+        fromCheckBox.setEnabled(true);
+        fromCheckBox.setChecked(true);
+        toCheckBox.setChecked(false);
+      } else if (subscriptionType == SubscriptionType.TO) {
+
+        fromCheckBox.setEnabled(false);
+        fromCheckBox.setChecked(false);
+        toCheckBox.setChecked(true);
+      } else if (subscriptionType == SubscriptionType.BOTH) {
+
+        fromCheckBox.setEnabled(true);
+        fromCheckBox.setChecked(true);
+        toCheckBox.setChecked(true);
+      }
+
+      if (contact.isPendingFrom()) {
+
+        pendingFrom.setVisibility(View.VISIBLE);
+      } else {
+
+        pendingFrom.setVisibility(View.GONE);
+      }
+
+      if (contact.isPendingTo()) {
+
+        pendingTo.setVisibility(View.VISIBLE);
+      } else {
+
+        pendingTo.setVisibility(View.GONE);
+      }
+    } else {
+
+      fromCheckBox.setEnabled(false);
+      fromCheckBox.setChecked(false);
+      toCheckBox.setChecked(false);
+      toCheckBox.setEnabled(true);
+    }
+
+
   }
 }

@@ -225,9 +225,62 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       connection.connect();
       connection.login(username, password);
       Log.d(LOGTAG, "login() called");
+      syncContactListWithRemoteRoster();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  public void syncContactListWithRemoteRoster() {
+
+    Log.d(LOGTAG, "Roster SYNCING...");
+    //Get roster from server
+    Collection<RosterEntry> entries = getRosterEntries();
+
+    Log.d(LOGTAG,
+        "Retrieving roster entries from server. " + entries.size() + " contacts in his roster");
+
+    for (RosterEntry mEntry : entries) {
+
+      RosterPacket.ItemType itemType = mEntry.getType();
+      Log.d(LOGTAG,
+          "Retrieving roster entries from server. " + entries.size() + " contacts in his roster");
+
+      //Update data in the db
+      //Get all the contacts
+      List<String> contacts = ContactModel.get(context).getContactJidStrings();
+
+      //Add new roster entries
+      if ((!contacts.contains(mEntry.getJid().toString())) && (itemType != ItemType.none)) {
+
+        if (ContactModel.get(context).addContact(new Contact(mEntry.getJid().toString(),
+            rosterItemTypeToContactSubscriptionType(itemType)))) {
+
+          Log.d(LOGTAG, "New Contact "+ mEntry.getJid().toString() + " added successfully");
+          //adapter.notifyForUiUpdate();
+        } else {
+          Log.d(LOGTAG, "Could not add Contact " + mEntry.getJid().toString());
+        }
+      }
+
+      //Update already existing entries if necessary
+      if ((contacts.contains(mEntry.getJid().toString()))) {
+
+        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(itemType);
+        boolean isSubscriptionPending = mEntry.isSubscriptionPending();
+        Contact contact = ContactModel.get(context).getContactsByJidString(mEntry.getJid().toString());
+        contact.setPendingTo(isSubscriptionPending);
+        contact.setSubscriptionType(subscriptionType);
+        ContactModel.get(context).updateContactSubscription(contact);
+      }
+    }
+  }
+
+  public Collection<RosterEntry> getRosterEntries() {
+
+    Collection<RosterEntry> entries = roster.getEntries();
+    Log.d(LOGTAG, "The current user has "+ entries.size() + " contacts in his roster");
+    return entries;
   }
 
   public void disconnect() {
@@ -329,6 +382,26 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  public boolean removeRosterEntry(String contactJid) {
+    Jid jid;
+
+    try {
+      jid = JidCreate.from(contactJid);
+    } catch (XmppStringprepException e) {
+      e.printStackTrace();
+      return false;
+    }
+
+    RosterEntry entry = roster.getEntry(jid.asBareJid());
+
+    try {
+      roster.removeEntry(entry);
+    } catch (NotLoggedInException | NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+      e.printStackTrace();
+      return false;
+    }
+    return true;
+  }
 
   public boolean sendPresence(Presence presence) {
 
@@ -401,7 +474,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
-
   private void gatherCredentials() {
     String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
 
@@ -416,7 +488,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       serviceName = "";
     }
   }
-
 
   @Override
   public void connected(XMPPConnection connection) {
@@ -590,7 +661,8 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       //Update already existing entries id necessary
       if ((contacts.contains(entry.getJid().toString()))) {
 
-        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(itemType);
+        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(
+            itemType);
         Contact contact = ContactModel.get(context)
             .getContactsByJidString(entry.getJid().toString());
         contact.setPendingTo(isSubscriptionPending);
@@ -619,6 +691,30 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
   @Override
   public void presenceChanged(Presence presence) {
+
+    Log.d(LOGTAG, "PresenceChage calles. Presence is: " + presence.toString());
+
+    Presence mPresence = roster.getPresence(presence.getFrom().asBareJid());
+    Log.d(LOGTAG, "Best Presence is: " + mPresence.toString());
+    Log.d(LOGTAG, "Type is: " + mPresence.getType());
+    Contact mContact = ContactModel.get(context)
+        .getContactsByJidString(presence.getFrom().asBareJid().toString());
+
+    if (mPresence.isAvailable() && (!mPresence.isAway())) {
+
+      mContact.setOnlineStatus(true);
+    } else {
+
+      mContact.setOnlineStatus(false);
+    }
+
+    ContactModel.get(context).updateContactSubscription(mContact);
+
+    Intent intent = new Intent(Constants.BroadCastMessages.UI_ONLINE_STATUS_CHANGE);
+    intent.putExtra(Constants.ONLINE_STATUS_CHANGE_CONTACT,
+        presence.getFrom().asBareJid().toString());
+    intent.setPackage(context.getPackageName());
+    context.sendBroadcast(intent);
 
   }
 }
