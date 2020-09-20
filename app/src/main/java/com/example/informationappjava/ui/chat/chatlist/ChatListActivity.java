@@ -1,6 +1,9 @@
 package com.example.informationappjava.ui.chat.chatlist;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -21,6 +24,7 @@ import com.example.informationappjava.ui.chat.MeActivity;
 import com.example.informationappjava.ui.chat.Utilities;
 import com.example.informationappjava.ui.chat.chatlist.adapters.ChatListAdapter;
 import com.example.informationappjava.ui.chat.contactlist.ContactListActivity;
+import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.LoginActivity;
 import com.example.informationappjava.ui.chat.login.model.Chat;
 import com.example.informationappjava.ui.chat.login.model.Chat.ContactType;
@@ -37,6 +41,7 @@ public class ChatListActivity extends AppCompatActivity implements
   private RecyclerView chatRecycler;
   private FloatingActionButton newConversationButton;
   private ChatListAdapter mAdapter;
+  private BroadcastReceiver receiver;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +90,33 @@ public class ChatListActivity extends AppCompatActivity implements
         startActivity(i);
       }
     });
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    unregisterReceiver(receiver);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    receiver = new BroadcastReceiver() {
+      @Override
+      public void onReceive(Context context, Intent intent) {
+
+        String action = intent.getAction();
+        switch (action) {
+
+          case Constants.BroadCastMessages.UI_NEW_CHAT_ITEM :
+            mAdapter.onChatCountChange();
+            return;
+        }
+      }
+    };
+
+    IntentFilter filter = new IntentFilter(Constants.BroadCastMessages.UI_NEW_CHAT_ITEM);
+    registerReceiver(receiver, filter);
   }
 
   @Override

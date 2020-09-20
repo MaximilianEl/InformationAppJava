@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import com.example.informationappjava.ui.chat.Utilities;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
 import com.example.informationappjava.ui.chat.login.Constants;
@@ -176,6 +177,28 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener 
         ChatMessagesModel.get(context).addMessage(
             new ChatMessage(message.getBody(), System.currentTimeMillis(), Type.RECEIVED,
                 contactJid));
+
+        if (ContactModel.get(context).isContactStranger(contactJid)) {
+
+          List<com.example.informationappjava.ui.chat.login.model.Chat> chats = ChatModel
+              .get(context)
+              .getChatsByJid(contactJid);
+          if (chats.size() == 0) {
+
+            Log.d(LOGTAG, contactJid + " is a new chat, adding them. With timestamp: " + Utilities
+                .getFormattedTime(System.currentTimeMillis()));
+
+            com.example.informationappjava.ui.chat.login.model.Chat chatRoster = new com.example.informationappjava.ui.chat.login.model.Chat(
+                contactJid, message.getBody(), ContactType.ONE_ON_ONE, System.currentTimeMillis(),
+                0);
+            ChatModel.get(context).addChat(chatRoster);
+
+            //Notify interested activities
+            Intent intent = new Intent(Constants.BroadCastMessages.UI_NEW_CHAT_ITEM);
+            intent.setPackage(context.getPackageName());
+            context.sendBroadcast(intent);
+          }
+        }
 
         //If the view (ChatViewActivity) is visible, inform it so it can do necessary adjustments
         Intent intent = new Intent(BroadCastMessages.UI_NEW_MESSAGE_FLAG);
