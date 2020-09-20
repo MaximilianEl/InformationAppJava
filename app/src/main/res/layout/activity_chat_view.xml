@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.chat.view.ChatViewActivity">
+        tools:context=".ui.chat.view.ChatViewActivity"
+        android:background="#AED1D1">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chatMessagesRecycler"
@@ -22,6 +23,7 @@
             android:layout_alignParentLeft="true"
             android:background="#f6f4f5"
             android:clickable="true">
+
 
         <EditText
                 android:id="@+id/textInput"
