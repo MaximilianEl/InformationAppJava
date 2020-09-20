@@ -129,6 +129,14 @@ public class ContactModel {
     return false;
   }
 
+  public void updateContactSubscriptionOnSendSubscription(String contact) {
+
+    //When we send a subscribed, the pending_from changes to from
+    Contact mContact = getContactsByJidString(contact);
+    mContact.setPendingFrom(false);
+    updateContactSubscription(mContact);
+  }
+
   public boolean deleteContact(Contact c) {
     int uniqueId = c.getPersistID();
     return deleteContact(uniqueId);

@@ -22,9 +22,12 @@ import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.SmackException.NoResponseException;
 import org.jivesoftware.smack.SmackException.NotConnectedException;
+import org.jivesoftware.smack.SmackException.NotLoggedInException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.XMPPException.XMPPErrorException;
 import org.jivesoftware.smack.chat2.Chat;
 import org.jivesoftware.smack.chat2.ChatManager;
 import org.jivesoftware.smack.chat2.IncomingChatMessageListener;
@@ -231,6 +234,27 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener 
     } catch (NotConnectedException | InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  //Adds contact to the remote roster. We maintain our own local contact list[Roster]
+  public boolean addContactToRoster(String contactJid) {
+
+    Jid jid;
+
+    try {
+      jid = JidCreate.from(contactJid);
+    } catch (XmppStringprepException e) {
+      e.printStackTrace();
+      return false;
+    }
+
+    try {
+      roster.createEntry(jid.asBareJid(), "", null);
+    } catch (NotLoggedInException | NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+      e.printStackTrace();
+      return false;
+    }
+    return true;
   }
 
   public boolean subscribe(String contact) {

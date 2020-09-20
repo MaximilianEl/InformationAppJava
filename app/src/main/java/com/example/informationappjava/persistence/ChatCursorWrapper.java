@@ -28,11 +28,17 @@ public class ChatCursorWrapper extends CursorWrapper {
     Chat.ContactType chatType = null;
 
     if (contactType.equals("GROUP")) {
+
       chatType = Chat.ContactType.GROUP;
 
     } else if (contactType.equals("ONE_ON_ONE")) {
 
       chatType = ContactType.ONE_ON_ONE;
+
+    } else if (contactType.equals("STRANGER")) {
+
+      chatType = ContactType.STRANGER;
+
     }
     Chat chat = new Chat(jid, lastMessage, chatType, lastMessageTimeStamp, unreadCount);
     chat.setPresistID(uniqueId);
