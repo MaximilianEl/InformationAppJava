@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.preference.PreferenceManager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.xmpp.RoosterConnection;
@@ -48,6 +49,22 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
 
         profileImageView = findViewById(R.id.profile_image);
         profileImageView.setOnClickListener(this);
+
+        String selfJid = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+            .getString("xmpp_jid", null);
+
+        RoosterConnection roosterConnection = RoosterConnectionService.getConnection();
+
+        profileImageView.setImageResource(R.drawable.ic_baseline_person_24);
+        if (roosterConnection != null) {
+
+            String imageAbsPtah = roosterConnection.getProfileImageAbsolutePath(selfJid);
+            if (imageAbsPtah != null) {
+
+                Drawable drawable = Drawable.createFromPath(imageAbsPtah);
+                profileImageView.setImageDrawable(drawable);
+            }
+        }
     }
 
     @Override

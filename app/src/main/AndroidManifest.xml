@@ -3,6 +3,8 @@
   package="com.example.informationappjava">
 
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
 
   <application
     android:allowBackup="true"
@@ -51,7 +53,8 @@
       android:name=".ui.chat.MeActivity"
       android:parentActivityName=".ui.chat.chatlist.ChatListActivity">
     </activity>
-    <activity android:name=".ui.chat.contactdetails.ContactDetailsActivity"
+    <activity
+      android:name=".ui.chat.contactdetails.ContactDetailsActivity"
       android:parentActivityName=".ui.chat.contactlist.ContactListActivity"/>
     <activity android:name=".ui.chat.view.ChatViewActivity">
       <meta-data
@@ -70,9 +73,5 @@
 
     <service android:name=".xmpp.RoosterConnectionService"/>
   </application>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-  <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
