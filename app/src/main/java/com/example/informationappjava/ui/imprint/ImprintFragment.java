@@ -23,6 +23,8 @@ public class ImprintFragment extends Fragment {
     private ImageView twitter;
     private ImageView youtube;
 
+    
+
 
     public static ImprintFragment newInstance() {
         return new ImprintFragment();

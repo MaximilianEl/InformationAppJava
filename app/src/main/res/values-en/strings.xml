@@ -19,6 +19,9 @@
     <string name="menu_feedback">Feedback</string>
     <string name ="menu_settings">Settings</string>
 
+    <string name= "title_me_activity">me</string>
+
+
     <string name="institute_courses">Courses</string>
     <string name="institute_firstsemester">First semester help</string>
     <string name="institute_persons">Persons</string>
@@ -36,6 +39,17 @@
 
 
     <string name="settings_language">Change langugage</string>
+
+    <string name="send_message">Send Message</string>
+    <string name="pending">Pending...</string>
+    <string name ="onstatthem">They can see my online status.</string>
+    <string name="onstattheir">I can see their online Status</string>
+    <string name="contact_details_chat_view">Contactdetails</string>
+    <string name="me_me">me</string>
+    <string name="delete_chat">Delete Chat</string>
+    <string name="delete_message">Delete Message</string>
+    <string name="delete_contact">Delete contact</string>
+    <string name="contact_details">Contact details</string>
 
 
 
@@ -86,12 +100,9 @@
     <string name="add_contact_confirm_text">OK</string>
     <string name="add_contact_cancel_text">Cancel</string>
 
-    <string name="send_message">Send Message</string>
-    <string name="received_message">Receive Message</string>
 
     <string name="settings_dark">Dark Mode</string>
     <string name="settings_enable">Enable Dark Mode</string>
 
-    <string name="permission_rationale">permission rationale</string>
-    <string name="me">me</string>
+
 </resources>
