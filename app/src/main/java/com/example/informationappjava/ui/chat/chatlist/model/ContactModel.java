@@ -129,7 +129,7 @@ public class ContactModel {
     return false;
   }
 
-  public void updateContactSubscriptionOnSendSubscription(String contact) {
+  public void updateContactSubscriptionOnSendSubscribed(String contact) {
 
     //When we send a subscribed, the pending_from changes to from
     Contact mContact = getContactsByJidString(contact);

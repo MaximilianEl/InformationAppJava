@@ -3,6 +3,9 @@ package com.example.informationappjava.xmpp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import com.example.informationappjava.ui.chat.Utilities;
@@ -17,10 +20,14 @@ import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.SmackConfiguration;
@@ -48,6 +55,8 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jivesoftware.smackx.ping.PingManager;
 import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 import org.jxmpp.jid.EntityBareJid;
 import org.jxmpp.jid.Jid;
 import org.jxmpp.jid.impl.JidCreate;
@@ -66,6 +75,7 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
   private PingManager pingManager;
   private ChatManager chatManager;
   private Roster roster;
+  private VCardManager vCardManager;
 
   public enum ConnectionState {
     OFFLINE, CONNECTING, ONLINE
@@ -160,6 +170,8 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     roster.setSubscriptionMode(SubscriptionMode.manual);
     roster.addSubscribeListener(this);
 
+    vCardManager = VCardManager.getInstanceFor(connection);
+
     roster.addRosterListener(this);
 
     chatManager = ChatManager.getInstanceFor(connection);
@@ -225,9 +237,270 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       connection.connect();
       connection.login(username, password);
       Log.d(LOGTAG, "login() called");
+      syncContactListWithRemoteRoster();
+
+      //Cache the avatars for fast local use
+      saveUserAvatarsLocaly();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  public boolean setSelfAvatar(byte[] image) {
+    VCard vCard = new VCard();
+    vCard.setAvatar(image);
+
+    if (vCard != null) {
+      try {
+        vCardManager.saveVCard(vCard);
+      } catch (NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+        e.printStackTrace();
+        return false;
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Fetches the avatar from the server and saves them in a local directory on external storage for
+   * use in App without needing to user network all the time.
+   */
+  public void saveUserAvatarsLocaly() {
+
+    Log.d(LOGTAG, "SAVING THE USER AVATARS TO DISK...");
+    File rootPath = new File(context.getExternalFilesDir("DIRECTORY_PICTURES"), "profile_pictures");
+
+    //Create the root Dir if it is not there
+    if (!rootPath.exists()) {
+
+      if (rootPath.mkdirs()) {
+
+        Log.d(LOGTAG,
+            " profile_pictures directory created successfully: " + rootPath.getAbsolutePath());
+      } else {
+
+        Log.d(LOGTAG,
+            " Could not create profile_pictures directory: " + rootPath.getAbsolutePath());
+      }
+    }
+
+    //Save self profile image to disk if available
+    String selfJid = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+        .getString("xmpp_jid", null);
+
+    if (selfJid != null) {
+
+      Log.d(LOGTAG, "Got a valid self Jid: " + selfJid);
+      VCard vCard = null;
+
+      try {
+        vCard = vCardManager.loadVCard();
+      } catch (NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+        e.printStackTrace();
+      }
+
+      if (vCard != null) {
+
+        saveAvatarToDisk(vCard, rootPath, selfJid);
+      }
+
+    } else {
+
+      Log.d(LOGTAG, "Self jid is NULL");
+    }
+
+    //Save other contacts profile images to disk
+    List<String> contacts = ContactModel.get(context).getContactJidStrings();
+    for (String contact : contacts) {
+
+      VCard vCard = getUserVCard(contact);
+      if (vCard != null) {
+
+        saveAvatarToDisk(vCard, rootPath, contact);
+      }
+    }
+  }
+
+  private void saveAvatarToDisk(VCard vCard, File rootPath, String contact) {
+
+    String imageMimeType = null;
+    String imageExtension = null;
+    Bitmap.CompressFormat format = null;
+
+    if (vCard != null) {
+
+      byte[] image_data = vCard.getAvatar();
+      imageMimeType = vCard.getAvatarMimeType();
+      if (image_data != null) {
+
+        Log.d(LOGTAG, "Found an avatar for user " + contact);
+
+        if (imageMimeType.equals("image/jpeg")) {
+
+          Log.d(LOGTAG, "The image mime type is JPEG");
+          imageExtension = "jpeg";
+          format = CompressFormat.JPEG;
+        } else if (imageMimeType.equals("image/jpg")) {
+
+          Log.d(LOGTAG, "The image mime type is JPG");
+          imageExtension = "jpg";
+          format = CompressFormat.JPEG;
+        } else if (imageMimeType.equals("image/png")) {
+
+          Log.d(LOGTAG, "The image mime type is PNG");
+          imageExtension = "png";
+          format = CompressFormat.PNG;
+        }
+
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image_data, 0, image_data.length);
+        Bitmap bpResized = bitmap.createScaledBitmap(bitmap, 70, 70, false);
+
+        File file = new File(rootPath, contact + "." + imageExtension);
+        if (file.exists()) {
+          file.delete();
+
+          try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+            bpResized.compress(format, 90, outputStream);
+            outputStream.flush();
+            outputStream.close();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+
+          Log.d(LOGTAG, "Image write operation successful.File: " + file.getAbsolutePath());
+        } else {
+
+          Log.d(LOGTAG, "Could not get avatar for user: " + contact);
+        }
+      }
+    }
+  }
+
+  public VCard getUserVCard(String username) {
+
+    EntityBareJid jid = null;
+
+    try {
+      jid = JidCreate.entityBareFrom(username);
+    } catch (XmppStringprepException e) {
+      e.printStackTrace();
+    }
+
+    VCard vCard = null;
+
+    if (vCardManager != null) {
+
+      try {
+        vCard = vCardManager.loadVCard(jid);
+      } catch (NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+
+    if (vCard != null) {
+
+      return vCard;
+    }
+    return null;
+  }
+
+  public String getProfileImageAbsolutePath(String jid) {
+
+    File rootPath = new File(context.getExternalFilesDir("DIRECTORY_PICTURES"), "profile_pictures");
+
+    //Create the root Dir if it is not there
+    if (!rootPath.exists()) {
+
+      if (rootPath.mkdirs()) {
+
+        Log.d(LOGTAG,
+            "profile_pictures directory created successfully: " + rootPath.getAbsolutePath());
+      } else {
+
+        Log.d(LOGTAG, "Could not create profile_pictures directory: " + rootPath.getAbsolutePath());
+      }
+    }
+
+    File file = new File(rootPath, jid + ".jpeg");
+    if (!file.exists()) {
+
+      file = new File(rootPath, jid + ".jpg");
+      if (!file.exists()) {
+
+        file = new File(rootPath, jid + ".png");
+        if (!file.exists()) {
+
+          return null;
+        } else {
+
+          return file.getAbsolutePath();
+        }
+
+      } else {
+
+        return file.getAbsolutePath();
+      }
+    } else {
+
+      return file.getAbsolutePath();
+    }
+  }
+
+  public void syncContactListWithRemoteRoster() {
+
+    Log.d(LOGTAG, "Roster SYNCING...");
+    //Get roster from server
+    Collection<RosterEntry> entries = getRosterEntries();
+
+    Log.d(LOGTAG,
+        "Retrieving roster entries from server. " + entries.size() + " contacts in his roster");
+
+    for (RosterEntry mEntry : entries) {
+
+      RosterPacket.ItemType itemType = mEntry.getType();
+      Log.d(LOGTAG,
+          "Retrieving roster entries from server. " + entries.size() + " contacts in his roster");
+
+      //Update data in the db
+      //Get all the contacts
+      List<String> contacts = ContactModel.get(context).getContactJidStrings();
+
+      //Add new roster entries
+      if ((!contacts.contains(mEntry.getJid().toString())) && (itemType != ItemType.none)) {
+
+        if (ContactModel.get(context).addContact(new Contact(mEntry.getJid().toString(),
+            rosterItemTypeToContactSubscriptionType(itemType)))) {
+
+          Log.d(LOGTAG, "New Contact " + mEntry.getJid().toString() + " added successfully");
+          //adapter.notifyForUiUpdate();
+        } else {
+          Log.d(LOGTAG, "Could not add Contact " + mEntry.getJid().toString());
+        }
+      }
+
+      //Update already existing entries if necessary
+      if ((contacts.contains(mEntry.getJid().toString()))) {
+
+        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(
+            itemType);
+        boolean isSubscriptionPending = mEntry.isSubscriptionPending();
+        Contact contact = ContactModel.get(context)
+            .getContactsByJidString(mEntry.getJid().toString());
+        contact.setPendingTo(isSubscriptionPending);
+        contact.setSubscriptionType(subscriptionType);
+        ContactModel.get(context).updateContactSubscription(contact);
+      }
+    }
+  }
+
+  public Collection<RosterEntry> getRosterEntries() {
+
+    Collection<RosterEntry> entries = roster.getEntries();
+    Log.d(LOGTAG, "The current user has " + entries.size() + " contacts in his roster");
+    return entries;
   }
 
   public void disconnect() {
@@ -329,6 +602,26 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  public boolean removeRosterEntry(String contactJid) {
+    Jid jid;
+
+    try {
+      jid = JidCreate.from(contactJid);
+    } catch (XmppStringprepException e) {
+      e.printStackTrace();
+      return false;
+    }
+
+    RosterEntry entry = roster.getEntry(jid.asBareJid());
+
+    try {
+      roster.removeEntry(entry);
+    } catch (NotLoggedInException | NoResponseException | XMPPErrorException | NotConnectedException | InterruptedException e) {
+      e.printStackTrace();
+      return false;
+    }
+    return true;
+  }
 
   public boolean sendPresence(Presence presence) {
 
@@ -401,7 +694,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
-
   private void gatherCredentials() {
     String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
 
@@ -416,7 +708,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       serviceName = "";
     }
   }
-
 
   @Override
   public void connected(XMPPConnection connection) {
@@ -590,7 +881,8 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
       //Update already existing entries id necessary
       if ((contacts.contains(entry.getJid().toString()))) {
 
-        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(itemType);
+        Contact.SubscriptionType subscriptionType = rosterItemTypeToContactSubscriptionType(
+            itemType);
         Contact contact = ContactModel.get(context)
             .getContactsByJidString(entry.getJid().toString());
         contact.setPendingTo(isSubscriptionPending);
@@ -619,6 +911,30 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
   @Override
   public void presenceChanged(Presence presence) {
+
+    Log.d(LOGTAG, "PresenceChage calles. Presence is: " + presence.toString());
+
+    Presence mPresence = roster.getPresence(presence.getFrom().asBareJid());
+    Log.d(LOGTAG, "Best Presence is: " + mPresence.toString());
+    Log.d(LOGTAG, "Type is: " + mPresence.getType());
+    Contact mContact = ContactModel.get(context)
+        .getContactsByJidString(presence.getFrom().asBareJid().toString());
+
+    if (mPresence.isAvailable() && (!mPresence.isAway())) {
+
+      mContact.setOnlineStatus(true);
+    } else {
+
+      mContact.setOnlineStatus(false);
+    }
+
+    ContactModel.get(context).updateContactSubscription(mContact);
+
+    Intent intent = new Intent(Constants.BroadCastMessages.UI_ONLINE_STATUS_CHANGE);
+    intent.putExtra(Constants.ONLINE_STATUS_CHANGE_CONTACT,
+        presence.getFrom().asBareJid().toString());
+    intent.setPackage(context.getPackageName());
+    context.sendBroadcast(intent);
 
   }
 }

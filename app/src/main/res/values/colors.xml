@@ -14,4 +14,6 @@
 
     <color name="default_message_color_rcv">#f6f4f4</color>
     <color name="default_message_color_send">#131212</color>
+
+    <color name="riv_border_color">#b3b3b3</color>
 </resources>
