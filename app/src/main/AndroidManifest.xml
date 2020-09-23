@@ -1,76 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.informationappjava">
+  package="com.example.informationappjava">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    android:usesCleartextTraffic="true">
+    <activity android:name=".ui.campus.maps.CityMapActivity"
+      android:parentActivityName=".NavDrawer">
+    </activity>
+    <activity
+      android:name=".ui.campus.maps.CampusMapActivity"
+      android:parentActivityName=".NavDrawer">
+    </activity>
+    <activity
+      android:name=".MainActivity"
+      android:theme="@style/AppTheme.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-    <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="true">
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity
+      android:label="@string/title_activity_nav_drawer"
+      android:name=".NavDrawer"
+      android:theme="@style/AppTheme.NoActionBar">
+    </activity>
+    <activity
+      android:label="@string/contacts"
+      android:name=".ui.chat.chatlist.ChatListActivity">
+      <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".NavDrawer"/>
+    </activity>
+    <activity
+      android:label="Chat"
+      android:name=".ui.chat.login.LoginActivity">
+      <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".NavDrawer"/>
+    </activity>
+    <activity
+      android:label="@string/title_activity_contact_list"
+      android:name=".ui.chat.contactlist.ContactListActivity"
+      android:theme="@style/AppTheme.NoActionBar">
+    </activity>
+    <activity
+      android:label="@string/title_me_activity"
+      android:name=".ui.chat.MeActivity"
+      android:parentActivityName=".ui.chat.chatlist.ChatListActivity">
+    </activity>
+    <activity
+      android:name=".ui.chat.contactdetails.ContactDetailsActivity"
+      android:parentActivityName=".ui.chat.contactlist.ContactListActivity"/>
+    <activity android:name=".ui.chat.view.ChatViewActivity">
+      <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".ui.chat.chatlist.ChatListActivity"/>
+    </activity>
+    <activity
+      android:label="Einstellungen"
+      android:name=".ui.options.SettingsActivity">
+      <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".NavDrawer"/>
+    </activity>
+    <activity android:name=".ui.registration.RegistrationActivity">
+    </activity>
 
-        <activity
-                android:name=".MainActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+    <service android:name=".xmpp.RoosterConnectionService"/>
+  </application>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-                android:label="@string/title_activity_nav_drawer"
-                android:name=".NavDrawer"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:label="@string/contacts"
-                android:name=".ui.chat.chatlist.ChatListActivity">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".NavDrawer"/>
-        </activity>
-        <activity
-                android:label="Chat"
-                android:name=".ui.chat.login.LoginActivity">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".NavDrawer"/>
-        </activity>
-        <activity
-                android:label="@string/title_activity_contact_list"
-                android:name=".ui.chat.contactlist.ContactListActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:label="@string/title_me_activity"
-                android:name=".ui.chat.MeActivity"
-                android:parentActivityName=".ui.chat.chatlist.ChatListActivity">
-        </activity>
-        <activity
-                android:name=".ui.chat.contactdetails.ContactDetailsActivity"
-                android:parentActivityName=".ui.chat.contactlist.ContactListActivity"/>
-        <activity android:name=".ui.chat.view.ChatViewActivity">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".ui.chat.chatlist.ChatListActivity"/>
-        </activity>
-        <activity
-                android:label="Einstellungen"
-                android:name=".ui.options.SettingsActivity">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".NavDrawer"/>
-        </activity>
-        <activity android:name=".ui.registration.RegistrationActivity">
-        </activity>
-        <service android:name=".xmpp.RoosterConnectionService"/>
-    </application>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 </manifest>

@@ -7,17 +7,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.imprint.ImprintViewModel;
+import com.example.informationappjava.ui.campus.maps.CampusMapActivity;
+import com.example.informationappjava.ui.campus.maps.CityMapActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class CampusFragment extends Fragment {
@@ -27,6 +24,7 @@ public class CampusFragment extends Fragment {
   ViewPager viewPager;
   ImageAdapter imageAdapter;
   Button campMapButton;
+  Button cityMapButton;
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -41,12 +39,17 @@ public class CampusFragment extends Fragment {
     campMapButton.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Fragment fragment = new CampusMapFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.campus_map_fragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        Intent intent = new Intent(getActivity(), CampusMapActivity.class);
+        startActivity(intent);
+      }
+    });
+
+    cityMapButton = view.findViewById(R.id.campus_des_button);
+    cityMapButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), CityMapActivity.class);
+        startActivity(intent);
       }
     });
 
