@@ -51,7 +51,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         profileImageView.setOnClickListener(this);
 
         String selfJid = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-            .getString("xmpp_jid", null);
+                .getString("xmpp_jid", null);
 
         RoosterConnection roosterConnection = RoosterConnectionService.getConnection();
 

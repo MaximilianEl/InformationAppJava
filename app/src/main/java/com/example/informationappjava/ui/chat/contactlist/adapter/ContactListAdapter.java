@@ -1,6 +1,7 @@
 package com.example.informationappjava.ui.chat.contactlist.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.model.Contact;
 import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.xmpp.RoosterConnection;
+import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -131,6 +134,15 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             jidTextView.setText(mContact.getJid());
             subscriptionTypeTextView.setText("NONE_NONE");
             profile_image.setImageResource(R.drawable.ic_baseline_person_24);
+
+            RoosterConnection rc = RoosterConnectionService.getConnection();
+            if (rc != null) {
+                String imageAbsPath = rc.getProfileImageAbsolutePath(mContact.getJid());
+                if (imageAbsPath != null) {
+                    Drawable d = Drawable.createFromPath(imageAbsPath);
+                    profile_image.setImageDrawable(d);
+                }
+            }
         }
 
     }
