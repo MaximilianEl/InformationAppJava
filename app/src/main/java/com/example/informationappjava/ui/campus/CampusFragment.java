@@ -34,7 +34,7 @@ public class CampusFragment extends Fragment {
     Fragment fragment = new ImgSlideFragment();
     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    fragmentTransaction.replace(R.id.campus_fragment, fragment);
+//    fragmentTransaction.replace(R.id.campus_fragment, fragment);
     fragmentTransaction.addToBackStack(null);
     fragmentTransaction.commit();
 
@@ -45,7 +45,7 @@ public class CampusFragment extends Fragment {
         Fragment fragment = new CampusMapFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.campus_fragment, fragment);
+//        fragmentTransaction.replace(R.id.campus_fragment, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
       }

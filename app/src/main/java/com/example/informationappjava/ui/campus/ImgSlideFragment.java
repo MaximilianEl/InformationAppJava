@@ -17,13 +17,13 @@ import androidx.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 
 public class ImgSlideFragment extends Fragment {
-    private  ViewPager viewPager;
+    private ViewPager viewPager;
     private ImageAdapter imageAdapter;
-    public ImgSlideFragment() {
 
+    public ImgSlideFragment() {
     }
 
-    private CampusMapViewModel mViewModel;
+    private CampusViewModel mViewModel;
 
     public static ImgSlideFragment newInstance() {
         return new ImgSlideFragment();
@@ -35,14 +35,12 @@ public class ImgSlideFragment extends Fragment {
         Context ctx = container.getContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
-        View view =  inflater.inflate(R.layout.fragment_img_slide, container, false);
+        View view = inflater.inflate(R.layout.fragment_img_slide, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.camppager);
         imageAdapter = new ImageAdapter(this.getActivity());
         viewPager.setAdapter(imageAdapter);
         return view;
     }
-
-
 
 
 }
