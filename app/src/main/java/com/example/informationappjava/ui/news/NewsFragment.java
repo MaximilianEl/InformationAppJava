@@ -35,25 +35,7 @@ public class NewsFragment extends Fragment {
                 ViewModelProviders.of(this).get(NewsViewModel.class);
         View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-
-        //videoView = (VideoView) view.findViewById(R.id.videoView);
-
-        // Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video_campus);
-        // videoView.setVideoURI(uri);
-
-        // @Override
-        // protected void onResume(){
-        //     super.onResume();
-        //    videoView.start();
-        //  }
-
-        // @Override
-        //  protected void onPause(){
-        //     super.onPause();
-        //     videoView.suspend();
-        // }
-
-        youVideoView = (WebView) view.findViewById(R.id.videoView);
+       youVideoView = view.findViewById(R.id.videoView);
         youVideoView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {

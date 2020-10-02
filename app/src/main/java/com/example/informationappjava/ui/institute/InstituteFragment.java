@@ -148,12 +148,9 @@ public class InstituteFragment extends Fragment {
 
             ins_secondtext.setText(fulltext);
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     static void fillTextThree(View view) {
