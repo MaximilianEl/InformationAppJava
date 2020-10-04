@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.chatlist.model;
+package com.example.informationappjava.ui.chat.contacts.model;
 
 import android.content.ContentValues;
 
@@ -33,7 +33,7 @@ public class Contact {
         int onlineStatusInt = (onlineStatus) ? 1 : 0;
 
         values.put(Cols.CONTACT_JID, jid);
-        values.put(Cols.SUBSCRIPTION_TYPE, getTypeStringValule(subscriptionType));
+        values.put(Cols.SUBSCRIPTION_TYPE, getTypeStringValue(subscriptionType));
         values.put(Cols.PROFILE_IMAGE_PATH, profileImagePath);
 
         values.put(Cols.PENDING_STATUS_FROM, pendingFromInt);
@@ -43,7 +43,7 @@ public class Contact {
         return values;
     }
 
-    public String getTypeStringValule(SubscriptionType type) {
+    public String getTypeStringValue(SubscriptionType type) {
 
         if (type == SubscriptionType.FROM)
             return "FROM";

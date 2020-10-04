@@ -14,16 +14,16 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
-import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
-import com.example.informationappjava.ui.chat.contactdetails.ContactDetailsActivity;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
+import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
+import com.example.informationappjava.ui.chat.contacts.ContactDetailsActivity;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
-import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.view.adapter.ChatMessageAdapter;
-import com.example.informationappjava.ui.chat.view.keyboard.KeyboardUtil;
-import com.example.informationappjava.ui.chat.view.keyboard.KeyboardUtil.KeyboardVisibilityListener;
+import com.example.informationappjava.ui.chat.Utils.KeyboardUtil;
+import com.example.informationappjava.ui.chat.Utils.KeyboardUtil.KeyboardVisibilityListener;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
 public class ChatViewActivity extends AppCompatActivity implements
@@ -156,7 +156,7 @@ public class ChatViewActivity extends AppCompatActivity implements
             }
         });
 
-        snackBarActionDeny = findViewById(R.id.snackbar_action_accept);
+        snackBarActionDeny = findViewById(R.id.snackbar_action_deny);
         snackBarActionDeny.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,7 +174,7 @@ public class ChatViewActivity extends AppCompatActivity implements
             }
         });
 
-        snackBarStrangerAddContact = findViewById(R.id.snackbar_action_accept);
+        snackBarStrangerAddContact = findViewById(R.id.snackbar_action_accept_stranger);
         snackBarStrangerAddContact.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -191,7 +191,7 @@ public class ChatViewActivity extends AppCompatActivity implements
             }
         });
 
-        snackBarStrangerBlock = findViewById(R.id.snackbar_action_accept);
+        snackBarStrangerBlock = findViewById(R.id.snackbar_action_deny_stranger);
         snackBarStrangerBlock.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

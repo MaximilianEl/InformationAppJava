@@ -12,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.Utilities;
-import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.Utils.Utilities;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
@@ -27,7 +26,6 @@ import org.jetbrains.annotations.NotNull;
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
     public interface OnInformRecyclerViewToScrollDownListener {
-
         public void onInformRecyclerViewToScrollDown(int size);
     }
 
@@ -73,7 +71,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
         this.contactJid = contactJid;
 
         chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
-
+        Log.d(LOGTAG, "Getting messages for: " + contactJid);
     }
 
     public void informRecyclerViewToScrollDown() {
@@ -166,7 +164,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
         ChatMessage.Type type = mchatMessage.getType();
 
-        if (type == Type.SENT) {
+        if (type == Type.RECEIVED) {
             RoosterConnection rc = RoosterConnectionService.getConnection();
             if (rc != null) {
                 String imageAbsPath = rc.getProfileImageAbsolutePath(mchatMessage.getContactJid());

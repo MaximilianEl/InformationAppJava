@@ -7,8 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.example.informationappjava.persistence.ChatMessageCursorWrapper;
 import com.example.informationappjava.persistence.DatabaseBackend;
-import com.example.informationappjava.ui.chat.login.model.Chat;
-import com.example.informationappjava.ui.chat.login.model.ChatModel;
+import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 
 import java.util.ArrayList;
 import java.util.List;

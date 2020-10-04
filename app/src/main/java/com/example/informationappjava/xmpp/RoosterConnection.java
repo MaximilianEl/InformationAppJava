@@ -8,20 +8,19 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import com.example.informationappjava.ui.chat.Utilities;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
-import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.Utils.Utilities;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
+import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
 import com.example.informationappjava.ui.chat.login.Constants;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
-import com.example.informationappjava.ui.chat.login.model.Chat.ContactType;
-import com.example.informationappjava.ui.chat.login.model.ChatModel;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat.ContactType;
+import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -45,7 +44,6 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.Roster.SubscriptionMode;
-import org.jivesoftware.smack.roster.RosterEntries;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterListener;
 import org.jivesoftware.smack.roster.SubscribeListener;
@@ -201,7 +199,7 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
                 if (ContactModel.get(context).isContactStranger(contactJid)) {
 
-                    List<com.example.informationappjava.ui.chat.login.model.Chat> chats = ChatModel
+                    List<com.example.informationappjava.ui.chat.chatlist.model.Chat> chats = ChatModel
                             .get(context)
                             .getChatsByJid(contactJid);
                     if (chats.size() == 0) {
@@ -209,7 +207,7 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                         Log.d(LOGTAG, contactJid + " is a new chat, adding them. With timestamp: " + Utilities
                                 .getFormattedTime(System.currentTimeMillis()));
 
-                        com.example.informationappjava.ui.chat.login.model.Chat chatRoster = new com.example.informationappjava.ui.chat.login.model.Chat(
+                        com.example.informationappjava.ui.chat.chatlist.model.Chat chatRoster = new com.example.informationappjava.ui.chat.chatlist.model.Chat(
                                 contactJid, message.getBody(), ContactType.ONE_ON_ONE, System.currentTimeMillis(),
                                 0);
                         ChatModel.get(context).addChat(chatRoster);
@@ -338,17 +336,14 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 Log.d(LOGTAG, "Found an avatar for user " + contact);
 
                 if (imageMimeType.equals("image/jpeg")) {
-
                     Log.d(LOGTAG, "The image mime type is JPEG");
                     imageExtension = "jpeg";
                     format = CompressFormat.JPEG;
                 } else if (imageMimeType.equals("image/jpg")) {
-
                     Log.d(LOGTAG, "The image mime type is JPG");
                     imageExtension = "jpg";
                     format = CompressFormat.JPEG;
                 } else if (imageMimeType.equals("image/png")) {
-
                     Log.d(LOGTAG, "The image mime type is PNG");
                     imageExtension = "png";
                     format = CompressFormat.PNG;
@@ -438,7 +433,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
                     return file.getAbsolutePath();
                 }
-
             } else {
 
                 return file.getAbsolutePath();
@@ -795,12 +789,12 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
         } else {
             //Create a Chat with type STRANGER
-            List<com.example.informationappjava.ui.chat.login.model.Chat> chats = ChatModel.get(context)
+            List<com.example.informationappjava.ui.chat.chatlist.model.Chat> chats = ChatModel.get(context)
                     .getChatsByJid(from.toString());
             if (chats.size() == 0) {
                 //Only add the chat when it is not already available
                 if (ChatModel.get(context).addChat(
-                        new com.example.informationappjava.ui.chat.login.model.Chat(from.toString(),
+                        new com.example.informationappjava.ui.chat.chatlist.model.Chat(from.toString(),
                                 "Subscription Request", ContactType.STRANGER,
                                 System.currentTimeMillis(), 1))) {
 

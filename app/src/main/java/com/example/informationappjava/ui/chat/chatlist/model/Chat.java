@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.login.model;
+package com.example.informationappjava.ui.chat.chatlist.model;
 
 import android.content.ContentValues;
 

@@ -12,7 +12,6 @@
         android:orientation="vertical"
         tools:context=".ui.chat.chatlist.ChatListActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chatsRecyclerView"
             android:layout_width="match_parent"

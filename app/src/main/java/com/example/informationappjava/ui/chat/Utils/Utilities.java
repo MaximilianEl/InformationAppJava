@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat;
+package com.example.informationappjava.ui.chat.Utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -36,6 +36,4 @@ public class Utilities {
         ? DateFormat.format("hh:mm a", timestamp).toString()
         : DateFormat.format("dd MMM - hh:mm a", timestamp).toString();
   }
-
-
 }

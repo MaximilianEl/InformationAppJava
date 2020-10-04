@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.contactlist.adapter;
+package com.example.informationappjava.ui.chat.contacts.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
 import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;

@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.view.keyboard;
+package com.example.informationappjava.ui.chat.Utils;
 
 import android.app.Activity;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.login.model;
+package com.example.informationappjava.ui.chat.chatlist.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.example.informationappjava.persistence.ChatCursorWrapper;
 import com.example.informationappjava.persistence.DatabaseBackend;
-import com.example.informationappjava.ui.chat.login.model.Chat.Cols;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat.Cols;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 
 import java.util.ArrayList;

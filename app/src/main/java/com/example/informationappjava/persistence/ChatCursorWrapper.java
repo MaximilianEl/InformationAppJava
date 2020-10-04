@@ -3,8 +3,8 @@ package com.example.informationappjava.persistence;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 import android.util.Log;
-import com.example.informationappjava.ui.chat.login.model.Chat;
-import com.example.informationappjava.ui.chat.login.model.Chat.ContactType;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat.ContactType;
 
 public class ChatCursorWrapper extends CursorWrapper {
 

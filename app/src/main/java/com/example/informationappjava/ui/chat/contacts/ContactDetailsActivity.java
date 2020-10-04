@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.contactdetails;
+package com.example.informationappjava.ui.chat.contacts;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +13,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
-import com.example.informationappjava.ui.chat.chatlist.model.ContactModel;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
+import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
 import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
@@ -48,9 +48,9 @@ public class ContactDetailsActivity extends AppCompatActivity {
         RoosterConnection rc = RoosterConnectionService.getConnection();
 
         profileImage.setImageResource(R.drawable.ic_baseline_person_24);
-        if(rc != null){
+        if (rc != null) {
             String imageAbsPath = rc.getProfileImageAbsolutePath(contactJid);
-            if(imageAbsPath != null){
+            if (imageAbsPath != null) {
                 Drawable d = Drawable.createFromPath(imageAbsPath);
                 profileImage.setImageDrawable(d);
             }
@@ -155,7 +155,5 @@ public class ContactDetailsActivity extends AppCompatActivity {
             toCheckBox.setChecked(false);
             toCheckBox.setEnabled(true);
         }
-
-
     }
 }

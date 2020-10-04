@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.chat.chatlist.model;
+package com.example.informationappjava.ui.chat.contacts.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -59,7 +59,7 @@ public class ContactModel {
     for (Contact contact : contacts) {
 
       Log.d(LOGTAG, "Contact Jid: " + contact.getJid());
-      Log.d(LOGTAG, "Subscription type: " + contact.getTypeStringValule(contact.getSubscriptionType()));
+      Log.d(LOGTAG, "Subscription type: " + contact.getTypeStringValue(contact.getSubscriptionType()));
       if (contact.getJid().equals(jidString)) {
 
         mContact = contact;

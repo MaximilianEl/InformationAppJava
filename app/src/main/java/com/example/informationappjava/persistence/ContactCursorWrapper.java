@@ -2,9 +2,9 @@ package com.example.informationappjava.persistence;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.Cols;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.SubscriptionType;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.Cols;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
 
 public class ContactCursorWrapper extends CursorWrapper {
 
@@ -13,6 +13,7 @@ public class ContactCursorWrapper extends CursorWrapper {
   }
 
   public Contact getContact() {
+
     String subscriptionTypeString = getString(getColumnIndex(Contact.Cols.SUBSCRIPTION_TYPE));
     String jid = getString(getColumnIndex(Contact.Cols.CONTACT_JID));
     int contactUniqueId = getInt(getColumnIndex(Contact.Cols.CONTACT_UNIQUE_ID));

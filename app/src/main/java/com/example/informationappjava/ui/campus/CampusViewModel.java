@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 public class CampusViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+  private MutableLiveData<String> mText;
 
-    public CampusViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Campus fragment");
-    }
+  public CampusViewModel() {
+    mText = new MutableLiveData<>();
+    mText.setValue("This is gallery fragment");
+  }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+  public LiveData<String> getText() {
+    return mText;
+  }
 }

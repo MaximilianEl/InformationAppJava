@@ -12,13 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.Utilities;
-import com.example.informationappjava.ui.chat.login.model.Chat;
-import com.example.informationappjava.ui.chat.login.model.ChatModel;
+import com.example.informationappjava.ui.chat.Utils.Utilities;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat;
+import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
