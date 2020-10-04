@@ -19,45 +19,45 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class CampusFragment extends Fragment {
 
-    private CampusViewModel mViewModel;
-    FloatingActionButton fButton;
-    ViewPager viewPager;
-    ImageAdapter imageAdapter;
-    Button campMapButton;
+  private CampusViewModel mViewModel;
+  FloatingActionButton fButton;
+  ViewPager viewPager;
+  ImageAdapter imageAdapter;
+  Button campMapButton;
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+  @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_campus, container, false);
+    View view = inflater.inflate(R.layout.fragment_campus, container, false);
 
-        Fragment fragment = new ImgSlideFragment();
+    Fragment fragment = new ImgSlideFragment();
+    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    fragmentTransaction.replace(R.id.campus_fragment, fragment);
+    fragmentTransaction.addToBackStack(null);
+    fragmentTransaction.commit();
+
+    campMapButton = view.findViewById(R.id.campus_map_button);
+    campMapButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Fragment fragment = new CampusMapFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.campus_fragment, fragment);
+        fragmentTransaction.replace(R.id.campus_fragment, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+      }
+    });
 
-        campMapButton = view.findViewById(R.id.campus_map_button);
-        campMapButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment = new CampusMapFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.campus_fragment, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });
+    return view;
+  }
 
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(CampusViewModel.class);
-    }
+  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    mViewModel = ViewModelProviders.of(this).get(CampusViewModel.class);
+  }
 
 }

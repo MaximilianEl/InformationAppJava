@@ -41,4 +41,8 @@ public class ImgSlideFragment extends Fragment {
         viewPager.setAdapter(imageAdapter);
         return view;
     }
+
+
+
+
 }
