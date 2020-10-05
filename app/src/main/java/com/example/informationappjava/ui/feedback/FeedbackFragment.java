@@ -1,7 +1,5 @@
 package com.example.informationappjava.ui.feedback;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -11,18 +9,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.campus.CampusMapFragment;
-import com.example.informationappjava.ui.campus.ImageAdapter;
 
 public class FeedbackFragment extends Fragment {
 

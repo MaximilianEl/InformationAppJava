@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact;
-import com.example.informationappjava.ui.chat.chatlist.model.Contact.Cols;
-import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.contacts.model.Contact;
+import com.example.informationappjava.ui.chat.contacts.model.Contact.Cols;
+import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 
 public class DatabaseBackend extends SQLiteOpenHelper {

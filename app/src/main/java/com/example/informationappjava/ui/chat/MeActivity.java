@@ -51,7 +51,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         profileImageView.setOnClickListener(this);
 
         String selfJid = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-            .getString("xmpp_jid", null);
+                .getString("xmpp_jid", null);
 
         RoosterConnection roosterConnection = RoosterConnectionService.getConnection();
 
@@ -96,7 +96,6 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-
         Log.d(LOGTAG, "Clicked on the profile picture");
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
@@ -154,7 +153,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         int width_tmp = o.outWidth, height_tmp = o.outHeight;
         int scale = 1;
         while (true) {
-            if (width_tmp / 2 < REQUIRED_SIZE) {
+            if (width_tmp / 2 < REQUIRED_SIZE || height_tmp / 2 < REQUIRED_SIZE) {
                 break;
             }
             width_tmp /= 2;

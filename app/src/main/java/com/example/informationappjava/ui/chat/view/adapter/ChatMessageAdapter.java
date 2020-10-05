@@ -1,28 +1,31 @@
 package com.example.informationappjava.ui.chat.view.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.chat.Utilities;
-import com.example.informationappjava.ui.chat.login.model.Chat;
+import com.example.informationappjava.ui.chat.Utils.Utilities;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage.Type;
 import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 
 import java.util.List;
 
+import com.example.informationappjava.xmpp.RoosterConnection;
+import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
 
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
     public interface OnInformRecyclerViewToScrollDownListener {
-
         public void onInformRecyclerViewToScrollDown(int size);
     }
 
@@ -54,13 +57,21 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
         this.onItemLongClickListener = onItemLongClickListener;
     }
 
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
     public ChatMessageAdapter(Context context, String contactJid) {
         this.layoutInflater = LayoutInflater.from(context);
         this.context = context;
         this.contactJid = contactJid;
 
         chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
-
+        Log.d(LOGTAG, "Getting messages for: " + contactJid);
     }
 
     public void informRecyclerViewToScrollDown() {
@@ -117,10 +128,12 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
 
 class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
+    private static final String LOGTAG = "ChatMessageViewHolder";
     private TextView messageBody;
     private TextView messageTimestamp;
     private ImageView profileImage;
     private ChatMessage mchatMessage;
+    private ChatMessageAdapter mAdapter;
 
     public ChatMessageViewHolder(View itemView, final ChatMessageAdapter mAdapter) {
         super(itemView);
@@ -128,6 +141,8 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         messageBody = itemView.findViewById(R.id.chat_textMessageBody);
         messageTimestamp = itemView.findViewById(R.id.chat_textMessageTimestamp);
         profileImage = itemView.findViewById(R.id.profile);
+
+        this.mAdapter = mAdapter;
 
         itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -146,5 +161,36 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         messageBody.setText(chatMessage.getMessage());
         messageTimestamp.setText(Utilities.getFormattedTime(chatMessage.getTimestamp()));
         profileImage.setImageResource(R.drawable.ic_baseline_person_24);
+
+        ChatMessage.Type type = mchatMessage.getType();
+
+        if (type == Type.RECEIVED) {
+            RoosterConnection rc = RoosterConnectionService.getConnection();
+            if (rc != null) {
+                String imageAbsPath = rc.getProfileImageAbsolutePath(mchatMessage.getContactJid());
+                if (imageAbsPath != null) {
+                    Drawable d = Drawable.createFromPath(imageAbsPath);
+                    profileImage.setImageDrawable(d);
+                }
+            }
+        }
+
+        if (type == Type.SENT) {
+            RoosterConnection rc = RoosterConnectionService.getConnection();
+            if (rc != null) {
+                String selfJid = PreferenceManager.getDefaultSharedPreferences(mAdapter.getContext()).getString("xmpp_jid", null);
+
+                if (selfJid != null) {
+                    Log.d(LOGTAG, "A valid self jid:" + selfJid);
+                    String imageAbsPath = rc.getProfileImageAbsolutePath(selfJid);
+                    if (imageAbsPath != null) {
+                        Drawable d = Drawable.createFromPath(imageAbsPath);
+                        profileImage.setImageDrawable(d);
+                    }
+                } else {
+                    Log.d(LOGTAG, "Could not get valid self jid");
+                }
+            }
+        }
     }
 }

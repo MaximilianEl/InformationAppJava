@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">InformationAppJava</string>
+  <string name="title_activity_nav_drawer">NavDrawer</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Welcome to the InfoApp</string>
+  <string name="nav_header_subtitle">Sign in for Chat access</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">Settings</string>
+
+  <string name="menu_news">News</string>
+  <string name="menu_campus">Campus</string>
+  <string name="menu_institute">Institutes</string>
+  <string name="menu_chat">Chat</string>
+  <string name="menu_imprint">Imprint</string>
+  <string name="menu_feedback">Feedback</string>
+  <string name ="menu_settings">Settings</string>
+
+  <string name= "title_me_activity">me</string>
+
+  <string name="institute_courses">Courses</string>
+  <string name="institute_firstsemester">First semester help</string>
+  <string name="institute_persons">Persons</string>
+  <string name="institute_events">Events</string>
+
+  <string name="feedback_name">name</string>
+  <string name="feedback_email">email</string>
+  <string name="feedback_subject">subject</string>
+  <string name="feedback_message">Write your message</string>
+  <string name="institute_feedback">SEND FEEDBACK</string>
+
+  <string name="campus_campus">The Campus</string>
+
+  <string name="news_welcome"> Welcome!</string>
+
+  <string name="settings_language">Change langugage</string>
+
+  <string name="send_message">Send Message</string>
+  <string name="pending">Pending...</string>
+  <string name ="onstatthem">They can see my online status.</string>
+  <string name="onstattheir">I can see their online Status</string>
+  <string name="contact_details_chat_view">Contactdetails</string>
+  <string name="me_me">me</string>
+  <string name="delete_chat">Delete Chat</string>
+  <string name="delete_message">Delete Message</string>
+  <string name="delete_contact">Delete contact</string>
+  <string name="contact_details">Contact details</string>
+
+  <string name="imprint_paragraph">Information according to §5 TMG</string>
+  <string name="imprint_hs">Osnabrück University</string>
+  <string name="imprint_camp">Campus Lingen</string>
+  <string name="imprint_fak">Management, Culture and Technology</string>
+  <string name="imprint_hs2">University of Applied Sciences</string>
+  <string name="imprint_street">Kaiserstraße 10C</string>
+  <string name="imprint_plz">49809 Lingen(Ems)</string>
+  <string name="imprint_data"><u>Notes on data protection</u></string>
+  <string name="imprint_haft"><u>Disclaimer</u></string>
+  <string name="imprint_uhr"><u>Copyright information</u></string>
+  <string name="imprint_osource"><u>Open Source Libraries</u></string>
+  <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
+
+  <string name="camp_header">Welcome to Campus Lingen</string>
+  <string name="camp_mhead">Explore the Campus</string>
+  <string name="camp_map">Campus Map</string>
+  <string name="camp_des">Locations Campus Lingen</string>
+
+  <string name="ins_header">About the institut</string>
+  <string name="ins_header2">Latest news</string>
+
+  <string name="title_activity_chat__login">Chat_LoginActivity</string>
+  <string name="prompt_jid">Jabber ID</string>
+  <string name="prompt_password">Password</string>
+  <string name="action_sign_in">Login</string>
+  <string name="action_sign_in_short">Sign in</string>
+  <string name="welcome">"Welcome "</string>
+  <string name="invalid_jid">Invalid Jabber ID</string>
+  <string name="invalid_password">Password must contain more then 5 characters.</string>
+  <string name="login_failed">"Login failed."</string>
+
+  <string name="chat_login">Login</string>
+  <string name="chat_regTxt">No account to chat? "\n" Register here!</string>
+  <string name="contacts">Contacts</string>
+  <string name="title_activity_contact_list">Contactlist</string>
+  <!-- Strings used for fragments for navigation -->
+  <string name="first_fragment_label">First Fragment</string>
+  <string name="second_fragment_label">Second Fragment</string>
+  <string name="next">Next</string>
+  <string name="previous">Previous</string>
+
+  <string name="add_contact_label_text">Jabber ID</string>
+  <string name="add_contact_confirm_text">OK</string>
+  <string name="add_contact_cancel_text">Cancel</string>
+
+  <string name="dark_mode">Dark Mode</string>
+  <string name="permission_rationale">permission rationale</string>
+  <string name="me">Me</string>
+  <string name="received_message">Message Received</string>
+
+  <string name="settings_dark">Dark Mode</string>
+  <string name="settings_enable">Enable Dark Mode</string>
+</resources>

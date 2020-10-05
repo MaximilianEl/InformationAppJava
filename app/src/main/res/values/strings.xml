@@ -1,114 +1,98 @@
 <resources>
-    <string name="app_name">InformationAppJava</string>
-    <string name="title_activity_nav_drawer">NavDrawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Willkommen in der InfoApp</string>
-    <string name="nav_header_subtitle">Anmelden für Chatzugang</string>
-    <string name="nav_header_desc">Navigation header</string>
+  <string name="app_name">InformationAppJava</string>
+  <string name="title_activity_nav_drawer">NavDrawer</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Willkommen in der InfoApp</string>
+  <string name="nav_header_subtitle">Anmelden für Chatzugang</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">Einstellungen</string>
 
+  <string name="menu_news">News</string>
+  <string name="menu_campus">Campus</string>
+  <string name="menu_institute">Institute</string>
+  <string name="menu_chat">Chat</string>
+  <string name="menu_imprint">Impressum</string>
+  <string name="menu_feedback">Feedback</string>
+  <string name="menu_settings">Einstellungen</string>
 
+  <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
+  <string name="imprint_hs">Hochschule Osnabrück</string>
+  <string name="imprint_camp">Campus Lingen</string>
+  <string name="imprint_fak">Management, Kultur und Technik</string>
+  <string name="imprint_hs2">University of Applied Sciences</string>
+  <string name="imprint_street">Kaiserstraße 10C</string>
+  <string name="imprint_plz">49809 Lingen(Ems)</string>
+  <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
+  <string name="imprint_haft"><u>Haftungsausschluss</u></string>
+  <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
+  <string name="imprint_osource"><u>Open Source Libraries</u></string>
+  <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
 
-    <string name="menu_news">Neuigkeiten</string>
-    <string name="menu_campus">Campus</string>
-    <string name="menu_institute">Institute</string>
-    <string name="menu_chat">Chat</string>
-    <string name="menu_imprint">Impressum</string>
-    <string name="menu_feedback">Feedback</string>
-    <string name ="menu_settings">Einstellungen</string>
+  <string name="camp_header">Willkommen am Campus Lingen!</string>
+  <string name="camp_mhead">Erkunde den Campus!</string>
+  <string name="camp_map">Campus Map</string>
+  <string name="camp_des">Standorte Campus Lingen</string>
 
-    <string name= "title_me_activity">me</string>
-    <string name= "title_activity_contact_list">Kontaktliste</string>
+  <string name="ins_header">Über das Institut</string>
+  <string name="ins_header2">Aktuelles</string>
 
+  <string name="title_activity_chat__login">Chat_LoginActivity</string>
+  <string name="prompt_jid">Jabber ID</string>
+  <string name="prompt_password">Password</string>
+  <string name="action_sign_in">Login</string>
+  <string name="action_sign_in_short">Anmelden</string>
+  <string name="welcome">"Willkommen "</string>
+  <string name="invalid_jid">Keine zulässige Jabber ID</string>
+  <string name="invalid_password">Passwort muss länger als 5 Zeichen sein.</string>
+  <string name="login_failed">"Login failed"</string>
 
+  <string name="chat_login">Login</string>
+  <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
+  <string name="contacts">Kontakte</string>
+  <string name="title_activity_contact_list">Choose Contact</string>
+  <!-- Strings used for fragments for navigation -->
+  <string name="first_fragment_label">First Fragment</string>
+  <string name="second_fragment_label">Second Fragment</string>
+  <string name="next">Next</string>
+  <string name="previous">Previous</string>
 
-    <string name="institute_courses">Kurse</string>
-    <string name="institute_firstsemester">Ersti-Hilfe</string>
-    <string name="institute_persons">Personen</string>
-    <string name="institute_events">Veranstaltungen</string>
-    <string name="institute_feedback">FEEDBACK SENDEN</string>
+  <string name="add_contact_label_text">Jabber ID</string>
+  <string name="add_contact_confirm_text">OK</string>
+  <string name="add_contact_cancel_text">Abbrechen</string>
 
-    <string name="campus_campus">Der Campus</string>
+  <string name="institute_courses">Module</string>
+  <string name="institute_firstsemester">Erstsemesterhilfe</string>
+  <string name="institute_persons">Personen</string>
+  <string name="institute_events">Events</string>
 
-    <string name="feedback_name">Name</string>
-    <string name="feedback_email">E-mail</string>
-    <string name="feedback_subject">Betreff</string>
-    <string name="feedback_message">Verfasse deine Nachricht</string>
+  <string name="feedback_name">Name</string>
+  <string name="feedback_email">E-Mail</string>
+  <string name="feedback_subject">Titel</string>
+  <string name="feedback_message">Schreibe deine Nachricht.</string>
+  <string name="institute_feedback">Sende uns dein Feedback</string>
 
-    <string name="news_welcome"> Willkommen!</string>
+  <string name="campus_campus">Der Campus</string>
 
-    <string name="settings_language">Sprache ändern</string>
+  <string name="news_welcome"> Willkommen!</string>
 
-    <string name="send_message">Send Message</string>
-    <string name="pending">Pending...</string>
-    <string name ="onstatthem">They can see my online status.</string>
-    <string name="onstattheir">I can see their online Status</string>
-    <string name="contact_details_chat_view">Contactdetails</string>
-    <string name="me_me">me</string>
-    <string name="delete_chat">Delete Chat</string>
-    <string name="delete_message">Delete Message</string>
-    <string name="delete_contact">Delete contact</string>
-    <string name="contact_details">Contact details</string>
+  <string name="send_message">sende Nachricht</string>
+  <string name="dark_mode">Dark Mode</string>
+  <string name="permission_rationale">permission rationale</string>
+  <string name="me">Profil</string>
+  <string name="me_me">Profil</string>
+  <string name="title_me_activity">Profil</string>
+  <string name="delete_contact">Kontakt löschen</string>
+  <string name="contact_details">Kontaktdetails</string>
+  <string name="delete_chat">Chat löschen</string>
+  <string name="delete_message">Nachricht löschen</string>
+  <string name="onstatthem">Er sieht meinen Online Status</string>
+  <string name="pending">Pending...</string>
+  <string name="onstattheir">Ich sehe seinen Online Status.</string>
+  <string name="contact_details_chat_view">Kontaktdetails</string>
+  <string name="received_message">Nachricht erhalten</string>
 
-
-
-    <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
-    <string name="imprint_hs">Hochschule Osnabrück</string>
-    <string name="imprint_camp">Campus Lingen</string>
-    <string name="imprint_fak">Management, Kultur und Technik</string>
-    <string name="imprint_hs2">University of Applied Sciences</string>
-    <string name="imprint_street">Kaiserstraße 10C</string>
-    <string name="imprint_plz">49809 Lingen(Ems)</string>
-    <string name="imprint_data"><u>Hinweise zum Datenschutz</u></string>
-    <string name="imprint_haft"><u>Haftungsausschluss</u></string>
-    <string name="imprint_uhr"><u>Uhrheberrechtsinformationen</u></string>
-    <string name="imprint_osource"><u>Open Source Libraries</u></string>
-    <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
-
-    <string name="camp_header">Willkommen am Campus Lingen!</string>
-    <string name="camp_mhead">Erkunde den Campus!</string>
-    <string name="camp_map">Campus Karte</string>
-    <string name="camp_des">Standorte Campus Lingen</string>
-
-    <string name="ins_header">Über das Institut</string>
-    <string name="ins_header2">Aktuelles</string>
-
-    <string name="title_activity_chat__login">Chat_LoginActivity</string>
-    <string name="prompt_jid">Jabber ID</string>
-    <string name="prompt_password">Passwort</string>
-    <string name="action_sign_in">Login</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome "</string>
-    <string name="invalid_jid">Keine gültige Jabber ID</string>
-    <string name="invalid_password">Passwort muss mehr als 5 Zeichen haben.</string>
-    <string name="login_failed">"Login fehlgeschlagen."</string>
-
-    <string name="chat_login">Login</string>
-    <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
-    <string name="contacts">Kontakte</string>
-
->>>>>>> Stashed changes
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="add_contact_label_text">Jabber ID</string>
-    <string name="add_contact_confirm_text">OK</string>
-    <string name="add_contact_cancel_text">Abbrechen</string>
-
-
-=======
-
-
-    <string name="settings_dark">Dark Mode</string>
-    <string name="settings_enable">Dark Mode aktivieren</string>
-
-
->>>>>>> Stashed changes
-
+  <string name="settings_dark">Dark Mode</string>
+  <string name="settings_enable">Dark Mode aktivieren</string>
+  <string name="settings_language">Sprachen ändern</string>
 </resources>
