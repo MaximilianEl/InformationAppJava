@@ -139,6 +139,7 @@
                     android:layout_height="20dp"/>
 
             <TextView
+                    android:id="@+id/ins_Kurse"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Kurse"
@@ -151,6 +152,7 @@
                     android:layout_height="20dp"/>
 
             <TextView
+                    android:id="@+id/ins_ersti"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ersti-Hilfe"
@@ -163,6 +165,7 @@
                     android:layout_height="20dp"/>
 
             <TextView
+                    android:id="@+id/ins_personen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Personen"
@@ -175,6 +178,7 @@
                     android:layout_height="20dp"/>
 
             <TextView
+                    android:id="@+id/ins_veranstaltungen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Veranstaltungen"
