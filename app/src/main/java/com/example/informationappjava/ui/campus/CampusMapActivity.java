@@ -44,11 +44,20 @@ public class CampusMapActivity extends AppCompatActivity {
     // add some Building's Position in the map
     this.items = new ArrayList<OverlayItem>();
 
-    //Bib
+    //KA-Bib
     items.add(new OverlayItem("Bibliothek", descriptions[0], new GeoPoint(52.520070, 7.323205)));
 
-    //Mensa
-    items.add(new OverlayItem("Mensa Lingen", descriptions[0], new GeoPoint(52.519870, 7.323969)));
+    //KB-Kommunikationsmanagement
+    items.add(new OverlayItem("KB-Kommunikationsmanagement", " Description",
+        new GeoPoint(52.519625, 7.322832)));
+
+    //KC-Ingenieurwissenschaften
+    items.add(new OverlayItem("KC-Ingenieurwissenschaften", " Description",
+        new GeoPoint(52.519223, 7.322468)));
+
+    //KD-Seminarraüme
+    items
+        .add(new OverlayItem("KD-Seminarraüme", " Description", new GeoPoint(52.518730, 7.322007)));
 
     //KE-Seminarräume
     items
@@ -58,33 +67,17 @@ public class CampusMapActivity extends AppCompatActivity {
     items.add(new OverlayItem("KF-Informatik / Mathematik", " Description",
         new GeoPoint(52.519433, 7.322107)));
 
-    //IT-Zentrum
-    items.add(
-        new OverlayItem("IT-Zentrum Lingen", " Description", new GeoPoint(52.519040, 7.323023)));
+    //KG-Betriebswirtschaft
+    items.add(new OverlayItem("KG-Betriebswirtschaft", " Description",
+        new GeoPoint(52.519731, 7.322306)));
 
     //KH-Studentisches Gebäude
     items.add(new OverlayItem("KH-Studentisches Gebäude", " Description",
         new GeoPoint(52.520177, 7.322668)));
 
-    //KG-Betriebswirtschaft
-    items.add(new OverlayItem("KG-Betriebswirtschaft", " Description",
-        new GeoPoint(52.519731, 7.322306)));
-
-    //KB-Kommunikationsmanagement
-    items.add(new OverlayItem("KB-Kommunikationsmanagement", " Description",
-        new GeoPoint(52.519625, 7.322832)));
-
-    //KD-Seminarraüme
-    items
-        .add(new OverlayItem("KD-Seminarraüme", " Description", new GeoPoint(52.518730, 7.322007)));
-
-    //LK-Institut für duale Studiengäne
-    items.add(new OverlayItem("LK-Institut für duale Studiengänge", " Description",
-        new GeoPoint(52.519252, 7.322988)));
-
-    //KC-Ingenieurwissenschaften
-    items.add(new OverlayItem("KC-Ingenieurwissenschaften", " Description",
-        new GeoPoint(52.519223, 7.322468)));
+    //IT-Zentrum
+    items.add(
+        new OverlayItem("IT-Zentrum Lingen", " Description", new GeoPoint(52.519040, 7.323023)));
 
     //LB-Theaterpädagogik
     items.add(
@@ -93,9 +86,16 @@ public class CampusMapActivity extends AppCompatActivity {
     //LC-Kokenmühle
     items.add(new OverlayItem("LC", "Description", new GeoPoint(52.517403, 7.319054)));
 
-    //Konrad-Adenauer-Ring
+    //LK-Institut für duale Studiengäne
+    items.add(new OverlayItem("LK-Institut für duale Studiengänge", " Description",
+        new GeoPoint(52.519252, 7.322988)));
+
+    //LL-Konrad-Adenauer-Ring
     items.add(
         new OverlayItem("Konrad-Adenauer-Ring", "Description", new GeoPoint(52.519985, 7.316185)));
+
+    //Mensa
+    items.add(new OverlayItem("Mensa Lingen", descriptions[0], new GeoPoint(52.519870, 7.323969)));
 
     //the Overlay
     ItemizedOverlayWithFocus<OverlayItem> mOverlay = new ItemizedOverlayWithFocus<>(items,
