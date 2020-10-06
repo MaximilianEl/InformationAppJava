@@ -3,9 +3,117 @@
 
   <string-array name="descriptions">
 
-    <item>AAAA \n BVB</item>
-    <item>BBB</item>
-    <item></item>
+    // KA Bibliothek
+    <item>
+      Öffnungszeiten im Semester \n
+      Campus Lingen: Mo - Fr 09.00 - 18.00 \n
+      Sa 10.00 - 14.00 Uhr \n
+      Einlass in allen Bibliotheken bis 15 min vor Schließung \n
+    </item>
+
+    // KB
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // KC
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr \n
+      Facility-Management und Poststelle \n
+      Montag – Freitag 07:00 – 16:00 Uhr \n
+      KC 0014
+    </item>
+
+    // KD
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // KE
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // KF
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+      Geschäftsstelle Institut für Management und Technik \n
+      Raum KF 0117 \n
+      Telefon: 0591 80098-211
+    </item>
+
+    // KG
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // KH
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // IT-Zentrum
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // LB
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag – Freitag 07:00 – 20:00 Uhr \n
+      Samstag 07:30 – 13:00 Uhr
+    </item>
+
+    // LC
+    <item>
+      An der Kokenmühle 9 \n
+      Vorlesungs- und Seminarräume \n
+      LearningCenter
+    </item>
+
+    // LK
+    <item>
+      Montag – Freitag 07:00 – 17:00 Uhr \n
+      WhatsApp-Beratung 09:00 – 17:00 Uhr \n
+      Büro für Studierenden- und Unternehmensbetreuung \n
+      Kaiserstraße 10b \n
+      Raum: LK0001 \n
+      Tel.: 0591 80098-739
+    </item>
+
+    // LL-Konrad-Adenauer-Ring
+    <item>
+      Hochschulpastoral \n
+      Seelsorge für Studenten \n
+      Konrad-Adenauer-Ring 13 \n
+      Raum LL 0102
+    </item>
+
+    // Mensa
+    <item>
+      Öffnungszeiten im Semester \n
+      Montag bis Freitag 9:30 – 15:15 Uhr \n
+      Warme Speisen \n Montag bis Freitag 11:30 – 14:00 Uhr \n
+      Standort \n
+      Kaiserstraße 10e \n
+      49809 Lingen
+    </item>
 
   </string-array>
 </resources>
