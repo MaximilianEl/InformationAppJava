@@ -18,8 +18,6 @@ public class ImgSlideFragment extends Fragment {
     private ImageAdapter imageAdapter;
     public ImgSlideFragment() {}
 
-    private CampusMapViewModel mViewModel;
-
     public static ImgSlideFragment newInstance() {
         return new ImgSlideFragment();
     }
@@ -31,7 +29,7 @@ public class ImgSlideFragment extends Fragment {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
         View view =  inflater.inflate(R.layout.fragment_img_slide, container, false);
-        viewPager = (ViewPager) view.findViewById(R.id.camppager);
+        viewPager = view.findViewById(R.id.camppager);
         imageAdapter = new ImageAdapter(this.getActivity());
         viewPager.setAdapter(imageAdapter);
         return view;
