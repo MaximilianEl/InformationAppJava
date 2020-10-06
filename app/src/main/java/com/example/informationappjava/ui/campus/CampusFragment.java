@@ -1,5 +1,6 @@
 package com.example.informationappjava.ui.campus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class CampusFragment extends Fragment {
   ViewPager viewPager;
   ImageAdapter imageAdapter;
   Button campMapButton;
+  Button cityMapButton;
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -34,7 +36,7 @@ public class CampusFragment extends Fragment {
     Fragment fragment = new ImgSlideFragment();
     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    fragmentTransaction.replace(R.id.campus_fragment, fragment);
+    fragmentTransaction.replace(R.id.campus_fragment_slideshow, fragment);
     fragmentTransaction.addToBackStack(null);
     fragmentTransaction.commit();
 
@@ -42,12 +44,8 @@ public class CampusFragment extends Fragment {
     campMapButton.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Fragment fragment = new CampusMapFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.campus_fragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        Intent intent = new Intent(getActivity(), CampusMapActivity.class);
+        startActivity(intent);
       }
     });
 
