@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.informationappjava.R;
-
 import org.osmdroid.config.Configuration;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,9 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 public class ImgSlideFragment extends Fragment {
     private  ViewPager viewPager;
     private ImageAdapter imageAdapter;
-    public ImgSlideFragment() {
-
-    }
+    public ImgSlideFragment() {}
 
     private CampusMapViewModel mViewModel;
 
@@ -41,8 +36,4 @@ public class ImgSlideFragment extends Fragment {
         viewPager.setAdapter(imageAdapter);
         return view;
     }
-
-
-
-
 }
