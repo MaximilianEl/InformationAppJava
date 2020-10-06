@@ -23,10 +23,8 @@ public class ImgSlideFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Context ctx = container.getContext();
-        Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
         View view =  inflater.inflate(R.layout.fragment_img_slide, container, false);
         viewPager = view.findViewById(R.id.camppager);
