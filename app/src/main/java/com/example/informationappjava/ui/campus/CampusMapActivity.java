@@ -22,6 +22,7 @@ public class CampusMapActivity extends AppCompatActivity {
   private MyLocationNewOverlay mLocationoverlay;
   private ArrayList<OverlayItem> items;
   private MapView map = null;
+  private String[] descriptions;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class CampusMapActivity extends AppCompatActivity {
     setContentView(R.layout.activity_campus_map);
     Context ctx = getApplicationContext();
     Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
+
+    descriptions = getResources().getStringArray(R.array.descriptions);
 
     map = findViewById(R.id.map);
     map.setTileSource(TileSourceFactory.MAPNIK);
@@ -42,7 +45,7 @@ public class CampusMapActivity extends AppCompatActivity {
     this.items = new ArrayList<OverlayItem>();
 
     //Mensa
-    items.add(new OverlayItem("Mensa Lingen", " Description", new GeoPoint(52.519870, 7.323969)));
+    items.add(new OverlayItem("Mensa Lingen", descriptions[0], new GeoPoint(52.519870, 7.323969)));
 
     //KE-Seminarräume
     items
