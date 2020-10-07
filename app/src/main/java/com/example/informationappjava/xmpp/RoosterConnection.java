@@ -861,7 +861,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 ContactModel.get(context).updateContactSubscription(contact);
             }
         }
-
     }
 
     @Override
@@ -887,7 +886,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 ContactModel.get(context).updateContactSubscription(contact);
             }
         }
-
     }
 
     @Override
@@ -903,7 +901,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 }
             }
         }
-
     }
 
     @Override
@@ -918,7 +915,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 .getContactsByJidString(presence.getFrom().asBareJid().toString());
 
         if (mPresence.isAvailable() && (!mPresence.isAway())) {
-
             mContact.setOnlineStatus(true);
         } else {
 
@@ -932,7 +928,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 presence.getFrom().asBareJid().toString());
         intent.setPackage(context.getPackageName());
         context.sendBroadcast(intent);
-
     }
 }
 
