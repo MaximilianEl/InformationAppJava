@@ -36,9 +36,9 @@ public class InstituteFragment extends Fragment {
 
   private String[] names = {
       "Frederike Holmer\nStudienassistenz",
-      "Elke Schmidt \n Studierendensekretariat",
-      "Daniela Timmer \n Studierendensekretariat",
-      "Imke Garrelmann \n Studierendensekretariat"
+      "Elke Schmidt\nStudierendensekretariat",
+      "Daniela Timmer\nStudierendensekretariat",
+      "Imke Garrelmann\nStudierendensekretariat"
   };
 
   private String[] descriptions = {

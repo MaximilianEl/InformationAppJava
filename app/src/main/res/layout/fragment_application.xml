@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:weightSum="10"
+  android:background="@drawable/bg"
+  tools:context=".ui.application.ApplicationFragment">
+
+  <RelativeLayout
+    android:orientation="vertical"
+    android:layout_weight="3.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+    <ImageView
+      android:id="@+id/logo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="60dp"
+      android:src="@drawable/hs_os"/>
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:layout_marginBottom="60dp"
+      android:text="Bewerbungsprozess"
+      android:textColor="#fff"
+      android:textAlignment="center"
+      android:textStyle="bold"
+      android:textSize="20sp"/>
+
+  </RelativeLayout>
+
+  <GridLayout
+    android:layout_weight="6.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:rowCount="2"
+    android:columnCount="2"
+    android:alignmentMode="alignMargins">
+
+    <!--    Row 1   -->
+    <!--    Column 1   -->
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      app:cardElevation="8dp"
+      app:cardCornerRadius="8dp">
+
+      <LinearLayout
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:layout_gravity="center_horizontal"
+          android:layout_width="50dp"
+          android:layout_height="50dp"/>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Bewerbung"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:textColor="#4445F1"
+          android:textAlignment="center"/>
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    Column 2   -->
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      app:cardElevation="8dp"
+      app:cardCornerRadius="8dp">
+
+      <LinearLayout
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:layout_gravity="center_horizontal"
+          android:layout_width="50dp"
+          android:layout_height="50dp"/>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Zulassung"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:textColor="#4445F1"
+          android:textAlignment="center"/>
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    Row 2   -->
+    <!--    Column 1   -->
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      app:cardElevation="8dp"
+      app:cardCornerRadius="8dp">
+
+      <LinearLayout
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:layout_gravity="center_horizontal"
+          android:layout_width="50dp"
+          android:layout_height="50dp"/>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Einschreibung und Immatrikulation"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:textColor="#4445F1"
+          android:textAlignment="center"/>
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    Column 2   -->
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      app:cardElevation="8dp"
+      app:cardCornerRadius="8dp">
+
+      <LinearLayout
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:layout_gravity="center_horizontal"
+          android:layout_width="50dp"
+          android:layout_height="50dp"/>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Studienstart"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:textColor="#4445F1"
+          android:textAlignment="center"/>
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+  </GridLayout>
+
+</LinearLayout>

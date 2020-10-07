@@ -96,4 +96,5 @@
   <string name="settings_enable">Dark Mode aktivieren</string>
   <string name="settings_language">Sprachen ändern</string>
   <string name="jabber_id">Jabber ID</string>
+  <string name="menu_application">Bewerbungsprozess</string>
 </resources>
