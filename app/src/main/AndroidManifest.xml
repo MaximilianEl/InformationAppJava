@@ -60,7 +60,7 @@
     </activity>
     <activity
       android:label="Einstellungen"
-      android:name=".ui.options.SettingsActivity">
+      android:name=".ui.settings.SettingsActivity">
       <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".NavDrawer"/>

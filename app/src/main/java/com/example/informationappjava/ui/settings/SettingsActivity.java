@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.options;
+package com.example.informationappjava.ui.settings;
 
 import android.app.Activity;
 import android.content.DialogInterface;

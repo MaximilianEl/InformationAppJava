@@ -31,7 +31,7 @@
 
   <activity
     android:id="@+id/nav_options"
-    android:name="com.example.informationappjava.ui.options.SettingsActivity"
+    android:name="com.example.informationappjava.ui.settings.SettingsActivity"
     android:label="@string/menu_settings"
     tools:layout="@layout/activity_settings"/>
 

@@ -1,4 +1,4 @@
-package com.example.informationappjava.ui.options;
+package com.example.informationappjava.ui.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
