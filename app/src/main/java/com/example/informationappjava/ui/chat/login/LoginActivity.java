@@ -33,9 +33,11 @@ import androidx.preference.PreferenceManager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
+import com.example.informationappjava.ui.registration.RegistrationActivity;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,15 +60,25 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
     private BroadcastReceiver broadcastReceiver;
+    private TextView register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_login);
         // Set up the login form.
-        mjidView = (AutoCompleteTextView) findViewById(R.id.jid);
+        mjidView = findViewById(R.id.jid);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        register = findViewById(R.id.register_button);
+        register.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
