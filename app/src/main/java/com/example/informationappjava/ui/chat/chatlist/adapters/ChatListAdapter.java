@@ -22,137 +22,140 @@ import java.util.List;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
 
-    private static final String LOGTAG = "ChatListAdapter";
+  private static final String LOGTAG = "ChatListAdapter";
 
-    public interface OnItemClickListener {
-        public void onItemClick(String contactJid, Chat.ContactType chatType);
-    }
+  public interface OnItemClickListener {
 
-    public interface OnItemLongClickListener {
+    public void onItemClick(String contactJid, Chat.ContactType chatType);
+  }
 
-        public void onItemLongClick(String contactJod, int chatUniqueId, View anchor);
-    }
+  public interface OnItemLongClickListener {
 
-    List<Chat> chatList;
-    private OnItemClickListener onItemClickListener;
-    private OnItemLongClickListener onItemLongClick;
-    private Context mContext;
+    public void onItemLongClick(String contactJod, int chatUniqueId, View anchor);
+  }
 
-    public ChatListAdapter(Context context) {
-        this.chatList = ChatModel.get(context).getChats();
-        this.mContext = context;
-    }
+  List<Chat> chatList;
+  private OnItemClickListener onItemClickListener;
+  private OnItemLongClickListener onItemLongClick;
+  private Context mContext;
 
-    public OnItemClickListener getOnItemClickListener() {
-        return onItemClickListener;
-    }
+  public ChatListAdapter(Context context) {
+    this.chatList = ChatModel.get(context).getChats();
+    this.mContext = context;
+  }
 
-    public void setOnItemClickListener(
-            OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
+  public OnItemClickListener getOnItemClickListener() {
+    return onItemClickListener;
+  }
 
-    public OnItemLongClickListener getOnItemLongClick() {
-        return onItemLongClick;
-    }
+  public void setOnItemClickListener(
+      OnItemClickListener onItemClickListener) {
+    this.onItemClickListener = onItemClickListener;
+  }
 
-    public void setOnItemLongClick(
-            OnItemLongClickListener onItemLongClick) {
-        this.onItemLongClick = onItemLongClick;
-    }
+  public OnItemLongClickListener getOnItemLongClick() {
+    return onItemLongClick;
+  }
 
-    @NonNull
-    @NotNull
-    @Override
-    public ChatHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.chat_list_item, parent, false);
+  public void setOnItemLongClick(
+      OnItemLongClickListener onItemLongClick) {
+    this.onItemLongClick = onItemLongClick;
+  }
 
-        return new ChatHolder(view, this);
-    }
+  @NonNull
+  @NotNull
+  @Override
+  public ChatHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    System.out.println("____________________________________________________________________________");
+    LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+    View view = layoutInflater.inflate(R.layout.chat_list_item, parent, false);
 
-    @Override
-    public void onBindViewHolder(@NonNull @NotNull ChatHolder holder, int position) {
-        Chat chat = chatList.get(position);
-        holder.bindChat(chat);
-    }
+    System.out.println("____________________________________________________________________________");
+    return new ChatHolder(view, this);
+  }
 
-    @Override
-    public int getItemCount() {
-        return chatList.size();
-    }
+  @Override
+  public void onBindViewHolder(@NonNull @NotNull ChatHolder holder, int position) {
+    Chat chat = chatList.get(position);
+    holder.bindChat(chat);
+  }
 
-    public void onChatCountChange() {
-        chatList = ChatModel.get(mContext).getChats();
-        notifyDataSetChanged();
-        Log.d(LOGTAG, "ChatListAdapter knows of the change in message");
-    }
+  @Override
+  public int getItemCount() {
+    return chatList.size();
+  }
+
+  public void onChatCountChange() {
+    chatList = ChatModel.get(mContext).getChats();
+    notifyDataSetChanged();
+    Log.d(LOGTAG, "ChatListAdapter knows of the change in message");
+  }
 }
 
 class ChatHolder extends RecyclerView.ViewHolder {
 
-    private static final String LOGTAG = "ChatHolder";
-    private TextView contactTextView;
-    private TextView messageAbstractTextview;
-    private TextView timestampTextView;
-    private ImageView profileImage;
-    private Chat mChat;
-    private ChatListAdapter chatListAdapter;
+  private static final String LOGTAG = "ChatHolder";
+  private TextView contactTextView;
+  private TextView messageAbstractTextview;
+  private TextView timestampTextView;
+  private ImageView profileImage;
+  private Chat mChat;
+  private ChatListAdapter chatListAdapter;
 
-    public ChatHolder(@NonNull @NotNull View itemView,
-                      ChatListAdapter adapter) {
-        super(itemView);
+  public ChatHolder(@NonNull @NotNull View itemView,
+      ChatListAdapter adapter) {
+    super(itemView);
 
-        contactTextView = itemView.findViewById(R.id.contact_jid);
-        messageAbstractTextview = itemView.findViewById(R.id.message_abstract);
-        timestampTextView = itemView.findViewById(R.id.text_message_timestamp);
-        profileImage = itemView.findViewById(R.id.profile);
-        chatListAdapter = adapter;
+    contactTextView = itemView.findViewById(R.id.contact_jid);
+    messageAbstractTextview = itemView.findViewById(R.id.message_abstract);
+    timestampTextView = itemView.findViewById(R.id.text_message_timestamp);
+    profileImage = itemView.findViewById(R.id.profile);
+    chatListAdapter = adapter;
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    itemView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
 
-                ChatListAdapter.OnItemClickListener listener = chatListAdapter.getOnItemClickListener();
-                if (listener != null) {
-                    listener.onItemClick(contactTextView.getText().toString(), mChat.getContactType());
+        ChatListAdapter.OnItemClickListener listener = chatListAdapter.getOnItemClickListener();
+        if (listener != null) {
+          listener.onItemClick(contactTextView.getText().toString(), mChat.getContactType());
 
-                }
-
-                Log.d(LOGTAG, "Clicked on the item in the recyclerView");
-
-            }
-        });
-
-        itemView.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                ChatListAdapter.OnItemLongClickListener listener = chatListAdapter.getOnItemLongClick();
-                if (listener != null) {
-                    listener.onItemLongClick(mChat.getJid(), mChat.getPresistID(), itemView);
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
-
-    public void bindChat(Chat chat) {
-
-        mChat = chat;
-        contactTextView.setText(chat.getJid());
-        messageAbstractTextview.setText(chat.getLastMessage());
-        timestampTextView.setText(Utilities.getFormattedTime(mChat.getLastMessageTimeStamp()));
-
-        profileImage.setImageResource(R.drawable.ic_baseline_person_24);
-
-        RoosterConnection rc = RoosterConnectionService.getConnection();
-        if (rc != null) {
-            String imageAbsPath = rc.getProfileImageAbsolutePath(mChat.getJid());
-            if (imageAbsPath != null) {
-                Drawable d = Drawable.createFromPath(imageAbsPath);
-                profileImage.setImageDrawable(d);
-            }
         }
+
+        Log.d(LOGTAG, "Clicked on the item in the recyclerView");
+
+      }
+    });
+
+    itemView.setOnLongClickListener(new OnLongClickListener() {
+      @Override
+      public boolean onLongClick(View view) {
+        ChatListAdapter.OnItemLongClickListener listener = chatListAdapter.getOnItemLongClick();
+        if (listener != null) {
+          listener.onItemLongClick(mChat.getJid(), mChat.getPresistID(), itemView);
+          return true;
+        }
+        return false;
+      }
+    });
+  }
+
+  public void bindChat(Chat chat) {
+
+    mChat = chat;
+    contactTextView.setText(chat.getJid());
+    messageAbstractTextview.setText(chat.getLastMessage());
+    timestampTextView.setText(Utilities.getFormattedTime(mChat.getLastMessageTimeStamp()));
+
+    profileImage.setImageResource(R.drawable.ic_baseline_person_24);
+
+    RoosterConnection rc = RoosterConnectionService.getConnection();
+    if (rc != null) {
+      String imageAbsPath = rc.getProfileImageAbsolutePath(mChat.getJid());
+      if (imageAbsPath != null) {
+        Drawable d = Drawable.createFromPath(imageAbsPath);
+        profileImage.setImageDrawable(d);
+      }
     }
+  }
 }
