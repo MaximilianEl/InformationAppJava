@@ -59,5 +59,6 @@ dependencies {
     implementation 'org.igniterealtime.smack:smack-android-extensions:4.2.0'
     implementation 'org.igniterealtime.smack:smack-experimental:4.2.0'
     implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
