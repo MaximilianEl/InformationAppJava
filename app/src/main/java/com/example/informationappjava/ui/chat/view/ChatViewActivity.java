@@ -63,7 +63,7 @@ public class ChatViewActivity extends AppCompatActivity implements
         chatMessageRecyclerView = findViewById(R.id.chatMessagesRecycler);
         chatMessageRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
-        adapter = new ChatMessageAdapter(getApplicationContext(), counterpartJid);
+        adapter = new ChatMessageAdapter(this, counterpartJid);
         adapter.setOnInformRecyclerViewToScrollDownListener(this);
         adapter.setOnItemLongClickListener(this);
         chatMessageRecyclerView.setAdapter(adapter);

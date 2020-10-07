@@ -303,12 +303,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
             }
 
             if (vCard != null) {
-
                 saveAvatarToDisk(vCard, rootPath, selfJid);
             }
 
         } else {
-
             Log.d(LOGTAG, "Self jid is NULL");
         }
 
