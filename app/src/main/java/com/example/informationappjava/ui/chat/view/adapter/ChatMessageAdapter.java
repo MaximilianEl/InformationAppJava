@@ -82,6 +82,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     @Override
     public ChatMessageViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent,
                                                     int viewType) {
+
         View itemView;
         switch (viewType) {
             case SENT:
@@ -96,6 +97,7 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
                 itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
                 return new ChatMessageViewHolder(itemView, this);
         }
+
     }
 
     @Override

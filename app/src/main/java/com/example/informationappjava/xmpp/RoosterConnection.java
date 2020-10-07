@@ -24,9 +24,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import java.net.InetAddress;
 import java.util.Collection;
 import java.util.List;
 
+import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.SmackConfiguration;
@@ -74,6 +76,7 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     private ChatManager chatManager;
     private Roster roster;
     private VCardManager vCardManager;
+    private InetAddress address;
 
     public enum ConnectionState {
         OFFLINE, CONNECTING, ONLINE
@@ -144,14 +147,14 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
         XMPPTCPConnectionConfiguration connectionConfiguration = XMPPTCPConnectionConfiguration
                 .builder()
                 .setXmppDomain(serviceName)
-                .setHost(serviceName)
+                .setHostAddress(InetAddress.getByName("131.173.65.146"))
                 .setResource("Rooster+")
 
                 .setKeystoreType(null)
 
                 .setSendPresence(true)
                 .setDebuggerEnabled(true)
-                .setSecurityMode(SecurityMode.required)
+                .setSecurityMode(SecurityMode.disabled)
                 .setCompressionEnabled(true)
                 .build();
 
@@ -300,12 +303,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
             }
 
             if (vCard != null) {
-
                 saveAvatarToDisk(vCard, rootPath, selfJid);
             }
 
         } else {
-
             Log.d(LOGTAG, "Self jid is NULL");
         }
 
@@ -858,7 +859,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 ContactModel.get(context).updateContactSubscription(contact);
             }
         }
-
     }
 
     @Override
@@ -884,7 +884,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 ContactModel.get(context).updateContactSubscription(contact);
             }
         }
-
     }
 
     @Override
@@ -900,7 +899,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 }
             }
         }
-
     }
 
     @Override
@@ -915,7 +913,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 .getContactsByJidString(presence.getFrom().asBareJid().toString());
 
         if (mPresence.isAvailable() && (!mPresence.isAway())) {
-
             mContact.setOnlineStatus(true);
         } else {
 
@@ -929,7 +926,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
                 presence.getFrom().asBareJid().toString());
         intent.setPackage(context.getPackageName());
         context.sendBroadcast(intent);
-
     }
 }
 

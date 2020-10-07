@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.navigation.NavigationView;
@@ -46,7 +44,7 @@ public class NavDrawer extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_chat, R.id.nav_news, R.id.nav_campus, R.id.nav_institute, R.id.nav_options
+                R.id.nav_chat, R.id.nav_home, R.id.nav_campus, R.id.nav_institute, R.id.nav_options
         ).setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

@@ -74,7 +74,7 @@ public class ChatListActivity extends AppCompatActivity implements
         chatRecycler = findViewById(R.id.chatsRecyclerView);
         chatRecycler.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
-        mAdapter = new ChatListAdapter(getApplicationContext());
+        mAdapter = new ChatListAdapter(this);
         mAdapter.setOnItemClickListener(this);
         mAdapter.setOnItemLongClick(this);
         chatRecycler.setAdapter(mAdapter);
