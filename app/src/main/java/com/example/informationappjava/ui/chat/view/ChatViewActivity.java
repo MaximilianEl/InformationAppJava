@@ -84,18 +84,6 @@ public class ChatViewActivity extends AppCompatActivity implements
         Contact contactCheck = ContactModel.get(getApplicationContext())
                 .getContactsByJidString(counterpartJid);
 
-        if (contactCheck.isOnlineStatus()) {
-
-            Log.d(LOGTAG, counterpartJid + " is ONLINE");
-            sendMessageButton.setImageDrawable(
-                    ContextCompat.getDrawable(ChatViewActivity.this, R.drawable.ic_send_text_online));
-        } else {
-
-            sendMessageButton.setImageDrawable(
-                    ContextCompat.getDrawable(ChatViewActivity.this, R.drawable.ic_send_text_offline));
-            Log.d(LOGTAG, counterpartJid + " is OFFLINE");
-        }
-
         snackBar = findViewById(R.id.snackbar);
         snackBarStranger = findViewById(R.id.snackbar_stranger);
 
