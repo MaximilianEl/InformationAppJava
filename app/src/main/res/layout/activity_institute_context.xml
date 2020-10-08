@@ -61,24 +61,25 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
+            android:src="@drawable/ic_baseline_settings_24"
             app:civ_border_width="2dp"
             app:civ_border_color="@color/design_default_color_primary_dark"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Allgemeiner Maschinenbau (B.Sc.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Standort Lingen (Ems)"/>
 
         </LinearLayout>
 
@@ -99,8 +100,9 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_account_balance_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -109,14 +111,14 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Betriebswirtschaft und Management (B.A.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Standort Lingen (Ems)"/>
 
         </LinearLayout>
 
@@ -137,8 +139,9 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_computer_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -147,14 +150,14 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Wirtschaftsinformatik (B.Sc.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Stadt Lingen (Ems)"/>
 
         </LinearLayout>
 
@@ -175,8 +178,9 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_build_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -185,14 +189,14 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Wirtschaftsingenieurwesen (B.Sc.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Standort Lingen (Ems)"/>
 
         </LinearLayout>
 
@@ -213,8 +217,9 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_business_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -223,14 +228,14 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Wirtschaftsingenieurwesen (MBA)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="berufsbegleitend"/>
 
         </LinearLayout>
 
@@ -251,8 +256,9 @@
 
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_build_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -261,14 +267,14 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Wirtschaftsingenieurwesen - Energiewirtschaft (M.Sc.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Standort Lingen (Ems)"/>
 
         </LinearLayout>
 
@@ -290,8 +296,9 @@
           <com.makeramen.roundedimageview.RoundedImageView
             app:riv_corner_radius="8dp"
             android:id="@+id/ins_images"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_business_center_24"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             app:civ_border_width="2dp"
@@ -301,7 +308,7 @@
             android:id="@+id/ins_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dozent"
+            android:text="Management und Technik (M.Sc.)"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -309,7 +316,7 @@
             android:id="@+id/ins_item_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hier steht was drin "/>
+            android:text="Standort Lingen (Ems)"/>
 
         </LinearLayout>
 
