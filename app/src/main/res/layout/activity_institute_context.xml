@@ -1,64 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".ui.institute.InstituteContextActivity"
-  android:background="@drawable/bg">
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:background="@drawable/bg"
+  tools:context=".ui.institute.InstituteContextActivity">
 
   <LinearLayout
     android:orientation="vertical"
-    android:weightSum="10"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="0dp">
 
   <RelativeLayout
     android:layout_weight="2"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="0dp">
 
     <ImageView
       android:id="@+id/logo"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_width="400dp"
+      android:layout_height="200dp"
+      android:layout_centerHorizontal="true"
       android:layout_marginBottom="60dp"
       android:src="@drawable/hs_os"/>
 
     <TextView
-      android:id="@+id/institute_header"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
       android:layout_alignParentEnd="true"
       android:layout_marginBottom="60dp"
-      android:text="Beispiel"
+      android:text="@string/institute_courses"
       android:textColor="#fff"
       android:textAlignment="center"
-      android:textSize="20sp"
-      android:textStyle="bold"/>
+      android:textStyle="bold"
+      android:textSize="20sp"/>
 
   </RelativeLayout>
 
     <GridLayout
-      android:id="@+id/mainGrid"
-      android:columnCount="1"
-      android:rowCount="3"
-      android:alignmentMode="alignMargins"
-      android:columnOrderPreserved="false"
-      android:layout_weight="8"
+      android:columnCount="2"
       android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:padding="14dp">
+      android:layout_height="wrap_content">
 
-      <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ins_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
 
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
-      </androidx.recyclerview.widget.RecyclerView>
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="2"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+        android:layout_margin="16dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:orientation="vertical"
+          android:layout_margin="2dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_corner_radius="8dp"
+            android:id="@+id/ins_images"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/design_default_color_primary_dark"/>
+
+          <TextView
+            android:id="@+id/ins_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dozent"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+          <TextView
+            android:id="@+id/ins_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht was drin "/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
 
     </GridLayout>
 

@@ -12,6 +12,8 @@
     android:usesCleartextTraffic="true">
     <activity android:name=".ui.institute.InstituteContextActivity">
     </activity>
+    <activity android:name=".ui.institute.PersonContextActivity">
+    </activity>
     <activity
       android:label="Bewerbungsprozess"
       android:name=".ui.application.ApplicationContextActivity">

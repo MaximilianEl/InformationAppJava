@@ -29,7 +29,7 @@
   <string name="imprint_osource"><u>Open Source Libraries</u></string>
   <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
 
-  <string name ="mfg">Mit freundlichen Grüßen</string>
+  <string name="mfg">Mit freundlichen Grüßen</string>
   <string name="application">Bewerbungsprozess</string>
   <string name="approval">Zulassung</string>
   <string name="matriculation">Einschreibung und Immatrikulation</string>

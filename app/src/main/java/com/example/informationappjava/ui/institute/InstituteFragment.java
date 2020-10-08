@@ -1,34 +1,18 @@
 package com.example.informationappjava.ui.institute;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-
-import com.example.informationappjava.ui.application.ApplicationContextActivity;
-import de.measite.minidns.record.A;
-import java.util.ArrayList;
-import java.util.List;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
 
 public class InstituteFragment extends Fragment {
 
@@ -55,7 +39,6 @@ public class InstituteFragment extends Fragment {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent(getActivity(), InstituteContextActivity.class);
-        intent.putExtra("value", course);
         startActivity(intent);
       }
     });
@@ -64,8 +47,9 @@ public class InstituteFragment extends Fragment {
     cardViewFreshmanHelp.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), InstituteContextActivity.class);
-        intent.putExtra("value", freshmanHelp);
+        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
         startActivity(intent);
       }
     });
@@ -74,8 +58,9 @@ public class InstituteFragment extends Fragment {
     cardViewEvent.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), InstituteContextActivity.class);
-        intent.putExtra("value", event);
+        String url = "https://www.hs-osnabrueck.de/wir/wir-stellen-uns-vor/veranstaltungen/";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
         startActivity(intent);
       }
     });
@@ -84,58 +69,11 @@ public class InstituteFragment extends Fragment {
     cardViewPerson.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), InstituteContextActivity.class);
+        Intent intent = new Intent(getActivity(), PersonContextActivity.class);
         intent.putExtra("value", person);
         startActivity(intent);
       }
     });
-
-//    ins_kurse.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/studiengaenge/";
-//
-//        Intent i = new Intent(Intent.ACTION_VIEW);
-//        i.setData(Uri.parse(url));
-//        startActivity(i);
-//      }
-//    });
-//
-//    TextView ins_ersti = view.findViewById(R.id.ins_ersti);
-//    ins_ersti.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
-//
-//        Intent i = new Intent(Intent.ACTION_VIEW);
-//        i.setData(Uri.parse(url));
-//        startActivity(i);
-//      }
-//    });
-//
-//    TextView ins_personen = view.findViewById(R.id.ins_personen);
-//    ins_personen.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/organisation/personen-a-z/";
-//
-//        Intent i = new Intent(Intent.ACTION_VIEW);
-//        i.setData(Uri.parse(url));
-//        startActivity(i);
-//      }
-//    });
-//
-//    TextView ins_veranstaltungen = view.findViewById(R.id.ins_veranstaltungen);
-//    ins_veranstaltungen.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        String url = "https://www.hs-osnabrueck.de/wir/wir-stellen-uns-vor/veranstaltungen/";
-//
-//        Intent i = new Intent(Intent.ACTION_VIEW);
-//        i.setData(Uri.parse(url));
-//        startActivity(i);
-//      }
-//    });
 
     return view;
   }
