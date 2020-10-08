@@ -1,161 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@drawable/bg">
+
+  <ImageView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/logohsspl"/>
+
+  <Space
+    android:layout_width="match_parent"
+    android:layout_height="30dp"/>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="25dp">
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_hs"/>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/imprint_hs2"/>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/imprint_fak"/>
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_camp"/>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_street"/>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_plz"/>
+
+  </LinearLayout>
+
+  <Space
+    android:layout_width="match_parent"
+    android:layout_height="30dp"/>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="25dp">
+
+    <TextView
+      android:id="@+id/datapriv"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_data"
+      android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+      android:id="@+id/disclaimer"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_haft"
+      android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+      android:id="@+id/copyright"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_uhr"
+      android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+      android:id="@+id/osl"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/imprint_osource"
+      android:textColor="@color/colorPrimaryDark"/>
+
+  </LinearLayout>
+
+  <Space
+    android:layout_width="match_parent"
+    android:layout_height="30dp"/>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="25dp"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/logohsspl"/>
+    <TextView
+      android:id="@+id/website"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/imprint_website"
+      android:textColor="@color/colorPrimaryDark"/>
 
     <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+      android:layout_width="match_parent"
+      android:layout_height="15dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="25dp">
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_hs" />
+      <ImageView
+        android:id="@+id/impfacebook"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/facebook"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/imprint_hs2"/>
+      <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/imprint_fak"/>
+      <ImageView
+        android:id="@+id/impinsta"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/instagram"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_camp"/>
+      <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_street"/>
+      <ImageView
+        android:id="@+id/impyoutube"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:src="@drawable/youtube"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_plz"/>
+      <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent"/>
+
+      <ImageView
+        android:id="@+id/imptwitter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/twitter"/>
 
     </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="25dp">
-
-        <TextView
-            android:id="@+id/datapriv"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_data"
-            android:textColor="@color/colorPrimaryDark"/>
-
-        <TextView
-            android:id="@+id/disclaimer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_haft"
-            android:textColor="@color/colorPrimaryDark"/>
-
-        <TextView
-            android:id="@+id/copyright"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_uhr"
-            android:textColor="@color/colorPrimaryDark"/>
-
-        <TextView
-            android:id="@+id/osl"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/imprint_osource"
-            android:textColor="@color/colorPrimaryDark"/>
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/website"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/imprint_website"
-            android:textColor="@color/colorPrimaryDark"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/impfacebook"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/facebook"/>
-
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <ImageView
-                android:id="@+id/impinsta"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/instagram"/>
-
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <ImageView
-                android:id="@+id/impyoutube"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/youtube"/>
-
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <ImageView
-                android:id="@+id/imptwitter"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/twitter"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+  </LinearLayout>
 
 </LinearLayout>

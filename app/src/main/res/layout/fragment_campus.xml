@@ -6,7 +6,8 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".ui.campus.CampusFragment"
-  android:orientation="vertical">
+  android:orientation="vertical"
+  android:background="@drawable/bg">
 
   <LinearLayout
     android:id="@+id/campus_fragment"
@@ -14,42 +15,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/camp_header"
-    android:textSize="20sp"
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/camp_header"
+      android:textSize="20sp"
 
-    android:textColor="@color/colorPrimaryDark"
-    android:layout_margin="10dp"
-    android:textAlignment="center"/>
+      android:textColor="@color/colorPrimaryDark"
+      android:layout_margin="10dp"
+      android:textAlignment="center"/>
 
-  <FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:layout_margin="10dp"
-    android:background="@color/colorPrimaryDark"
-    android:orientation="vertical"
-    android:id="@+id/campus_fragment_slideshow"/>
+    <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="300dp"
+      android:layout_margin="10dp"
+      android:background="@color/colorPrimaryDark"
+      android:orientation="vertical"
+      android:id="@+id/campus_fragment_slideshow"/>
 
-  <TextView
-    android:layout_marginTop="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/camp_mhead"
-    android:textStyle="bold"
-    android:textColor="#000"
-    android:textAlignment="center"
-    android:textSize="18sp"/>
+    <TextView
+      android:layout_marginTop="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/camp_mhead"
+      android:textStyle="bold"
+      android:textColor="#000"
+      android:textAlignment="center"
+      android:textSize="18sp"/>
 
-  <Button
-    android:id="@+id/campus_map_button"
-    android:layout_width="220dp"
-    android:layout_height="50dp"
-    android:text="@string/camp_map"
-    android:background="@drawable/custom_botton"
-    android:layout_marginTop="5dp"
-    android:layout_gravity="center"/>
+    <Button
+      android:id="@+id/campus_map_button"
+      android:layout_width="220dp"
+      android:layout_height="50dp"
+      android:text="@string/camp_map"
+      android:background="@drawable/custom_botton"
+      android:layout_marginTop="5dp"
+      android:layout_gravity="center"/>
 
   </LinearLayout>
 
