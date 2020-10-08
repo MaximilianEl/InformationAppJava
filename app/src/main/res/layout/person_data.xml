@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
+  android:layout_margin="8dp"
   android:layout_height="wrap_content"
-  android:layout_margin="2dp"
-  android:background="@drawable/person_draw"
-  android:orientation="horizontal">
-
-  <de.hdodenhof.circleimageview.CircleImageView
-    android:id="@+id/docent_pic"
-    android:layout_width="96dp"
-    android:layout_height="96dp"
-    android:layout_gravity="center"
-    android:layout_marginLeft="5dp"
-    app:civ_border_width="2dp"
-    app:civ_border_color="@color/design_default_color_primary_dark"/>
+  app:cardCornerRadius="8dp">
 
   <LinearLayout
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    android:layout_margin="2dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+      app:riv_corner_radius="8dp"
+      android:id="@+id/docent_pic"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:layout_gravity="center"
+      android:layout_margin="5dp"
+      app:civ_border_width="2dp"
+      app:civ_border_color="@color/design_default_color_primary_dark"/>
 
     <TextView
       android:id="@+id/docent"
@@ -35,8 +36,8 @@
       android:id="@+id/docent_description"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Hier steht \n was drin "/>
+      android:text="Hier steht was drin "/>
 
   </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
