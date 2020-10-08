@@ -2,6 +2,7 @@ package com.example.informationappjava.ui.application;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -15,11 +16,14 @@ public class ApplicationContextActivity extends AppCompatActivity {
 
   private CardView cardViewLeft;
   private CardView cardViewRight;
+  private CardView cardViewCenter;
   private TextView applicationHeader;
   private TextView applicationContext;
   private TextView leftTextView;
+  private TextView centerTextView;
   private TextView rightTextView;
   private ImageView leftImageView;
+  private ImageView centerImageView;
   private ImageView rightImageView;
   private String applicationString = "application";
   private String enrolString = "enrol";
@@ -44,11 +48,16 @@ public class ApplicationContextActivity extends AppCompatActivity {
     applicationHeader = findViewById(R.id.application_header);
     applicationContext = findViewById(R.id.application_context);
     cardViewLeft = findViewById(R.id.application_card_left);
+    cardViewCenter = findViewById(R.id.application_card_center);
     cardViewRight = findViewById(R.id.application_card_right);
     leftTextView = findViewById(R.id.left_text);
+    centerTextView = findViewById(R.id.center_text);
     rightTextView = findViewById(R.id.right_text);
     leftImageView = findViewById(R.id.appli_card_img_left);
+    centerImageView = findViewById(R.id.appli_card_img_center);
     rightImageView = findViewById(R.id.appli_card_img_right);
+
+    applicationContext.setMovementMethod(new ScrollingMovementMethod());
 
     if (s1.equals(applicationString)) {
 
@@ -58,6 +67,7 @@ public class ApplicationContextActivity extends AppCompatActivity {
       rightTextView.setText(applicationButtonArray[1]);
 
       rightImageView.setImageResource(R.drawable.ic_outline_info_24);
+      cardViewCenter.setVisibility(View.GONE);
 
       cardViewLeft.setOnClickListener(new OnClickListener() {
         @Override
@@ -82,20 +92,55 @@ public class ApplicationContextActivity extends AppCompatActivity {
 
       applicationHeader.setText(applicationHeaderArray[1]);
       applicationContext.setText(applicationContextArray[1]);
-//      leftTextView.setText(applicationButtonArray[2]);
-//      rightTextView.setText(applicationButtonArray[3]);
+      cardViewLeft.setVisibility(View.GONE);
+      leftTextView.setText(applicationButtonArray[2]);
+      rightTextView.setText(applicationButtonArray[3]);
+      cardViewCenter.setVisibility(View.GONE);
     } else if (s1.equals(enrolString)) {
 
       applicationHeader.setText(applicationHeaderArray[2]);
       applicationContext.setText(applicationContextArray[2]);
-//      leftTextView.setText(applicationButtonArray[4]);
-//      rightTextView.setText(applicationButtonArray[5]);
+      cardViewLeft.setVisibility(View.GONE);
+      leftTextView.setVisibility(View.GONE);
+      rightTextView.setText(applicationButtonArray[5]);
+      cardViewCenter.setVisibility(View.GONE);
     } else {
 
       applicationHeader.setText(applicationHeaderArray[3]);
       applicationContext.setText(applicationContextArray[3]);
-//      leftTextView.setText(applicationButtonArray[6]);
-//      rightTextView.setText(applicationButtonArray[7]);
+      leftTextView.setText(applicationButtonArray[6]);
+      centerTextView.setText(applicationButtonArray[7]);
+      rightTextView.setText(applicationButtonArray[8]);
+
+      cardViewLeft.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/startnow/";
+          Intent i = new Intent(Intent.ACTION_VIEW);
+          i.setData(Uri.parse(url));
+          startActivity(i);
+        }
+      });
+
+      cardViewCenter.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
+          Intent i = new Intent(Intent.ACTION_VIEW);
+          i.setData(Uri.parse(url));
+          startActivity(i);
+        }
+      });
+
+      cardViewRight.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/startnow/#c9915872";
+          Intent i = new Intent(Intent.ACTION_VIEW);
+          i.setData(Uri.parse(url));
+          startActivity(i);
+        }
+      });
     }
   }
 }

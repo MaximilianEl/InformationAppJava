@@ -4,19 +4,24 @@
   <string-array name="application_context_array">
 
     <item>
-      Bewerbungszeitraum Wintersemester 2020/2021:\n\nBachelorstudiengänge: Bewerbungsschluss (Ausschlussfrist) 20.08.2020\n\nMasterstudiengänge in der Regel der 15.07.2020\n\nBewerbungszeitraum Sommersemester: November bis 15. Januar  (Ausschlussfrist)
+      Bewerbungszeitraum Wintersemester 2020/2021:
+      \n\nBachelorstudiengänge: Bewerbungsschluss (Ausschlussfrist) 20.08.2020
+      \n\nMasterstudiengänge in der Regel der 15.07.2020
+      \n\nBewerbungszeitraum Sommersemester: November bis 15. Januar  (Ausschlussfrist)
     </item>
 
     <item>
-        Hier steht ein Platzhalter
+      Hier steht ein Platzhalter
     </item>
 
     <item>
-        Hier steht ein Platzhalter
+      Hier steht ein Platzhalter
     </item>
 
     <item>
-        Hier steht ein Platzhalter
+      Als Erstsemester Studierender stellen Sie sich vor dem Studium und während der ersten beiden Semester viele Fragen rund um das Studium und das Studierendenleben.
+      \n\nDas Institut für Management und Technik versucht den Studierenden einen bestmöglichen Einstieg ins Studium zu ermöglichen.
+      \n\nDurch unser Mentoringprogramm werden unsere Erstsemester während der Einführungswoche und des ersten Studienjahres unterstützt.
     </item>
 
   </string-array>
@@ -34,6 +39,13 @@
 
     <item>Bewerbe dich jetzt hier!</item>
     <item>Erfahre mehr!</item>
+    <item>Erfahre mehr!</item>
+    <item>Erfahre mehr!</item>
+    <item>Erfahre mehr!</item>
+    <item>Erfahre mehr!</item>
+    <item>startNOW</item>
+    <item>Ersti-Info</item>
+    <item>Mehr Infos hier!</item>
 
   </string-array>
 </resources>
