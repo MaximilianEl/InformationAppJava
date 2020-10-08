@@ -48,7 +48,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     public TextView docentName;
     public TextView docentDescription;
-    public CircleImageView docentPic;
+    public RoundedImageView docentPic;
 
     public PersonViewHolder(@NonNull @NotNull View itemView) {
       super(itemView);

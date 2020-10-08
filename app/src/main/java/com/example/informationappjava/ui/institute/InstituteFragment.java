@@ -45,29 +45,6 @@ public class InstituteFragment extends Fragment {
   private String event = "event";
   private String person = "person";
 
-//  private String[] names = {
-//      "Frederike Holmer\nStudienassistenz",
-//      "Elke Schmidt\nStudierendensekretariat",
-//      "Daniela Timmer\nStudierendensekretariat",
-//      "Imke Garrelmann\nStudierendensekretariat"
-//  };
-
-//  private String[] descriptions = {
-//      "Raum: KF 0115\nTelefon: 0591 80098-208\nstudienassistenz-imt@hs-osnabrueck.de\nSprechzeiten: Nach Vereinbarung\nJabberID: f.holmer@hsoschat.de",
-//      "Raum: KC 0001\nTelefon: 0591 80098-636\nel.schmidt@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: el.schmidt@hsoschat.de",
-//      "Raum: KC 0001\nTelefon: 0591 80098-631\nd.timmer@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: d.timmer@hsoschat.de",
-//      "Raum: KC 0004\nTelefon: 0591 80098-637\ni.garrelmann@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: i.garrelmann@hsoschat.de"
-//  };
-
-//  private int[] images = {
-//      R.drawable.holmer,
-//      R.drawable.ic_baseline_person_24,
-//      R.drawable.ic_baseline_person_24,
-//      R.drawable.imke
-//      };
-
-  private List<Person> personList = new ArrayList<>();
-
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
@@ -113,13 +90,6 @@ public class InstituteFragment extends Fragment {
       }
     });
 
-//    layoutManager = new LinearLayoutManager(getActivity());
-//    recyclerView.setLayoutManager(layoutManager);
-
-//    prepareTheList();
-
-//    adapter = new PersonAdapter(personList);
-//    recyclerView.setAdapter(adapter);
 //    ins_kurse.setOnClickListener(new View.OnClickListener() {
 //      @Override
 //      public void onClick(View view) {
@@ -170,16 +140,7 @@ public class InstituteFragment extends Fragment {
     return view;
   }
 
-//  public void prepareTheList() {
-//
-//    int count = 0;
-//    for (String name : names) {
-//
-//        Person person = new Person(name, descriptions[count], images[count]);
-//        personList.add(person);
-//        count++;
-//    }
-//  }
+
 
 
 }
