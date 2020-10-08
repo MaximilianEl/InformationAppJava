@@ -29,7 +29,7 @@
       android:layout_alignParentBottom="true"
       android:layout_alignParentEnd="true"
       android:layout_marginBottom="60dp"
-      android:text="Bewerbungsprozess"
+      android:text="@string/application"
       android:textColor="#fff"
       android:textAlignment="center"
       android:textStyle="bold"
@@ -75,7 +75,7 @@
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Bewerbung"
+          android:text="@string/application"
           android:textSize="20sp"
           android:textStyle="bold"
           android:textColor="#4445F1"
@@ -114,7 +114,7 @@
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Zulassung"
+          android:text="@string/approval"
           android:textSize="20sp"
           android:textStyle="bold"
           android:textColor="#4445F1"
@@ -157,7 +157,7 @@
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Einschreibung und Immatrikulation"
+          android:text="@string/matriculation"
           android:textSize="20sp"
           android:textStyle="bold"
           android:textColor="#4445F1"
@@ -196,7 +196,7 @@
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Studienstart"
+          android:text="@string/startstudies"
           android:textSize="20sp"
           android:textStyle="bold"
           android:textColor="#4445F1"

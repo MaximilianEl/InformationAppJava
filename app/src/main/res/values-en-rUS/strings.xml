@@ -60,6 +60,12 @@
   <string name="imprint_osource"><u>Open Source Libraries</u></string>
   <string name="imprint_website"><u>www.hs-osnabrueck.de</u></string>
 
+  <string name ="mfg">Regards</string>
+  <string name="application">Application process</string>
+  <string name="approval">Approval</string>
+  <string name="matriculation">Enrollment and Matriculation</string>
+  <string name="startstudies">Start of Studies</string>
+
   <string name="camp_header">Welcome to Campus Lingen</string>
   <string name="camp_mhead">Explore the Campus</string>
   <string name="camp_map">Campus Map</string>

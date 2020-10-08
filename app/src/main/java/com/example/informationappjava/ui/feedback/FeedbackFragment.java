@@ -21,6 +21,7 @@ import com.example.informationappjava.R;
 public class FeedbackFragment extends Fragment {
 
     private FeedbackViewModel mViewModel;
+    private String mfg;
 
     public static FeedbackFragment newInstance() {
         return new FeedbackFragment();
@@ -31,28 +32,33 @@ public class FeedbackFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
         final EditText name = (EditText) view.findViewById(R.id.name);
-        final EditText email = (EditText) view.findViewById(R.id.email);
         final EditText subject = (EditText) view.findViewById(R.id.subject);
         final EditText message = (EditText) view.findViewById(R.id.message);
+
+        mfg = getResources().getString(R.string.mfg);
 
         Button send = (Button) view.findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String emailS = email.getText().toString();
-                //String subS = subject.getText().toString();
-                // String mesS = message.getText().toString();
-                //String namS = name.getText().toString();
+
+                String subS = subject.getText().toString();
+                String mesS = message.getText().toString();
+                String namS = name.getText().toString();
 
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setData(Uri.parse("mailto"));
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"djimafovianine@yahoo.fr"});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"infoappv2@gmail.com"});
                 email.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
-                email.putExtra(Intent.EXTRA_TEXT, message.getText().toString() + "\n regards, "
-                        + emailS);
+                email.putExtra(Intent.EXTRA_TEXT, message.getText().toString() + "\n\n"+mfg+"\n"+namS);
 
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose app to send Mail"));
+
+                subject.getText().clear();
+                message.getText().clear();
+                name.getText().clear();
+
 
             }
         });

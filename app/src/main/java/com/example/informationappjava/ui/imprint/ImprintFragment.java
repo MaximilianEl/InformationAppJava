@@ -1,5 +1,6 @@
 package com.example.informationappjava.ui.imprint;
 
+
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -23,7 +24,7 @@ public class ImprintFragment extends Fragment {
     private ImageView twitter;
     private ImageView youtube;
 
-    
+
 
 
     public static ImprintFragment newInstance() {
