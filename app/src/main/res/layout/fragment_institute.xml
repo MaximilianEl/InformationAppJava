@@ -1,103 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        android:id="@+id/fragment_institute_id"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/fragment_institute_id"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/hsbackground"
+  tools:context=".ui.institute.InstituteFragment"
+  android:orientation="vertical">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/ins_Kurse"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.institute.InstituteFragment"
-        android:orientation="vertical">
+        android:text="Kurse"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
-    <TextView
-            android:id="@+id/text_slideshow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+      <TextView
+        android:id="@+id/ins_ersti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ersti-Hilfe"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:src="@drawable/logohsspl"
-            android:contentDescription="TODO"
-            tools:ignore="ContentDescription,HardcodedText"/>
+      <TextView
+        android:id="@+id/ins_veranstaltungen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Veranstaltungen"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+        <TextView
+          android:id="@+id/ins_personen"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Personen"
+          android:textStyle="bold"
+          android:textSize="20sp"
+          android:textAlignment="center"/>
 
-            <TextView
-                    android:id="@+id/ins_Kurse"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/institute_courses"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textAlignment="center"/>
-
-            <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-            <TextView
-                    android:id="@+id/ins_ersti"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/institute_firstsemester"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textAlignment="center"/>
-
-            <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-            <TextView
-                    android:id="@+id/ins_personen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/institute_persons"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textAlignment="center"/>
-
-            <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-            <TextView
-                    android:id="@+id/ins_veranstaltungen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/institute_events"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textAlignment="center"/>
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/personRecycler"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
 
 
-            <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
+      </LinearLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
-    </ScrollView>
+  </ScrollView>
 
 
 </LinearLayout>

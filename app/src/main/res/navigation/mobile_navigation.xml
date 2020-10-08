@@ -46,4 +46,10 @@
     android:name="com.example.informationappjava.ui.imprint.ImprintFragment"
     android:label="@string/menu_imprint"
     tools:layout="@layout/fragment_imprint"/>
+
+  <fragment
+    android:id="@+id/nav_application"
+    android:name="com.example.informationappjava.ui.application.ApplicationFragment"
+    android:label="Bewerbungsprozess"
+    tools:layout="@layout/fragment_application"/>
 </navigation>

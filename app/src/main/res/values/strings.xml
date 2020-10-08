@@ -38,7 +38,7 @@
   <string name="ins_header2">Aktuelles</string>
 
   <string name="title_activity_chat__login">Chat_LoginActivity</string>
-  <string name="prompt_jid">Jabber ID</string>
+  <string name="prompt_jid">maxmusterman@hsoschat.de</string>
   <string name="prompt_password">Password</string>
   <string name="action_sign_in">Login</string>
   <string name="action_sign_in_short">Anmelden</string>
@@ -95,4 +95,6 @@
   <string name="settings_dark">Dark Mode</string>
   <string name="settings_enable">Dark Mode aktivieren</string>
   <string name="settings_language">Sprachen ändern</string>
+  <string name="jabber_id">Jabber ID</string>
+  <string name="menu_application">Bewerbungsprozess</string>
 </resources>

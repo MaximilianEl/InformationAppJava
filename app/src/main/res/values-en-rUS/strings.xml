@@ -69,7 +69,7 @@
   <string name="ins_header2">Latest news</string>
 
   <string name="title_activity_chat__login">Chat_LoginActivity</string>
-  <string name="prompt_jid">Jabber ID</string>
+  <string name="prompt_jid">maxmusterman@hsoschat.de</string>
   <string name="prompt_password">Password</string>
   <string name="action_sign_in">Login</string>
   <string name="action_sign_in_short">Sign in</string>
