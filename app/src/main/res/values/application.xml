@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="application_context_array">
+
+    <item>
+      Bewerbungszeitraum Wintersemester 2020/2021:\n\nBachelorstudiengänge: Bewerbungsschluss (Ausschlussfrist) 20.08.2020\n\nMasterstudiengänge in der Regel der 15.07.2020\n\nBewerbungszeitraum Sommersemester: November bis 15. Januar  (Ausschlussfrist)
+    </item>
+
+    <item>
+        Hier steht ein Platzhalter
+    </item>
+
+    <item>
+        Hier steht ein Platzhalter
+    </item>
+
+    <item>
+        Hier steht ein Platzhalter
+    </item>
+
+  </string-array>
+
+  <string-array name="application_header_array">
+
+    <item>Bewerbung</item>
+    <item>Zulassung</item>
+    <item>Einschreibung und Immatrikulation</item>
+    <item>Studienstart</item>
+
+  </string-array>
+
+  <string-array name="application_button_array">
+
+    <item>Bewerbe dich jetzt hier!</item>
+    <item>Erfahre mehr!</item>
+
+  </string-array>
+</resources>

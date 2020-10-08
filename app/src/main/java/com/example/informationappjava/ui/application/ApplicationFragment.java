@@ -1,5 +1,13 @@
 package com.example.informationappjava.ui.application;
 
+import android.content.Intent;
+import android.view.View.OnClickListener;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -13,6 +21,14 @@ import com.example.informationappjava.R;
 public class ApplicationFragment extends Fragment {
 
   private ApplicationViewModel mViewModel;
+  private CardView application;
+  private CardView approve;
+  private CardView enrol;
+  private CardView start;
+  private String applicationString = "application";
+  private String enrolString = "enrol";
+  private String approveString = "approve";
+  private String startString = "start";
 
   public static ApplicationFragment newInstance() {
     return new ApplicationFragment();
@@ -21,7 +37,46 @@ public class ApplicationFragment extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_application, container, false);
+    View view = inflater.inflate(R.layout.fragment_application, container, false);
+
+    application = view.findViewById(R.id.application_appli);
+    application.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+        intent.putExtra("value", applicationString);
+        startActivity(intent);
+      }
+    });
+    approve = view.findViewById(R.id.application_approve);
+    approve.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+        intent.putExtra("value", approveString);
+        startActivity(intent);
+      }
+    });
+    enrol = view.findViewById(R.id.application_enrol);
+    enrol.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+        intent.putExtra("value", enrolString);
+        startActivity(intent);
+      }
+    });
+    start = view.findViewById(R.id.application_start);
+    start.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+        intent.putExtra("value", startString);
+        startActivity(intent);
+      }
+    });
+
+    return view;
   }
 
   @Override

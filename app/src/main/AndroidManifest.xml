@@ -2,17 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.informationappjava">
 
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
   <application
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
@@ -21,7 +10,9 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
-
+    <activity android:name=".ui.application.ApplicationContextActivity"
+      android:label="Bewerbungsprozess">
+    </activity>
     <activity
       android:name=".MainActivity"
       android:theme="@style/AppTheme.NoActionBar">
@@ -31,13 +22,11 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-
     <activity
       android:label="@string/title_activity_nav_drawer"
       android:name=".NavDrawer"
       android:theme="@style/AppTheme.NoActionBar">
     </activity>
-
     <activity
       android:label="Chat"
       android:name=".ui.chat.login.LoginActivity">
@@ -45,12 +34,10 @@
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".NavDrawer"/>
     </activity>
-
     <activity
-      android:name=".ui.campus.CampusMapActivity"
-      android:label="Standorte Campus Lingen">
+      android:label="Standorte Campus Lingen"
+      android:name=".ui.campus.CampusMapActivity">
     </activity>
-
     <activity
       android:label="@string/contacts"
       android:name=".ui.chat.chatlist.ChatListActivity">
@@ -58,29 +45,24 @@
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".NavDrawer"/>
     </activity>
-
     <activity
       android:label="@string/title_activity_contact_list"
       android:name=".ui.chat.contacts.ContactListActivity"
       android:theme="@style/AppTheme.NoActionBar">
     </activity>
-
     <activity
       android:label="@string/title_me_activity"
       android:name=".ui.chat.MeActivity"
       android:parentActivityName=".ui.chat.chatlist.ChatListActivity">
     </activity>
-
     <activity
       android:name=".ui.chat.contacts.ContactDetailsActivity"
       android:parentActivityName=".ui.chat.contacts.ContactListActivity"/>
-
     <activity android:name=".ui.chat.view.ChatViewActivity">
       <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".ui.chat.chatlist.ChatListActivity"/>
     </activity>
-
     <activity
       android:label="Einstellungen"
       android:name=".ui.settings.SettingsActivity">
@@ -88,14 +70,24 @@
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".NavDrawer"/>
     </activity>
-
     <activity
-      android:name=".ui.registration.RegistrationActivity"
       android:label="Registrierung"
+      android:name=".ui.registration.RegistrationActivity"
       android:parentActivityName=".ui.chat.login.LoginActivity">
     </activity>
 
     <service android:name=".xmpp.RoosterConnectionService"/>
   </application>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 </manifest>

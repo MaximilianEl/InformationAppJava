@@ -1,0 +1,101 @@
+package com.example.informationappjava.ui.application;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import androidx.cardview.widget.CardView;
+import com.example.informationappjava.R;
+
+public class ApplicationContextActivity extends AppCompatActivity {
+
+  private CardView cardViewLeft;
+  private CardView cardViewRight;
+  private TextView applicationHeader;
+  private TextView applicationContext;
+  private TextView leftTextView;
+  private TextView rightTextView;
+  private ImageView leftImageView;
+  private ImageView rightImageView;
+  private String applicationString = "application";
+  private String enrolString = "enrol";
+  private String approveString = "approve";
+  private String startString = "start";
+  private String[] applicationContextArray;
+  private String[] applicationHeaderArray;
+  private String[] applicationButtonArray;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_application_context);
+
+    Intent intent = getIntent();
+    String s1 = intent.getStringExtra("value");
+
+    applicationHeaderArray = getResources().getStringArray(R.array.application_header_array);
+    applicationContextArray = getResources().getStringArray(R.array.application_context_array);
+    applicationButtonArray = getResources().getStringArray(R.array.application_button_array);
+
+    applicationHeader = findViewById(R.id.application_header);
+    applicationContext = findViewById(R.id.application_context);
+    cardViewLeft = findViewById(R.id.application_card_left);
+    cardViewRight = findViewById(R.id.application_card_right);
+    leftTextView = findViewById(R.id.left_text);
+    rightTextView = findViewById(R.id.right_text);
+    leftImageView = findViewById(R.id.appli_card_img_left);
+    rightImageView = findViewById(R.id.appli_card_img_right);
+
+    if (s1.equals(applicationString)) {
+
+      applicationHeader.setText(applicationHeaderArray[0]);
+      applicationContext.setText(applicationContextArray[0]);
+      leftTextView.setText(applicationButtonArray[0]);
+      rightTextView.setText(applicationButtonArray[1]);
+
+      rightImageView.setImageResource(R.drawable.ic_outline_info_24);
+
+      cardViewLeft.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String url = "https://osca-bew.hs-osnabrueck.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=EXTERNALPAGES&ARGUMENTS=-N000000000000001,-N000186,-Ahsoswelcome";
+          Intent i = new Intent(Intent.ACTION_VIEW);
+          i.setData(Uri.parse(url));
+          startActivity(i);
+        }
+      });
+
+      cardViewRight.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          String url = "https://www.hs-osnabrueck.de/studium/rund-ums-studium/bewerbung/";
+          Intent i = new Intent(Intent.ACTION_VIEW);
+          i.setData(Uri.parse(url));
+          startActivity(i);
+        }
+      });
+    } else if (s1.equals(approveString)) {
+
+      applicationHeader.setText(applicationHeaderArray[1]);
+      applicationContext.setText(applicationContextArray[1]);
+//      leftTextView.setText(applicationButtonArray[2]);
+//      rightTextView.setText(applicationButtonArray[3]);
+    } else if (s1.equals(enrolString)) {
+
+      applicationHeader.setText(applicationHeaderArray[2]);
+      applicationContext.setText(applicationContextArray[2]);
+//      leftTextView.setText(applicationButtonArray[4]);
+//      rightTextView.setText(applicationButtonArray[5]);
+    } else {
+
+      applicationHeader.setText(applicationHeaderArray[3]);
+      applicationContext.setText(applicationContextArray[3]);
+//      leftTextView.setText(applicationButtonArray[6]);
+//      rightTextView.setText(applicationButtonArray[7]);
+    }
+  }
+}

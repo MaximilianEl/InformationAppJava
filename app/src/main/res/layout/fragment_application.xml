@@ -48,6 +48,7 @@
     <!--    Row 1   -->
     <!--    Column 1   -->
     <androidx.cardview.widget.CardView
+      android:id="@+id/application_appli"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_columnWeight="1"
@@ -66,7 +67,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:src="@drawable/ic_baseline_library_books_24"
           android:layout_gravity="center_horizontal"
           android:layout_width="50dp"
           android:layout_height="50dp"/>
@@ -86,6 +87,7 @@
 
     <!--    Column 2   -->
     <androidx.cardview.widget.CardView
+      android:id="@+id/application_approve"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_columnWeight="1"
@@ -104,7 +106,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:src="@drawable/ic_baseline_done_outline_24"
           android:layout_gravity="center_horizontal"
           android:layout_width="50dp"
           android:layout_height="50dp"/>
@@ -125,6 +127,7 @@
     <!--    Row 2   -->
     <!--    Column 1   -->
     <androidx.cardview.widget.CardView
+      android:id="@+id/application_enrol"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_columnWeight="1"
@@ -146,7 +149,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:src="@drawable/ic_baseline_list_alt_24"
           android:layout_gravity="center_horizontal"
           android:layout_width="50dp"
           android:layout_height="50dp"/>
@@ -166,6 +169,7 @@
 
     <!--    Column 2   -->
     <androidx.cardview.widget.CardView
+      android:id="@+id/application_start"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_columnWeight="1"
@@ -184,7 +188,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-          android:src="@drawable/ic_baseline_library_add_check_24"
+          android:src="@drawable/ic_baseline_event_note_24"
           android:layout_gravity="center_horizontal"
           android:layout_width="50dp"
           android:layout_height="50dp"/>
