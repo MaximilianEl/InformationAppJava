@@ -9,6 +9,4 @@
   android:weightSum="10"
   android:background="@drawable/bg">
 
-
-
 </LinearLayout>
