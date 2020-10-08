@@ -9,4 +9,47 @@
   android:weightSum="10"
   android:background="@drawable/bg">
 
+  <RelativeLayout
+    android:layout_weight="3.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+    <ImageView
+      android:id="@+id/logo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="60dp"
+      android:src="@drawable/hs_os"/>
+
+    <TextView
+      android:id="@+id/application_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:layout_marginBottom="60dp"
+      android:text="Beispiel"
+      android:textColor="#fff"
+      android:textAlignment="center"
+      android:textSize="20sp"
+      android:textStyle="bold"/>
+
+  </RelativeLayout>
+
+  <ScrollView
+    android:layout_weight="6.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+    <GridLayout
+      android:id="@+id/ins_grid"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:alignmentMode="alignMargins">
+
+
+    </GridLayout>
+
+  </ScrollView>
+
 </LinearLayout>
