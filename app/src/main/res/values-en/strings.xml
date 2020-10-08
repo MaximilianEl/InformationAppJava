@@ -7,11 +7,8 @@
     <string name="nav_header_title">Welcome to the InfoApp</string>
     <string name="nav_header_subtitle">Sign in for Chat access</string>
     <string name="nav_header_desc">Navigation header</string>
-    >
 
-
-
-    <string name="menu_news">News</string>
+    <string name="menu_home">News</string>
     <string name="menu_campus">Campus</string>
     <string name="menu_institute">Institutes</string>
     <string name="menu_chat">Chat</string>
@@ -68,7 +65,7 @@
 
     <string name="camp_header">Welcome to Campus Lingen</string>
     <string name="camp_mhead">Explore the Campus</string>
-    <string name="camp_map">Campus Map</string>
+    <string name="camp_map">Click here and </string>
     <string name="camp_des">Locations Campus Lingen</string>
 
     <string name="ins_header">About the institut</string>
