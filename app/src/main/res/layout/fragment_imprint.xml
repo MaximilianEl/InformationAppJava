@@ -1,163 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:background="@drawable/bg">
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:weightSum="10"
+  android:background="@drawable/bg">
+
+  <RelativeLayout
+    android:orientation="vertical"
+    android:layout_weight="3.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
 
     <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/hs_os"/>
+      android:id="@+id/logo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="60dp"
+      android:src="@drawable/hs_os"/>
 
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="80dp"/>
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:layout_marginBottom="60dp"
+      android:text="@string/application"
+      android:textColor="#fff"
+      android:textAlignment="center"
+      android:textStyle="bold"
+      android:textSize="20sp"/>
 
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="25dp">
+  </RelativeLayout>
 
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_hs"/>
+  <GridLayout
+    android:layout_weight="6.5"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:rowCount="2"
+    android:columnCount="2"
+    android:alignmentMode="alignMargins">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/imprint_hs2"/>
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      app:cardElevation="8dp"
+      app:cardCornerRadius="8dp">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/imprint_fak"/>
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_camp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_street"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_plz"/>
-
-    </LinearLayout>
-
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="25dp">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-                android:id="@+id/datapriv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_data"
-                android:textColor="@color/colorPrimaryDark"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_hs"/>
 
         <TextView
-                android:id="@+id/disclaimer"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_haft"
-                android:textColor="@color/colorPrimaryDark"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_hs2"/>
 
         <TextView
-                android:id="@+id/copyright"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_uhr"
-                android:textColor="@color/colorPrimaryDark"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_fak"/>
 
         <TextView
-                android:id="@+id/osl"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/imprint_osource"
-                android:textColor="@color/colorPrimaryDark"/>
-
-    </LinearLayout>
-
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:orientation="vertical">
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_camp"/>
 
         <TextView
-                android:id="@+id/website"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/imprint_website"
-                android:textColor="@color/colorPrimaryDark"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_street"/>
 
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp"/>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_plz"/>
+
+        <TextView
+          android:layout_marginTop="20dp"
+          android:id="@+id/datapriv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_data"
+          android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+          android:id="@+id/disclaimer"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_haft"
+          android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+          android:id="@+id/copyright"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_uhr"
+          android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+          android:id="@+id/osl"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/imprint_osource"
+          android:textColor="@color/colorPrimaryDark"/>
 
         <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+          android:layout_marginTop="20dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
-            <ImageView
-                    android:id="@+id/impfacebook"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/facebook"/>
+        <ImageView
+          android:id="@+id/impfacebook"
+          android:layout_marginStart="0dp"
+          android:layout_marginEnd="15dp"
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:src="@drawable/facebook"/>
 
-            <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
 
-            <ImageView
-                    android:id="@+id/impinsta"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/instagram"/>
+        <ImageView
+          android:id="@+id/impinsta"
+          android:layout_marginEnd="15dp"
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:src="@drawable/instagram"/>
 
-            <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
 
-            <ImageView
-                    android:id="@+id/impyoutube"
-                    android:layout_width="50dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/youtube"/>
+        <ImageView
+          android:id="@+id/impyoutube"
+          android:layout_marginEnd="15dp"
+          android:layout_width="50dp"
+          android:layout_height="40dp"
+          android:src="@drawable/youtube"/>
 
-            <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
 
-            <ImageView
-                    android:id="@+id/imptwitter"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/twitter"/>
+        <ImageView
+          android:id="@+id/imptwitter"
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:src="@drawable/twitter"/>
 
         </LinearLayout>
 
-    </LinearLayout>
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+  </GridLayout>
 
 </LinearLayout>
