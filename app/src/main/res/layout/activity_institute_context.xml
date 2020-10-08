@@ -48,6 +48,7 @@
       android:layout_height="wrap_content">
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_masch"
         android:layout_margin="16dp"
         android:layout_columnWeight="1"
         app:cardCornerRadius="8dp">
@@ -86,6 +87,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_bwl"
         android:layout_margin="16dp"
         android:layout_rowWeight="2"
         android:layout_columnWeight="1"
@@ -125,6 +127,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_infor"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -164,6 +167,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_ing"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -203,6 +207,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_mba"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -242,6 +247,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_engergy"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -281,6 +287,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/ins_mut"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
