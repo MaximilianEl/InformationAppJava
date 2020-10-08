@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="ins_header">
+    <item>Kurse</item>
+    <item>Ersti-Hilfe</item>
+    <item>Veranstaltungen</item>
+    <item>Personen</item>
+  </string-array>
+
+  <string-array name="person_header">
+    <item>Frederike Holmer\nStudienassistenz</item>
+    <item>Elke Schmidt\nStudierendensekretariat</item>
+    <item>Daniela Timmer\nStudierendensekretariat</item>
+    <item>Imke Garrelmann\nStudierendensekretariat</item>
+  </string-array>
+
+  <string-array name="person_context">
+    <item>
+      Raum: KF 0115\nTelefon: 0591 80098-208\nstudienassistenz-imt@hs-osnabrueck.de\nSprechzeiten: Nach Vereinbarung\nJabberID: f.holmer@hsoschat.de
+    </item>
+    <item>
+      Raum: KC 0001\nTelefon: 0591 80098-636\nel.schmidt@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: el.schmidt@hsoschat.de
+    </item>
+    <item>
+      Raum: KC 0001\nTelefon: 0591 80098-631\nd.timmer@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: d.timmer@hsoschat.de
+    </item>
+    <item>
+      Raum: KC 0004\nTelefon: 0591 80098-637\ni.garrelmann@hs-osnabrueck.de\nSprechzeiten:\nWerktags außer mittwochs\n9:30 - 12:00 Uhr\nJabberID: i.garrelmann@hsoschat.de
+    </item>
+  </string-array>
+
+  <string-array name="course_names">
+
+    <item>Allgemeiner Maschinenbau (B.Sc.)</item>
+    <item>Betriebswirtschaft und Management (B.A.)</item>
+    <item>Wirtschaftsinformatik (B.Sc.)</item>
+    <item>Wirtschaftsingenieurwesen (B.Sc.)</item>
+    <item>Management und Technik (M.Sc.)</item>
+    <item>Wirtschaftsingenieurwesen (MBA)</item>
+    <item>Wirtschaftsingenieurwesen - Energiewirtschaft(M.Sc.)</item>
+
+  </string-array>
+
+  <string-array name="course_context">
+
+    <item>Standort Lingen(Ems)</item>
+    <item>Standort Lingen(Ems)</item>
+    <item>Standort Lingen(Ems)</item>
+    <item>Standort Lingen(Ems)</item>
+    <item>Standort Lingen(Ems)</item>
+    <item>berufsbegleitend</item>
+    <item>Standort Lingen(Ems)</item>
+
+  </string-array>
+
+</resources>

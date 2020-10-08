@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+  android:id="@+id/institute_card"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
@@ -16,7 +17,7 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
       app:riv_corner_radius="8dp"
-      android:id="@+id/docent_pic"
+      android:id="@+id/ins_images"
       android:layout_width="96dp"
       android:layout_height="96dp"
       android:layout_gravity="center"
@@ -25,7 +26,7 @@
       app:civ_border_color="@color/design_default_color_primary_dark"/>
 
     <TextView
-      android:id="@+id/docent"
+      android:id="@+id/ins_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Dozent"
@@ -33,7 +34,7 @@
       android:textSize="20sp"/>
 
     <TextView
-      android:id="@+id/docent_description"
+      android:id="@+id/ins_item_description"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Hier steht was drin "/>

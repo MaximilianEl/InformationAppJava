@@ -5,14 +5,14 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".ui.institute.InstituteContextActivity">
+  tools:context=".ui.institute.InstituteContextActivity"
+  android:background="@drawable/bg">
 
   <LinearLayout
     android:orientation="vertical"
     android:weightSum="10"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg">
+    android:layout_height="wrap_content">
 
   <RelativeLayout
     android:layout_weight="2"
@@ -27,7 +27,7 @@
       android:src="@drawable/hs_os"/>
 
     <TextView
-      android:id="@+id/application_header"
+      android:id="@+id/institute_header"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
