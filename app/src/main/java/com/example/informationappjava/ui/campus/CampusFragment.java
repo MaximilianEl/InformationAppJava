@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,8 +25,7 @@ public class CampusFragment extends Fragment {
   FloatingActionButton fButton;
   ViewPager viewPager;
   ImageAdapter imageAdapter;
-  Button campMapButton;
-  Button cityMapButton;
+  CardView campMapButton;
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
