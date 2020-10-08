@@ -19,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactHolder> {
 
     public interface OnItemClickListener {

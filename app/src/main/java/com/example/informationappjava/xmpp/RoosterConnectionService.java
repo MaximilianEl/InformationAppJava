@@ -32,7 +32,8 @@ public class RoosterConnectionService extends Service {
 
     private static RoosterConnection connection;
 
-    public RoosterConnectionService() {}
+    public RoosterConnectionService() {
+    }
 
     private void initConnection() {
         Log.d(LOGTAG, " initConnection()");

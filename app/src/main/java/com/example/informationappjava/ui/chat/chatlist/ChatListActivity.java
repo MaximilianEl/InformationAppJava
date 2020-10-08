@@ -63,11 +63,9 @@ public class ChatListActivity extends AppCompatActivity implements
                 Log.d(LOGTAG, "Service not running, starting it.. ");
                 Intent intent = new Intent(this, RoosterConnectionService.class);
                 startService(intent);
-
             } else {
 
                 Log.d(LOGTAG, "The service is already running.");
-
             }
         }
 

@@ -28,7 +28,6 @@ import java.net.InetAddress;
 import java.util.Collection;
 import java.util.List;
 
-import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.SmackConfiguration;
