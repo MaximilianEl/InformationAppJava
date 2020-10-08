@@ -52,7 +52,7 @@
 
     <GridLayout
       android:rowCount="1"
-      android:columnCount="2"
+      android:columnCount="3"
       android:layout_alignParentBottom="true"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -72,7 +72,10 @@
 
         <LinearLayout
           android:layout_gravity="center_horizontal|center_vertical"
-          android:layout_margin="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginRight="5dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="16dp"
           android:orientation="vertical"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content">
@@ -99,6 +102,49 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+        android:id="@+id/application_card_center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="bottom"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+          android:layout_gravity="center_horizontal|center_vertical"
+          android:layout_marginTop="16dp"
+          android:layout_marginRight="5dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="16dp"
+          android:orientation="vertical"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+
+          <ImageView
+            android:id="@+id/appli_card_img_center"
+            android:src="@drawable/ic_baseline_library_books_24"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+          <TextView
+            android:id="@+id/center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beispiel"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#4445F1"
+            android:textAlignment="center"/>
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
         android:id="@+id/application_card_right"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -112,7 +158,10 @@
 
         <LinearLayout
           android:layout_gravity="center_horizontal|center_vertical"
-          android:layout_margin="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginRight="5dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="16dp"
           android:orientation="vertical"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content">
