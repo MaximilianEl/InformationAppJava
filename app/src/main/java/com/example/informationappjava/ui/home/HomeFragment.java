@@ -44,13 +44,13 @@ public class HomeFragment extends Fragment {
         "<html><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/RhnYEDhsczs\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>",
         "text/html", "utf-8");
 
-    final TextView textView = view.findViewById(R.id.text_home);
-    newsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-      @Override
-      public void onChanged(@Nullable String s) {
-        textView.setText(s);
-      }
-    });
+//    final TextView textView = view.findViewById(R.id.text_home);
+//    newsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//      @Override
+//      public void onChanged(@Nullable String s) {
+//        textView.setText(s);
+//      }
+//    });
     return view;
   }
 }
