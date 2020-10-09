@@ -16,6 +16,9 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
 
+/**
+ *
+ */
 public class RoosterConnectionService extends Service {
 
   private static final String LOGTAG = "RoosterConService";
@@ -26,15 +29,27 @@ public class RoosterConnectionService extends Service {
   //Posts Messages to the Background Thread
   private Handler handler;
 
+  /**
+   * @return
+   */
   public static RoosterConnection getConnection() {
     return connection;
   }
 
+  /**
+   *
+   */
   private static RoosterConnection connection;
 
+  /**
+   *
+   */
   public RoosterConnectionService() {
   }
 
+  /**
+   *
+   */
   private void initConnection() {
     Log.d(LOGTAG, " initConnection()");
 
@@ -75,18 +90,31 @@ public class RoosterConnectionService extends Service {
     }
   }
 
+  /**
+   * @param intent
+   * @return
+   */
   @Nullable
   @Override
   public IBinder onBind(Intent intent) {
     return null;
   }
 
+  /**
+   *
+   */
   @Override
   public void onCreate() {
     super.onCreate();
     ServerPingWithAlarmManager.onCreate(this);
   }
 
+  /**
+   * @param intent
+   * @param flags
+   * @param startId
+   * @return
+   */
   @Override
   public int onStartCommand(Intent intent, int flags, int startId) {
     //Do your task here
@@ -94,6 +122,9 @@ public class RoosterConnectionService extends Service {
     return Service.START_STICKY;
   }
 
+  /**
+   *
+   */
   @Override
   public void onDestroy() {
     super.onDestroy();
@@ -101,6 +132,9 @@ public class RoosterConnectionService extends Service {
     stop();
   }
 
+  /**
+   *
+   */
   public void start() {
     Log.d(LOGTAG, "Service Start() function calles. active: " + active);
     if (!active) {
@@ -124,6 +158,9 @@ public class RoosterConnectionService extends Service {
     }
   }
 
+  /**
+   *
+   */
   public void stop() {
 
     Log.d(LOGTAG, "stop()");
