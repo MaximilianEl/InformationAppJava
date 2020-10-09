@@ -9,7 +9,7 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import com.example.informationappjava.R;
 
-public class InstituteContextActivity extends AppCompatActivity {
+public class InstituteCourseActivity extends AppCompatActivity {
 
   private CardView cardViewMBau;
   private CardView cardViewBWL;
@@ -23,7 +23,7 @@ public class InstituteContextActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_institute_context);
+    setContentView(R.layout.activity_institute_courses);
 
     cardViewMBau = findViewById(R.id.ins_masch);
     cardViewMBau.setOnClickListener(new OnClickListener() {
