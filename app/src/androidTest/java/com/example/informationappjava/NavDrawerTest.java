@@ -12,6 +12,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.action.GeneralLocation;
+import androidx.test.espresso.action.GeneralSwipeAction;
+import androidx.test.espresso.action.Press;
+import androidx.test.espresso.action.Swipe;
 import androidx.test.espresso.contrib.*;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import org.hamcrest.Matcher;
@@ -30,9 +34,21 @@ public class NavDrawerTest {
     onView(withId(R.id.drawer_layout)).perform(actionCloseDrawer());
   }
 
+  /**
+   *
+   */
   @Test
   public void open_Drawer_go_to_Campus() {
     openDrawerGoTo(R.id.nav_campus);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Campus_Swipe_Images_and_go_Campus_Map() {
+    openDrawer();
+    openPage(R.id.nav_campus);
+    onView(withId(R.id.campus_fragment_slideshow)).perform(swipeLeft());
+    onView(withId(R.id.campus_fragment_slideshow)).perform(swipeRight());
+    onView(withId(R.id.campus_map_button)).perform(click());
   }
 
   @Test
@@ -45,16 +61,27 @@ public class NavDrawerTest {
     openDrawerGoTo(R.id.nav_application);
   }
 
+
+  /**
+   *
+   */
   @Test
   public void open_Drawer_go_to_Chat() {
     openDrawerGoTo(R.id.nav_chat);
   }
 
+
+  /**
+   *
+   */
   @Test
   public void open_Drawer_go_to_Settings() {
     openDrawerGoTo(R.id.nav_options);
   }
 
+  /**
+   *
+   */
   @Test
   public void open_Drawer_go_to_Feedback() {
     openDrawerGoTo(R.id.nav_feedback);
@@ -68,10 +95,12 @@ public class NavDrawerTest {
     onView(withId(R.id.subject)).perform(clearText(), typeText("Feedback"));
   }
 
+
   @Test
   public void open_Drawer_go_to_Imprint() {
     openDrawerGoTo(R.id.nav_imprint);
   }
+
 
   @Test
   public void open_all_Fragments() {
@@ -83,6 +112,11 @@ public class NavDrawerTest {
     openPage(R.id.nav_application);
     openDrawer();
     openPage(R.id.nav_home);
+  }
+
+  @Test
+  public void play_video() {
+    onView(withId(R.id.videoView)).perform(click());
   }
 
   private static ViewAction actionOpenDrawer() {
@@ -102,6 +136,35 @@ public class NavDrawerTest {
         ((DrawerLayout) view).openDrawer(GravityCompat.START);
       }
     };
+  }
+
+  private static ViewAction actionCloseDrawer() {
+    return new ViewAction() {
+      @Override
+      public Matcher<View> getConstraints() {
+        return isAssignableFrom(DrawerLayout.class);
+      }
+
+      @Override
+      public String getDescription() {
+        return "close drawer";
+      }
+
+      @Override
+      public void perform(UiController uiController, View view) {
+        ((DrawerLayout) view).closeDrawer(GravityCompat.START);
+      }
+    };
+  }
+
+  private static ViewAction swipeRight() {
+    return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.CENTER_LEFT,
+        GeneralLocation.CENTER_RIGHT, Press.FINGER);
+  }
+
+  private static ViewAction swipeLeft() {
+    return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.CENTER_RIGHT,
+        GeneralLocation.CENTER_LEFT, Press.FINGER);
   }
 
   private void openDrawer() {
@@ -125,25 +188,6 @@ public class NavDrawerTest {
   public void openDrawerGoTo(int i) {
     openDrawer();
     openPage(i);
-  }
-
-  private static ViewAction actionCloseDrawer() {
-    return new ViewAction() {
-      @Override
-      public Matcher<View> getConstraints() {
-        return isAssignableFrom(DrawerLayout.class);
-      }
-
-      @Override
-      public String getDescription() {
-        return "close drawer";
-      }
-
-      @Override
-      public void perform(UiController uiController, View view) {
-        ((DrawerLayout) view).closeDrawer(GravityCompat.START);
-      }
-    };
   }
 
 }
