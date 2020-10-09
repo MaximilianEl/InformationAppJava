@@ -1,6 +1,7 @@
 package com.example.informationappjava.ui;
 
 import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 import com.example.informationappjava.R;
@@ -17,7 +18,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 public class TestInstitute {
 
     @Rule
-    public ActivityTestRule<InstituteContextActivity> activityRule = new ActivityTestRule<>(
+    public ActivityScenarioRule<InstituteContextActivity> activityRule = new ActivityScenarioRule<>(
             InstituteContextActivity.class);
 
     @Test
