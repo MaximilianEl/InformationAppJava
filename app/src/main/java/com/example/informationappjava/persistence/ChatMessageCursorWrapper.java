@@ -4,11 +4,21 @@ import android.database.Cursor;
 import android.database.CursorWrapper;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 
+/**
+ *
+ */
 public class ChatMessageCursorWrapper extends CursorWrapper {
+
+    /**
+     * @param cursor
+     */
     public ChatMessageCursorWrapper(Cursor cursor) {
         super(cursor);
     }
 
+    /**
+     * @return
+     */
     public ChatMessage getChatMessage() {
         String message = getString(getColumnIndex(ChatMessage.Cols.MESSAGE));
         long timestamp = getLong(getColumnIndex(ChatMessage.Cols.TIMESTAMP));
