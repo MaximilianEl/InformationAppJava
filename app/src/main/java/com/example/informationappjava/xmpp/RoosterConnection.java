@@ -769,7 +769,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
      * @param subscribeRequest
      * @return
      */
-
     @Override
     public SubscribeAnswer processSubscribe(Jid from, Presence subscribeRequest) {
 
@@ -813,7 +812,6 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
      *
      * @param addresses
      */
-
     @Override
     public void entriesAdded(Collection<Jid> addresses) {
 

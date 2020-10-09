@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@drawable/bg">
+
+  <ImageView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg">
+    android:layout_height="120dp"
+    android:src="@drawable/hs_os"
+    android:layout_marginTop="30dp"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:src="@drawable/hs_os"
-        android:layout_marginTop="30dp"/>
+  <EditText
+    android:id="@+id/name"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:hint="@string/feedback_name"
+    android:inputType="textPersonName"
+    android:layout_gravity="center"
+    android:layout_marginTop="120dp"/>
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/feedback_name"
-        android:inputType="textPersonName"
-        android:layout_gravity="center"
-        android:layout_marginTop="120dp"/>
+  <EditText
+    android:id="@+id/subject"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="@string/feedback_subject"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"/>
 
-    <EditText
-        android:id="@+id/subject"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/feedback_subject"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+  <EditText
+    android:id="@+id/message"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textMultiLine"
+    android:hint="@string/feedback_message"
+    android:layout_marginTop="50dp"
+    android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/message"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:hint="@string/feedback_message"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"/>
-
-
-    <Button
-        android:id="@+id/send"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_botton"
-        android:text="@string/institute_feedback"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
-
-
-
+  <Button
+    android:id="@+id/send"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_botton"
+    android:text="@string/institute_feedback"
+    android:layout_gravity="center"
+    android:layout_marginTop="50dp"/>
 
 </LinearLayout>
