@@ -1,4 +1,3 @@
-
 package com.example.informationappjava.ui.home;
 
 import android.os.Bundle;
@@ -9,22 +8,26 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class HomeFragment extends Fragment {
 
   private HomeViewModel newsViewModel;
   private WebView youVideoView;
   // private VideoView videoView;
 
+  /**
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     newsViewModel =
