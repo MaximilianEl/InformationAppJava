@@ -12,6 +12,9 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class ApplicationContextActivity extends AppCompatActivity {
 
   private CardView cardViewLeft;
@@ -33,6 +36,9 @@ public class ApplicationContextActivity extends AppCompatActivity {
   private String[] applicationHeaderArray;
   private String[] applicationButtonArray;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
