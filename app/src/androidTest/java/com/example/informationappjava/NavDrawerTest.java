@@ -5,9 +5,13 @@ import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.core.AllOf.allOf;
 
 import android.view.View;
+import android.widget.TextView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.test.espresso.UiController;
@@ -16,6 +20,7 @@ import androidx.test.espresso.action.GeneralLocation;
 import androidx.test.espresso.action.GeneralSwipeAction;
 import androidx.test.espresso.action.Press;
 import androidx.test.espresso.action.Swipe;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.contrib.*;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import org.hamcrest.Matcher;
@@ -68,6 +73,38 @@ public class NavDrawerTest {
   @Test
   public void open_Drawer_go_to_Chat() {
     openDrawerGoTo(R.id.nav_chat);
+  }
+
+  @Test
+  public void go_Chat_dont_login() {
+    open_Drawer_go_to_Chat();
+    pressBack();
+  }
+
+  @Test
+  public void go_Chat_Login_False() {
+    open_Drawer_go_to_Chat();
+    onView(withId(R.id.password)).perform(clearText(), typeText("lalalal"));
+    onView(withId(R.id.jid)).perform(setTextInTextView("Hihihi"));
+    onView(withId(R.id.jid_sign_in)).perform(click());
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Test
+  public void go_Chat_Login_True() {
+    open_Drawer_go_to_Chat();
+    onView(withId(R.id.jid)).perform(setTextInTextView("test@hsoschat.de"));
+    onView(withId(R.id.password)).perform(clearText(), typeText("123456"));
+    onView(withId(R.id.jid_sign_in)).perform(click());
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
 
@@ -167,6 +204,26 @@ public class NavDrawerTest {
         GeneralLocation.CENTER_LEFT, Press.FINGER);
   }
 
+  public static ViewAction setTextInTextView(final String value) {
+    return new ViewAction() {
+      @SuppressWarnings("unchecked")
+      @Override
+      public Matcher<View> getConstraints() {
+        return allOf(isDisplayed(), isAssignableFrom(TextView.class));
+      }
+
+      @Override
+      public void perform(UiController uiController, View view) {
+        ((TextView) view).setText(value);
+      }
+
+      @Override
+      public String getDescription() {
+        return "replace text";
+      }
+    };
+  }
+
   private void openDrawer() {
     onView(withId(R.id.drawer_layout)).perform(actionOpenDrawer());
     try {
@@ -188,6 +245,10 @@ public class NavDrawerTest {
   public void openDrawerGoTo(int i) {
     openDrawer();
     openPage(i);
+  }
+
+  public void pressBack() {
+    onView(isRoot()).perform(ViewActions.pressBack());
   }
 
 }
