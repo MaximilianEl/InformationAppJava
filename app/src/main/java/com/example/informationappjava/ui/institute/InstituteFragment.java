@@ -38,7 +38,7 @@ public class InstituteFragment extends Fragment {
     cardViewCourse.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), InstituteContextActivity.class);
+        Intent intent = new Intent(getActivity(), InstituteCourseActivity.class);
         startActivity(intent);
       }
     });

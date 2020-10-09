@@ -5,7 +5,7 @@ import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.institute.InstituteContextActivity;
+import com.example.informationappjava.ui.institute.InstituteCourseActivity;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +16,11 @@ import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.matcher.ViewMatchers.*;
 
 @RunWith(AndroidJUnit4.class)
-public class TestInstitute {
+public class InstituteCourseActivityTest {
 
     @Rule
-    public ActivityScenarioRule<InstituteContextActivity> activityRule = new ActivityScenarioRule<>(
-            InstituteContextActivity.class);
+    public ActivityScenarioRule<InstituteCourseActivity> activityRule = new ActivityScenarioRule<>(
+            InstituteCourseActivity.class);
 
     @Test
     public void TestInstitute_masch() {
