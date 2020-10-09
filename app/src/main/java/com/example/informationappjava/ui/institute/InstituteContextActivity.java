@@ -80,7 +80,7 @@ public class InstituteContextActivity extends AppCompatActivity {
       }
     });
 
-    cardViewBIngEne = findViewById(R.id.ins_engergy);
+    cardViewBIngEne = findViewById(R.id.ins_energy);
     cardViewBIngEne.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {

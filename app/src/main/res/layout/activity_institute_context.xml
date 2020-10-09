@@ -247,7 +247,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
-        android:id="@+id/ins_engergy"
+        android:id="@+id/ins_energy"
         android:layout_margin="16dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
