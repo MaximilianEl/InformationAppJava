@@ -1,7 +1,9 @@
-package com.example.informationappjava;
+package com.example.informationappjava.ui;
 
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+import com.example.informationappjava.R;
 import com.example.informationappjava.ui.institute.InstituteContextActivity;
 import org.junit.Rule;
 import org.junit.Test;
@@ -20,7 +22,7 @@ public class TestInstitute {
 
     @Test
     public void TestInstitute_masch() {
-        onView(withId(R.id.ins_masch)).perform(click());
+        onView(ViewMatchers.withId(R.id.ins_masch)).perform(click());
     }
 
     @Test
