@@ -70,7 +70,7 @@
   <string name="add_contact_cancel_text">Abbrechen</string>
 
   <string name="institute_courses">Kurse</string>
-  <string name="institute_firstsemester">Erstsemesterhilfe</string>
+  <string name="institute_firstsemester">Ersti-Hilfe</string>
   <string name="institute_persons">Personen</string>
   <string name="institute_events">Veranstaltungen</string>
 
@@ -109,6 +109,8 @@
   <string name="onstattheir">Ich sehe den Online Status.</string>
   <string name="contact_details_chat_view">Kontaktdetails</string>
   <string name="received_message">Nachricht erhalten</string>
+  
+  <string name="registration">Registrierung</string>
 
   <string name="settings_dark">Dark Mode</string>
   <string name="settings_enable">Dark Mode aktivieren</string>

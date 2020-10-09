@@ -50,7 +50,7 @@
   <string name="contact_details">Contact details</string>
 
   <string name="imprint_paragraph">Information according to §5 TMG</string>
-  <string name="imprint_hs">Osnabrück University</string>
+  <string name="imprint_hs">Hochschule Osnabrück</string>
   <string name="imprint_camp">Campus Lingen</string>
   <string name="imprint_fak">Management, Culture and Technology</string>
   <string name="imprint_hs2">University of Applied Sciences</string>
@@ -70,7 +70,7 @@
   <string name="industrial">Industrial Engineering and Management (B.Sc.)</string>
   <string name="industrial_dual">Industrial Engineering and Management (B.Eng.)</string>
   <string name="energy">Industrial Engineering and Management – Energy Economics (M.Sc.)</string>
-  <string name="management"></string>
+  <string name="management">Management und Technik (M.Sc.)</string>
 
   <string name ="mfg">Regards</string>
   <string name="application">Application process</string>
@@ -114,6 +114,8 @@
   <string name="permission_rationale">permission rationale</string>
   <string name="me">Me</string>
   <string name="received_message">Message Received</string>
+
+  <string name="registration">Registration</string>
 
   <string name="settings_dark">Dark Mode</string>
   <string name="settings_enable">Enable Dark Mode</string>
