@@ -27,11 +27,12 @@ import com.example.informationappjava.xmpp.RoosterConnectionService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.informationappjava.R;
-
 import java.util.List;
 
+/**
+ *
+ */
 public class ContactListActivity extends AppCompatActivity implements
     ContactListAdapter.OnItemClickListener, ContactListAdapter.OnItemLongClickListener {
 
@@ -39,6 +40,9 @@ public class ContactListActivity extends AppCompatActivity implements
   ContactListAdapter mAdapter;
   private static final String LOGTAG = "ContactListActivity";
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -74,6 +78,9 @@ public class ContactListActivity extends AppCompatActivity implements
     }
   }
 
+  /**
+   *
+   */
   private void addContact() {
 
     AlertDialog.Builder builder = new AlertDialog.Builder(ContactListActivity.this);
@@ -109,6 +116,10 @@ public class ContactListActivity extends AppCompatActivity implements
     alertDialog.show();
   }
 
+  /**
+   * @param menu
+   * @return
+   */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
@@ -116,6 +127,10 @@ public class ContactListActivity extends AppCompatActivity implements
     return true;
   }
 
+  /**
+   * @param item
+   * @return
+   */
   @Override
   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
     if (item.getItemId() == R.id.me) {
@@ -125,6 +140,9 @@ public class ContactListActivity extends AppCompatActivity implements
     return super.onOptionsItemSelected(item);
   }
 
+  /**
+   * @param contactJid
+   */
   @Override
   public void onItemClick(String contactJid) {
 
@@ -151,6 +169,11 @@ public class ContactListActivity extends AppCompatActivity implements
     }
   }
 
+  /**
+   * @param uniqueId
+   * @param contactJid
+   * @param anchor
+   */
   @Override
   public void onItemLongClick(final int uniqueId, final String contactJid, View anchor) {
 

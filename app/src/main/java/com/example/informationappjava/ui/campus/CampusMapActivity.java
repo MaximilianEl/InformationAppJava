@@ -19,6 +19,9 @@ import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+/**
+ *
+ */
 public class CampusMapActivity extends AppCompatActivity {
 
   private MyLocationNewOverlay mLocationoverlay;
@@ -26,6 +29,9 @@ public class CampusMapActivity extends AppCompatActivity {
   private MapView map = null;
   private String[] descriptions;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -127,12 +133,18 @@ public class CampusMapActivity extends AppCompatActivity {
     mapController.setCenter(HS);
   }
 
+  /**
+   *
+   */
   @Override
   public void onResume() {
     super.onResume();
     map.onResume();
   }
 
+  /**
+   *
+   */
   @Override
   public void onPause() {
     super.onPause();

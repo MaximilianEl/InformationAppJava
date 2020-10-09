@@ -2,7 +2,6 @@ package com.example.informationappjava.ui.chat.chatlist.model;
 
 import android.content.ContentValues;
 import android.content.Context;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -10,10 +9,12 @@ import com.example.informationappjava.persistence.ChatCursorWrapper;
 import com.example.informationappjava.persistence.DatabaseBackend;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat.Cols;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class ChatModel {
 
   private static final String LOGTAG = "ChatModel";
@@ -21,6 +22,10 @@ public class ChatModel {
   private final Context mContext;
   private final SQLiteDatabase mDatabase;
 
+  /**
+   * @param context
+   * @return
+   */
   public static ChatModel get(Context context) {
     if (sChatsModel == null) {
       sChatsModel = new ChatModel(context);
@@ -28,6 +33,9 @@ public class ChatModel {
     return sChatsModel;
   }
 
+  /**
+   * @param context
+   */
   private ChatModel(Context context) {
     mContext = context;
     mDatabase = DatabaseBackend.getInstance(context).getReadableDatabase();
@@ -73,11 +81,19 @@ public class ChatModel {
 
   }
 
+  /**
+   * @param chat
+   * @return
+   */
   public boolean addChat(Chat chat) {
     ContentValues values = chat.getContentValues();
     return mDatabase.insert(Chat.TABLE_NAME, null, values) != -1;
   }
 
+  /**
+   * @param chatMessage
+   * @return
+   */
   public boolean updateLastMessageDetails(ChatMessage chatMessage) {
     List<Chat> chats = getChatsByJid(chatMessage.getContactJid());
     if (!chats.isEmpty()) {
@@ -101,10 +117,18 @@ public class ChatModel {
     return false;
   }
 
+  /**
+   * @param chat
+   * @return
+   */
   public boolean deleteChat(Chat chat) {
     return deleteChat(chat.getPresistID());
   }
 
+  /**
+   * @param uniqueId
+   * @return
+   */
   public boolean deleteChat(int uniqueId) {
 
     int value = mDatabase.delete(Chat.TABLE_NAME, Cols.CHAT_UNIQUE_ID + "=?",
@@ -123,6 +147,11 @@ public class ChatModel {
     }
   }
 
+  /**
+   * @param whereClause
+   * @param whereArgs
+   * @return
+   */
   private ChatCursorWrapper queryChats(String whereClause, String[] whereArgs) {
 
     Cursor cursor = mDatabase.query(

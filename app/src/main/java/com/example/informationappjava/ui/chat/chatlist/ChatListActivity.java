@@ -33,6 +33,9 @@ import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+/**
+ *
+ */
 public class ChatListActivity extends AppCompatActivity implements
     ChatListAdapter.OnItemClickListener, ChatListAdapter.OnItemLongClickListener {
 
@@ -42,6 +45,9 @@ public class ChatListActivity extends AppCompatActivity implements
   private ChatListAdapter mAdapter;
   private BroadcastReceiver receiver;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -89,12 +95,18 @@ public class ChatListActivity extends AppCompatActivity implements
     });
   }
 
+  /**
+   *
+   */
   @Override
   protected void onPause() {
     super.onPause();
     unregisterReceiver(receiver);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onResume() {
     super.onResume();
@@ -116,6 +128,10 @@ public class ChatListActivity extends AppCompatActivity implements
     registerReceiver(receiver, filter);
   }
 
+  /**
+   * @param menu
+   * @return
+   */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
@@ -123,6 +139,10 @@ public class ChatListActivity extends AppCompatActivity implements
     return true;
   }
 
+  /**
+   * @param item
+   * @return
+   */
   @Override
   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -136,6 +156,10 @@ public class ChatListActivity extends AppCompatActivity implements
     return super.onOptionsItemSelected(item);
   }
 
+  /**
+   * @param contactJid
+   * @param chatType
+   */
   @Override
   public void onItemClick(String contactJid, Chat.ContactType chatType) {
     Intent intent = new Intent(ChatListActivity.this, ChatViewActivity.class);
@@ -144,6 +168,11 @@ public class ChatListActivity extends AppCompatActivity implements
     startActivity(intent);
   }
 
+  /**
+   * @param contactJid
+   * @param chatUniqueId
+   * @param anchor
+   */
   @Override
   public void onItemLongClick(String contactJid, int chatUniqueId, View anchor) {
     PopupMenu popupMenu = new PopupMenu(ChatListActivity.this, anchor, Gravity.CENTER);

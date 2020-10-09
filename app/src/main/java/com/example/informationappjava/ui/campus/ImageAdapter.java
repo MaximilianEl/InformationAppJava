@@ -5,11 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class ImageAdapter extends PagerAdapter {
 
   private final Context campContext;
@@ -20,16 +21,29 @@ public class ImageAdapter extends PagerAdapter {
     campContext = context;
   }
 
+  /**
+   * @return
+   */
   @Override
   public int getCount() {
     return campImgId.length;
   }
 
+  /**
+   * @param view
+   * @param object
+   * @return
+   */
   @Override
   public boolean isViewFromObject(View view, Object object) {
     return view == object;
   }
 
+  /**
+   * @param container
+   * @param position
+   * @return
+   */
   @Override
   public Object instantiateItem(ViewGroup container, int position) {
     ImageView imageView = new ImageView(campContext);
@@ -39,6 +53,11 @@ public class ImageAdapter extends PagerAdapter {
     return imageView;
   }
 
+  /**
+   * @param container
+   * @param position
+   * @param object
+   */
   @Override
   public void destroyItem(ViewGroup container, int position, Object object) {
     container.removeView((ImageView) object);

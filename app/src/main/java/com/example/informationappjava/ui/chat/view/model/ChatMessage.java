@@ -2,6 +2,9 @@ package com.example.informationappjava.ui.chat.view.model;
 
 import android.content.ContentValues;
 
+/**
+ *
+ */
 public class ChatMessage {
 
   private String message;
@@ -21,6 +24,12 @@ public class ChatMessage {
     public static final String CONTACT_JID = "contactjid";
   }
 
+  /**
+   * @param message
+   * @param timestamp
+   * @param type
+   * @param contactJid
+   */
   public ChatMessage(String message, long timestamp, Type type, String contactJid) {
     this.message = message;
     this.timestamp = timestamp;
@@ -28,46 +37,80 @@ public class ChatMessage {
     this.contactJid = contactJid;
   }
 
+  /**
+   * @return
+   */
   public String getMessage() {
     return message;
   }
 
+  /**
+   * @return
+   */
   public long getTimestamp() {
     return timestamp;
   }
 
+  /**
+   * @return
+   */
   public Type getType() {
     return type;
   }
 
+  /**
+   * @return
+   */
   public String getContactJid() {
     return contactJid;
   }
 
+  /**
+   * @param message
+   */
   public void setMessage(String message) {
     this.message = message;
   }
 
+  /**
+   * @param timestamp
+   */
   public void setTimestamp(long timestamp) {
     timestamp = timestamp;
   }
 
+  /**
+   * @param type
+   */
   public void setType(Type type) {
     this.type = type;
   }
 
+  /**
+   * @param contactJid
+   */
   public void setContactJid(String contactJid) {
     this.contactJid = contactJid;
   }
 
+  /**
+   * @return
+   */
   public int getPersistID() {
     return persistID;
   }
 
+  /**
+   * @param persistID
+   */
   public void setPersistID(int persistID) {
     this.persistID = persistID;
   }
 
+  /**
+   * @param type
+   * @return
+   */
   public String getTypeStringValue(Type type) {
     if (type == Type.SENT) {
       return "SENT";
@@ -76,6 +119,9 @@ public class ChatMessage {
     }
   }
 
+  /**
+   * @return
+   */
   public ContentValues getContentValues() {
 
     ContentValues values = new ContentValues();
@@ -87,6 +133,9 @@ public class ChatMessage {
     return values;
   }
 
+  /**
+   *
+   */
   public enum Type {
     SENT, RECEIVED
   }

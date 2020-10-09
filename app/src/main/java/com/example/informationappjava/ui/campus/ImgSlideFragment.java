@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+/**
+ *
+ */
 public class ImgSlideFragment extends Fragment {
 
   private ViewPager viewPager;
@@ -18,10 +21,19 @@ public class ImgSlideFragment extends Fragment {
   public ImgSlideFragment() {
   }
 
+  /**
+   * @return
+   */
   public static ImgSlideFragment newInstance() {
     return new ImgSlideFragment();
   }
 
+  /**
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       @Nullable Bundle savedInstanceState) {

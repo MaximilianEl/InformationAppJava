@@ -23,13 +23,22 @@ import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ *
+ */
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
+  /**
+   *
+   */
   public interface OnInformRecyclerViewToScrollDownListener {
 
     void onInformRecyclerViewToScrollDown(int size);
   }
 
+  /**
+   *
+   */
   public interface OnItemLongClickListener {
 
     void onItemLongClick(int uniqueId, View anchor);
@@ -46,27 +55,46 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
   private OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener;
   private OnItemLongClickListener onItemLongClickListener;
 
+  /**
+   * @param onInformRecyclerViewToScrollDownListener
+   */
   public void setOnInformRecyclerViewToScrollDownListener(
       OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener) {
     this.onInformRecyclerViewToScrollDownListener = onInformRecyclerViewToScrollDownListener;
   }
 
+  /**
+   * @return
+   */
   public OnItemLongClickListener getOnItemLongClickListener() {
     return onItemLongClickListener;
   }
 
+  /**
+   * @param onItemLongClickListener
+   */
   public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
     this.onItemLongClickListener = onItemLongClickListener;
   }
 
+  /**
+   * @return
+   */
   public Context getContext() {
     return context;
   }
 
+  /**
+   * @param context
+   */
   public void setContext(Context context) {
     this.context = context;
   }
 
+  /**
+   * @param context
+   * @param contactJid
+   */
   public ChatMessageAdapter(Context context, String contactJid) {
     this.layoutInflater = LayoutInflater.from(context);
     this.context = context;
@@ -76,11 +104,19 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     Log.d(LOGTAG, "Getting messages for: " + contactJid);
   }
 
+  /**
+   *
+   */
   public void informRecyclerViewToScrollDown() {
     onInformRecyclerViewToScrollDownListener
         .onInformRecyclerViewToScrollDown(chatMessageList.size());
   }
 
+  /**
+   * @param parent
+   * @param viewType
+   * @return
+   */
   @Override
   public ChatMessageViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent,
       int viewType) {
@@ -102,17 +138,28 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
 
   }
 
+  /**
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull @NotNull ChatMessageViewHolder holder, int position) {
     ChatMessage chatMessage = chatMessageList.get(position);
     holder.bindChat(chatMessage);
   }
 
+  /**
+   * @return
+   */
   @Override
   public int getItemCount() {
     return chatMessageList.size();
   }
 
+  /**
+   * @param position
+   * @return
+   */
   @Override
   public int getItemViewType(int position) {
     ChatMessage.Type messageType = chatMessageList.get(position).getType();
@@ -123,6 +170,9 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     }
   }
 
+  /**
+   *
+   */
   public void onMessageAdd() {
     chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
     notifyDataSetChanged();
@@ -130,6 +180,9 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
   }
 }
 
+/**
+ *
+ */
 class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
   private static final String LOGTAG = "ChatMessageViewHolder";
@@ -139,6 +192,10 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
   private ChatMessage mchatMessage;
   private final ChatMessageAdapter mAdapter;
 
+  /**
+   * @param itemView
+   * @param mAdapter
+   */
   public ChatMessageViewHolder(View itemView, final ChatMessageAdapter mAdapter) {
     super(itemView);
 
@@ -160,6 +217,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     });
   }
 
+  /**
+   * @param chatMessage
+   */
   public void bindChat(ChatMessage chatMessage) {
     mchatMessage = chatMessage;
     messageBody.setText(chatMessage.getMessage());

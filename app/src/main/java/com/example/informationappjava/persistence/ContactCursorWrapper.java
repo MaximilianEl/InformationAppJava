@@ -6,12 +6,21 @@ import com.example.informationappjava.ui.chat.contacts.model.Contact;
 import com.example.informationappjava.ui.chat.contacts.model.Contact.Cols;
 import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
 
+/**
+ *
+ */
 public class ContactCursorWrapper extends CursorWrapper {
 
+  /**
+   * @param cursor
+   */
   public ContactCursorWrapper(Cursor cursor) {
     super(cursor);
   }
 
+  /**
+   * @return
+   */
   public Contact getContact() {
 
     String subscriptionTypeString = getString(getColumnIndex(Contact.Cols.SUBSCRIPTION_TYPE));

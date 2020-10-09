@@ -4,13 +4,23 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
+/**
+ *
+ */
 public class KeyboardUtil {
 
+  /**
+   *
+   */
   public interface KeyboardVisibilityListener {
 
     void onKeyboardVisibilityChanged(boolean keyboardVisible);
   }
 
+  /**
+   * @param activity
+   * @param keyboardVisibilityListener
+   */
   public static void setKeyboardVisibilityListener(Activity activity,
       final KeyboardVisibilityListener keyboardVisibilityListener) {
     final View contentView = activity.findViewById(android.R.id.content);

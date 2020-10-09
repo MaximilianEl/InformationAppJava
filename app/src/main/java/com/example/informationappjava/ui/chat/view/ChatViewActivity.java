@@ -26,6 +26,9 @@ import com.example.informationappjava.ui.chat.Utils.KeyboardUtil;
 import com.example.informationappjava.ui.chat.Utils.KeyboardUtil.KeyboardVisibilityListener;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
+/**
+ *
+ */
 public class ChatViewActivity extends AppCompatActivity implements
     ChatMessageAdapter.OnInformRecyclerViewToScrollDownListener, KeyboardVisibilityListener,
     ChatMessageAdapter.OnItemLongClickListener {
@@ -48,6 +51,9 @@ public class ChatViewActivity extends AppCompatActivity implements
 
   private Chat.ContactType chatType;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -191,6 +197,10 @@ public class ChatViewActivity extends AppCompatActivity implements
     KeyboardUtil.setKeyboardVisibilityListener(this, this);
   }
 
+  /**
+   * @param menu
+   * @return
+   */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
@@ -198,6 +208,10 @@ public class ChatViewActivity extends AppCompatActivity implements
     return true;
   }
 
+  /**
+   * @param item
+   * @return
+   */
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -210,12 +224,18 @@ public class ChatViewActivity extends AppCompatActivity implements
     return super.onOptionsItemSelected(item);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onPause() {
     super.onPause();
     unregisterReceiver(receiver);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onResume() {
     super.onResume();
@@ -260,16 +280,26 @@ public class ChatViewActivity extends AppCompatActivity implements
     registerReceiver(receiver, filter);
   }
 
+  /**
+   * @param size
+   */
   @Override
   public void onInformRecyclerViewToScrollDown(int size) {
     chatMessageRecyclerView.scrollToPosition(size - 1);
   }
 
+  /**
+   * @param keyboardVisible
+   */
   @Override
   public void onKeyboardVisibilityChanged(boolean keyboardVisible) {
     adapter.informRecyclerViewToScrollDown();
   }
 
+  /**
+   * @param uniqueId
+   * @param anchor
+   */
   @Override
   public void onItemLongClick(int uniqueId, View anchor) {
 

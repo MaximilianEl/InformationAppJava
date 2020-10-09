@@ -10,6 +10,9 @@ import com.example.informationappjava.ui.chat.contacts.model.Contact.Cols;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.view.model.ChatMessage;
 
+/**
+ *
+ */
 public class DatabaseBackend extends SQLiteOpenHelper {
 
   private static final String LOGTAG = "DatabaseBackend";
@@ -51,6 +54,9 @@ public class DatabaseBackend extends SQLiteOpenHelper {
       + ");";
 
 
+  /**
+   * @param context
+   */
   private DatabaseBackend(@Nullable Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
   }
@@ -63,6 +69,9 @@ public class DatabaseBackend extends SQLiteOpenHelper {
     return instance;
   }
 
+  /**
+   * @param db
+   */
   @Override
   public void onCreate(SQLiteDatabase db) {
     Log.d(LOGTAG, "Creating the tables");
@@ -71,6 +80,11 @@ public class DatabaseBackend extends SQLiteOpenHelper {
     db.execSQL(CREATE_CHAT_MESSAGE_STATEMENT);
   }
 
+  /**
+   * @param sqLiteDatabase
+   * @param oldVersion
+   * @param newVersion
+   */
   @Override
   public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 

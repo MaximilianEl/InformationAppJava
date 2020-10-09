@@ -20,17 +20,24 @@ import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
+/**
+ *
+ */
 public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
 
   private static final String LOGTAG = "ChatListAdapter";
 
+  /**
+   *
+   */
   public interface OnItemClickListener {
-
     void onItemClick(String contactJid, Chat.ContactType chatType);
   }
 
+  /**
+   *
+   */
   public interface OnItemLongClickListener {
-
     void onItemLongClick(String contactJod, int chatUniqueId, View anchor);
   }
 
@@ -39,29 +46,49 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
   private OnItemLongClickListener onItemLongClick;
   private final Context mContext;
 
+  /**
+   * @param context
+   */
   public ChatListAdapter(Context context) {
     this.chatList = ChatModel.get(context).getChats();
     this.mContext = context;
   }
 
+  /**
+   * @return
+   */
   public OnItemClickListener getOnItemClickListener() {
     return onItemClickListener;
   }
 
+  /**
+   * @param onItemClickListener
+   */
   public void setOnItemClickListener(
       OnItemClickListener onItemClickListener) {
     this.onItemClickListener = onItemClickListener;
   }
 
+  /**
+   * @return
+   */
   public OnItemLongClickListener getOnItemLongClick() {
     return onItemLongClick;
   }
 
+  /**
+   * @param onItemLongClick
+   */
   public void setOnItemLongClick(
       OnItemLongClickListener onItemLongClick) {
     this.onItemLongClick = onItemLongClick;
   }
 
+  /**
+   * @param parent
+   * @param viewType
+   * @return
+   */
   @NonNull
   @NotNull
   @Override
@@ -72,17 +99,27 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
     return new ChatHolder(view, this);
   }
 
+  /**
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull @NotNull ChatHolder holder, int position) {
     Chat chat = chatList.get(position);
     holder.bindChat(chat);
   }
 
+  /**
+   * @return
+   */
   @Override
   public int getItemCount() {
     return chatList.size();
   }
 
+  /**
+   *
+   */
   public void onChatCountChange() {
     chatList = ChatModel.get(mContext).getChats();
     notifyDataSetChanged();
@@ -90,6 +127,9 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
   }
 }
 
+/**
+ *
+ */
 class ChatHolder extends RecyclerView.ViewHolder {
 
   private static final String LOGTAG = "ChatHolder";
@@ -100,6 +140,10 @@ class ChatHolder extends RecyclerView.ViewHolder {
   private Chat mChat;
   private final ChatListAdapter chatListAdapter;
 
+  /**
+   * @param itemView
+   * @param adapter
+   */
   public ChatHolder(@NonNull @NotNull View itemView,
       ChatListAdapter adapter) {
     super(itemView);
@@ -138,6 +182,9 @@ class ChatHolder extends RecyclerView.ViewHolder {
     });
   }
 
+  /**
+   * @param chat
+   */
   public void bindChat(Chat chat) {
 
     mChat = chat;
