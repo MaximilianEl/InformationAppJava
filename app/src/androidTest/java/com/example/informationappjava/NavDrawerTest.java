@@ -1,12 +1,12 @@
 package com.example.informationappjava;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
-import androidx.test.espresso.ViewAssertion;
 import android.view.View;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -14,7 +14,6 @@ import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.contrib.*;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.rule.ActivityTestRule;
 import org.hamcrest.Matcher;
 import org.junit.Rule;
 import org.junit.Test;
@@ -64,7 +63,9 @@ public class NavDrawerTest {
   @Test
   public void open_Drawer_go_to_Feedback_and_fill_EditText() {
     open_Drawer_go_to_Feedback();
-    onView(withId(R.id.name)).perform();
+    onView(withId(R.id.message)).perform(clearText(), typeText("Beste App ever!"));
+    onView(withId(R.id.name)).perform(clearText(), typeText("Maximilianos Elberos"));
+    onView(withId(R.id.subject)).perform(clearText(), typeText("Feedback"));
   }
 
   @Test
