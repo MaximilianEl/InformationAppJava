@@ -9,5 +9,4 @@ public class CampusMapActivityTest {
   @Rule
   public ActivityScenarioRule<CampusMapActivity> activityScenarioRule = new ActivityScenarioRule<>(
       CampusMapActivity.class);
-
 }

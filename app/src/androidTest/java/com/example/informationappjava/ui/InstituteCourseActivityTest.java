@@ -25,7 +25,6 @@ public class InstituteCourseActivityTest {
     @Test
     public void TestInstitute_masch() {
         onView(withId(R.id.ins_masch)).perform(scrollTo(), click());
-
     }
 
     @Test
