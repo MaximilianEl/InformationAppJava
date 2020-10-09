@@ -123,5 +123,4 @@ public class SettingsActivity extends AppCompatActivity {
     String language = prefs.getString("My_Lang", "");
     setLocale(language);
   }
-
 }

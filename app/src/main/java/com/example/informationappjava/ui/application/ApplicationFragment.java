@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class ApplicationFragment extends Fragment {
 
   private ApplicationViewModel mViewModel;
@@ -25,10 +28,19 @@ public class ApplicationFragment extends Fragment {
   private final String approveString = "approve";
   private final String startString = "start";
 
+  /**
+   * @return
+   */
   public static ApplicationFragment newInstance() {
     return new ApplicationFragment();
   }
 
+  /**
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -43,6 +55,7 @@ public class ApplicationFragment extends Fragment {
         startActivity(intent);
       }
     });
+
     approve = view.findViewById(R.id.application_approve);
     approve.setOnClickListener(new OnClickListener() {
       @Override
@@ -52,6 +65,7 @@ public class ApplicationFragment extends Fragment {
         startActivity(intent);
       }
     });
+
     enrol = view.findViewById(R.id.application_enrol);
     enrol.setOnClickListener(new OnClickListener() {
       @Override
@@ -61,6 +75,7 @@ public class ApplicationFragment extends Fragment {
         startActivity(intent);
       }
     });
+
     start = view.findViewById(R.id.application_start);
     start.setOnClickListener(new OnClickListener() {
       @Override
@@ -74,6 +89,9 @@ public class ApplicationFragment extends Fragment {
     return view;
   }
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
