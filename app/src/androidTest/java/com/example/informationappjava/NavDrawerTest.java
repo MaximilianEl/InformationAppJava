@@ -48,11 +48,15 @@ public class NavDrawerTest {
   }
 
   @Test
-  public void open_Drawer_go_to_Campus_Swipe_Images_and_go_Campus_Map() {
-    openDrawer();
-    openPage(R.id.nav_campus);
+  public void open_Drawer_go_to_Campus_Swipe_Images() {
+    open_Drawer_go_to_Campus();
     onView(withId(R.id.campus_fragment_slideshow)).perform(swipeLeft());
     onView(withId(R.id.campus_fragment_slideshow)).perform(swipeRight());
+  }
+
+  @Test
+  public void open_Drawer_go_to_Campus_go_to_Map() {
+    open_Drawer_go_to_Campus();
     onView(withId(R.id.campus_map_button)).perform(click());
   }
 
@@ -75,12 +79,18 @@ public class NavDrawerTest {
     openDrawerGoTo(R.id.nav_chat);
   }
 
+  /**
+   * T001: Login abbrechen
+   */
   @Test
   public void go_Chat_dont_login() {
     open_Drawer_go_to_Chat();
     pressBack();
   }
 
+  /**
+   * T002: Login with wrong Data
+   */
   @Test
   public void go_Chat_Login_False() {
     open_Drawer_go_to_Chat();
@@ -94,6 +104,9 @@ public class NavDrawerTest {
     }
   }
 
+  /**
+   * T003: Login
+   */
   @Test
   public void go_Chat_Login_True() {
     open_Drawer_go_to_Chat();
@@ -107,31 +120,29 @@ public class NavDrawerTest {
     }
   }
 
-
-  /**
-   *
-   */
   @Test
   public void open_Drawer_go_to_Settings() {
     openDrawerGoTo(R.id.nav_options);
   }
 
-  /**
-   *
-   */
   @Test
   public void open_Drawer_go_to_Feedback() {
     openDrawerGoTo(R.id.nav_feedback);
   }
 
+  /**
+   * T004: Feedback
+   */
   @Test
   public void open_Drawer_go_to_Feedback_and_fill_EditText() {
     open_Drawer_go_to_Feedback();
-    onView(withId(R.id.message)).perform(clearText(), typeText("Beste App ever!"));
-    onView(withId(R.id.name)).perform(clearText(), typeText("Maximilianos Elberos"));
+    onView(withId(R.id.name)).perform(clearText(), typeText("Max Mustermann"));
     onView(withId(R.id.subject)).perform(clearText(), typeText("Feedback"));
+    pressBack();
+    onView(withId(R.id.message)).perform(clearText(), typeText("Sehr gute App!"));
+    pressBack();
+    onView(withId(R.id.send)).perform(click());
   }
-
 
   @Test
   public void open_Drawer_go_to_Imprint() {
