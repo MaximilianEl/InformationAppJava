@@ -27,13 +27,26 @@ public class NavDrawerTest {
 
   @Test
   public void open_Close_Drawer_Layout() {
-    onView(withId(R.id.drawer_layout)).perform(actionOpenDrawer());
-    try {
-      Thread.sleep(5000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+    openDrawer();
     onView(withId(R.id.drawer_layout)).perform(actionCloseDrawer());
+  }
+
+  @Test
+  public void open_Drawer_go_to_other_Page() {
+    openDrawer();
+    openPage(R.id.nav_campus);
+  }
+
+  @Test
+  public void open_all_Fragments() {
+    openDrawer();
+    openPage(R.id.nav_campus);
+    openDrawer();
+    openPage(R.id.nav_institute);
+    openDrawer();
+    openPage(R.id.nav_application);
+    openDrawer();
+    openPage(R.id.nav_home);
   }
 
   private static ViewAction actionOpenDrawer() {
@@ -53,6 +66,24 @@ public class NavDrawerTest {
         ((DrawerLayout) view).openDrawer(GravityCompat.START);
       }
     };
+  }
+
+  private void openDrawer() {
+    onView(withId(R.id.drawer_layout)).perform(actionOpenDrawer());
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void openPage(int viewAction) {
+    onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(viewAction));
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   private static ViewAction actionCloseDrawer() {
