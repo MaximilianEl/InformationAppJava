@@ -7,10 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.example.informationappjava.persistence.ContactCursorWrapper;
 import com.example.informationappjava.persistence.DatabaseBackend;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class ContactModel {
 
   private static final String LOGTAG = "ContactModel";
@@ -18,6 +20,10 @@ public class ContactModel {
   private final Context mContext;
   private final SQLiteDatabase mDatabase;
 
+  /**
+   * @param context
+   * @return
+   */
   public static ContactModel get(Context context) {
     if (sContactModel == null) {
       sContactModel = new ContactModel(context);
@@ -25,11 +31,17 @@ public class ContactModel {
     return sContactModel;
   }
 
+  /**
+   * @param context
+   */
   private ContactModel(Context context) {
     mContext = context;
     mDatabase = DatabaseBackend.getInstance(mContext).getWritableDatabase();
   }
 
+  /**
+   * @return
+   */
   public List<Contact> getContacts() {
     List<Contact> contacts = new ArrayList<>();
 
@@ -47,6 +59,10 @@ public class ContactModel {
     return contacts;
   }
 
+  /**
+   * @param jidString
+   * @return
+   */
   public Contact getContactsByJidString(String jidString) {
 
     List<Contact> contacts = getContacts();
@@ -69,6 +85,9 @@ public class ContactModel {
     return mContact;
   }
 
+  /**
+   * @return
+   */
   public List<String> getContactJidStrings() {
 
     List<Contact> contacts = getContacts();
@@ -82,12 +101,21 @@ public class ContactModel {
     return stringJids;
   }
 
+  /**
+   * @param contactJid
+   * @return
+   */
   public boolean isContactStranger(String contactJid) {
 
     List<String> contacts = getContactJidStrings();
     return !contacts.contains(contactJid);
   }
 
+  /**
+   * @param whereClause
+   * @param whereArgs
+   * @return
+   */
   private ContactCursorWrapper queryContacts(String whereClause, String[] whereArgs) {
     Cursor cursor = mDatabase.query(
         Contact.TABLE_NAME,
@@ -101,11 +129,19 @@ public class ContactModel {
     return new ContactCursorWrapper(cursor);
   }
 
+  /**
+   * @param c
+   * @return
+   */
   public boolean addContact(Contact c) {
     ContentValues values = c.getContentValues();
     return mDatabase.insert(Contact.TABLE_NAME, null, values) != -1;
   }
 
+  /**
+   * @param contact
+   * @return
+   */
   public boolean updateContactSubscription(Contact contact) {
 
     Contact mContact = contact;
@@ -126,6 +162,9 @@ public class ContactModel {
     return false;
   }
 
+  /**
+   * @param contact
+   */
   public void updateContactSubscriptionOnSendSubscribed(String contact) {
 
     //When we send a subscribed, the pending_from changes to from
@@ -134,11 +173,19 @@ public class ContactModel {
     updateContactSubscription(mContact);
   }
 
+  /**
+   * @param c
+   * @return
+   */
   public boolean deleteContact(Contact c) {
     int uniqueId = c.getPersistID();
     return deleteContact(uniqueId);
   }
 
+  /**
+   * @param uniqueId
+   * @return
+   */
   public boolean deleteContact(int uniqueId) {
     int value = mDatabase.delete(Contact.TABLE_NAME, Contact.Cols.CONTACT_UNIQUE_ID + "=?",
         new String[]{String.valueOf(uniqueId)});

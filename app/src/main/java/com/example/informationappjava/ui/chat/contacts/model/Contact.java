@@ -2,6 +2,9 @@ package com.example.informationappjava.ui.chat.contacts.model;
 
 import android.content.ContentValues;
 
+/**
+ *
+ */
 public class Contact {
 
   private String jid;
@@ -26,6 +29,9 @@ public class Contact {
     public static final String ONLINE_STATUS = "onlineStatus";
   }
 
+  /**
+   * @return
+   */
   public ContentValues getContentValues() {
     ContentValues values = new ContentValues();
     //CONTACT_UNIQUE_ID is autofilled
@@ -45,6 +51,10 @@ public class Contact {
     return values;
   }
 
+  /**
+   * @param type
+   * @return
+   */
   public String getTypeStringValue(SubscriptionType type) {
 
     if (type == SubscriptionType.FROM) {
@@ -60,6 +70,9 @@ public class Contact {
     }
   }
 
+  /**
+   *
+   */
   public enum SubscriptionType {
     NONE,
     FROM,
@@ -67,6 +80,10 @@ public class Contact {
     BOTH
   }
 
+  /**
+   * @param jid
+   * @param subscriptionType
+   */
   public Contact(String jid, SubscriptionType subscriptionType) {
     this.jid = jid;
     this.subscriptionType = subscriptionType;
@@ -77,58 +94,100 @@ public class Contact {
     this.onlineStatus = false;
   }
 
+  /**
+   * @return
+   */
   public String getJid() {
     return jid;
   }
 
+  /**
+   * @param jid
+   */
   public void setJid(String jid) {
     this.jid = jid;
   }
 
+  /**
+   * @return
+   */
   public SubscriptionType getSubscriptionType() {
     return subscriptionType;
   }
 
+  /**
+   * @param subscriptionType
+   */
   public void setSubscriptionType(SubscriptionType subscriptionType) {
     this.subscriptionType = subscriptionType;
   }
 
+  /**
+   * @return
+   */
   public String getProfileImagePath() {
     return profileImagePath;
   }
 
+  /**
+   * @param profileImagePath
+   */
   public void setProfileImagePath(String profileImagePath) {
     this.profileImagePath = profileImagePath;
   }
 
+  /**
+   * @return
+   */
   public int getPersistID() {
     return persistID;
   }
 
+  /**
+   * @param persistID
+   */
   public void setPersistID(int persistID) {
     this.persistID = persistID;
   }
 
+  /**
+   * @return
+   */
   public boolean isPendingTo() {
     return pendingTo;
   }
 
+  /**
+   * @param pendingTo
+   */
   public void setPendingTo(boolean pendingTo) {
     this.pendingTo = pendingTo;
   }
 
+  /**
+   * @return
+   */
   public boolean isPendingFrom() {
     return pendingFrom;
   }
 
+  /**
+   * @param pendingFrom
+   */
   public void setPendingFrom(boolean pendingFrom) {
     this.pendingFrom = pendingFrom;
   }
 
+  /**
+   * @return
+   */
   public boolean isOnlineStatus() {
     return onlineStatus;
   }
 
+  /**
+   * @param onlineStatus
+   */
   public void setOnlineStatus(boolean onlineStatus) {
     this.onlineStatus = onlineStatus;
   }

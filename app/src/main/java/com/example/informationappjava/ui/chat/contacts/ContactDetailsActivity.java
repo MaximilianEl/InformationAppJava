@@ -19,6 +19,9 @@ import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
 import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 
+/**
+ *
+ */
 public class ContactDetailsActivity extends AppCompatActivity {
 
   private static final String LOGTAG = "ContactDetailsActivity";
@@ -27,10 +30,12 @@ public class ContactDetailsActivity extends AppCompatActivity {
   private CheckBox fromCheckBox;
   private CheckBox toCheckBox;
   private Context context;
-
   private TextView pendingFrom;
   private TextView pendingTo;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

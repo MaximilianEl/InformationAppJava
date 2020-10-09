@@ -25,6 +25,9 @@ import com.example.informationappjava.xmpp.RoosterConnectionService;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 
+/**
+ *
+ */
 public class MeActivity extends AppCompatActivity implements View.OnClickListener {
 
   private static final String LOGTAG = "MeActivity";
@@ -33,6 +36,9 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
   private ImageView profileImageView;
   private static final int SELECT_PHOTO = 100;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -67,12 +73,18 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
     }
   }
 
+  /**
+   *
+   */
   @Override
   protected void onPause() {
     super.onPause();
     this.unregisterReceiver(mBroadcastReceiver);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onResume() {
     super.onResume();
@@ -94,6 +106,9 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
     this.registerReceiver(mBroadcastReceiver, filter);
   }
 
+  /**
+   * @param view
+   */
   @Override
   public void onClick(View view) {
     Log.d(LOGTAG, "Clicked on the profile picture");
@@ -102,6 +117,11 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
     startActivityForResult(photoPickerIntent, SELECT_PHOTO);
   }
 
+  /**
+   * @param requestCode
+   * @param resultCode
+   * @param data
+   */
   @Override
   protected void onActivityResult(int requestCode, int resultCode,
       @Nullable @org.jetbrains.annotations.Nullable Intent data) {
@@ -145,6 +165,11 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
     }
   }
 
+  /**
+   * @param selectedImage
+   * @return
+   * @throws FileNotFoundException
+   */
   private Bitmap decodeUri(Uri selectedImage) throws FileNotFoundException {
     BitmapFactory.Options o = new BitmapFactory.Options();
     o.inJustDecodeBounds = true;

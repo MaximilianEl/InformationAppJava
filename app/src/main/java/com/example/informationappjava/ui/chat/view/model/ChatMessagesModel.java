@@ -12,6 +12,9 @@ import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class ChatMessagesModel {
 
   private static final String LOGTAG = "ChatMessagesModel";
@@ -20,6 +23,10 @@ public class ChatMessagesModel {
   List<ChatMessage> messages;
   private final SQLiteDatabase mDatabase;
 
+  /**
+   * @param context
+   * @return
+   */
   public static ChatMessagesModel get(Context context) {
     if (chatMessagesModel == null) {
       chatMessagesModel = new ChatMessagesModel(context);
@@ -28,6 +35,9 @@ public class ChatMessagesModel {
     return chatMessagesModel;
   }
 
+  /**
+   * @param context
+   */
   private ChatMessagesModel(Context context) {
     this.context = context;
 
@@ -54,6 +64,10 @@ public class ChatMessagesModel {
     return messages;
   }
 
+  /**
+   * @param message
+   * @return
+   */
   public boolean addMessage(ChatMessage message) {
     ContentValues values = message.getContentValues();
     if ((mDatabase.insert(ChatMessage.TABLE_NAME, null, values) == -1)) {
@@ -64,10 +78,18 @@ public class ChatMessagesModel {
     }
   }
 
+  /**
+   * @param message
+   * @return
+   */
   public boolean deleteMessage(ChatMessage message) {
     return deleteMessage(message.getPersistID());
   }
 
+  /**
+   * @param uniqueId
+   * @return
+   */
   public boolean deleteMessage(int uniqueId) {
     int value = mDatabase
         .delete(ChatMessage.TABLE_NAME, ChatMessage.Cols.CHAT_MESSAGE_UNIQUE_ID + "=?",
@@ -82,6 +104,11 @@ public class ChatMessagesModel {
     }
   }
 
+  /**
+   * @param whereClause
+   * @param whereArgs
+   * @return
+   */
   private ChatMessageCursorWrapper queryMessages(String whereClause, String[] whereArgs) {
     Cursor cursor = mDatabase.query(
         ChatMessage.TABLE_NAME,

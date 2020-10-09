@@ -1,5 +1,8 @@
 package com.example.informationappjava.ui.chat.login;
 
+/**
+ *
+ */
 public class Constants {
 
   public static final class BroadCastMessages {

@@ -16,16 +16,24 @@ import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
 import com.example.informationappjava.xmpp.RoosterConnection;
 import com.example.informationappjava.xmpp.RoosterConnectionService;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
+/**
+ *
+ */
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactHolder> {
 
+  /**
+   *
+   */
   public interface OnItemClickListener {
 
     void onItemClick(String contactJid);
   }
 
+  /**
+   *
+   */
   public interface OnItemLongClickListener {
 
     void onItemLongClick(int uniqueId, String contactJid, View anchor);
@@ -37,6 +45,9 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
   private OnItemClickListener mOnItemClickListener;
   private OnItemLongClickListener mOnItemLongClickListener;
 
+  /**
+   * @param context
+   */
   public ContactListAdapter(Context context) {
     mContacts = ContactModel.get(context).getContacts();
     mContext = context;
@@ -44,22 +55,39 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         "Constructor of ChatListAdpater, the size of the backing list is:" + mContacts.size());
   }
 
+  /**
+   * @return
+   */
   public OnItemClickListener getmOnItemClickListener() {
     return mOnItemClickListener;
   }
 
+  /**
+   * @param mOnItemClickListener
+   */
   public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
     this.mOnItemClickListener = mOnItemClickListener;
   }
 
+  /**
+   * @return
+   */
   public OnItemLongClickListener getmOnItemLongClickListener() {
     return mOnItemLongClickListener;
   }
 
+  /**
+   * @param mOnItemLongClickListener
+   */
   public void setmOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
     this.mOnItemLongClickListener = mOnItemLongClickListener;
   }
 
+  /**
+   * @param parent
+   * @param viewType
+   * @return
+   */
   @NonNull
   @NotNull
   @Override
@@ -69,23 +97,36 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     return new ContactHolder(view, this);
   }
 
+  /**
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull @NotNull ContactHolder holder, int position) {
     Contact contact = mContacts.get(position);
     holder.bindContact(contact);
   }
 
+  /**
+   * @return
+   */
   @Override
   public int getItemCount() {
     return mContacts.size();
   }
 
+  /**
+   *
+   */
   public void onContactCountChange() {
     mContacts = ContactModel.get(mContext).getContacts();
     notifyDataSetChanged();
     Log.d(LOGTAG, "ContactListAdapter knows of the change in messages");
   }
 
+  /**
+   *
+   */
   class ContactHolder extends RecyclerView.ViewHolder {
 
     private static final String LOGTAG = "ContactHolder";
@@ -96,6 +137,10 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     private final ContactListAdapter mAdapter;
 
 
+    /**
+     * @param itemView
+     * @param adapter
+     */
     public ContactHolder(@NonNull @NotNull final View itemView, ContactListAdapter adapter) {
       super(itemView);
       mAdapter = adapter;
@@ -130,6 +175,9 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
       });
     }
 
+    /**
+     * @param c
+     */
     void bindContact(Contact c) {
       mContact = c;
       if (mContact == null) {

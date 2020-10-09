@@ -7,8 +7,16 @@ import android.net.NetworkInfo;
 import android.text.format.DateFormat;
 import java.util.concurrent.TimeUnit;
 
+/**
+ *
+ */
 public class Utilities {
 
+  /**
+   * @param serviceClas
+   * @param context
+   * @return
+   */
   public static boolean isServiceRunning(Class<?> serviceClas, Context context) {
     ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
     for (ActivityManager.RunningServiceInfo service : manager
@@ -20,6 +28,10 @@ public class Utilities {
     return false;
   }
 
+  /**
+   * @param context
+   * @return
+   */
   public static boolean isNetworkAvailable(Context context) {
     ConnectivityManager connectivityManager = (ConnectivityManager) context
         .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -27,6 +39,10 @@ public class Utilities {
     return activeNetworkInfo != null && activeNetworkInfo.isConnected();
   }
 
+  /**
+   * @param timestamp
+   * @return
+   */
   public static String getFormattedTime(long timestamp) {
 
     long oneDayInMillis = TimeUnit.DAYS.toMillis(1); //24 * 60 * 60 * 1000

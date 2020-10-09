@@ -51,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
   private BroadcastReceiver broadcastReceiver;
   private TextView register;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -91,12 +94,18 @@ public class LoginActivity extends AppCompatActivity {
     mProgressView = findViewById(R.id.loading);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onPause() {
     super.onPause();
     this.unregisterReceiver(broadcastReceiver);
   }
 
+  /**
+   *
+   */
   @Override
   protected void onResume() {
     super.onResume();
@@ -178,11 +187,19 @@ public class LoginActivity extends AppCompatActivity {
     }
   }
 
+  /**
+   * @param jid
+   * @return
+   */
   private boolean isjidValid(String jid) {
     //TODO: Replace this with your own logic
     return jid.contains("@");
   }
 
+  /**
+   * @param password
+   * @return
+   */
   private boolean isPasswordValid(String password) {
     //TODO: Replace this with your own logic
     return password.length() > 4;
@@ -224,6 +241,9 @@ public class LoginActivity extends AppCompatActivity {
     }
   }
 
+  /**
+   *
+   */
   private void saveCredentialsAndLogin() {
     Log.d(LOGTAG, "saveCredentialsAndLogin() called.");
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
