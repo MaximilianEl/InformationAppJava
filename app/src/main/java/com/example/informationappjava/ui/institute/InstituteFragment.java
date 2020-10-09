@@ -19,72 +19,72 @@ import com.example.informationappjava.R;
  */
 public class InstituteFragment extends Fragment {
 
-  private InstituteViewModel instituteViewModel;
-  private RecyclerView recyclerView;
-  private RecyclerView.Adapter adapter;
-  private RecyclerView.LayoutManager layoutManager;
-  private CardView cardViewCourse;
-  private CardView cardViewFreshmanHelp;
-  private CardView cardViewEvent;
-  private CardView cardViewPerson;
-  private String course = "course";
-  private String freshmanHelp = "freshmanHelp";
-  private String event = "event";
-  private String person = "person";
+    private InstituteViewModel instituteViewModel;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private CardView cardViewCourse;
+    private CardView cardViewFreshmanHelp;
+    private CardView cardViewEvent;
+    private CardView cardViewPerson;
+    private String course = "course";
+    private String freshmanHelp = "freshmanHelp";
+    private String event = "event";
+    private String person = "person";
 
-  /**
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
-   */
-  public View onCreateView(@NonNull LayoutInflater inflater,
-      ViewGroup container, Bundle savedInstanceState) {
-    instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
-    View view = inflater.inflate(R.layout.fragment_institute, container, false);
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
+        View view = inflater.inflate(R.layout.fragment_institute, container, false);
 
-    cardViewCourse = view.findViewById(R.id.institute_courses);
-    cardViewCourse.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), InstituteCourseActivity.class);
-        startActivity(intent);
-      }
-    });
+        cardViewCourse = view.findViewById(R.id.institute_courses);
+        cardViewCourse.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), InstituteCourseActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    cardViewFreshmanHelp = view.findViewById(R.id.institute_freshman_help);
-    cardViewFreshmanHelp.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-      }
-    });
+        cardViewFreshmanHelp = view.findViewById(R.id.institute_freshman_help);
+        cardViewFreshmanHelp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    cardViewEvent = view.findViewById(R.id.institute_events);
-    cardViewEvent.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        String url = "https://www.hs-osnabrueck.de/wir/wir-stellen-uns-vor/veranstaltungen/";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-      }
-    });
+        cardViewEvent = view.findViewById(R.id.institute_events);
+        cardViewEvent.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.hs-osnabrueck.de/wir/wir-stellen-uns-vor/veranstaltungen/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    cardViewPerson = view.findViewById(R.id.institute_person);
-    cardViewPerson.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), PersonContextActivity.class);
-        intent.putExtra("value", person);
-        startActivity(intent);
-      }
-    });
+        cardViewPerson = view.findViewById(R.id.institute_person);
+        cardViewPerson.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PersonContextActivity.class);
+                intent.putExtra("value", person);
+                startActivity(intent);
+            }
+        });
 
-    return view;
-  }
+        return view;
+    }
 
 }

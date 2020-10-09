@@ -1,8 +1,6 @@
 package com.example.informationappjava.ui.imprint;
 
-
 import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class ImprintFragment extends Fragment {
 
     private ImprintViewModel mViewModel;
@@ -25,12 +25,19 @@ public class ImprintFragment extends Fragment {
     private ImageView youtube;
 
 
-
-
+    /**
+     * @return
+     */
     public static ImprintFragment newInstance() {
         return new ImprintFragment();
     }
 
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -85,6 +92,9 @@ public class ImprintFragment extends Fragment {
 
     }
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

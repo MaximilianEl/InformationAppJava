@@ -9,20 +9,20 @@ import androidx.lifecycle.ViewModel;
  */
 public class InstituteViewModel extends ViewModel {
 
-  private MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
-  /**
-   *
-   */
-  public InstituteViewModel() {
-    mText = new MutableLiveData<>();
-    mText.setValue("This is slideshow fragment");
-  }
+    /**
+     *
+     */
+    public InstituteViewModel() {
+        mText = new MutableLiveData<>();
+        mText.setValue("This is slideshow fragment");
+    }
 
-  /**
-   * @return
-   */
-  public LiveData<String> getText() {
-    return mText;
-  }
+    /**
+     * @return
+     */
+    public LiveData<String> getText() {
+        return mText;
+    }
 }
