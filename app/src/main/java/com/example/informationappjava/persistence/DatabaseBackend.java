@@ -14,7 +14,7 @@ public class DatabaseBackend extends SQLiteOpenHelper {
 
     private static final String LOGTAG = "DatabaseBackend";
     private static DatabaseBackend instance = null;
-    private static final String DATABASE_NAME = "roosterPlus";
+    private static final String DATABASE_NAME = "hsosChat";
     private static final int DATABASE_VERSION = 2;
 
     //Create Chat List Table
