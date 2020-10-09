@@ -23,7 +23,7 @@ public class ChatMessage {
 
   public ChatMessage(String message, long timestamp, Type type, String contactJid) {
     this.message = message;
-    timestamp = timestamp;
+    this.timestamp = timestamp;
     this.type = type;
     this.contactJid = contactJid;
   }
