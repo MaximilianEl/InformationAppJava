@@ -40,7 +40,7 @@ public class NavDrawerTest {
   }
 
   /**
-   *
+   * T006: Campus Image Gallery
    */
   @Test
   public void open_Drawer_go_to_Campus() {
@@ -54,6 +54,9 @@ public class NavDrawerTest {
     onView(withId(R.id.campus_fragment_slideshow)).perform(swipeRight());
   }
 
+  /**
+   * T005: Campus Map show
+   */
   @Test
   public void open_Drawer_go_to_Campus_go_to_Map() {
     open_Drawer_go_to_Campus();
@@ -80,7 +83,7 @@ public class NavDrawerTest {
   }
 
   /**
-   * T001: Login abbrechen
+   * T001: stop Login
    */
   @Test
   public void go_Chat_dont_login() {

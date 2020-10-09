@@ -10,7 +10,7 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
-    <activity android:name=".ui.institute.InstituteContextActivity">
+    <activity android:name=".ui.institute.InstituteCourseActivity">
     </activity>
     <activity android:name=".ui.institute.PersonContextActivity">
     </activity>
