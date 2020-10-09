@@ -37,32 +37,38 @@ public class NavDrawerTest {
   }
 
   @Test
-  public void open_Drawer_go_to_Institute(){
+  public void open_Drawer_go_to_Institute() {
     openDrawerGoTo(R.id.nav_institute);
   }
 
   @Test
-  public void open_Drawer_go_to_Application(){
+  public void open_Drawer_go_to_Application() {
     openDrawerGoTo(R.id.nav_application);
   }
 
   @Test
-  public void open_Drawer_go_to_Chat(){
+  public void open_Drawer_go_to_Chat() {
     openDrawerGoTo(R.id.nav_chat);
   }
 
   @Test
-  public void open_Drawer_go_to_Settings(){
+  public void open_Drawer_go_to_Settings() {
     openDrawerGoTo(R.id.nav_options);
   }
 
   @Test
-  public void open_Drawer_go_to_Feedback(){
+  public void open_Drawer_go_to_Feedback() {
     openDrawerGoTo(R.id.nav_feedback);
   }
 
   @Test
-  public void open_Drawer_go_to_Imprint(){
+  public void open_Drawer_go_to_Feedback_and_fill_EditText() {
+    open_Drawer_go_to_Feedback();
+    onView(withId(R.id.name)).perform();
+  }
+
+  @Test
+  public void open_Drawer_go_to_Imprint() {
     openDrawerGoTo(R.id.nav_imprint);
   }
 
