@@ -32,9 +32,38 @@ public class NavDrawerTest {
   }
 
   @Test
-  public void open_Drawer_go_to_other_Page() {
-    openDrawer();
-    openPage(R.id.nav_campus);
+  public void open_Drawer_go_to_Campus() {
+    openDrawerGoTo(R.id.nav_campus);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Institute(){
+    openDrawerGoTo(R.id.nav_institute);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Application(){
+    openDrawerGoTo(R.id.nav_application);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Chat(){
+    openDrawerGoTo(R.id.nav_chat);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Settings(){
+    openDrawerGoTo(R.id.nav_options);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Feedback(){
+    openDrawerGoTo(R.id.nav_feedback);
+  }
+
+  @Test
+  public void open_Drawer_go_to_Imprint(){
+    openDrawerGoTo(R.id.nav_imprint);
   }
 
   @Test
@@ -84,6 +113,11 @@ public class NavDrawerTest {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  public void openDrawerGoTo(int i) {
+    openDrawer();
+    openPage(i);
   }
 
   private static ViewAction actionCloseDrawer() {
