@@ -7,10 +7,17 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
   Timer timer;
 
+  /**
+   *
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

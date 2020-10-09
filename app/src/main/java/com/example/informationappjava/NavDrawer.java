@@ -16,6 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+/**
+ *
+ */
 public class NavDrawer extends AppCompatActivity {
 
   private com.getbase.floatingactionbutton.FloatingActionButton fabInsta;
