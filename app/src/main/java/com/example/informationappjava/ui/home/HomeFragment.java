@@ -15,12 +15,22 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class HomeFragment extends Fragment {
 
   private HomeViewModel newsViewModel;
   private WebView youVideoView;
   // private VideoView videoView;
 
+  /**
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     newsViewModel =

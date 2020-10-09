@@ -18,6 +18,9 @@ import android.widget.EditText;
 
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class FeedbackFragment extends Fragment {
 
   private FeedbackViewModel mViewModel;
@@ -27,6 +30,13 @@ public class FeedbackFragment extends Fragment {
     return new FeedbackFragment();
   }
 
+  /**
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -67,6 +77,10 @@ public class FeedbackFragment extends Fragment {
     return view;
   }
 
+  /**
+   *
+   * @param savedInstanceState
+   */
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
