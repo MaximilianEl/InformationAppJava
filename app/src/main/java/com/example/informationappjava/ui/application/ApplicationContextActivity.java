@@ -25,10 +25,10 @@ public class ApplicationContextActivity extends AppCompatActivity {
   private ImageView leftImageView;
   private ImageView centerImageView;
   private ImageView rightImageView;
-  private String applicationString = "application";
-  private String enrolString = "enrol";
-  private String approveString = "approve";
-  private String startString = "start";
+  private final String applicationString = "application";
+  private final String enrolString = "enrol";
+  private final String approveString = "approve";
+  private final String startString = "start";
   private String[] applicationContextArray;
   private String[] applicationHeaderArray;
   private String[] applicationButtonArray;

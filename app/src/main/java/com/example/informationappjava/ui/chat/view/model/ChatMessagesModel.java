@@ -16,9 +16,9 @@ public class ChatMessagesModel {
 
   private static final String LOGTAG = "ChatMessagesModel";
   private static ChatMessagesModel chatMessagesModel;
-  private Context context;
+  private final Context context;
   List<ChatMessage> messages;
-  private SQLiteDatabase mDatabase;
+  private final SQLiteDatabase mDatabase;
 
   public static ChatMessagesModel get(Context context) {
     if (chatMessagesModel == null) {

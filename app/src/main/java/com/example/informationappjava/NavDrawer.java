@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.app.ActivityCompat;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,7 +15,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-//import org.jetbrains.annotations.NotNull;
 
 public class NavDrawer extends AppCompatActivity {
 
@@ -27,6 +25,9 @@ public class NavDrawer extends AppCompatActivity {
 
   private AppBarConfiguration mAppBarConfiguration;
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
 
@@ -97,39 +98,11 @@ public class NavDrawer extends AppCompatActivity {
         startActivity(i);
       }
     });
-
-    FloatingActionsMenu FAB = findViewById(R.id.multiple_actions);
-    NavDrawer Inst = this;
-
-    //ka warum aber wenn man den Code öffnet schließt er den FAB-Button wieder
-    //aber nur beim ersten Klick
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-//                System.out.println("YES------------------------------------------------------------------------------NO");
-//
-//                NavController navController = Navigation.findNavController(Inst, R.id.nav_host_fragment);
-//                NavigationUI.setupActionBarWithNavController(Inst, navController, mAppBarConfiguration);
-//                NavigationUI.setupWithNavController(navigationView, navController);
-//
-//                if (FAB.isExpanded()) {
-//                    FAB.collapse();
-//                }
-//
-//                System.out.println("NO________________________________________________________________________________YES");
-//                return true;
-//            }
-//        });
-
   }
 
-  private View.OnClickListener nav_click = new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-
-    }
-  };
-
+  /**
+   * @return
+   */
   @Override
   public boolean onSupportNavigateUp() {
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

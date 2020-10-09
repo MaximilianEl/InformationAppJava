@@ -7,10 +7,12 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 public class KeyboardUtil {
 
   public interface KeyboardVisibilityListener {
+
     void onKeyboardVisibilityChanged(boolean keyboardVisible);
   }
 
-  public static void setKeyboardVisibilityListener(Activity activity, final KeyboardVisibilityListener keyboardVisibilityListener) {
+  public static void setKeyboardVisibilityListener(Activity activity,
+      final KeyboardVisibilityListener keyboardVisibilityListener) {
     final View contentView = activity.findViewById(android.R.id.content);
     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
       private int mPreviousHeight;

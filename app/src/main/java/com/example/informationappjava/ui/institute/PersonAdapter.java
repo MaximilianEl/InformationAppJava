@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
 
-  private List<Person> personList;
+  private final List<Person> personList;
   private OnItemClickListener listener;
 
   public interface OnItemClickListener {

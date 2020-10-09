@@ -1,4 +1,3 @@
-
 package com.example.informationappjava.ui.home;
 
 import android.os.Bundle;
@@ -9,12 +8,9 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.informationappjava.R;
@@ -44,13 +40,6 @@ public class HomeFragment extends Fragment {
         "<html><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/RhnYEDhsczs\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>",
         "text/html", "utf-8");
 
-//    final TextView textView = view.findViewById(R.id.text_home);
-//    newsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//      @Override
-//      public void onChanged(@Nullable String s) {
-//        textView.setText(s);
-//      }
-//    });
     return view;
   }
 }

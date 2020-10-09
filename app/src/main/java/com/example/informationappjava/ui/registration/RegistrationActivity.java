@@ -1,13 +1,9 @@
 package com.example.informationappjava.ui.registration;
 
-import android.app.Activity;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.informationappjava.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 

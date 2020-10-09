@@ -22,9 +22,6 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 public class CampusFragment extends Fragment {
 
   private CampusViewModel mViewModel;
-  FloatingActionButton fButton;
-  ViewPager viewPager;
-  ImageAdapter imageAdapter;
   CardView campMapButton;
 
   @Override

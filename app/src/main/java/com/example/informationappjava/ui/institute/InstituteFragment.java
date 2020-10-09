@@ -24,10 +24,10 @@ public class InstituteFragment extends Fragment {
   private CardView cardViewFreshmanHelp;
   private CardView cardViewEvent;
   private CardView cardViewPerson;
-  private String course = "course";
-  private String freshmanHelp = "freshmanHelp";
-  private String event = "event";
-  private String person = "person";
+  private final String course = "course";
+  private final String freshmanHelp = "freshmanHelp";
+  private final String event = "event";
+  private final String person = "person";
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
@@ -77,8 +77,6 @@ public class InstituteFragment extends Fragment {
 
     return view;
   }
-
-
 
 
 }

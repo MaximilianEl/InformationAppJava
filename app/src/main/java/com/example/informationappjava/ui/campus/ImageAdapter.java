@@ -12,9 +12,9 @@ import com.example.informationappjava.R;
 
 public class ImageAdapter extends PagerAdapter {
 
-  private Context campContext;
-  private int[] campImgId = new int[]{R.drawable.camp1, R.drawable.camp2, R.drawable.camp3,
-      R.drawable.camp4, R.drawable.camp5, R.drawable.camp6 };
+  private final Context campContext;
+  private final int[] campImgId = new int[]{R.drawable.camp1, R.drawable.camp2, R.drawable.camp3,
+      R.drawable.camp4, R.drawable.camp5, R.drawable.camp6};
 
   ImageAdapter(Context context) {
     campContext = context;

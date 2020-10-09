@@ -39,9 +39,9 @@ public class ContactCursorWrapper extends CursorWrapper {
     contact.setPersistID(contactUniqueId);
     contact.setProfileImagePath(profileImagePath);
 
-    contact.setPendingFrom((pendingFromInt == 0) ? false : true);
-    contact.setPendingTo((pendingToInt == 0) ? false : true);
-    contact.setOnlineStatus((onlineStatusInt == 0) ? false : true);
+    contact.setPendingFrom(pendingFromInt != 0);
+    contact.setPendingTo(pendingToInt != 0);
+    contact.setOnlineStatus(onlineStatusInt != 0);
     return contact;
   }
 }

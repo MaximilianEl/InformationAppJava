@@ -26,18 +26,18 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
 
   public interface OnItemClickListener {
 
-    public void onItemClick(String contactJid, Chat.ContactType chatType);
+    void onItemClick(String contactJid, Chat.ContactType chatType);
   }
 
   public interface OnItemLongClickListener {
 
-    public void onItemLongClick(String contactJod, int chatUniqueId, View anchor);
+    void onItemLongClick(String contactJod, int chatUniqueId, View anchor);
   }
 
   List<Chat> chatList;
   private OnItemClickListener onItemClickListener;
   private OnItemLongClickListener onItemLongClick;
-  private Context mContext;
+  private final Context mContext;
 
   public ChatListAdapter(Context context) {
     this.chatList = ChatModel.get(context).getChats();
@@ -93,12 +93,12 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
 class ChatHolder extends RecyclerView.ViewHolder {
 
   private static final String LOGTAG = "ChatHolder";
-  private TextView contactTextView;
-  private TextView messageAbstractTextview;
-  private TextView timestampTextView;
-  private ImageView profileImage;
+  private final TextView contactTextView;
+  private final TextView messageAbstractTextview;
+  private final TextView timestampTextView;
+  private final ImageView profileImage;
   private Chat mChat;
-  private ChatListAdapter chatListAdapter;
+  private final ChatListAdapter chatListAdapter;
 
   public ChatHolder(@NonNull @NotNull View itemView,
       ChatListAdapter adapter) {

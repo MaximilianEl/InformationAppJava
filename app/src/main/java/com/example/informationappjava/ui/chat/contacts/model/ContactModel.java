@@ -15,8 +15,8 @@ public class ContactModel {
 
   private static final String LOGTAG = "ContactModel";
   private static ContactModel sContactModel;
-  private Context mContext;
-  private SQLiteDatabase mDatabase;
+  private final Context mContext;
+  private final SQLiteDatabase mDatabase;
 
   public static ContactModel get(Context context) {
     if (sContactModel == null) {
@@ -59,7 +59,8 @@ public class ContactModel {
     for (Contact contact : contacts) {
 
       Log.d(LOGTAG, "Contact Jid: " + contact.getJid());
-      Log.d(LOGTAG, "Subscription type: " + contact.getTypeStringValue(contact.getSubscriptionType()));
+      Log.d(LOGTAG,
+          "Subscription type: " + contact.getTypeStringValue(contact.getSubscriptionType()));
       if (contact.getJid().equals(jidString)) {
 
         mContact = contact;
@@ -102,11 +103,7 @@ public class ContactModel {
 
   public boolean addContact(Contact c) {
     ContentValues values = c.getContentValues();
-    if ((mDatabase.insert(Contact.TABLE_NAME, null, values) == -1)) {
-      return false;
-    } else {
-      return true;
-    }
+    return mDatabase.insert(Contact.TABLE_NAME, null, values) != -1;
   }
 
   public boolean updateContactSubscription(Contact contact) {

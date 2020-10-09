@@ -1,12 +1,11 @@
 package com.example.informationappjava.ui.chat.view.model;
 
 import android.content.ContentValues;
-import android.text.format.DateFormat;
-import java.util.concurrent.TimeUnit;
 
 public class ChatMessage {
+
   private String message;
-  private long timestamp;
+  private final long timestamp;
   private Type type;
   private String contactJid;
   private int persistID;
@@ -14,6 +13,7 @@ public class ChatMessage {
   public static final String TABLE_NAME = "chatMessages";
 
   public static final class Cols {
+
     public static final String CHAT_MESSAGE_UNIQUE_ID = "chatMessageUniqueId";
     public static final String MESSAGE = "message";
     public static final String TIMESTAMP = "timestamp";
@@ -69,7 +69,7 @@ public class ChatMessage {
   }
 
   public String getTypeStringValue(Type type) {
-    if (type == Type.SENT){
+    if (type == Type.SENT) {
       return "SENT";
     } else {
       return "RECEIVED";

@@ -2,11 +2,6 @@ package com.example.informationappjava.ui.application;
 
 import android.content.Intent;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -25,10 +20,10 @@ public class ApplicationFragment extends Fragment {
   private CardView approve;
   private CardView enrol;
   private CardView start;
-  private String applicationString = "application";
-  private String enrolString = "enrol";
-  private String approveString = "approve";
-  private String startString = "start";
+  private final String applicationString = "application";
+  private final String enrolString = "enrol";
+  private final String approveString = "approve";
+  private final String startString = "start";
 
   public static ApplicationFragment newInstance() {
     return new ApplicationFragment();
