@@ -9,6 +9,9 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class InstituteCourseActivity extends AppCompatActivity {
 
   private CardView cardViewMBau;
@@ -19,7 +22,9 @@ public class InstituteCourseActivity extends AppCompatActivity {
   private CardView cardViewBIngEne;
   private CardView cardViewMAT;
 
-
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -101,6 +106,5 @@ public class InstituteCourseActivity extends AppCompatActivity {
         startActivity(intent);
       }
     });
-
   }
 }

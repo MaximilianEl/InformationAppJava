@@ -1,6 +1,5 @@
 package com.example.informationappjava.ui.institute;
 
-import android.content.Intent;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +7,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
-import com.example.informationappjava.ui.institute.PersonAdapter.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class PersonContextActivity extends AppCompatActivity {
 
   private String course = "course";
@@ -34,6 +35,9 @@ public class PersonContextActivity extends AppCompatActivity {
 
   private List<Person> personList = new ArrayList<>();
 
+  /**
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -55,6 +59,9 @@ public class PersonContextActivity extends AppCompatActivity {
 
   }
 
+  /**
+   *
+   */
   public void preparePersonList() {
 
     int count = 0;

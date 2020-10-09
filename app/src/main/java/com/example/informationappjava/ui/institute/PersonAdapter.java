@@ -12,25 +12,41 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ *
+ */
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
 
   private List<Person> personList;
   private OnItemClickListener listener;
 
+  /**
+   *
+   */
   public interface OnItemClickListener {
 
     void onItemClick(int position);
   }
 
+  /**
+   * @param listener
+   */
   public void setOnItemClickListener(OnItemClickListener listener) {
     this.listener = listener;
   }
 
+  /**
+   * @param personList
+   */
   public PersonAdapter(List<Person> personList) {
     this.personList = personList;
   }
 
-
+  /**
+   * @param parent
+   * @param viewType
+   * @return
+   */
   @NonNull
   @NotNull
   @Override
@@ -41,6 +57,10 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     return new PersonViewHolder(view, listener);
   }
 
+  /**
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull @NotNull PersonViewHolder holder, int position) {
 
@@ -50,11 +70,17 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     holder.docentPic.setImageResource(person.getPersonImage());
   }
 
+  /**
+   * @return
+   */
   @Override
   public int getItemCount() {
     return personList.size();
   }
 
+  /**
+   *
+   */
   public static class PersonViewHolder extends RecyclerView.ViewHolder {
 
     public TextView docentName;

@@ -14,6 +14,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 
+/**
+ *
+ */
 public class InstituteFragment extends Fragment {
 
   private InstituteViewModel instituteViewModel;
@@ -29,6 +32,12 @@ public class InstituteFragment extends Fragment {
   private String event = "event";
   private String person = "person";
 
+  /**
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     instituteViewModel = ViewModelProviders.of(this).get(InstituteViewModel.class);
@@ -77,8 +86,5 @@ public class InstituteFragment extends Fragment {
 
     return view;
   }
-
-
-
 
 }
