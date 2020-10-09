@@ -19,13 +19,19 @@ import com.example.informationappjava.R;
 
 import java.util.Locale;
 
+/**
+ *
+ */
 public class SettingsActivity extends AppCompatActivity {
 
   private SwitchCompat myswitch;
 
   private SharedPref sharedPref;
 
-
+  /**
+   *
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
 
@@ -73,13 +79,18 @@ public class SettingsActivity extends AppCompatActivity {
     });
   }
 
-
+  /**
+   *
+   */
   public void restartApp() {
     Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
     startActivity(i);
     finish();
   }
 
+  /**
+   *
+   */
   private void showChangeLangugageDialog() {
     final String[] listItems = {"Deutsch/German", "Englisch/English"};
     AlertDialog.Builder mBuilder = new AlertDialog.Builder(SettingsActivity.this);
@@ -105,6 +116,10 @@ public class SettingsActivity extends AppCompatActivity {
 
   }
 
+  /**
+   *
+   * @param lang
+   */
   private void setLocale(String lang) {
     Locale locale = new Locale(lang);
     Locale.setDefault(locale);
@@ -118,6 +133,9 @@ public class SettingsActivity extends AppCompatActivity {
     editor.apply();
   }
 
+  /**
+   *
+   */
   public void loadLocale() {
     SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
     String language = prefs.getString("My_Lang", "");
