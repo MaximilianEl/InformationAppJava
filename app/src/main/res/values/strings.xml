@@ -16,6 +16,8 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_settings">Einstellungen</string>
 
+  <string name="imprint_tech">Institut für Management und Technik</string>
+
   <string name="imprint_paragraph">Angaben gem. §5 TMG</string>
   <string name="imprint_hs">Hochschule Osnabrück</string>
   <string name="imprint_camp">Campus Lingen</string>
@@ -37,7 +39,7 @@
 
   <string name="camp_header">Willkommen am Campus Lingen!</string>
   <string name="camp_mhead">Erkunde den Campus!</string>
-  <string name="camp_map">Click here and explore all locations of the Campus Lingen!</string>
+  <string name="camp_map">Klicke hier und erforsche alle Standorte des Campus Lingen!</string>
   <string name="camp_des">Standorte Campus Lingen</string>
 
   <string name="ins_header">Über das Institut</string>
@@ -45,13 +47,13 @@
 
   <string name="title_activity_chat__login">Chat_LoginActivity</string>
   <string name="prompt_jid">maxmusterman@hsoschat.de</string>
-  <string name="prompt_password">Password</string>
+  <string name="prompt_password">Passwort</string>
   <string name="action_sign_in">Login</string>
   <string name="action_sign_in_short">Anmelden</string>
   <string name="welcome">"Willkommen "</string>
   <string name="invalid_jid">Keine zulässige Jabber ID</string>
   <string name="invalid_password">Passwort muss länger als 5 Zeichen sein.</string>
-  <string name="login_failed">"Login failed"</string>
+  <string name="login_failed">"Login fehlgeschlagen"</string>
 
   <string name="chat_login">Login</string>
   <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
@@ -67,16 +69,26 @@
   <string name="add_contact_confirm_text">OK</string>
   <string name="add_contact_cancel_text">Abbrechen</string>
 
-  <string name="institute_courses">Module</string>
+  <string name="institute_courses">Kurse</string>
   <string name="institute_firstsemester">Erstsemesterhilfe</string>
   <string name="institute_persons">Personen</string>
-  <string name="institute_events">Events</string>
+  <string name="institute_events">Veranstaltungen</string>
 
   <string name="feedback_name">Name</string>
   <string name="feedback_email">E-Mail</string>
-  <string name="feedback_subject">Titel</string>
+  <string name="feedback_subject">Betreff</string>
   <string name="feedback_message">Schreibe deine Nachricht.</string>
   <string name="institute_feedback">Sende uns dein Feedback</string>
+
+  <string name="course_technical">Allgemeiner Maschinenbau (B.Sc.)</string>
+  <string name="campus_lingen">Standort Lingen (Ems)</string>
+  <string name="extra_occupational">Berufsbegleitend</string>
+  <string name="business">Betriebswirtschaft und Management(B.Sc.)</string>
+  <string name="informatics">Wirtschaftsinformatik (B.Sc.)</string>
+  <string name="industrial">Wirtschaftsingenieurwesen (B.Sc.)</string>
+  <string name="industrial_dual">Wirtschaftsingenieurwesen (MBA)</string>
+  <string name="energy">Wirtschaftsingenieurwesen - Energiewirtschaft (M.Sc.)</string>
+  <string name="management">Management und Technik (M.Sc.)</string>
 
   <string name="campus_campus">Der Campus</string>
 
@@ -93,8 +105,8 @@
   <string name="delete_chat">Chat löschen</string>
   <string name="delete_message">Nachricht löschen</string>
   <string name="onstatthem">Er sieht meinen Online Status</string>
-  <string name="pending">Pending...</string>
-  <string name="onstattheir">Ich sehe seinen Online Status.</string>
+  <string name="pending">Ausstehend...</string>
+  <string name="onstattheir">Ich sehe den Online Status.</string>
   <string name="contact_details_chat_view">Kontaktdetails</string>
   <string name="received_message">Nachricht erhalten</string>
 

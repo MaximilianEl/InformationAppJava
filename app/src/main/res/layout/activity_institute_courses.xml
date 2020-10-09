@@ -73,14 +73,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Allgemeiner Maschinenbau (B.Sc.)"
+                            android:text="@string/course_technical"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Standort Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
@@ -113,14 +113,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Betriebswirtschaft und Management (B.A.)"
+                            android:text="@string/business"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Standort Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
@@ -153,14 +153,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Wirtschaftsinformatik (B.Sc.)"
+                            android:text="@string/informatics"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Stadt Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
@@ -193,14 +193,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Wirtschaftsingenieurwesen (B.Sc.)"
+                            android:text="@string/industrial"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Standort Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
@@ -233,14 +233,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Wirtschaftsingenieurwesen (MBA)"
+                            android:text="@string/industrial_dual"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="berufsbegleitend"/>
+                            android:text="@string/extra_occupational"/>
 
                 </LinearLayout>
 
@@ -273,14 +273,14 @@
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Wirtschaftsingenieurwesen - Energiewirtschaft (M.Sc.)"
+                            android:text="@string/energy"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Standort Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
@@ -315,7 +315,7 @@
                             android:id="@+id/ins_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Management und Technik (M.Sc.)"
+                            android:text="@string/management"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
@@ -323,7 +323,7 @@
                             android:id="@+id/ins_item_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Standort Lingen (Ems)"/>
+                            android:text="@string/campus_lingen"/>
 
                 </LinearLayout>
 
