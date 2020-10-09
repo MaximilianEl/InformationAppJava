@@ -61,6 +61,9 @@ import org.jxmpp.jid.Jid;
 import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
+/**
+ *
+ */
 public class RoosterConnection implements ConnectionListener, SubscribeListener, RosterListener {
 
   private static final String LOGTAG = "RoosterConnection";
@@ -80,6 +83,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     OFFLINE, CONNECTING, ONLINE
   }
 
+  /**
+   *
+   * @param mConnectionState
+   */
   private void updateActivitiesOfConnectionStateChange(ConnectionState mConnectionState) {
     ConnectionState connectionState = mConnectionState;
     String status;
@@ -103,6 +110,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     context.sendBroadcast(i);
   }
 
+  /**
+   *
+   * @param context
+   */
   public RoosterConnection(Context context) {
     Log.d(LOGTAG, "RoosterConnection Constructor called");
     this.context = context;
@@ -116,6 +127,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     this.mConnectionState = mConnectionState;
   }
 
+  /**
+   *
+   * @return
+   */
   public String getConnectionstateString() {
     switch (mConnectionState) {
       case OFFLINE:
@@ -129,6 +144,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   */
   private void notifyUiForConnectionError() {
     Intent i = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
     i.setPackage(context.getPackageName());
@@ -136,6 +154,12 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     Log.d(LOGTAG, "Sent the broadcast for connection Error");
   }
 
+  /**
+   *
+   * @throws IOException
+   * @throws XMPPException
+   * @throws SmackException
+   */
   public void connect() throws IOException, XMPPException, SmackException {
 
     mConnectionState = ConnectionState.CONNECTING;
@@ -245,6 +269,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param image
+   * @return
+   */
   public boolean setSelfAvatar(byte[] image) {
     VCard vCard = new VCard();
     vCard.setAvatar(image);
@@ -320,6 +349,12 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param vCard
+   * @param rootPath
+   * @param contact
+   */
   private void saveAvatarToDisk(VCard vCard, File rootPath, String contact) {
 
     String imageMimeType = null;
@@ -373,6 +408,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param username
+   * @return
+   */
   public VCard getUserVCard(String username) {
 
     EntityBareJid jid = null;
@@ -397,6 +437,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return vCard;
   }
 
+  /**
+   *
+   * @param jid
+   * @return
+   */
   public String getProfileImageAbsolutePath(String jid) {
 
     File rootPath = new File(context.getExternalFilesDir("DIRECTORY_PICTURES"), "profile_pictures");
@@ -438,6 +483,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   */
   public void syncContactListWithRemoteRoster() {
 
     Log.d(LOGTAG, "Roster SYNCING...");
@@ -485,6 +533,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @return
+   */
   public Collection<RosterEntry> getRosterEntries() {
 
     Collection<RosterEntry> entries = roster.getEntries();
@@ -492,6 +544,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return entries;
   }
 
+  /**
+   *
+   */
   public void disconnect() {
 
     Log.d(LOGTAG, "Disconnecting from server " + serviceName);
@@ -505,6 +560,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
   }
 
+  /**
+   *
+   * @param body
+   * @param toJid
+   */
   public void sendMessage(String body, String toJid) {
     Log.d(LOGTAG, "Sending message to: " + toJid);
 
@@ -530,6 +590,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param contactJid
+   * @return
+   */
   //Adds contact to the remote roster. We maintain our own local contact list[Roster]
   public boolean addContactToRoster(String contactJid) {
 
@@ -551,6 +616,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return true;
   }
 
+  /**
+   *
+   * @param contact
+   * @return
+   */
   public boolean subscribe(String contact) {
 
     Jid jidTo = null;
@@ -566,6 +636,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return sendPresence(subscribe);
   }
 
+  /**
+   *
+   * @param itemType
+   * @return
+   */
   private Contact.SubscriptionType rosterItemTypeToContactSubscriptionType(
       RosterPacket.ItemType itemType) {
 
@@ -587,6 +662,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param contactJid
+   * @return
+   */
   public boolean removeRosterEntry(String contactJid) {
     Jid jid;
 
@@ -608,6 +688,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return true;
   }
 
+  /**
+   *
+   * @param presence
+   * @return
+   */
   public boolean sendPresence(Presence presence) {
 
     if (connection != null) {
@@ -623,6 +708,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return false;
   }
 
+  /**
+   *
+   * @param contact
+   * @return
+   */
   public boolean unsubsribe(String contact) {
 
     Jid jidTo = null;
@@ -638,6 +728,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return sendPresence(unsubscribe);
   }
 
+  /**
+   *
+   * @param contact
+   * @return
+   */
   public boolean subscribed(String contact) {
 
     Jid jidTo = null;
@@ -654,6 +749,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return true;
   }
 
+  /**
+   *
+   * @param contact
+   * @return
+   */
   public boolean unsubscribed(String contact) {
 
     Jid jidTo = null;
@@ -669,6 +769,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     return sendPresence(unsubscribed);
   }
 
+  /**
+   *
+   */
   private void gatherCredentials() {
     String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
 
@@ -684,6 +787,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param connection
+   */
   @Override
   public void connected(XMPPConnection connection) {
     Log.d(LOGTAG, " - Connected");
@@ -691,6 +798,11 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
   }
 
+  /**
+   *
+   * @param connection
+   * @param resumed
+   */
   @Override
   public void authenticated(XMPPConnection connection, boolean resumed) {
     mConnectionState = ConnectionState.ONLINE;
@@ -707,6 +819,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
 
   }
 
+  /**
+   *
+   */
   @Override
   public void connectionClosed() {
     Log.d(LOGTAG, " - connectionClosed");
@@ -715,6 +830,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
   }
 
+  /**
+   *
+   * @param e
+   */
   @Override
   public void connectionClosedOnError(Exception e) {
     Log.d(LOGTAG, " - connectionClosedOnError");
@@ -722,6 +841,9 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     updateActivitiesOfConnectionStateChange(ConnectionState.OFFLINE);
   }
 
+  /**
+   *
+   */
   @Override
   public void reconnectionSuccessful() {
     Log.d(LOGTAG, " - reconnectionSuccessful");
@@ -729,6 +851,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     updateActivitiesOfConnectionStateChange(ConnectionState.ONLINE);
   }
 
+  /**
+   *
+   * @param seconds
+   */
   @Override
   public void reconnectingIn(int seconds) {
     Log.d(LOGTAG, " - Reconnecting in " + seconds + " seconds");
@@ -736,6 +862,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     updateActivitiesOfConnectionStateChange(ConnectionState.CONNECTING);
   }
 
+  /**
+   *
+   * @param e
+   */
   @Override
   public void reconnectionFailed(Exception e) {
     Log.d(LOGTAG, " - reconnectionFailed");
@@ -840,6 +970,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param addresses
+   */
   @Override
   public void entriesUpdated(Collection<Jid> addresses) {
 
@@ -865,6 +999,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param addresses
+   */
   @Override
   public void entriesDeleted(Collection<Jid> addresses) {
 
@@ -880,6 +1018,10 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     }
   }
 
+  /**
+   *
+   * @param presence
+   */
   @Override
   public void presenceChanged(Presence presence) {
 
@@ -902,5 +1044,3 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
     context.sendBroadcast(intent);
   }
 }
-
-
