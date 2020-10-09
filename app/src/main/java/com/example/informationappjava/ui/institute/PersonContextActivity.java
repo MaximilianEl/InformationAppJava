@@ -10,6 +10,9 @@ import com.example.informationappjava.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class PersonContextActivity extends AppCompatActivity {
 
   private final String course = "course";
@@ -32,6 +35,10 @@ public class PersonContextActivity extends AppCompatActivity {
 
   private final List<Person> personList = new ArrayList<>();
 
+  /**
+   *
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -53,6 +60,9 @@ public class PersonContextActivity extends AppCompatActivity {
 
   }
 
+  /**
+   *
+   */
   public void preparePersonList() {
 
     int count = 0;
