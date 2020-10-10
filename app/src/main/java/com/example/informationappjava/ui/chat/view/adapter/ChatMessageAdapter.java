@@ -28,234 +28,257 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
-  /**
-   *
-   */
-  public interface OnInformRecyclerViewToScrollDownListener {
+    private static final int SENT = 1;
+    private static final int RECEIVED = 2;
+    private static final String LOGTAG = "ChatMessageAdapter";
 
-    void onInformRecyclerViewToScrollDown(int size);
-  }
+    private List<ChatMessage> chatMessageList;
+    private final LayoutInflater layoutInflater;
+    private Context context;
+    private final String contactJid;
+    private OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener;
+    private OnItemLongClickListener onItemLongClickListener;
 
-  /**
-   *
-   */
-  public interface OnItemLongClickListener {
-
-    void onItemLongClick(int uniqueId, View anchor);
-  }
-
-  private static final int SENT = 1;
-  private static final int RECEIVED = 2;
-  private static final String LOGTAG = "ChatMessageAdapter";
-
-  private List<ChatMessage> chatMessageList;
-  private final LayoutInflater layoutInflater;
-  private Context context;
-  private final String contactJid;
-  private OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener;
-  private OnItemLongClickListener onItemLongClickListener;
-
-  /**
-   * @param onInformRecyclerViewToScrollDownListener
-   */
-  public void setOnInformRecyclerViewToScrollDownListener(
-      OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener) {
-    this.onInformRecyclerViewToScrollDownListener = onInformRecyclerViewToScrollDownListener;
-  }
-
-  /**
-   * @return
-   */
-  public OnItemLongClickListener getOnItemLongClickListener() {
-    return onItemLongClickListener;
-  }
-
-  /**
-   * @param onItemLongClickListener
-   */
-  public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
-    this.onItemLongClickListener = onItemLongClickListener;
-  }
-
-  /**
-   * @return
-   */
-  public Context getContext() {
-    return context;
-  }
-
-  /**
-   * @param context
-   */
-  public void setContext(Context context) {
-    this.context = context;
-  }
-
-  /**
-   * @param context
-   * @param contactJid
-   */
-  public ChatMessageAdapter(Context context, String contactJid) {
-    this.layoutInflater = LayoutInflater.from(context);
-    this.context = context;
-    this.contactJid = contactJid;
-
-    chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
-    Log.d(LOGTAG, "Getting messages for: " + contactJid);
-  }
-
-  /**
-   *
-   */
-  public void informRecyclerViewToScrollDown() {
-    onInformRecyclerViewToScrollDownListener
-        .onInformRecyclerViewToScrollDown(chatMessageList.size());
-  }
-
-  /**
-   * @param parent
-   * @param viewType
-   * @return
-   */
-  @Override
-  public ChatMessageViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent,
-      int viewType) {
-
-    View itemView;
-    switch (viewType) {
-      case SENT:
-        itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
-        return new ChatMessageViewHolder(itemView, this);
-
-      case RECEIVED:
-        itemView = layoutInflater.inflate(R.layout.chat_message_received, parent, false);
-        return new ChatMessageViewHolder(itemView, this);
-
-      default:
-        itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
-        return new ChatMessageViewHolder(itemView, this);
+    /**
+     * This Interface adds a Scrolldownlistener to the Recyclerview.
+     */
+    public interface OnInformRecyclerViewToScrollDownListener {
+        void onInformRecyclerViewToScrollDown(int size);
     }
 
-  }
-
-  /**
-   * @param holder
-   * @param position
-   */
-  @Override
-  public void onBindViewHolder(@NonNull @NotNull ChatMessageViewHolder holder, int position) {
-    ChatMessage chatMessage = chatMessageList.get(position);
-    holder.bindChat(chatMessage);
-  }
-
-  /**
-   * @return
-   */
-  @Override
-  public int getItemCount() {
-    return chatMessageList.size();
-  }
-
-  /**
-   * @param position
-   * @return
-   */
-  @Override
-  public int getItemViewType(int position) {
-    ChatMessage.Type messageType = chatMessageList.get(position).getType();
-    if (messageType == Type.SENT) {
-      return SENT;
-    } else {
-      return RECEIVED;
+    /**
+     * This is an Interface that enables an onlongclick event.
+     */
+    public interface OnItemLongClickListener {
+        void onItemLongClick(int uniqueId, View anchor);
     }
-  }
 
-  /**
-   *
-   */
-  public void onMessageAdd() {
-    chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
-    notifyDataSetChanged();
-    informRecyclerViewToScrollDown();
-  }
+    /**
+     * This is a setter for the scrolldown listener.
+     *
+     * @param onInformRecyclerViewToScrollDownListener
+     */
+    public void setOnInformRecyclerViewToScrollDownListener(
+            OnInformRecyclerViewToScrollDownListener onInformRecyclerViewToScrollDownListener) {
+        this.onInformRecyclerViewToScrollDownListener = onInformRecyclerViewToScrollDownListener;
+    }
+
+    /**
+     * This is a getter for the longclick event.
+     *
+     * @return
+     */
+    public OnItemLongClickListener getOnItemLongClickListener() {
+        return onItemLongClickListener;
+    }
+
+    /**
+     * This is a setter for the scrolldown listener.
+     *
+     * @param onItemLongClickListener
+     */
+    public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
+        this.onItemLongClickListener = onItemLongClickListener;
+    }
+
+    /**
+     * This function returns the context.
+     *
+     * @return context
+     */
+    public Context getContext() {
+        return context;
+    }
+
+    /**
+     * This is a setter for the context.
+     *
+     * @param context
+     */
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    /**
+     * This is a Constructor to call upon the ChatMessageAdapter class.
+     *
+     * @param context
+     * @param contactJid
+     */
+    public ChatMessageAdapter(Context context, String contactJid) {
+        this.layoutInflater = LayoutInflater.from(context);
+        this.context = context;
+        this.contactJid = contactJid;
+
+        chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
+        Log.d(LOGTAG, "Getting messages for: " + contactJid);
+    }
+
+    /**
+     * This function informs the RecyclerView it has to scroll down to the MessageList size.
+     */
+    public void informRecyclerViewToScrollDown() {
+        onInformRecyclerViewToScrollDownListener.onInformRecyclerViewToScrollDown(chatMessageList.size());
+    }
+
+    /**
+     * This function inflates the chat messages depending on if the message is received or send from the user
+     * and returns the ChatMessageViewHolder holding the Messages.
+     *
+     * @param parent
+     * @param viewType
+     * @return ChatMessageViewHolder
+     */
+    @Override
+    public ChatMessageViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+
+        View itemView;
+        switch (viewType) {
+            case SENT:
+                itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
+                return new ChatMessageViewHolder(itemView, this);
+
+            case RECEIVED:
+                itemView = layoutInflater.inflate(R.layout.chat_message_received, parent, false);
+                return new ChatMessageViewHolder(itemView, this);
+
+            default:
+                itemView = layoutInflater.inflate(R.layout.chat_message_sent, parent, false);
+                return new ChatMessageViewHolder(itemView, this);
+        }
+
+    }
+
+    /**
+     * Zhis function binds a specific Message with the holder.
+     *
+     * @param holder
+     * @param position
+     */
+    @Override
+    public void onBindViewHolder(@NonNull @NotNull ChatMessageViewHolder holder, int position) {
+        ChatMessage chatMessage = chatMessageList.get(position);
+        holder.bindChat(chatMessage);
+    }
+
+    /**
+     * This function returns the size of the current Messagelist.
+     *
+     * @return chatMessageList.size()
+     */
+    @Override
+    public int getItemCount() {
+        return chatMessageList.size();
+    }
+
+    /**
+     * This function gets the type of the specific Message depending on its position.
+     *
+     * @param position
+     * @return SENT, RECEIVED
+     */
+    @Override
+    public int getItemViewType(int position) {
+        ChatMessage.Type messageType = chatMessageList.get(position).getType();
+        if (messageType == Type.SENT) {
+            return SENT;
+        } else {
+            return RECEIVED;
+        }
+    }
+
+    /**
+     * This function notifies the View that a new Message has been added and it has to scroll down to it.
+     */
+    public void onMessageAdd() {
+        chatMessageList = ChatMessagesModel.get(context).getMessages(contactJid);
+        notifyDataSetChanged();
+        informRecyclerViewToScrollDown();
+    }
 }
 
 /**
- *
+ * The ChatHolder class gives Informations to the ChatView and adds longclick events to the Messages.
  */
 class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
-  private static final String LOGTAG = "ChatMessageViewHolder";
-  private final TextView messageBody;
-  private final TextView messageTimestamp;
-  private final ImageView profileImage;
-  private ChatMessage mchatMessage;
-  private final ChatMessageAdapter mAdapter;
+    private static final String LOGTAG = "ChatMessageViewHolder";
+    private final TextView messageBody;
+    private final TextView messageTimestamp;
+    private final ImageView profileImage;
+    private ChatMessage mchatMessage;
+    private final ChatMessageAdapter mAdapter;
 
-  /**
-   * @param itemView
-   * @param mAdapter
-   */
-  public ChatMessageViewHolder(View itemView, final ChatMessageAdapter mAdapter) {
-    super(itemView);
+    /**
+     * This is a constructor to call upon the ChatMessageViewHolder and it also sets the onlongclick events for the
+     * Messages.
+     *
+     * @param itemView
+     * @param mAdapter
+     */
+    public ChatMessageViewHolder(View itemView, final ChatMessageAdapter mAdapter) {
+        super(itemView);
 
-    messageBody = itemView.findViewById(R.id.chat_textMessageBody);
-    messageTimestamp = itemView.findViewById(R.id.chat_textMessageTimestamp);
-    profileImage = itemView.findViewById(R.id.profile);
+        messageBody = itemView.findViewById(R.id.chat_textMessageBody);
+        messageTimestamp = itemView.findViewById(R.id.chat_textMessageTimestamp);
+        profileImage = itemView.findViewById(R.id.profile);
 
-    this.mAdapter = mAdapter;
+        this.mAdapter = mAdapter;
 
-    itemView.setOnLongClickListener(new View.OnLongClickListener() {
-      @Override
-      public boolean onLongClick(View view) {
-        ChatMessageAdapter.OnItemLongClickListener listener = mAdapter.getOnItemLongClickListener();
-        if (listener != null) {
-          listener.onItemLongClick(mchatMessage.getPersistID(), itemView);
-        }
-        return false;
-      }
-    });
-  }
-
-  /**
-   * @param chatMessage
-   */
-  public void bindChat(ChatMessage chatMessage) {
-    mchatMessage = chatMessage;
-    messageBody.setText(chatMessage.getMessage());
-    messageTimestamp.setText(Utilities.getFormattedTime(mchatMessage.getTimestamp()));
-    profileImage.setImageResource(R.drawable.ic_baseline_person_24);
-
-    ChatMessage.Type type = mchatMessage.getType();
-
-    if (type == Type.RECEIVED) {
-      ChatConnection rc = ChatConnectionService.getConnection();
-      if (rc != null) {
-        String imageAbsPath = rc.getProfileImageAbsolutePath(mchatMessage.getContactJid());
-        if (imageAbsPath != null) {
-          Drawable d = Drawable.createFromPath(imageAbsPath);
-          profileImage.setImageDrawable(d);
-        }
-      }
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ChatMessageAdapter.OnItemLongClickListener listener = mAdapter.getOnItemLongClickListener();
+                if (listener != null) {
+                    listener.onItemLongClick(mchatMessage.getPersistID(), itemView);
+                }
+                return false;
+            }
+        });
     }
 
-    if (type == Type.SENT) {
-      ChatConnection rc = ChatConnectionService.getConnection();
-      if (rc != null) {
-        String selfJid = PreferenceManager.getDefaultSharedPreferences(mAdapter.getContext())
-            .getString("xmpp_jid", null);
+    /**
+     * This function gives out the Informations for the Chat Message in the ChatView.
+     * the Information depends on if the Message is RECEIVED or SENT.
+     *
+     * @param chatMessage
+     */
+    public void bindChat(ChatMessage chatMessage) {
+        mchatMessage = chatMessage;
+        messageBody.setText(chatMessage.getMessage());
+        messageTimestamp.setText(Utilities.getFormattedTime(mchatMessage.getTimestamp()));
+        profileImage.setImageResource(R.drawable.ic_baseline_person_24);
 
-        if (selfJid != null) {
-          Log.d(LOGTAG, "A valid self jid:" + selfJid);
-          String imageAbsPath = rc.getProfileImageAbsolutePath(selfJid);
-          if (imageAbsPath != null) {
-            Drawable d = Drawable.createFromPath(imageAbsPath);
-            profileImage.setImageDrawable(d);
-          }
-        } else {
-          Log.d(LOGTAG, "Could not get valid self jid");
+        ChatMessage.Type type = mchatMessage.getType();
+
+        if (type == Type.RECEIVED) {
+            ChatConnection rc = ChatConnectionService.getConnection();
+            if (rc != null) {
+                String imageAbsPath = rc.getProfileImageAbsolutePath(mchatMessage.getContactJid());
+                if (imageAbsPath != null) {
+                    Drawable d = Drawable.createFromPath(imageAbsPath);
+                    profileImage.setImageDrawable(d);
+                }
+            }
         }
-      }
+
+        if (type == Type.SENT) {
+            ChatConnection rc = ChatConnectionService.getConnection();
+            if (rc != null) {
+                String selfJid = PreferenceManager.getDefaultSharedPreferences(mAdapter.getContext())
+                        .getString("xmpp_jid", null);
+
+                if (selfJid != null) {
+                    Log.d(LOGTAG, "A valid self jid:" + selfJid);
+                    String imageAbsPath = rc.getProfileImageAbsolutePath(selfJid);
+                    if (imageAbsPath != null) {
+                        Drawable d = Drawable.createFromPath(imageAbsPath);
+                        profileImage.setImageDrawable(d);
+                    }
+                } else {
+                    Log.d(LOGTAG, "Could not get valid self jid");
+                }
+            }
+        }
     }
-  }
 }
