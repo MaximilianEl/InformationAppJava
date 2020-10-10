@@ -1,5 +1,6 @@
 package com.example.informationappjava.xmpp;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
@@ -17,7 +18,7 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
 
 /**
- *
+ * The ChatConnectionService class is used to get and initialize a connection to the server.
  */
 public class ChatConnectionService extends Service {
 
@@ -30,25 +31,28 @@ public class ChatConnectionService extends Service {
   private Handler handler;
 
   /**
-   * @return
+   * @return connection
    */
   public static ChatConnection getConnection() {
     return connection;
   }
 
-  /**
-   *
-   */
+  @SuppressLint("StaticFieldLeak")
   private static ChatConnection connection;
 
   /**
-   *
+   * Constructor of ChatConnectionService.
    */
   public ChatConnectionService() {
   }
 
   /**
-   *
+   * If there is no connection, a new connection will be established using the ChatConnection class
+   * Then the try statement tries to establish a connection with connection.connect().If the connect
+   * function fails, a message is displayed that an error has occurred. At the end it is checked if
+   * the user is still shown as logged in or not. If the user is not logged in, the connection
+   * service is stopped. In case the user is still logged in, the system will continue to try to
+   * establish a connection.
    */
   private void initConnection() {
     Log.d(LOGTAG, " initConnection()");
@@ -92,7 +96,7 @@ public class ChatConnectionService extends Service {
 
   /**
    * @param intent
-   * @return
+   * @return null
    */
   @Nullable
   @Override
@@ -101,7 +105,7 @@ public class ChatConnectionService extends Service {
   }
 
   /**
-   *
+   * Sends automatic pings to the Server.
    */
   @Override
   public void onCreate() {
@@ -110,6 +114,8 @@ public class ChatConnectionService extends Service {
   }
 
   /**
+   * onStartCommand() function.
+   *
    * @param intent
    * @param flags
    * @param startId
@@ -123,7 +129,7 @@ public class ChatConnectionService extends Service {
   }
 
   /**
-   *
+   * Unregisters the alarm broadcast receiver and cancels the alarm. Then stops.
    */
   @Override
   public void onDestroy() {
@@ -133,7 +139,7 @@ public class ChatConnectionService extends Service {
   }
 
   /**
-   *
+   * Starts the initConnection() on a Fred function if it is not active.
    */
   public void start() {
     Log.d(LOGTAG, "Service Start() function calles. active: " + active);
@@ -159,7 +165,7 @@ public class ChatConnectionService extends Service {
   }
 
   /**
-   *
+   * Function to disconnect from the connection if connection is not null.
    */
   public void stop() {
 
