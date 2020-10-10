@@ -23,7 +23,7 @@ import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat.ContactType;
 import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -188,7 +188,7 @@ public class ContactListActivity extends AppCompatActivity implements
           case R.id.delete_contact:
             if (ContactModel.get(getApplicationContext()).deleteContact(uniqueId)) {
               mAdapter.onContactCountChange();
-              if (RoosterConnectionService.getConnection().removeRosterEntry(contactJid)) {
+              if (ChatConnectionService.getConnection().removeRosterEntry(contactJid)) {
 
                 Log.d(LOGTAG, contactJid + " successfully deleted from Roster");
                 Toast.makeText(ContactListActivity.this,

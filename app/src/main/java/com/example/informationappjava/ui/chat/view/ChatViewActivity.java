@@ -24,7 +24,7 @@ import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.view.adapter.ChatMessageAdapter;
 import com.example.informationappjava.ui.chat.Utils.KeyboardUtil;
 import com.example.informationappjava.ui.chat.Utils.KeyboardUtil.KeyboardVisibilityListener;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 
 /**
  *
@@ -80,7 +80,7 @@ public class ChatViewActivity extends AppCompatActivity implements
       @Override
       public void onClick(View view) {
 
-        RoosterConnectionService.getConnection()
+        ChatConnectionService.getConnection()
             .sendMessage(textSendEditText.getText().toString(), counterpartJid);
         adapter.onMessageAdd();
         textSendEditText.getText().clear();
@@ -140,7 +140,7 @@ public class ChatViewActivity extends AppCompatActivity implements
           }
         }
         Log.d(LOGTAG, " Accept presence subscription from :" + counterpartJid);
-        if (RoosterConnectionService.getConnection().subscribed(counterpartJid)) {
+        if (ChatConnectionService.getConnection().subscribed(counterpartJid)) {
           ContactModel.get(getApplicationContext())
               .updateContactSubscriptionOnSendSubscribed(counterpartJid);
           Toast.makeText(ChatViewActivity.this, "Subscription from " + counterpartJid + "accepted",
@@ -156,7 +156,7 @@ public class ChatViewActivity extends AppCompatActivity implements
       public void onClick(View view) {
         //User denies presence subscription
         Log.d(LOGTAG, "Deny presence subscription from: " + counterpartJid);
-        if (RoosterConnectionService.getConnection().unsubsribe(counterpartJid)) {
+        if (ChatConnectionService.getConnection().unsubsribe(counterpartJid)) {
 
           ContactModel.get(getApplicationContext())
               .updateContactSubscriptionOnSendSubscribed(counterpartJid);
@@ -176,7 +176,7 @@ public class ChatViewActivity extends AppCompatActivity implements
         if (ContactModel.get(getApplicationContext())
             .addContact(new Contact(counterpartJid, SubscriptionType.TO))) {
 
-          if (RoosterConnectionService.getConnection().addContactToRoster(counterpartJid)) {
+          if (ChatConnectionService.getConnection().addContactToRoster(counterpartJid)) {
 
             Log.d(LOGTAG, counterpartJid + " successfully added to remote roster");
             snackBarStranger.setVisibility(View.GONE);

@@ -64,7 +64,7 @@ import org.jxmpp.stringprep.XmppStringprepException;
 /**
  *
  */
-public class RoosterConnection implements ConnectionListener, SubscribeListener, RosterListener {
+public class ChatConnection implements ConnectionListener, SubscribeListener, RosterListener {
 
   private static final String LOGTAG = "RoosterConnection";
 
@@ -114,7 +114,7 @@ public class RoosterConnection implements ConnectionListener, SubscribeListener,
    *
    * @param context
    */
-  public RoosterConnection(Context context) {
+  public ChatConnection(Context context) {
     Log.d(LOGTAG, "RoosterConnection Constructor called");
     this.context = context;
   }

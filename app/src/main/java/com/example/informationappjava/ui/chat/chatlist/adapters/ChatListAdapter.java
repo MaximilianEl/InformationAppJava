@@ -15,8 +15,8 @@ import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.Utils.Utilities;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
@@ -194,7 +194,7 @@ class ChatHolder extends RecyclerView.ViewHolder {
 
     profileImage.setImageResource(R.drawable.ic_baseline_person_24);
 
-    RoosterConnection rc = RoosterConnectionService.getConnection();
+    ChatConnection rc = ChatConnectionService.getConnection();
     if (rc != null) {
       String imageAbsPath = rc.getProfileImageAbsolutePath(mChat.getJid());
       if (imageAbsPath != null) {

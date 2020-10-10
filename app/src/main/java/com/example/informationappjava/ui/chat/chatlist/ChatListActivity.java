@@ -29,8 +29,8 @@ import com.example.informationappjava.ui.chat.login.LoginActivity;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.chatlist.model.ChatModel;
 import com.example.informationappjava.ui.chat.view.ChatViewActivity;
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -64,10 +64,10 @@ public class ChatListActivity extends AppCompatActivity implements
 
     } else {
 
-      if (!Utilities.isServiceRunning(RoosterConnection.class, getApplicationContext())) {
+      if (!Utilities.isServiceRunning(ChatConnection.class, getApplicationContext())) {
 
         Log.d(LOGTAG, "Service not running, starting it.. ");
-        Intent intent = new Intent(this, RoosterConnectionService.class);
+        Intent intent = new Intent(this, ChatConnectionService.class);
         startService(intent);
       } else {
 
