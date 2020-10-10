@@ -93,7 +93,6 @@ public class ApplicationFragment extends Fragment {
 
     /**
      * This method calls upon the ViewModel for this Fragment
-     *
      * @param savedInstanceState
      */
     @Override
