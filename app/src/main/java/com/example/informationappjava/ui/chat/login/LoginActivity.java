@@ -30,17 +30,12 @@ import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import com.example.informationappjava.ui.registration.RegistrationActivity;
 import com.example.informationappjava.xmpp.ChatConnectionService;
 
-
 /**
- * A login screen that offers login via email/password.
+ * The LoginActivity class offers login via email/password and checks if there are any Errors in the given credentials.
  */
 public class LoginActivity extends AppCompatActivity {
 
-  /**
-   * Id to identity READ_CONTACTS permission request.
-   */
   private static final int REQUEST_READ_CONTACTS = 0;
-
   private static final String LOGTAG = "RoosterPlus";
 
   // UI references.
@@ -52,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
   private TextView register;
 
   /**
+   * This function sets the ContentView to activity_chat_login and gives onClick events to the login and
+   * register buttons.
+   *
    * @param savedInstanceState
    */
   @Override
@@ -95,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   * Pauses the Receiver.
    */
   @Override
   protected void onPause() {
@@ -104,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   * Sends a BroadCastMessage for specific cases.
    */
   @Override
   protected void onResume() {
@@ -188,22 +186,20 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   /**
+   * This boolean checks if the jid is valid.
+   *
    * @param jid
-   * @return
+   * @return jid.contains("@")
    */
-  private boolean isjidValid(String jid) {
-    //TODO: Replace this with your own logic
-    return jid.contains("@");
-  }
+  private boolean isjidValid(String jid) {return jid.contains("@");}
 
   /**
+   * This boolean checks if the password is valid.
+   *
    * @param password
    * @return
    */
-  private boolean isPasswordValid(String password) {
-    //TODO: Replace this with your own logic
-    return password.length() > 4;
-  }
+  private boolean isPasswordValid(String password) {return password.length() > 4;}
 
   /**
    * Shows the progress UI and hides the login form.
@@ -242,7 +238,7 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   * This function saves the Credentials for the Login locally and proceeds to login the user.
    */
   private void saveCredentialsAndLogin() {
     Log.d(LOGTAG, "saveCredentialsAndLogin() called.");
