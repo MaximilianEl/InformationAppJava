@@ -12,6 +12,7 @@ import com.example.informationappjava.ui.chat.contacts.model.Contact.Subscriptio
 public class ContactCursorWrapper extends CursorWrapper {
 
   /**
+   *
    * @param cursor
    */
   public ContactCursorWrapper(Cursor cursor) {
