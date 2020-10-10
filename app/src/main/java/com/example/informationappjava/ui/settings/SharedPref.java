@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceActivity;
 
 /**
- *
+ *The SharedPref class is needed for saving changed settings.
  */
 public class SharedPref extends PreferenceActivity {
 
@@ -17,7 +17,7 @@ public class SharedPref extends PreferenceActivity {
   }
 
   /**
-   *
+   *This function applies the night mode.
    * @param state
    */
   public void setNightModeState(Boolean state) {
@@ -27,7 +27,7 @@ public class SharedPref extends PreferenceActivity {
   }
 
   /**
-   *
+   *This funtion checks if the night mode is applied.
    * @return
    */
   public Boolean loadNightModeState() {

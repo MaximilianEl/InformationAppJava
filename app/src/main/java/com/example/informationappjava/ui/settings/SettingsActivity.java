@@ -20,7 +20,7 @@ import com.example.informationappjava.R;
 import java.util.Locale;
 
 /**
- *
+ *The SettingsActivity class displays the settings overview of the app.
  */
 public class SettingsActivity extends AppCompatActivity {
 
@@ -29,7 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
   private SharedPref sharedPref;
 
   /**
-   *
+   *The onCreate() function is used to check the chosen theme and save the state of the chosen theme.
    * @param savedInstanceState
    */
   @Override
@@ -80,7 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *Restarts the app to apply changes.
    */
   public void restartApp() {
     Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
@@ -89,7 +89,8 @@ public class SettingsActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *The showChangeLanguageDialog() method it used to display items which can be chosen due to the
+   *onCLick() method.
    */
   private void showChangeLangugageDialog() {
     final String[] listItems = {"Deutsch/German", "Englisch/English"};
@@ -117,7 +118,7 @@ public class SettingsActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *The setLocale() function is used to set the right locale for the chosen language.
    * @param lang
    */
   private void setLocale(String lang) {
@@ -134,7 +135,7 @@ public class SettingsActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *The laodLocale() function is used to load the right locale for the chosen language.
    */
   public void loadLocale() {
     SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);

@@ -34,6 +34,8 @@ public class InstituteFragment extends Fragment {
 
   /**
    * Sets onClickListener to the CardViews.
+   * The onCreate() function contains  onClick() functions which are used to open up different URLs
+   * and to start the PersonContextActivity and InstituteCourseActivity classes.
    *
    * @param inflater
    * @param container
