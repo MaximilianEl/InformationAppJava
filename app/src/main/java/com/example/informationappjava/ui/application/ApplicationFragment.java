@@ -19,87 +19,82 @@ import com.example.informationappjava.R;
  */
 public class ApplicationFragment extends Fragment {
 
-  private ApplicationViewModel mViewModel;
-  private CardView application;
-  private CardView approve;
-  private CardView enrol;
-  private CardView start;
-  private final String applicationString = "application";
-  private final String enrolString = "enrol";
-  private final String approveString = "approve";
-  private final String startString = "start";
+    private ApplicationViewModel mViewModel;
+    private CardView application;
+    private CardView approve;
+    private CardView enrol;
+    private CardView start;
+    private final String applicationString = "application";
+    private final String enrolString = "enrol";
+    private final String approveString = "approve";
+    private final String startString = "start";
 
-  /**
-   * @return
-   */
-  public static ApplicationFragment newInstance() {
-    return new ApplicationFragment();
-  }
+    /**
+     *
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_application, container, false);
 
-  /**
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
-   */
-  @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_application, container, false);
+        application = view.findViewById(R.id.application_appli);
+        application.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+                intent.putExtra("value", applicationString);
+                startActivity(intent);
+            }
+        });
 
-    application = view.findViewById(R.id.application_appli);
-    application.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
-        intent.putExtra("value", applicationString);
-        startActivity(intent);
-      }
-    });
+        approve = view.findViewById(R.id.application_approve);
+        approve.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.hs-osnabrueck.de/studium/rund-ums-studium/bewerbung/hochschulzugang/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    approve = view.findViewById(R.id.application_approve);
-    approve.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        String url = "https://www.hs-osnabrueck.de/studium/rund-ums-studium/bewerbung/hochschulzugang/";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-      }
-    });
+        enrol = view.findViewById(R.id.application_enrol);
+        enrol.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    enrol = view.findViewById(R.id.application_enrol);
-    enrol.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-      }
-    });
+        start = view.findViewById(R.id.application_start);
+        start.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+                intent.putExtra("value", startString);
+                startActivity(intent);
+            }
+        });
 
-    start = view.findViewById(R.id.application_start);
-    start.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
-        intent.putExtra("value", startString);
-        startActivity(intent);
-      }
-    });
+        return view;
+    }
 
-    return view;
-  }
-
-  /**
-   * @param savedInstanceState
-   */
-  @Override
-  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    mViewModel = ViewModelProviders.of(this).get(ApplicationViewModel.class);
-    // TODO: Use the ViewModel
-  }
-
+    /**
+     * This method calls upon the ViewModel for this Fragment
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(ApplicationViewModel.class);
+    }
 }
