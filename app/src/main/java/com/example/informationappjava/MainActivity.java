@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Timer timer;
 
     /**
-     * Shows a short Logo and then goes straight to the NavDrawer (Navigation Drawer)
+     * Shows a short Logo and then goes straight to the NavDrawer (Navigation Drawer).
      *
      * @param savedInstanceState
      */
