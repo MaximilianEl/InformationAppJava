@@ -97,7 +97,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
      *
      * @param parent
      * @param viewType
-     * @return
+     * @return new ChatHolder
      */
     @NonNull
     @NotNull
@@ -124,7 +124,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatHolder> {
     /**
      * This function returns the size of the current chatlist.
      *
-     * @return
+     * @return chatList.size
      */
     @Override
     public int getItemCount() {

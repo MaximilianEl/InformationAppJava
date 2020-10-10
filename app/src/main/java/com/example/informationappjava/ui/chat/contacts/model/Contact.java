@@ -17,20 +17,23 @@ public class Contact {
 
   public static final String TABLE_NAME = "contacts";
 
+  /**
+   * This class contains the Columns for the Database Table of the Contact.
+   */
   public static final class Cols {
-
     public static final String CONTACT_UNIQUE_ID = "contactUniqueId";
     public static final String CONTACT_JID = "jid";
     public static final String SUBSCRIPTION_TYPE = "subscriptionType";
     public static final String PROFILE_IMAGE_PATH = "profileImagePath";
-
     public static final String PENDING_STATUS_TO = "pendingTo";
     public static final String PENDING_STATUS_FROM = "pendingFrom";
     public static final String ONLINE_STATUS = "onlineStatus";
   }
 
   /**
-   * @return
+   * This function returns the status of the Subscriptiontype.
+   *
+   * @return values
    */
   public ContentValues getContentValues() {
     ContentValues values = new ContentValues();
@@ -52,8 +55,10 @@ public class Contact {
   }
 
   /**
+   * This function returns the Subscriptiontype as a string.
+   *
    * @param type
-   * @return
+   * @return FROM, TO, BOTH, NONE, INDETERMINATE
    */
   public String getTypeStringValue(SubscriptionType type) {
 
@@ -71,16 +76,15 @@ public class Contact {
   }
 
   /**
-   *
+   * This is an enum for the Subscriptiontype.
    */
   public enum SubscriptionType {
-    NONE,
-    FROM,
-    TO,
-    BOTH
+    NONE, FROM, TO, BOTH
   }
 
   /**
+   * This is a Constructor to create a Contact.
+   *
    * @param jid
    * @param subscriptionType
    */
@@ -95,7 +99,8 @@ public class Contact {
   }
 
   /**
-   * @return
+   *
+   * @return jid
    */
   public String getJid() {
     return jid;
