@@ -9,7 +9,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.example.informationappjava.R;
 
 /**
- *
+ *The ImageAdapter class is needed to handle the image gallery of the campus fragment.
+ *This class is used to insert the images into the campus fragment.
  */
 public class ImageAdapter extends PagerAdapter {
 
@@ -22,7 +23,7 @@ public class ImageAdapter extends PagerAdapter {
   }
 
   /**
-   * @return
+   * @return the length of the campus image id.
    */
   @Override
   public int getCount() {
@@ -30,6 +31,7 @@ public class ImageAdapter extends PagerAdapter {
   }
 
   /**
+   * The isViewFromObeject () method checks if the view is the same as the object.
    * @param view
    * @param object
    * @return
@@ -40,6 +42,7 @@ public class ImageAdapter extends PagerAdapter {
   }
 
   /**
+   *
    * @param container
    * @param position
    * @return

@@ -20,7 +20,7 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 /**
- *
+ *The CampusMapActivity class is created to get the campus map view.
  */
 public class CampusMapActivity extends AppCompatActivity {
 
@@ -30,6 +30,9 @@ public class CampusMapActivity extends AppCompatActivity {
   private String[] descriptions;
 
   /**
+   * The onCreate() method is needed to add different items with various descriptions to the campus
+   * map. The onItemSingleTapUp() method and the onItemLongPress() method are used to handle actions
+   * when an item is pressed.
    * @param savedInstanceState
    */
   @Override
@@ -134,7 +137,7 @@ public class CampusMapActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *activities/fragments using osmdroid should call this to release resources, pause gps, sensors, timers, etc
    */
   @Override
   public void onResume() {
@@ -143,7 +146,7 @@ public class CampusMapActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   *activities/fragments using osmdroid should call this to release resources, pause gps, sensors, timers, etc
    */
   @Override
   public void onPause() {

@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.informationappjava.R;
 
 /**
- *
+ *The campus fragment is needed to display an overview of the campus site.
  */
 public class CampusFragment extends Fragment {
 
@@ -24,10 +24,13 @@ public class CampusFragment extends Fragment {
   CardView campMapButton;
 
   /**
+   * The onCreateView() method is used for creating an image slide fragment inside the campus fragment.
+   * The onCreateView() method contains a onClick() method, which is used to start the campus map
+   * activity.
    * @param inflater
    * @param container
    * @param savedInstanceState
-   * @return
+   * @return view
    */
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -55,6 +58,7 @@ public class CampusFragment extends Fragment {
   }
 
   /**
+   * The onActivityCreated() method calls upon the ViewModel for the campus fragment.
    * @param savedInstanceState
    */
   @Override
