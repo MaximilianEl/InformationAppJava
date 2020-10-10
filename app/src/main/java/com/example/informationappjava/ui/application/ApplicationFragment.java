@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.informationappjava.R;
 
 /**
- *
+ *The application fragment
  */
 public class ApplicationFragment extends Fragment {
 
@@ -30,12 +30,16 @@ public class ApplicationFragment extends Fragment {
     private final String startString = "start";
 
     /**
-     *
-     *
+     *The onCreateView() method createes the view for the application fragment.
+     *The onCreateView() method contains different onClick() methods.
+     *The first onCLick() method gets the ApplicationContextActivity class.
+     *The second and third onClick() methods are created to open up different URLs
+     *The last onCLick() method puts in the value of the string for the ApplicationContextActivity
+     * class.
      * @param inflater
      * @param container
      * @param savedInstanceState
-     * @return
+     * @return view
      */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
