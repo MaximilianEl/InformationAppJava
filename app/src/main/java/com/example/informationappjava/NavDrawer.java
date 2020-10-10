@@ -29,6 +29,9 @@ public class NavDrawer extends AppCompatActivity {
   private AppBarConfiguration mAppBarConfiguration;
 
   /**
+   * onCreate Function of NavDrawer includes Functions to navigate to different Fragments and
+   * Activities from the App. Also the Functions for the FloatingActionButton are implemented here.
+   *
    * @param savedInstanceState
    */
   @Override
