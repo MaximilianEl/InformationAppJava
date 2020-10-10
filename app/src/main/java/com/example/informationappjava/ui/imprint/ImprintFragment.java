@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import com.example.informationappjava.R;
 
 /**
- *
+ * ImprintFragment displays the fragment_imprint.xml and opens the ImprintContextActivity.
  */
 public class ImprintFragment extends Fragment {
 
@@ -43,6 +43,8 @@ public class ImprintFragment extends Fragment {
   }
 
   /**
+   * The onCreateView() function sets onClickListener to the Images and TextViews. The TextViews
+   * also contain an intent.putExtra() which is used in ImprintContextActivity.
    *
    * @param inflater
    * @param container
@@ -139,13 +141,11 @@ public class ImprintFragment extends Fragment {
       }
     });
 
-
     return view;
 
   }
 
   /**
-   *
    * @param savedInstanceState
    */
   @Override
