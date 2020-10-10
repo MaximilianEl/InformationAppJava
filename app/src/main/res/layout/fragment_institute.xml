@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content">
 
                 <ImageView
-                        android:src="@drawable/ic_baseline_group_24"
+                        android:src="@drawable/ic_baseline_person_24_blue"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="50dp"
                         android:layout_height="50dp"/>
