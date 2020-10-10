@@ -189,7 +189,7 @@ class ChatHolder extends RecyclerView.ViewHolder {
             public boolean onLongClick(View view) {
                 ChatListAdapter.OnItemLongClickListener listener = chatListAdapter.getOnItemLongClick();
                 if (listener != null) {
-                    listener.onItemLongClick(mChat.getJid(), mChat.getPresistID(), itemView);
+                    listener.onItemLongClick(mChat.getJid(), mChat.getPersistID(), itemView);
                     return true;
                 }
                 return false;

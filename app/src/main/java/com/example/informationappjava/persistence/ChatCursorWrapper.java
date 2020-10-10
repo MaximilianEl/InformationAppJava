@@ -54,7 +54,7 @@ public class ChatCursorWrapper extends CursorWrapper {
 
         }
         Chat chat = new Chat(jid, lastMessage, chatType, lastMessageTimeStamp, unreadCount);
-        chat.setPresistID(uniqueId);
+        chat.setPersistID(uniqueId);
         return chat;
     }
 }

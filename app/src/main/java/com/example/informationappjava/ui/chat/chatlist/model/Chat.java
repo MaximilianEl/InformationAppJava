@@ -3,21 +3,20 @@ package com.example.informationappjava.ui.chat.chatlist.model;
 import android.content.ContentValues;
 
 /**
- *
+ * The class Chat contains all getter and setter aswell as the Columns for all the Chat Data.
  */
 public class Chat {
-
   private String jid;
   private String lastMessage;
   private long lastMessageTimeStamp;
   private ContactType contactType;
-  private int presistID;
+  private int persistID;
   private long unreadCount;
 
   public static final String TABLE_NAME = "chats";
 
   /**
-   *
+   * This class contains the Columns for the Database Table of the Chat.
    */
   public static final class Cols {
     public static final String CHAT_UNIQUE_ID = "chatUniqueId";
@@ -29,14 +28,15 @@ public class Chat {
   }
 
   /**
+   * This is a Constructor to create a Chat.
+   *
    * @param jid
    * @param lastMessage
    * @param contactType
    * @param timeStamp
    * @param unreadCount
    */
-  public Chat(String jid, String lastMessage, ContactType contactType, long timeStamp,
-      long unreadCount) {
+  public Chat(String jid, String lastMessage, ContactType contactType, long timeStamp, long unreadCount) {
     this.jid = jid;
     this.lastMessage = lastMessage;
     this.lastMessageTimeStamp = timeStamp;
@@ -45,20 +45,17 @@ public class Chat {
   }
 
   /**
-   * @return
+   * This is a getter for the jid.
+   *
+   * @return jid
    */
   public String getJid() {
     return jid;
   }
 
   /**
-   * @return
-   */
-  public String getLastMessage() {
-    return lastMessage;
-  }
-
-  /**
+   * This is a setter for the jid.
+   *
    * @param jid
    */
   public void setJid(String jid) {
@@ -66,48 +63,17 @@ public class Chat {
   }
 
   /**
-   * @return
+   * This is a getter for the last message.
+   *
+   * @return lastMessage
    */
-  public ContactType getContactType() {
-    return contactType;
+  public String getLastMessage() {
+    return lastMessage;
   }
 
   /**
-   * @param contactType
-   */
-  public void setContactType(ContactType contactType) {
-    this.contactType = contactType;
-  }
-
-  /**
-   * @return
-   */
-  public int getPresistID() {
-    return presistID;
-  }
-
-  /**
-   * @param presistID
-   */
-  public void setPresistID(int presistID) {
-    this.presistID = presistID;
-  }
-
-  /**
-   * @return
-   */
-  public long getUnreadCount() {
-    return unreadCount;
-  }
-
-  /**
-   * @param unreadCount
-   */
-  public void setUnreadCount(long unreadCount) {
-    this.unreadCount = unreadCount;
-  }
-
-  /**
+   * This is a setter for the lastMessage.
+   *
    * @param lastMessage
    */
   public void setLastMessage(String lastMessage) {
@@ -115,13 +81,71 @@ public class Chat {
   }
 
   /**
+   * This is a getter for the contact type.
+   *
+   * @return contactType
+   */
+  public ContactType getContactType() {
+    return contactType;
+  }
+
+  /**
+   * This is a setter for the contact type.
+   *
+   * @param contactType
+   */
+  public void setContactType(ContactType contactType) {
+    this.contactType = contactType;
+  }
+
+  /**
+   * This is a getter for the PersistID.
+   *
+   * @return persistID
+   */
+  public int getPersistID() {
+    return persistID;
+  }
+
+  /**
+   * This is a setter for the PersistID.
+   *
+   * @param persistID
+   */
+  public void setPersistID(int persistID) {
+    this.persistID = persistID;
+  }
+
+  /**
+   * This is a getter for the UnreadCount.
+   *
    * @return
+   */
+  public long getUnreadCount() {
+    return unreadCount;
+  }
+
+  /**
+   * This is a setter for the UnreadCount.
+   *
+   * @param unreadCount
+   */
+  public void setUnreadCount(long unreadCount) {
+    this.unreadCount = unreadCount;
+  }
+
+  /**
+   * This is a getter for the lastMessageTimeStamp.
+   *
+   * @return lastMessageTimeStamp
    */
   public long getLastMessageTimeStamp() {
     return lastMessageTimeStamp;
   }
 
   /**
+   * This is a setter for the lastMessageTimeStamp.
+   *
    * @param lastMessageTimeStamp
    */
   public void setLastMessageTimeStamp(long lastMessageTimeStamp) {
@@ -129,7 +153,9 @@ public class Chat {
   }
 
   /**
-   * @return
+   * This is a getter for the Contentvalues.
+   *
+   * @return values
    */
   public ContentValues getContentValues() {
     ContentValues values = new ContentValues();
@@ -143,8 +169,10 @@ public class Chat {
   }
 
   /**
+   * This function returns the Contacttype as a String.
+   *
    * @param type
-   * @return
+   * @return null, type
    */
   public String getTypeStringValue(ContactType type) {
     if (type == ContactType.ONE_ON_ONE) {
@@ -159,9 +187,7 @@ public class Chat {
   }
 
   /**
-   *
+   * This is an enum for the ContactType.
    */
-  public enum ContactType {
-    ONE_ON_ONE, GROUP, STRANGER
-  }
+  public enum ContactType {ONE_ON_ONE, GROUP, STRANGER}
 }
