@@ -60,7 +60,8 @@ public class ApplicationFragment extends Fragment {
     approve.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
+        String url = "https://www.hs-osnabrueck.de/studium/rund-ums-studium/bewerbung/hochschulzugang/";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.putExtra("value", approveString);
         startActivity(intent);
       }
