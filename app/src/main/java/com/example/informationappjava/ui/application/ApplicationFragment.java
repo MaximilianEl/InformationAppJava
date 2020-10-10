@@ -1,6 +1,7 @@
 package com.example.informationappjava.ui.application;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View.OnClickListener;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProviders;
@@ -62,7 +63,7 @@ public class ApplicationFragment extends Fragment {
       public void onClick(View view) {
         String url = "https://www.hs-osnabrueck.de/studium/rund-ums-studium/bewerbung/hochschulzugang/";
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.putExtra("value", approveString);
+        intent.setData(Uri.parse(url));
         startActivity(intent);
       }
     });
@@ -71,8 +72,9 @@ public class ApplicationFragment extends Fragment {
     enrol.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), ApplicationContextActivity.class);
-        intent.putExtra("value", enrolString);
+        String url = "https://www.hs-osnabrueck.de/wir/fakultaeten/mkt/institute/institut-fuer-management-und-technik/erstsemesterinformationen/";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
         startActivity(intent);
       }
     });
