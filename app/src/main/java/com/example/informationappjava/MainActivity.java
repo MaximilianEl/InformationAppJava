@@ -12,27 +12,28 @@ import java.util.TimerTask;
  */
 public class MainActivity extends AppCompatActivity {
 
-  Timer timer;
+    Timer timer;
 
-  /**
-   *
-   * @param savedInstanceState
-   */
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    /**
+     * Shows a short Logo and then goes straight to the first Fragment
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    timer = new Timer();
-    timer.schedule(new TimerTask() {
-      @Override
-      public void run() {
-        Intent intent = new Intent(MainActivity.this, NavDrawer.class);
-        startActivity(intent);
-        finish();
-      }
-    }, 3000);
-  }
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, NavDrawer.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 3000);
+    }
 
 
 }
