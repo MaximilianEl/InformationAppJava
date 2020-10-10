@@ -58,7 +58,7 @@
   <string name="chat_login">Login</string>
   <string name="chat_regTxt">Noch keinen Account um zu Chatten? "\n" Registriere dich hier!</string>
   <string name="contacts">Kontakte</string>
-  <string name="title_activity_contact_list">Choose Contact</string>
+
   <!-- Strings used for fragments for navigation -->
   <string name="first_fragment_label">First Fragment</string>
   <string name="second_fragment_label">Second Fragment</string>
@@ -97,9 +97,9 @@
   <string name="send_message">sende Nachricht</string>
   <string name="dark_mode">Dark Mode</string>
   <string name="permission_rationale">permission rationale</string>
-  <string name="me">Profil</string>
+  <string name="me">Ich</string>
   <string name="me_me">Profil</string>
-  <string name="title_me_activity">Profil</string>
+  <string name= "title_me_activity">Profil</string>
   <string name="delete_contact">Kontakt löschen</string>
   <string name="contact_details">Kontaktdetails</string>
   <string name="delete_chat">Chat löschen</string>
@@ -110,6 +110,9 @@
   <string name="contact_details_chat_view">Kontaktdetails</string>
   <string name="received_message">Nachricht erhalten</string>
 
+  <string name="title_activity_contact_list">Kontaktliste</string>
+
+  
   <string name="registration">Registrierung</string>
 
   <string name="settings_dark">Dark Mode</string>
