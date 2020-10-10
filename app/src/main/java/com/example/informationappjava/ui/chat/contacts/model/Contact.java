@@ -99,6 +99,7 @@ public class Contact {
   }
 
   /**
+   * This is a getter for the jid.
    *
    * @return jid
    */
@@ -107,6 +108,8 @@ public class Contact {
   }
 
   /**
+   * This is a setter for the jid.
+   *
    * @param jid
    */
   public void setJid(String jid) {
@@ -114,13 +117,17 @@ public class Contact {
   }
 
   /**
-   * @return
+   * This is a getter for the SubscriptionType.
+   *
+   * @return subscriptionType
    */
   public SubscriptionType getSubscriptionType() {
     return subscriptionType;
   }
 
   /**
+   * This is a setter for the SubscriptionType.
+   *
    * @param subscriptionType
    */
   public void setSubscriptionType(SubscriptionType subscriptionType) {
@@ -128,13 +135,17 @@ public class Contact {
   }
 
   /**
-   * @return
+   * This is a getter for the profileImagePath.
+   *
+   * @return profileImagePath
    */
   public String getProfileImagePath() {
     return profileImagePath;
   }
 
   /**
+   * This is a setter for the profileImagePath.
+   *
    * @param profileImagePath
    */
   public void setProfileImagePath(String profileImagePath) {
@@ -142,13 +153,17 @@ public class Contact {
   }
 
   /**
-   * @return
+   * This is a getter for the persistID.
+   *
+   * @return persistID
    */
   public int getPersistID() {
     return persistID;
   }
 
   /**
+   * This is a getter for the persistID.
+   *
    * @param persistID
    */
   public void setPersistID(int persistID) {
@@ -156,13 +171,17 @@ public class Contact {
   }
 
   /**
-   * @return
+   * This is a boolean to get the state of pendingTo.
+   *
+   * @return pendigTo
    */
   public boolean isPendingTo() {
     return pendingTo;
   }
 
   /**
+   * This is a setter for the boolean pendingTo.
+   *
    * @param pendingTo
    */
   public void setPendingTo(boolean pendingTo) {
@@ -170,13 +189,17 @@ public class Contact {
   }
 
   /**
-   * @return
+   * This is a boolean to get the state of pendingFrom.
+   *
+   * @return pendingFrom
    */
   public boolean isPendingFrom() {
     return pendingFrom;
   }
 
   /**
+   * This is a setter for the boolean pendingFrom.
+   *
    * @param pendingFrom
    */
   public void setPendingFrom(boolean pendingFrom) {
@@ -184,6 +207,8 @@ public class Contact {
   }
 
   /**
+   * This is a boolean to get the state the onlineStatus.
+   *
    * @return
    */
   public boolean isOnlineStatus() {
@@ -191,6 +216,8 @@ public class Contact {
   }
 
   /**
+   * This is a setter for the onlineStatus.
+   *
    * @param onlineStatus
    */
   public void setOnlineStatus(boolean onlineStatus) {

@@ -20,7 +20,7 @@ import com.example.informationappjava.xmpp.ChatConnection;
 import com.example.informationappjava.xmpp.ChatConnectionService;
 
 /**
- *
+ * The ContactDetailsActivity is used to Display the Information of a Contact.
  */
 public class ContactDetailsActivity extends AppCompatActivity {
 
@@ -34,6 +34,9 @@ public class ContactDetailsActivity extends AppCompatActivity {
   private TextView pendingTo;
 
   /**
+   * This function sets the ContentView to the activity_contact_details View and gets the Information of the specific
+   * Contact.
+   *
    * @param savedInstanceState
    */
   @Override

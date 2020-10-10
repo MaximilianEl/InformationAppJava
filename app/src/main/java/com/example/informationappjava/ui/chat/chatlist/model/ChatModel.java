@@ -152,7 +152,7 @@ public class ChatModel {
      *
      * @param whereClause
      * @param whereArgs
-     * @return new ChatCursorWrapper
+     * @return new ChatCursorWrapper(cursor)
      */
     private ChatCursorWrapper queryChats(String whereClause, String[] whereArgs) {
 

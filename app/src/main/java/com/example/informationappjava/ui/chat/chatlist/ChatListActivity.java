@@ -175,7 +175,7 @@ public class ChatListActivity extends AppCompatActivity implements
     }
 
     /**
-     * This function creates a longclickevent on the Chatlist that opens a PopMenu to be able to delete the Chat.
+     * This function creates a longclickevent on the Chatlist that opens a PopupMenu to be able to delete the Chat.
      *
      * @param contactJid
      * @param chatUniqueId
