@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 /**
- *
+ *The ImgSlideFragment contains the viewpage and image adapter.
  */
 public class ImgSlideFragment extends Fragment {
 
@@ -22,13 +22,14 @@ public class ImgSlideFragment extends Fragment {
   }
 
   /**
-   * @return
+   * @return new created instance of image slide fragment.
    */
   public static ImgSlideFragment newInstance() {
     return new ImgSlideFragment();
   }
 
   /**
+   * The onCreateView() method is used to display the image slide fragment together with the image adapter.
    * @param inflater
    * @param container
    * @param savedInstanceState

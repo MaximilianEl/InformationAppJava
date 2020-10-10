@@ -42,7 +42,7 @@ public class ImageAdapter extends PagerAdapter {
   }
 
   /**
-   *
+   *The instantiateItem () method adds a new imageview.
    * @param container
    * @param position
    * @return
@@ -57,6 +57,7 @@ public class ImageAdapter extends PagerAdapter {
   }
 
   /**
+   * The destoryItem() method deletes objects of the image view.
    * @param container
    * @param position
    * @param object
