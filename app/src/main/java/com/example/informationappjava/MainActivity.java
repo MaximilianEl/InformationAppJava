@@ -8,14 +8,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
+ * MainActivity InfoApp
  */
 public class MainActivity extends AppCompatActivity {
 
     Timer timer;
 
     /**
-     * Shows a short Logo and then goes straight to the first Fragment
+     * Shows a short Logo and then goes straight to the NavDrawer (Navigation Drawer)
      *
      * @param savedInstanceState
      */
