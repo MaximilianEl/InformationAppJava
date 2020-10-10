@@ -7,13 +7,15 @@ import com.example.informationappjava.ui.chat.chatlist.model.Chat;
 import com.example.informationappjava.ui.chat.chatlist.model.Chat.ContactType;
 
 /**
- *
+ * The ChatCursorWrapper class is used to access the Chat information if the Cursor accesses it.
  */
 public class ChatCursorWrapper extends CursorWrapper {
 
     private static final String LOGTAG = "ChatCursorWrapper";
 
     /**
+     * This is a constructor to call upon the ChatCursorWrapper class.
+     *
      * @param cursor
      */
     public ChatCursorWrapper(Cursor cursor) {
@@ -21,6 +23,8 @@ public class ChatCursorWrapper extends CursorWrapper {
     }
 
     /**
+     * This function is used to get the Chat Informations for a specific Chat like the messageType.
+     *
      * @return
      */
     public Chat getChat() {
