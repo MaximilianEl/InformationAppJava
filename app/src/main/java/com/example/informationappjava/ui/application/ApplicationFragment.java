@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.informationappjava.R;
 
 /**
- *The application fragment
+ *The application fragment is created to display the application overview.
  */
 public class ApplicationFragment extends Fragment {
 
