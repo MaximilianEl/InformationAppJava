@@ -16,7 +16,7 @@ import android.widget.EditText;
 import com.example.informationappjava.R;
 
 /**
- *
+ *The feedback fragment displays the feedback site.
  */
 public class FeedbackFragment extends Fragment {
 
@@ -28,7 +28,8 @@ public class FeedbackFragment extends Fragment {
   }
 
   /**
-   *
+   *The onCreateView() method contains one onClick() method. The onClick() method is used
+   *to get the strings out of the editfields and pass them on to the email program.
    * @param inflater
    * @param container
    * @param savedInstanceState
@@ -75,7 +76,7 @@ public class FeedbackFragment extends Fragment {
   }
 
   /**
-   *
+   *The onActivityCreated() method calls upon the ViewModel for the feedback fragment.
    * @param savedInstanceState
    */
   @Override
