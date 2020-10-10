@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 /**
- *
+ * HomeViewModel.
  */
 public class HomeViewModel extends ViewModel {
 
