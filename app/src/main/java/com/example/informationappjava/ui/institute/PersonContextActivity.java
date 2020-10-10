@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * PersonContextActivity
  */
 public class PersonContextActivity extends AppCompatActivity {
 
@@ -36,6 +36,8 @@ public class PersonContextActivity extends AppCompatActivity {
   private final List<Person> personList = new ArrayList<>();
 
   /**
+   * In this onCreate() function the Person Adapter is called and set to the recyclerView. The
+   * Header is set from a String array and the preparePersonList() function is called.
    *
    * @param savedInstanceState
    */
@@ -61,7 +63,8 @@ public class PersonContextActivity extends AppCompatActivity {
   }
 
   /**
-   *
+   * Ther personList is prepared here for every name in the personNames String array the Person
+   * Model is called and a new Person is created.
    */
   public void preparePersonList() {
 

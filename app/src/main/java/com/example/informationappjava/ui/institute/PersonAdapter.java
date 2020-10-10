@@ -13,7 +13,7 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
 /**
- *
+ * PersonAdapter class to load a list of Person.
  */
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
 
@@ -26,7 +26,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
-   *
    * @param listener
    */
   public void setOnItemClickListener(OnItemClickListener listener) {
@@ -34,6 +33,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
+   * Constructor of PersonAdapter.
    *
    * @param personList
    */
@@ -42,6 +42,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
+   * onCreateViewHolder() function is declared to inflate the layout of institute_data.
    *
    * @param parent
    * @param viewType
@@ -58,6 +59,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
+   * onBindViewHolder() function is declared to set text's and an image to the specific position of
+   * personList.
    *
    * @param holder
    * @param position
@@ -72,8 +75,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
-   *
-   * @return
+   * @return personList.size()
    */
   @Override
   public int getItemCount() {
@@ -81,7 +83,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
   }
 
   /**
-   *
+   * Innerclass PersonViewHolder.
    */
   public static class PersonViewHolder extends RecyclerView.ViewHolder {
 
@@ -91,6 +93,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     public CardView cardView;
 
     /**
+     * Here the items to be accessed are declared.
      *
      * @param itemView
      * @param listener

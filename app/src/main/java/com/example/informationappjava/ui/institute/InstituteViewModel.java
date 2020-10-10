@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 /**
- *
+ * InstituteViewModel
  */
 public class InstituteViewModel extends ViewModel {
 

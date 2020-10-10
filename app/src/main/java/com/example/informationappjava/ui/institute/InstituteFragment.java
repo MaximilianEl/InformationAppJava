@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 
 /**
- *
+ * InstituteFragment
  */
 public class InstituteFragment extends Fragment {
 
@@ -33,6 +33,7 @@ public class InstituteFragment extends Fragment {
   private final String person = "person";
 
   /**
+   * Sets onClickListener to the CardViews.
    *
    * @param inflater
    * @param container
