@@ -157,6 +157,11 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * In the function connect() the connection state is set to connecting. The login data is read in
+   * the function gatherCredentials(). The XMPPTCPConnectionConfiguration is created, the connection
+   * is established and on the connection different managers are instantiated which can be used to
+   * send a ping or change the subscription mode.
+   *
    * @throws IOException
    * @throws XMPPException
    * @throws SmackException
@@ -200,6 +205,15 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
 
     chatManager = ChatManager.getInstanceFor(connection);
     chatManager.addIncomingListener(new IncomingChatMessageListener() {
+      /**
+       * The newIncomingMessage() function retrieves the Jid from the message transmitted by
+       * the server. It checks if the Jid contains a / and then adds the message to the
+       * ChatMessageModel and checks if the contact is a stranger.
+       * If so, it creates a new chat and a new contact.
+       * @param from
+       * @param message
+       * @param chat
+       */
       @Override
       public void newIncomingMessage(EntityBareJid from, Message message, Chat chat) {
 
