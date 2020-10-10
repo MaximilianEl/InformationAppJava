@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import com.example.informationappjava.R;
 
 /**
- *AplicationContextActivity class is used for an overview about the application site.
+ * The AplicationContextActivity class is used for an overview about the application site.
  */
 public class ApplicationContextActivity extends AppCompatActivity {
 
