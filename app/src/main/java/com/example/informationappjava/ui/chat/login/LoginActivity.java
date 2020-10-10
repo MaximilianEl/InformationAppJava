@@ -28,7 +28,7 @@ import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.chatlist.ChatListActivity;
 import com.example.informationappjava.ui.chat.login.Constants.BroadCastMessages;
 import com.example.informationappjava.ui.registration.RegistrationActivity;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 
 
 /**
@@ -252,7 +252,7 @@ public class LoginActivity extends AppCompatActivity {
         .putString("xmpp_password", mPasswordView.getText().toString())
         .commit();
 
-    Intent intent = new Intent(this, RoosterConnectionService.class);
+    Intent intent = new Intent(this, ChatConnectionService.class);
     startService(intent);
   }
 }

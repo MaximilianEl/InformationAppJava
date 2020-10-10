@@ -19,8 +19,8 @@ import android.os.Bundle;
 import androidx.preference.PreferenceManager;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.login.Constants;
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -49,7 +49,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_me);
 
         String status;
-        RoosterConnection connection = RoosterConnectionService.getConnection();
+        ChatConnection connection = ChatConnectionService.getConnection();
         connectionStatusTextView = findViewById(R.id.connection_status);
 
         if (connection != null) {
@@ -63,12 +63,12 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         String selfJid = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                 .getString("xmpp_jid", null);
 
-        RoosterConnection roosterConnection = RoosterConnectionService.getConnection();
+        ChatConnection chatConnection = ChatConnectionService.getConnection();
 
         profileImageView.setImageResource(R.drawable.ic_baseline_person_24);
-        if (roosterConnection != null) {
+        if (chatConnection != null) {
 
-            String imageAbsPtah = roosterConnection.getProfileImageAbsolutePath(selfJid);
+            String imageAbsPtah = chatConnection.getProfileImageAbsolutePath(selfJid);
             if (imageAbsPtah != null) {
 
                 Drawable drawable = Drawable.createFromPath(imageAbsPtah);
@@ -155,7 +155,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
                         byte[] byteArray = stream.toByteArray();
                         Log.d(LOGTAG,
                                 "Bitmap not NULL, proceeding with setting image. The array size is:" + byteArray);
-                        RoosterConnection rc = RoosterConnectionService.getConnection();
+                        ChatConnection rc = ChatConnectionService.getConnection();
                         if (rc != null) {
                             if (rc.setSelfAvatar(byteArray)) {
                                 Log.d(LOGTAG, "Avatar set correctly");

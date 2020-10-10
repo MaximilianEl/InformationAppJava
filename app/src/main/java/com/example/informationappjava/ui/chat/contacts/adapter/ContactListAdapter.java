@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.contacts.model.Contact;
 import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
@@ -187,7 +187,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
       subscriptionTypeTextView.setText("NONE_NONE");
       profile_image.setImageResource(R.drawable.ic_baseline_person_24);
 
-      RoosterConnection rc = RoosterConnectionService.getConnection();
+      ChatConnection rc = ChatConnectionService.getConnection();
       if (rc != null) {
         String imageAbsPath = rc.getProfileImageAbsolutePath(mContact.getJid());
         if (imageAbsPath != null) {

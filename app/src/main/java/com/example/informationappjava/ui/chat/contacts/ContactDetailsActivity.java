@@ -16,8 +16,8 @@ import com.example.informationappjava.R;
 import com.example.informationappjava.ui.chat.contacts.model.Contact;
 import com.example.informationappjava.ui.chat.contacts.model.Contact.SubscriptionType;
 import com.example.informationappjava.ui.chat.contacts.model.ContactModel;
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 
 /**
  *
@@ -50,7 +50,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
     profileImage = findViewById(R.id.contact_details_user_profile);
 
-    RoosterConnection rc = RoosterConnectionService.getConnection();
+    ChatConnection rc = ChatConnectionService.getConnection();
 
     profileImage.setImageResource(R.drawable.ic_baseline_person_24);
     if (rc != null) {
@@ -76,7 +76,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
           //Send unsubscribe to cancel subscription
           Log.d(LOGTAG, "The FROM checkbox is UNchecked");
-          if (RoosterConnectionService.getConnection().unsubscribed(contactJid)) {
+          if (ChatConnectionService.getConnection().unsubscribed(contactJid)) {
             Toast
                 .makeText(context, "Successfully stopped sending presence updates to " + contactJid,
                     Toast.LENGTH_SHORT);
@@ -94,14 +94,14 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
           //Send subscription request
           Log.d(LOGTAG, "The TO checkbox is checked");
-          if (RoosterConnectionService.getConnection().subscribe(contactJid)) {
+          if (ChatConnectionService.getConnection().subscribe(contactJid)) {
             Toast.makeText(context, "Subscription request sent to " + contactJid,
                 Toast.LENGTH_SHORT);
           } else {
 
             //Send them an unsubscribe
             Log.d(LOGTAG, "The TO checkbox is UNchecked");
-            if (RoosterConnectionService.getConnection().unsubsribe(contactJid)) {
+            if (ChatConnectionService.getConnection().unsubsribe(contactJid)) {
               Toast.makeText(context,
                   "You successfully stopped getting precense updates from " + contactJid,
                   Toast.LENGTH_LONG);

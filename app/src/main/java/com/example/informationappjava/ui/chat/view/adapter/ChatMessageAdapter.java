@@ -19,8 +19,8 @@ import com.example.informationappjava.ui.chat.view.model.ChatMessagesModel;
 
 import java.util.List;
 
-import com.example.informationappjava.xmpp.RoosterConnection;
-import com.example.informationappjava.xmpp.RoosterConnectionService;
+import com.example.informationappjava.xmpp.ChatConnection;
+import com.example.informationappjava.xmpp.ChatConnectionService;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -229,7 +229,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     ChatMessage.Type type = mchatMessage.getType();
 
     if (type == Type.RECEIVED) {
-      RoosterConnection rc = RoosterConnectionService.getConnection();
+      ChatConnection rc = ChatConnectionService.getConnection();
       if (rc != null) {
         String imageAbsPath = rc.getProfileImageAbsolutePath(mchatMessage.getContactJid());
         if (imageAbsPath != null) {
@@ -240,7 +240,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     }
 
     if (type == Type.SENT) {
-      RoosterConnection rc = RoosterConnectionService.getConnection();
+      ChatConnection rc = ChatConnectionService.getConnection();
       if (rc != null) {
         String selfJid = PreferenceManager.getDefaultSharedPreferences(mAdapter.getContext())
             .getString("xmpp_jid", null);

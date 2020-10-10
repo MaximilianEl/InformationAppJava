@@ -19,7 +19,7 @@ import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
 /**
  *
  */
-public class RoosterConnectionService extends Service {
+public class ChatConnectionService extends Service {
 
   private static final String LOGTAG = "RoosterConService";
 
@@ -32,19 +32,19 @@ public class RoosterConnectionService extends Service {
   /**
    * @return
    */
-  public static RoosterConnection getConnection() {
+  public static ChatConnection getConnection() {
     return connection;
   }
 
   /**
    *
    */
-  private static RoosterConnection connection;
+  private static ChatConnection connection;
 
   /**
    *
    */
-  public RoosterConnectionService() {
+  public ChatConnectionService() {
   }
 
   /**
@@ -54,7 +54,7 @@ public class RoosterConnectionService extends Service {
     Log.d(LOGTAG, " initConnection()");
 
     if (connection == null) {
-      connection = new RoosterConnection(this);
+      connection = new ChatConnection(this);
     }
 
     try {

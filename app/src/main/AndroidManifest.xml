@@ -86,7 +86,7 @@
       android:parentActivityName=".ui.chat.login.LoginActivity">
     </activity>
 
-    <service android:name=".xmpp.RoosterConnectionService"/>
+    <service android:name=".xmpp.ChatConnectionService"/>
   </application>
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
