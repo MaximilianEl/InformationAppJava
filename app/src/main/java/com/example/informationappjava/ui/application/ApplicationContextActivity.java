@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import com.example.informationappjava.R;
 
 /**
- *
+ *AplicationContextActivity class
  */
 public class ApplicationContextActivity extends AppCompatActivity {
 
@@ -37,6 +37,9 @@ public class ApplicationContextActivity extends AppCompatActivity {
   private String[] applicationButtonArray;
 
   /**
+   * The if statement is used to fill the strings depending on the different string input.
+   * The onCreateView() method contains different onClick() methods.
+   * The onClick() methods are created to open up different URLs.
    * @param savedInstanceState
    */
   @Override
