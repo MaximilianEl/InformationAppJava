@@ -23,7 +23,8 @@ public class InstituteCourseActivity extends AppCompatActivity {
   private CardView cardViewMAT;
 
   /**
-   * Sets onClickListener do the CardViews.
+   * Sets onClickListener to the CardViews.
+   * The onCreate() function contains seven onClick() functions which are used to open up different URLs.
    *
    * @param savedInstanceState
    */
