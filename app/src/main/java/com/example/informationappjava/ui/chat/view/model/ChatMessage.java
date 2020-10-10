@@ -3,7 +3,7 @@ package com.example.informationappjava.ui.chat.view.model;
 import android.content.ContentValues;
 
 /**
- *
+ * The class ChatMessage contains all the getter and setter aswell as the Columns for all the ChatMessage Data.
  */
 public class ChatMessage {
 
@@ -15,8 +15,10 @@ public class ChatMessage {
 
   public static final String TABLE_NAME = "chatMessages";
 
+  /**
+   * This class contains the Columns for the Database Table of the ChatMessage.
+   */
   public static final class Cols {
-
     public static final String CHAT_MESSAGE_UNIQUE_ID = "chatMessageUniqueId";
     public static final String MESSAGE = "message";
     public static final String TIMESTAMP = "timestamp";
@@ -25,6 +27,8 @@ public class ChatMessage {
   }
 
   /**
+   * This is a Constructor to create a ChatMessage.
+   *
    * @param message
    * @param timestamp
    * @param type
@@ -38,62 +42,44 @@ public class ChatMessage {
   }
 
   /**
-   * @return
+   * This is a getter for the Message.
+   *
+   * @return message
    */
   public String getMessage() {
     return message;
   }
 
   /**
-   * @return
+   * This is a getter for the timestamp.
+   *
+   * @return timestamp
    */
   public long getTimestamp() {
     return timestamp;
   }
 
   /**
-   * @return
+   * This is a getter for the type.
+   *
+   * @return type
    */
   public Type getType() {
     return type;
   }
 
   /**
-   * @return
+   * This is a getter for the contactJid.
+   *
+   * @return contactJid
    */
   public String getContactJid() {
     return contactJid;
   }
 
   /**
-   * @param message
-   */
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  /**
-   * @param timestamp
-   */
-  public void setTimestamp(long timestamp) {
-    timestamp = timestamp;
-  }
-
-  /**
-   * @param type
-   */
-  public void setType(Type type) {
-    this.type = type;
-  }
-
-  /**
-   * @param contactJid
-   */
-  public void setContactJid(String contactJid) {
-    this.contactJid = contactJid;
-  }
-
-  /**
+   * This is a getter for the persistID.
+   *
    * @return
    */
   public int getPersistID() {
@@ -101,6 +87,44 @@ public class ChatMessage {
   }
 
   /**
+   * This is a setter for the message.
+   *
+   * @param message
+   */
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /**
+   * This is a setter for the timestamp.
+   *
+   * @param timestamp
+   */
+  public void setTimestamp(long timestamp) {
+    timestamp = timestamp;
+  }
+
+  /**
+   * This is a setter for the type.
+   *
+   * @param type
+   */
+  public void setType(Type type) {
+    this.type = type;
+  }
+
+  /**
+   * This is a setter for the ContactJid.
+   *
+   * @param contactJid
+   */
+  public void setContactJid(String contactJid) {
+    this.contactJid = contactJid;
+  }
+
+  /**
+   * This is a setter for the persistID.
+   *
    * @param persistID
    */
   public void setPersistID(int persistID) {
@@ -108,8 +132,10 @@ public class ChatMessage {
   }
 
   /**
+   * This function returns the type of a Message
+   *
    * @param type
-   * @return
+   * @return SENT, RECEIVED
    */
   public String getTypeStringValue(Type type) {
     if (type == Type.SENT) {
@@ -120,10 +146,11 @@ public class ChatMessage {
   }
 
   /**
-   * @return
+   * This function returns the Contentvalues of a Message.
+   *
+   * @return values
    */
   public ContentValues getContentValues() {
-
     ContentValues values = new ContentValues();
     values.put(Cols.MESSAGE, message);
     values.put(Cols.TIMESTAMP, timestamp);
@@ -134,9 +161,7 @@ public class ChatMessage {
   }
 
   /**
-   *
+   * This is an enum for the MessageType.
    */
-  public enum Type {
-    SENT, RECEIVED
-  }
+  public enum Type {SENT, RECEIVED}
 }

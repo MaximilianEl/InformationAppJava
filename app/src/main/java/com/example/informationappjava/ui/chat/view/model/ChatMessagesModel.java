@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * The ChatMessageModel class adds Messages to the Chatview and also lets the User delete and add Messages.
  */
 public class ChatMessagesModel {
 
@@ -22,28 +22,6 @@ public class ChatMessagesModel {
   private final Context context;
   List<ChatMessage> messages;
   private final SQLiteDatabase mDatabase;
-
-  /**
-   * @param context
-   * @return
-   */
-  public static ChatMessagesModel get(Context context) {
-    if (chatMessagesModel == null) {
-      chatMessagesModel = new ChatMessagesModel(context);
-    }
-
-    return chatMessagesModel;
-  }
-
-  /**
-   * @param context
-   */
-  private ChatMessagesModel(Context context) {
-    this.context = context;
-
-    mDatabase = DatabaseBackend.getInstance(context).getWritableDatabase();
-
-  }
 
   public List<ChatMessage> getMessages(String counterpartJid) {
 
@@ -65,6 +43,32 @@ public class ChatMessagesModel {
   }
 
   /**
+   * This function returns the ChatsModel if it exists.
+   * If it doesn't exist it creates a new one.
+   *
+   * @param context
+   * @return chatMessagesModel
+   */
+  public static ChatMessagesModel get(Context context) {
+    if (chatMessagesModel == null) {
+      chatMessagesModel = new ChatMessagesModel(context);
+    }
+
+    return chatMessagesModel;
+  }
+
+  /**
+   * This is a Constructor to call upon the ChatMessagesModel.
+   *
+   * @param context
+   */
+  private ChatMessagesModel(Context context) {
+    this.context = context;
+    mDatabase = DatabaseBackend.getInstance(context).getWritableDatabase();
+  }
+
+
+  /**
    * @param message
    * @return
    */
@@ -79,16 +83,20 @@ public class ChatMessagesModel {
   }
 
   /**
+   * This function deletes a ChatMessage using the persistID.
+   *
    * @param message
-   * @return
+   * @return deleteMessage(message.getPersistID())
    */
   public boolean deleteMessage(ChatMessage message) {
     return deleteMessage(message.getPersistID());
   }
 
   /**
+   * This function deletes a ChatMessage using the uniqueID.
+   *
    * @param uniqueId
-   * @return
+   * @return true, false
    */
   public boolean deleteMessage(int uniqueId) {
     int value = mDatabase
@@ -105,9 +113,11 @@ public class ChatMessagesModel {
   }
 
   /**
+   *  selects the ChatMessage in a Database query.
+   *
    * @param whereClause
    * @param whereArgs
-   * @return
+   * @return new ChatMessageCursorWrapper(cursor)
    */
   private ChatMessageCursorWrapper queryMessages(String whereClause, String[] whereArgs) {
     Cursor cursor = mDatabase.query(

@@ -3,7 +3,7 @@ package com.example.informationappjava.ui.chat.chatlist.model;
 import android.content.ContentValues;
 
 /**
- * The class Chat contains all getter and setter aswell as the Columns for all the Chat Data.
+ * The class Chat contains all the getter and setter aswell as the Columns for all the Chat Data.
  */
 public class Chat {
   private String jid;
