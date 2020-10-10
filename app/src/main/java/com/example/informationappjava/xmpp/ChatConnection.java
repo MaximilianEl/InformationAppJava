@@ -84,7 +84,6 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
    * @param mConnectionState
    */
   private void updateActivitiesOfConnectionStateChange(ConnectionState mConnectionState) {
@@ -111,6 +110,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Constructor of ChatConnection.
    *
    * @param context
    */
@@ -119,17 +119,22 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
     this.context = context;
   }
 
+  /**
+   * @return mConnectionState
+   */
   public ConnectionState getmConnectionState() {
     return mConnectionState;
   }
 
+  /**
+   * @param mConnectionState
+   */
   public void setmConnectionState(ConnectionState mConnectionState) {
     this.mConnectionState = mConnectionState;
   }
 
   /**
-   *
-   * @return
+   * @return Offline;Online;Connecting...;Offline;
    */
   public String getConnectionstateString() {
     switch (mConnectionState) {
@@ -144,9 +149,6 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
     }
   }
 
-  /**
-   *
-   */
   private void notifyUiForConnectionError() {
     Intent i = new Intent(BroadCastMessages.UI_CONNECTION_ERROR);
     i.setPackage(context.getPackageName());
@@ -155,7 +157,6 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
    * @throws IOException
    * @throws XMPPException
    * @throws SmackException
@@ -270,6 +271,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Sets your own avatar.
    *
    * @param image
    * @return
@@ -350,6 +352,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The saveAvatarToDisk() function saves the Image from contacts first it checks which datatype
+   * the image is and decodes it to a bitmap.
    *
    * @param vCard
    * @param rootPath
@@ -409,7 +413,6 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
    * @param username
    * @return
    */
@@ -438,6 +441,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Gets the absolute path from the profile images and checks which datatype the image is.
    *
    * @param jid
    * @return
@@ -484,7 +488,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
+   * The syncContactListWithRemoteRoster() function synchronizes the roster entries with the entries
+   * from the server. Also it updates already existing entries if necessary.
    */
   public void syncContactListWithRemoteRoster() {
 
@@ -534,8 +539,9 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Gets all entries from the roster.
    *
-   * @return
+   * @return entries
    */
   public Collection<RosterEntry> getRosterEntries() {
 
@@ -545,7 +551,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
+   * The disconnect() function sets the xmpp_logged_in to false so the User has to login again.
    */
   public void disconnect() {
 
@@ -561,6 +567,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The sendMessage() function is used to send a message to the specific contact. Also it adds the
+   * message to the ChatMessageModel.
    *
    * @param body
    * @param toJid
@@ -591,11 +599,11 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Adds contact to the remote roster. We maintain our own local contact list[Roster]
    *
    * @param contactJid
    * @return
    */
-  //Adds contact to the remote roster. We maintain our own local contact list[Roster]
   public boolean addContactToRoster(String contactJid) {
 
     Jid jid;
@@ -617,6 +625,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The subscribe() function is used to set the presence type of contact to subscribe.
    *
    * @param contact
    * @return
@@ -637,6 +646,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * Here are the Contact.SubscriptionTypes are declared.
    *
    * @param itemType
    * @return
@@ -663,6 +673,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * In this function we try to remove a contact from a roster.
    *
    * @param contactJid
    * @return
@@ -689,6 +700,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * If the connection is not null we try to send the stanza presence of connection.
    *
    * @param presence
    * @return
@@ -709,6 +721,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The unsubsribe() function is used to set the presence type of contact to unsubscribe.
    *
    * @param contact
    * @return
@@ -729,6 +742,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The subscribed() function is used to set the presence type of contact to subscribed.
    *
    * @param contact
    * @return
@@ -750,6 +764,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The unsubscribed() function is used to set the presence type of contact to unsubscribed.
    *
    * @param contact
    * @return
@@ -770,7 +785,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
+   * The gatherCredentials() function is used to get the password and the Jid.
    */
   private void gatherCredentials() {
     String jid = PreferenceManager.getDefaultSharedPreferences(context).getString("xmpp_jid", null);
@@ -788,6 +803,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The connected() function sets the connection state to connecting.
    *
    * @param connection
    */
@@ -799,6 +815,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The authenticated() function sets the connection state to online and sets the xmpp_logged_in to
+   * true.
    *
    * @param connection
    * @param resumed
@@ -831,6 +849,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The connectionClosedOnError() function is called if an error occurs and the connection is
+   * closed.
    *
    * @param e
    */
@@ -842,7 +862,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   *
+   * The reconnectionSuccessful() function is called when the reconnection is successful.
    */
   @Override
   public void reconnectionSuccessful() {
@@ -852,6 +872,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The reconnectingIn() function is called when the client is connecting.
    *
    * @param seconds
    */
@@ -863,6 +884,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The reconnectionFailed() is called if the reconnection is failed.
    *
    * @param e
    */
@@ -920,7 +942,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
-   * RosterListener Overrides
+   * The entriesAdded() function adds Contacts to the roster and the Database. Also it updated the
+   * existing entries if necessary.
    *
    * @param addresses
    */
@@ -943,7 +966,6 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
          * none subscriptions add no needed information too our local contact list */
 
         //Add it to the db
-
         Contact contact = new Contact(entry.getJid().toString(),
             rosterItemTypeToContactSubscriptionType(itemType));
         contact.setPendingTo(isSubscriptionPending);
@@ -971,6 +993,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The entriesUpdated() function updates all Contacts.
    *
    * @param addresses
    */
@@ -1000,6 +1023,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The entriesDeleted() function is used to delete Contacts.
    *
    * @param addresses
    */
@@ -1019,6 +1043,8 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
   }
 
   /**
+   * The presenceChanged() function contains the Code which is used to change the Online Status from
+   * a specific Contact.
    *
    * @param presence
    */
