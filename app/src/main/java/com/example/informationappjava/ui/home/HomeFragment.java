@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.informationappjava.R;
 
 /**
- *
+ * The HomeFragment is displayed first it contains an WebView.
  */
 public class HomeFragment extends Fragment {
 
@@ -25,6 +25,7 @@ public class HomeFragment extends Fragment {
   // private VideoView videoView;
 
   /**
+   * In the onCreateView function the Video is loaded from an URL.
    *
    * @param inflater
    * @param container
