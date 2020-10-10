@@ -101,6 +101,7 @@
 
         <TextView
           android:id="@+id/disclaimer"
+          android:layout_marginTop="10dp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/imprint_haft"
@@ -108,6 +109,7 @@
 
         <TextView
           android:id="@+id/copyright"
+          android:layout_marginTop="10dp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/imprint_uhr"
@@ -115,6 +117,7 @@
 
         <TextView
           android:id="@+id/osl"
+          android:layout_marginTop="10dp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/imprint_osource"

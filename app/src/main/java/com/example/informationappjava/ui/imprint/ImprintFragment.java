@@ -1,6 +1,8 @@
 package com.example.informationappjava.ui.imprint;
 
 
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -26,6 +28,14 @@ public class ImprintFragment extends Fragment {
   private ImageView facebook;
   private ImageView twitter;
   private ImageView youtube;
+  private TextView dataPriv;
+  private TextView disclaimer;
+  private TextView copyright;
+  private TextView openSourceLibraries;
+  private String dataPrivString = "dataPriv";
+  private String disclaimerString = "disclaimer";
+  private String copyrightString = "copyright";
+  private String openSourceLibrariesString = "openSourceLibraries";
 
 
   public static ImprintFragment newInstance() {
@@ -88,6 +98,47 @@ public class ImprintFragment extends Fragment {
         startActivity(i);
       }
     });
+
+    dataPriv = view.findViewById(R.id.datapriv);
+    dataPriv.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ImprintContextActivity.class);
+        intent.putExtra("value", dataPrivString);
+        startActivity(intent);
+      }
+    });
+
+    disclaimer = view.findViewById(R.id.disclaimer);
+    disclaimer.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ImprintContextActivity.class);
+        intent.putExtra("value", disclaimerString);
+        startActivity(intent);
+      }
+    });
+
+    copyright = view.findViewById(R.id.copyright);
+    copyright.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ImprintContextActivity.class);
+        intent.putExtra("value", copyrightString);
+        startActivity(intent);
+      }
+    });
+
+    openSourceLibraries = view.findViewById(R.id.osl);
+    openSourceLibraries.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ImprintContextActivity.class);
+        intent.putExtra("value", openSourceLibrariesString);
+        startActivity(intent);
+      }
+    });
+
 
     return view;
 
