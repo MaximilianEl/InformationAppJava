@@ -8,11 +8,12 @@ import android.text.format.DateFormat;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ *The public class Utilities is needed to handle various Utilities.
  */
 public class Utilities {
 
   /**
+   *The isServiceRunning() function is needed for a working activity manager.
    * @param serviceClas
    * @param context
    * @return
@@ -29,6 +30,7 @@ public class Utilities {
   }
 
   /**
+   *The isNetworkAvailable() function checks the status of the connection.
    * @param context
    * @return
    */
@@ -40,6 +42,7 @@ public class Utilities {
   }
 
   /**
+   * The getFormattedTime function is needed to format the time.
    * @param timestamp
    * @return
    */

@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
 /**
- *
+ *KeyboardUtil class is needed to handle the keyboard of the device.
  */
 public class KeyboardUtil {
 
   /**
-   *
+   *The interface KeyboardVisibilityListener is used to handle visibility changes of the keyboard,
    */
   public interface KeyboardVisibilityListener {
 
@@ -18,6 +18,7 @@ public class KeyboardUtil {
   }
 
   /**
+   * The setKeyboardVisibilityListener() method is needed to handle different keyboard actions.
    * @param activity
    * @param keyboardVisibilityListener
    */
