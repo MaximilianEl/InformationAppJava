@@ -176,7 +176,7 @@ public class ChatConnection implements ConnectionListener, SubscribeListener, Ro
         .builder()
         .setXmppDomain(serviceName)
         .setHostAddress(InetAddress.getByName("131.173.65.146"))
-        .setResource("Rooster+")
+        .setResource("HsOsChat")
 
         .setKeystoreType(null)
 
